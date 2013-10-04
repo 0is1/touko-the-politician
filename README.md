@@ -1,4 +1,8 @@
-touko-the-politician
+# Touko The Politician
+Custom Wordpress-theme
 ====================
 
-Custom Wordpress-theme
+## Uses
+* TODO
+
+
