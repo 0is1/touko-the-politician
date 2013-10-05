@@ -1,0 +1,53 @@
+/*
+* HEADER
+*/
+
+.main-header
+  margin-top 1%
+  position relative
+  .container
+    margin 0
+    max-width none
+    position relative
+    z-index 2
+    .site-description
+      font-size 90%
+      line-height 2
+  .hgroup-wrap
+    padding 3%
+    .hgroup-right, .site-header
+      margin 0
+  .main-header-image
+    left 0
+    position absolute
+    top 0
+    z-index 1
+
+.hgroup-wrap a
+  display inline
+
+#main-nav
+  background-color #61bf1a
+  z-index 2
+  a
+    color #fff
+    display block
+    float left
+    font-size 90%
+    height auto
+    padding .6em
+  a:hover, ul li.current-menu-item a,ul li.current_page_ancestor a, ul li.current-menu-ancestor a, ul li.current_page_item a, ul li:hover > a
+    background-color #61bf1a
+    box-shadow inset 0 0 4px rgba(0, 0, 0, 0.2)
+  ul li ul
+    background-color #fff
+    border-bottom 2px solid #61bf1a
+    left 0px
+    position absolute
+    top 100%
+    width 190px
+
+@media only screen and (max-width: 767px)
+  #main-nav
+    height auto
+    padding 2%

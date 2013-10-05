@@ -1,0 +1,15 @@
+/*
+* GRID
+*/
+.grid-100
+  width 100%
+
+.grid-50-with-gap
+  width 49%
+  &:nth-of-type(even)
+    margin 1% 1% 0 0
+  &:nth-of-type(odd)
+    margin 1% 0 0 0
+@media only screen and (max-width: 800px)
+  .grid-50-with-gap
+    width 100%

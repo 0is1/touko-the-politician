@@ -1,0 +1,607 @@
+/*
+ * Theme Name: Touko The Politician
+ * Description: Child theme for Travelify
+ * Theme URI: http://toukoaalto.com
+ * Author: Janne Saarela
+ * Template: travelify
+ * Version 0.1.0
+ * Copyright 2013. GPL2licensed. */
+
+@import url("../travelify/style.css");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+
+/*
+* FOOTER
+*/
+.main-footer {
+  background-color: rgba(211,211,211,0.5);
+  padding: 1rem;
+}
+[class*="footer-widget"] {
+  padding: 2%;
+}
+[class*="footer-widget"] p {
+  margin-bottom: 0;
+}
+.site-generator,
+.site-created {
+  font-size: 80%;
+}
+.credits {
+  float: right;
+}
+
+/*
+* GLOBAL
+*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+.pure-u {
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+}
+body {
+  background: url("images/touko-aalto.png") 0 100% fixed no-repeat #f0f0f0;
+  color: #333;
+  font-size: 100%;
+  line-height: 1.5;
+}
+h1 {
+  font-size: 200%;
+}
+h2 {
+  font-size: 150%;
+}
+h3 {
+  font-size: 120%;
+}
+h4 {
+  font-size: 110%;
+}
+article {
+  line-height: 1.75;
+}
+figure {
+  text-align: left;
+}
+strong {
+  font-weight: bold;
+}
+hr {
+  border: none;
+  margin: 0;
+  width: 100%;
+}
+.fleft {
+  float: left;
+}
+.fright {
+  float: right;
+}
+@media only screen and (max-width: 800px) {
+  body {
+    font-size: 90%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 80%;
+  }
+  #main {
+    padding: 0;
+  }
+}
+
+/*
+* GRID
+*/
+.grid-100 {
+  width: 100%;
+}
+.grid-50-with-gap {
+  width: 49%;
+}
+.grid-50-with-gap:nth-of-type(even) {
+  margin: 1% 1% 0 0;
+}
+.grid-50-with-gap:nth-of-type(odd) {
+  margin: 1% 0 0 0;
+}
+@media only screen and (max-width: 800px) {
+  .grid-50-with-gap {
+    width: 100%;
+  }
+}
+
+/*
+* HEADER
+*/
+.main-header {
+  margin-top: 1%;
+  position: relative;
+}
+.main-header .container {
+  margin: 0;
+  max-width: none;
+  position: relative;
+  z-index: 2;
+}
+.main-header .container .site-description {
+  font-size: 90%;
+  line-height: 2;
+}
+.main-header .hgroup-wrap {
+  padding: 3%;
+}
+.main-header .hgroup-wrap .hgroup-right,
+.main-header .hgroup-wrap .site-header {
+  margin: 0;
+}
+.main-header .main-header-image {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.hgroup-wrap a {
+  display: inline;
+}
+#main-nav {
+  background-color: #61bf1a;
+  z-index: 2;
+}
+#main-nav a {
+  color: #fff;
+  display: block;
+  float: left;
+  font-size: 90%;
+  height: auto;
+  padding: 0.6em;
+}
+#main-nav a:hover,
+#main-nav ul li.current-menu-item a,
+#main-nav ul li.current_page_ancestor a,
+#main-nav ul li.current-menu-ancestor a,
+#main-nav ul li.current_page_item a,
+#main-nav ul li:hover > a {
+  background-color: #61bf1a;
+  -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+}
+#main-nav ul li ul {
+  background-color: #fff;
+  border-bottom: 2px solid #61bf1a;
+  left: 0px;
+  position: absolute;
+  top: 100%;
+  width: 190px;
+}
+@media only screen and (max-width: 767px) {
+  #main-nav {
+    height: auto;
+    padding: 2%;
+  }
+}
+
+/*
+* MAIN
+*/
+.wrapper {
+  background-color: rgba(248,248,248,0.5);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0 auto;
+  max-width: 1018px;
+}
+@media only screen and (max-width: 600px) {
+  #main {
+    padding: 0;
+  }
+}
+
+/*
+* NEWSFEED
+*/
+.newsfeed {
+  background-color: rgba(164,236,154,0.5);
+  margin: 1rem 0;
+  padding: 2%;
+}
+.newsfeed > div {
+  margin-bottom: 2%;
+}
+.newsfeed article {
+  font-size: 85%;
+  padding: 1.5%;
+}
+.newsfeed article a {
+  display: block;
+  line-height: 1.5;
+  text-align: left;
+}
+.newsfeed article:nth-of-type(even) {
+  float: right;
+}
+.newsfeed article:nth-of-type(odd) {
+  float: left;
+}
+.newsfeed p {
+  font-size: 90%;
+  line-height: 1.75;
+}
+.newsfeed figcaption {
+  float: left;
+  margin: 0;
+  padding: 1em;
+  width: 50%;
+}
+.newsfeed [class*="user-details"] {
+  margin-bottom: 1em;
+}
+.facebook-newsfeed-img a {
+  color: #3b5998;
+}
+.facebook-newsfeed-img a:hover {
+  text-decoration: underline;
+}
+.facebook-newsfeed-img .caption-link {
+  color: #808080;
+}
+.facebook-newsfeed-img span {
+  float: left;
+  width: 45%;
+}
+.facebook-newsfeed-img span img {
+  border-right: 1px solid rgba(0,0,0,0.08);
+}
+.twitter-tweet-details .twitter-tweet-text a {
+  display: inline-block;
+}
+.newsfeed-icon,
+.newsfeed-icon-img {
+  float: left;
+  margin: 0 2% 0 0;
+}
+.newsfeed-icon {
+  height: 15px;
+  width: 15px;
+}
+.newsfeed-icon img {
+  vertical-align: baseline;
+}
+.newsfeed-icon-img {
+  height: 50px;
+  overflow: hidden;
+  width: 50px;
+}
+.datetime {
+  font-size: 80%;
+}
+@media only screen and (min-width: 800px) {
+  .newsfeed article {
+    float: left;
+    display: inline-block;
+  }
+  &:nth-of-type(even) {
+    float: right;
+  }
+  &:nth-of-type(odd) {
+    float: left;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .newsfeed article:nth-of-type(even),
+  .newsfeed article:nth-of-type(odd) {
+    float: none;
+    margin: 1% 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .newsfeed {
+    padding: 1%;
+  }
+  .newsfeed article {
+    padding: 3%;
+  }
+}
+
+/*
+* SEARCH FORM
+*/
+.searchform .search-input {
+  background-color: #f9f9f9;
+  border: 1px solid rgba(140,140,140,0.5);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  height: auto;
+  padding: 0.5rem;
+  width: 100%;
+}
+.searchform .search-input:focus {
+  background-color: #fff;
+  border-color: rgba(30,30,240,0.5);
+}
+
+/*
+* SLIDER
+*/
+.featured-slider,
+.featured-slider .slider-cycle {
+  z-index: 1;
+}
+.featured-text {
+  bottom: 15%;
+  font-size: 95%;
+  left: 45%;
+  overflow: scroll;
+  right: 15%;
+  top: 10%;
+  width: auto;
+  left: 5%;
+  right: 5%;
+}
+.featured-text .featured-title {
+  font-size: 200%;
+}
+#controllers {
+  bottom: 5%;
+}
+#controllers a {
+  background-color: rgba(225,225,225,0.5);
+  color: #333;
+  line-height: 1.5;
+  height: 20px;
+  width: 20px;
+}
+#controllers a.active,
+#controllers a:hover {
+  background-color: rgba(67,159,85,0.75);
+  color: #333;
+}
+@media only screen and (max-width: 767px) {
+  .featured-title,
+  .featured-content,
+  .featured-text {
+    display: block;
+  }
+  .featured-text {
+    left: 5%;
+    right: 5%;
+  }
+}
+
+/*
+* SOCIAL MEDIA ICONS
+*/
+.icon-facebook-rect {
+  color: #3b5998;
+}
+.icon-twitter-bird {
+  color: #00acee;
+}
+.icon-rss {
+  color: #ee802f;
+}
+.icon-wordpress {
+  color: #21759b;
+}
+.social-media-icons li {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+.social-media-icons li a {
+  font-size: 140%;
+}
+.social-media-icons li a:hover {
+  border-bottom: 2px solid #777;
+}
+@media only screen and (max-width: 600px) {
+  .social-media-icons li a {
+    font-size: 200%;
+  }
+}
+
+/*
+* FACEBOOK AND TWITTER PAGES
+*/
+.facebook-page > section {
+  padding: 1%;
+}
+.facebook-page .in-facebook {
+  background-color: #edeff4;
+  border-bottom: 1px solid #d8dfea;
+}
+.facebook-page .in-facebook p {
+  font-size: 80%;
+  font-weight: 600;
+  margin: 0;
+  padding: 1%;
+}
+.facebook-page .page-link {
+  margin-bottom: 2%;
+}
+.facebook-page .fb-like {
+  max-width: 100%;
+  overflow: scroll;
+}
+.facebook-box,
+.twitter-page {
+  border: 1px solid rgba(0,0,0,0.1);
+  font-size: 95%;
+}
+.facebook-box {
+  background-color: #f7f7f7;
+}
+.twitter-page {
+  background-color: rgba(247,247,247,0.5);
+}
+.twitter-page a {
+  color: #333;
+}
+.twitter-page > section {
+  padding: 1%;
+}
+.twitter-page .in-twitter {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.twitter-page .in-twitter p {
+  font-size: 80%;
+  font-weight: 600;
+  margin: 0;
+  padding: 1%;
+}
+.twitter-page .twitter-user-details {
+  background-position: center;
+  color: #fff;
+  position: relative;
+  text-align: center;
+  text-shadow: 1px 1px 1px #141414;
+}
+.twitter-page .twitter-user-details h1,
+.twitter-page .twitter-user-details a {
+  color: #fff;
+}
+.twitter-page .twitter-user-details a:hover {
+  text-decoration: underline;
+}
+.twitter-page .twitter-user-details .twitter-page-img {
+  float: none;
+  display: block;
+  margin: 2% auto 0;
+}
+.twitter-page .twitter-user-details .twitter-page-img img {
+  border: 2px solid #fff;
+}
+.twitter-page .twitter-user-description,
+.twitter-page .twitter-user-location {
+  font-size: 85%;
+  text-align: center;
+}
+.twitter-page .twitter-page-details {
+  font-size: 85%;
+}
+.twitter-page .twitter-page-details ul,
+.twitter-page .twitter-page-details li {
+  display: inline-block;
+}
+.twitter-page .twitter-page-details li {
+  border-left: 1px solid #e8e8e8;
+  padding: 0.25em 0.75em;
+}
+.twitter-page .twitter-page-details li:first-of-type {
+  border-left: none;
+}
+.twitter-page .twitter-page-details li:hover span {
+  color: #333;
+}
+.twitter-page .twitter-page-details li span {
+  color: #999;
+  display: block;
+  font-size: 80%;
+  text-transform: uppercase;
+}
+.twitter-page .twitter-page-details .follow-button {
+  float: right;
+}

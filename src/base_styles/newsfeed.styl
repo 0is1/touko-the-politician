@@ -1,0 +1,87 @@
+/*
+* NEWSFEED
+*/
+.newsfeed
+  background-color rgba(164, 236, 154, 0.5)
+  margin 1rem 0
+  padding 2%
+  & > div
+    margin-bottom 2%
+  article
+    font-size 85%
+    padding 1.5%
+    a
+      display block
+      line-height 1.5
+      text-align left
+    &:nth-of-type(even)
+      float right
+    &:nth-of-type(odd)
+      float left
+  p
+    font-size 90%
+    line-height 1.75
+  figcaption
+    float left
+    margin 0
+    padding 1em
+    width 50%
+  [class*="user-details"]
+    margin-bottom 1em
+
+.facebook-newsfeed-img
+  a
+    color rgb(59, 89, 152)
+    &:hover
+      text-decoration underline
+  .caption-link
+    color rgb(128, 128, 128)
+  span
+    float left
+    width 45%
+    img
+      border-right 1px solid rgba(0, 0, 0, 0.08)
+
+.twitter-tweet-details
+  .twitter-tweet-text
+    a
+      display inline-block
+
+.newsfeed-icon, .newsfeed-icon-img
+  float left
+  margin 0 2% 0 0
+
+.newsfeed-icon
+  height 15px
+  width 15px
+  img
+    vertical-align baseline
+
+.newsfeed-icon-img
+  height 50px
+  overflow hidden
+  width 50px
+
+.datetime
+  font-size 80%
+
+@media only screen and (min-width: 800px)
+  .newsfeed article
+    float left
+    display inline-block
+  &:nth-of-type(even)
+    float right
+  &:nth-of-type(odd)
+    float left
+
+@media only screen and (max-width: 800px)
+  .newsfeed
+    article:nth-of-type(even), article:nth-of-type(odd)
+      float none
+      margin 1% 0
+
+@media only screen and (max-width: 767px)
+  .newsfeed
+    padding 1%
+    article
+      padding 3%
