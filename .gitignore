@@ -1,5 +1,8 @@
 .DS_Store
+*.zip
 node_modules
 logs
 txt
 images/originals
+vendor/facebook-php-sdk
+vendor/twitter-api-php
