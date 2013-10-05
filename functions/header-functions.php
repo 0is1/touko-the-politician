@@ -40,6 +40,7 @@ function blog_favicon() {
 add_action('wp_head', 'add_css', 5);
 // Add css
 function add_css(){
+  wp_enqueue_style('font', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', array(), '1.0.0', false);
   wp_enqueue_style( 'touko_icons_style', get_stylesheet_directory_uri() . '/fonts/fontello/css/social-media-icons.css', array(), '1.0.0', false);
   wp_enqueue_style( 'touko_pure_grids_style', 'http://yui.yahooapis.com/pure/0.3.0/grids-min.css', array(), '1.0.0', false);
 }
