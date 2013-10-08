@@ -40,7 +40,7 @@ if ( !defined('ABSPATH')) exit;
   $twitter_user_profile_link = "https://twitter.com/" . $twitter_user_nick;
 
   ?>
-<div class="twitter-page grid-50-with-gap fright pure-u">
+<div class="twitter-page fleft pure-u">
   <section class="in-twitter">
     <figure class="newsfeed-icon twitter-logo">
       <i class="icon-twitter-bird"></i>

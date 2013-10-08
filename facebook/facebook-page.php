@@ -22,7 +22,7 @@ if ( !defined('ABSPATH')) exit;
   $facebook_page_picture = $facebook_photos["data"][0]["picture"];
 ?>
 
-<div class="facebook-page facebook-box grid-50-with-gap fleft pure-u">
+<div class="facebook-page facebook-box fleft pure-u">
   <section class="in-facebook">
     <figure class="newsfeed-icon facebook-logo">
       <i class="icon-facebook-rect"></i>

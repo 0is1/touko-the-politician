@@ -3,7 +3,7 @@
 if ( !defined('ABSPATH')) exit;
 
 /**
- * Facebook Page Functions
+ * Facebook Photos Functions
  *
  *
  * @file           get-facebook-photos.php
