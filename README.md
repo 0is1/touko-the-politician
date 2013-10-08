@@ -9,6 +9,7 @@ Custom Wordpress-theme for toukoaalto.com -site (work in progress)
   * I'm going to replace all the dependencies in the future
 * [Facebook-php-sdk](https://github.com/facebook/facebook-php-sdk)
 * [Twitter-api-php](https://github.com/J7mbo/twitter-api-php)
+* [Instagram-PHP-API](https://github.com/cosenary/Instagram-PHP-API)
 * [Fontello](http://fontello.com/)
 
 
