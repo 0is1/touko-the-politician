@@ -45,6 +45,11 @@ require_once(get_stylesheet_directory() . '/facebook/get-facebook-photos.php');
 */
 require_once(get_stylesheet_directory() . '/twitter/get-tweets.php');
 
+/**
+* Load Instagram scripts
+*/
+require_once(get_stylesheet_directory() . '/instagram/get-instagram-media.php');
+
 // add_action('wp_head', 'add_stylesheet', 6);
 add_action('add_footer_content', 'add_footer_content');
 add_action('add_page_content', 'add_page_content');
