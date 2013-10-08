@@ -194,8 +194,14 @@ hr {
 /*
 * GRID
 */
+[class*="grid-"] {
+  position: relative;
+}
 .grid-100 {
   width: 100%;
+}
+.grid-50 {
+  width: 50%;
 }
 .grid-50-with-gap {
   width: 49%;
@@ -303,17 +309,26 @@ hr {
 /*
 * NEWSFEED
 */
+.newsfeed-posts {
+  margin: 2% 0;
+}
 .newsfeed {
   background-color: rgba(164,236,154,0.5);
-  margin: 1rem 0;
   padding: 2%;
 }
 .newsfeed > div {
   margin-bottom: 2%;
 }
+.newsfeed > h1 {
+  margin-bottom: 2%;
+}
 .newsfeed article {
   font-size: 85%;
+  margin-bottom: 2%;
   padding: 1.5%;
+}
+.newsfeed article:last-of-type {
+  margin-bottom: 0;
 }
 .newsfeed article a {
   display: block;
@@ -391,6 +406,10 @@ hr {
   }
 }
 @media only screen and (max-width: 800px) {
+  .newsfeed-posts {
+    float: none;
+    width: 100%;
+  }
   .newsfeed article:nth-of-type(even),
   .newsfeed article:nth-of-type(odd) {
     float: none;
@@ -505,6 +524,14 @@ hr {
 /*
 * FACEBOOK AND TWITTER PAGES
 */
+.social-media-boxes {
+  margin: 2% 0;
+}
+.social-media-boxes > div {
+  margin: 0 1% 1%;
+  min-height: 180px;
+  width: 48%;
+}
 .facebook-page > section {
   padding: 1%;
 }
@@ -604,4 +631,10 @@ hr {
 }
 .twitter-page .twitter-page-details .follow-button {
   float: right;
+}
+@media only screen and (max-width: 800px) {
+  .social-media-boxes {
+    float: none;
+    width: 100%;
+  }
 }
