@@ -36,7 +36,7 @@ if ( !defined('ABSPATH')) exit;
   <div class="wrap pure-control-group">
     <label for="touko_theme_options[wp_blog_visible_posts_count]"><?php _e( 'Blogiviestien määrä etusivulla:', 'touko' );?></label>
     <input type="number" name="touko_theme_options[wp_blog_visible_posts_count]" value="<?php echo $options['wp_blog_visible_posts_count'];?>"  />
-    </div>
+  </div>
 </div>
 <div class="facebook-options">
   <div class="facebook-app-settings">

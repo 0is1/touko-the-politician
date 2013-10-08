@@ -30,7 +30,6 @@ if ( !defined('ABSPATH')) exit;
     <label for="touko_theme_options[enable_twitter_follow_box]"><?php _e( 'Näytä Twitter-sivu?', 'touko' );?></label>
     <input type="checkbox" name="touko_theme_options[enable_twitter_follow_box]" value="<?php echo $options['enable_twitter_follow_box'];?>" <?php if($options['enable_twitter_follow_box']) echo "checked=checked";?>  />
   </div>
-  <hr>
   <div class="pure-control-group wrap">
     <label for="touko_theme_options[enable_social_media_icons]"><?php _e( 'Näytä sosiaalisen median ikonit?', 'touko' );?></label>
     <input type="checkbox" name="touko_theme_options[enable_social_media_icons]" value="<?php echo $options['enable_social_media_icons'];?>" <?php if($options['enable_social_media_icons']) echo "checked=checked";?>  />
