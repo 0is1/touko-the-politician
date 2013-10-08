@@ -1,6 +1,12 @@
 /*
 * FACEBOOK AND TWITTER PAGES
 */
+.social-media-boxes
+  margin 2% 0
+  > div
+    margin 0 1% 1%
+    min-height 180px
+    width 48%
 
 .facebook-page
   > section
@@ -77,3 +83,8 @@
         text-transform uppercase
     .follow-button
       float right
+
+@media only screen and (max-width: 800px)
+  .social-media-boxes
+    float none
+    width 100%

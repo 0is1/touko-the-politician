@@ -1,15 +1,21 @@
 /*
 * NEWSFEED
 */
+.newsfeed-posts
+  margin 2% 0
 .newsfeed
   background-color rgba(164, 236, 154, 0.5)
-  margin 1rem 0
   padding 2%
   & > div
     margin-bottom 2%
+  & > h1
+    margin-bottom 2%
   article
     font-size 85%
+    margin-bottom 2%
     padding 1.5%
+    &:last-of-type
+      margin-bottom 0
     a
       display block
       line-height 1.5
@@ -75,6 +81,9 @@
     float left
 
 @media only screen and (max-width: 800px)
+  .newsfeed-posts
+    float none
+    width 100%
   .newsfeed
     article:nth-of-type(even), article:nth-of-type(odd)
       float none
