@@ -248,6 +248,12 @@ hr {
   top: 0;
   z-index: 1;
 }
+.main-header .site-title a {
+  color: #555;
+  font-size: 130%;
+  font-weight: 600;
+  letter-spacing: -3px;
+}
 .hgroup-wrap a {
   display: inline;
 }
@@ -261,7 +267,8 @@ hr {
   float: left;
   font-size: 90%;
   height: auto;
-  padding: 0.6em;
+  padding: 0.8em;
+  text-transform: uppercase;
 }
 #main-nav a:hover,
 #main-nav ul li.current-menu-item a,
@@ -450,6 +457,8 @@ hr {
   z-index: 1;
 }
 .featured-text {
+  background-color: #61bf1a;
+  background-color: rgba(97,191,26,0.35);
   bottom: 15%;
   font-size: 95%;
   left: 45%;
