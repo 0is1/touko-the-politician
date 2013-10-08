@@ -64,6 +64,7 @@ function touko_register_settings() {
       get_template_part('admin/newsfeed', 'options');
       // load social media options template
       get_template_part('admin/socialmedia', 'options');
+      get_template_part('admin/instagram', 'options');
 
       submit_button();?>
       </form>
@@ -131,6 +132,18 @@ function touko_register_settings() {
 
     if ( isset( $input[ 'twitter_visible_posts_count' ] ) && is_numeric( $input[ 'twitter_visible_posts_count' ] ) ) {
       $input_validated[ 'twitter_visible_posts_count' ] = $input[ 'twitter_visible_posts_count' ];
+    }
+    /**
+    * Validation for Instagram
+    */
+    if ( isset( $input[ 'instagram_api_key' ] ) ) {
+      $input_validated[ 'instagram_api_key' ] = $input[ 'instagram_api_key' ];
+    }
+    if ( isset( $input[ 'instagram_api_callback' ] ) ) {
+      $input_validated[ 'instagram_api_callback' ] = $input[ 'instagram_api_callback' ];
+    }
+    if ( isset( $input[ 'instagram_api_secret' ] ) ) {
+      $input_validated[ 'instagram_api_secret' ] = $input[ 'instagram_api_secret' ];
     }
 
     /**
