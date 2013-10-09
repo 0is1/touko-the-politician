@@ -330,6 +330,8 @@ hr {
   margin-bottom: 2%;
 }
 .newsfeed article {
+  background-color: #f0f0f0;
+  background-color: rgba(240,240,240,0.85);
   font-size: 85%;
   margin-bottom: 2%;
   padding: 1.5%;
@@ -341,6 +343,9 @@ hr {
   display: block;
   line-height: 1.5;
   text-align: left;
+}
+.newsfeed article .instagram-img a {
+  display: inline-block;
 }
 .newsfeed article:nth-of-type(even) {
   float: right;
@@ -504,6 +509,9 @@ hr {
 */
 .icon-facebook-rect {
   color: #3b5998;
+}
+.icon-instagram {
+  color: #3f729b;
 }
 .icon-twitter-bird {
   color: #00acee;
