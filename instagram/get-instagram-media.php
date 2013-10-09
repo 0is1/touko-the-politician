@@ -15,7 +15,7 @@ if ( !defined('ABSPATH')) exit;
  */
   require_once(get_stylesheet_directory() . '/vendor/instagram/instagram.php');
 
-  global $touko_the_politician_theme_options_settings, $instagram_instance, $master_instagram;
+  global $touko_the_politician_theme_options_settings, $instagram_media, $master_instagram;
   $theme_settings = $touko_the_politician_theme_options_settings;
 
   $auth_config = array(
@@ -23,25 +23,26 @@ if ( !defined('ABSPATH')) exit;
     'apiSecret'     => '3793b5e4d1274a439b0b3ad369298360',
     'apiCallback'      => 'http://localhost:8888/touko/wordpress/wp-admin/themes.php?page=touko_theme_options'
   );
-try{
-    $master_instagram = new Instagram($auth_config);
-  }
+  try{
+      $master_instagram = new Instagram($auth_config);
+    }
   catch(Exception $e){
     error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
     error_log($e.PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
     error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
   }
-// id = 183420083
 // $user = $instagram -> searchUser("monsieurtuco");
-if (get_option('instagram-access-token') !== false) :
-  try{
-    $instagram = $master_instagram;
-    $instagram->setAccessToken(get_option('instagram-access-token'));
-    $instagram_instance = $instagram->getUserMedia(183420083, 1);
-  } catch(Exception $e){
-    error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-    error_log($e.PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-    error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-  }
-endif;
+  if (get_option('instagram-access-token') !== false) :
+    try{
+      $instagram = $master_instagram;
+      $instagram->setAccessToken(get_option('instagram-access-token'));
+      // THIS IS ID FOR searchUser("monsieurtuco")
+      $instagram_media = $instagram->getUserMedia(183420083, 2);
+    }
+    catch(Exception $e){
+     error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
+      error_log($e.PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
+      error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
+    }
+  endif;
 ?>
