@@ -49,7 +49,7 @@ if ( !defined('ABSPATH')) exit;
       $ids = explode("_", $id);
       $link_to_post = esc_url('https://www.facebook.com/permalink.php?story_fbid='.$ids[1].'&id='.$ids[0].'');
     }
-    isset($fb_page_items[$i]["link"]) ? $link_to_post_target = esc_url($fb_page_items[$i]["link"]) : $link_to_post_target = "#";
+    if(isset($fb_page_items[$i]["link"])) $link_to_post_target = esc_url($fb_page_items[$i]["link"]);
     isset($fb_page_items[$i]['picture']) ? $fb_img = $fb_page_items[$i]['picture'] : $fb_img = get_stylesheet_directory_uri(). "/images/facebook-100x100.png";
   ?>
     <article class="facebook-page-post facebook-post-<?php echo $i;?> grid-50-with-gap clearfix">
@@ -73,6 +73,7 @@ if ( !defined('ABSPATH')) exit;
         <?php
         endif;
         ?>
+        <?php if(isset($fb_page_items[$i]["link"])) : ?>
         <figure class="facebook-newsfeed-img facebook-box clearfix">
           <span>
             <a href="<?php echo $link_to_post_target;?>" title="<?php echo $link_to_post_target;?>">
@@ -103,6 +104,7 @@ if ( !defined('ABSPATH')) exit;
               <?php endif; ?>
             </figcaption>
         </figure>
+        <?php endif; ?>
         <?php
         if(isset($fb_page_items[$i]["created_time"])) : ?>
         <?php
