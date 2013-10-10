@@ -40,12 +40,12 @@ if ( !defined('ABSPATH')) exit;
     <input type="text" name="touko_theme_options[instagram_api_key]" value="<?php echo $options['instagram_api_key'];?>"  />
   </div>
   <div class="wrap pure-control-group">
-    <label for="touko_theme_options[instagram_api_callback]"><?php _e( 'Instagram REDIRECT URI', 'touko' );?></label>
-    <input type="text" name="touko_theme_options[instagram_api_callback]" value="<?php echo $options['instagram_api_callback'];?>"  />
-  </div>
-  <div class="wrap pure-control-group">
     <label for="touko_theme_options[instagram_api_secret]"><?php _e( 'Instagram CLIENT SECRET:', 'touko' );?></label>
     <input type="text" name="touko_theme_options[instagram_api_secret]" value="<?php echo $options['instagram_api_secret'];?>"  />
+  </div>
+  <div class="wrap pure-control-group">
+    <label for="touko_theme_options[instagram_api_callback]"><?php _e( 'Instagram REDIRECT URI', 'touko' );?></label>
+    <input type="text" name="touko_theme_options[instagram_api_callback]" value="<?php echo $options['instagram_api_callback'];?>"  />
   </div>
   <?php
     if (get_option('instagram-access-token') === false) :
@@ -78,20 +78,22 @@ if ( !defined('ABSPATH')) exit;
         update_option('instagram-access-token', $access_token);
         $success = true;
       endif; //isset($auth->access_token)
-    endif; //is_wp_error($response)
+
+    elseif(is_wp_error($response)):
+      $error = $response->get_error_message();
+      $errormessage = $error;
+      $errortype = 'Wordpress Error';
+
+    elseif($response['response']['code'] >= 400):
+      $error = json_decode($response['body']);
+      $errormessage = $error->error_message;
+      $errortype = $error->error_type;
+    endif; //!is_wp_error($response)
+
+    if (!$access_token):
+      delete_option('instagram-access-token');
+    endif;
+
   endif; // GET['code']
   ?>
 </div>
-<?php
-function create_ainstagram($auth_config){
-  try{
-      $instagram = new Instagram($auth_config);
-      return $instagram;
-    }
-    catch(Exception $e){
-      error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-      error_log($e.PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-      error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-    }
-}
-?>
