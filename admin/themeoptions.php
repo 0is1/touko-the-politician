@@ -136,14 +136,15 @@ function touko_register_settings() {
     /**
     * Validation for Instagram
     */
+    isset($input[ 'enable_instagram' ]) ? $input_validated[ 'enable_instagram' ] = true : $input_validated[ 'enable_instagram' ] = false;
     if ( isset( $input[ 'instagram_api_key' ] ) ) {
       $input_validated[ 'instagram_api_key' ] = $input[ 'instagram_api_key' ];
     }
-    if ( isset( $input[ 'instagram_api_callback' ] ) ) {
-      $input_validated[ 'instagram_api_callback' ] = $input[ 'instagram_api_callback' ];
-    }
     if ( isset( $input[ 'instagram_api_secret' ] ) ) {
       $input_validated[ 'instagram_api_secret' ] = $input[ 'instagram_api_secret' ];
+    }
+    if ( isset( $input[ 'instagram_api_callback' ] ) ) {
+      $input_validated[ 'instagram_api_callback' ] = esc_url_raw($input[ 'instagram_api_callback' ]);
     }
 
     /**
@@ -154,15 +155,15 @@ function touko_register_settings() {
     isset($input[ 'enable_social_media_icons' ]) ? $input_validated[ 'enable_social_media_icons' ] = true : $input_validated[ 'enable_social_media_icons' ] = false;
 
     if ( isset( $input[ 'facebook_page_url' ] ) ) {
-      $input_validated[ 'facebook_page_url' ] = $input[ 'facebook_page_url' ];
+      $input_validated[ 'facebook_page_url' ] = esc_url_raw($input[ 'facebook_page_url' ]);
     }
 
     if ( isset( $input[ 'twitter_page_url' ] ) ) {
-      $input_validated[ 'twitter_page_url' ] = $input[ 'twitter_page_url' ];
+      $input_validated[ 'twitter_page_url' ] = esc_url_raw($input[ 'twitter_page_url' ]);
     }
 
     if ( isset( $input[ 'rss_page_url' ] ) ) {
-      $input_validated[ 'rss_page_url' ] = $input[ 'rss_page_url' ];
+      $input_validated[ 'rss_page_url' ] = esc_url_raw($input[ 'rss_page_url' ]);
     }
       //Clearing the theme option cache
     if(function_exists('clear_transitions')) clear_transitions();
