@@ -46,7 +46,7 @@ if ( !defined('ABSPATH')) exit;
 						$image_url = esc_url($header_image);
 						$image_height = get_custom_header()->height;
 						$image_width = get_custom_header()->width;
-						$header_image_css = "background: url($image_url) 0 0 no-repeat transparent; background-size: cover; height: 100%; max-height:".$image_height."px; max-width:".$image_width."px; width: 100%;";
+						$header_image_css = "background: url($image_url) 0 0 no-repeat transparent; background-size: cover; height: 100%; max-height:".$image_height."px; max-width:".$image_width."px; padding: 5% 0; width: 100%;";
 					?>
 					<div class="container clearfix" style="<?php echo $header_image_css;?>">
 					<?php }
