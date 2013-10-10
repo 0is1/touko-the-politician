@@ -37,11 +37,9 @@ if ( !defined('ABSPATH')) exit;
         <?php get_template_part('twitter/twitter', 'tweets'); ?>
       </div>
     <?php endif; ?>
+    <?php if($theme_settings['enable_instagram']): ?>
+      <div class="instagram-media-posts clearfix">
+        <?php // get_template_part('instagram/instagram', 'media'); ?>
+      </div>
+  <?php endif; ?>
   </div>
-  <div class="facebook-page">
-    <?php get_template_part('facebook/facebook', 'page-details'); ?>
-  </div>
-  <?php // if($theme_settings['enable_instagram']);?>
-  <!-- <div class="instagram-media-posts clearfix"> -->
-    <?php //get_template_part('instagram/instagram', 'media'); ?>
-  <!-- </div> -->
