@@ -56,6 +56,14 @@ if ( !defined('ABSPATH')) exit;
   <?php elseif(get_option('instagram-access-token') !== false):  ;?>
     <p>Instagram OK</p>
   <?php endif; ?>
+  <div class="wrap pure-control-group">
+    <label for="touko_theme_options[instagram_username]"><?php _e( 'Instagram käyttäjätunnus:', 'touko' );?></label>
+    <input type="text" name="touko_theme_options[instagram_username]" value="<?php echo $options['instagram_username'];?>"  />
+    </div>
+  <div class="wrap pure-control-group">
+    <label for="touko_theme_options[instagram_visible_posts_count]"><?php _e( 'Instagram kuvien määrä etusivulla:', 'touko' );?></label>
+    <input type="number" name="touko_theme_options[instagram_visible_posts_count]" value="<?php echo $options['instagram_visible_posts_count'];?>"  />
+  </div>
   <?php
     if (get_option('instagram-access-token') === false && isset($_GET['code'])) :
       $response = wp_remote_post("https://api.instagram.com/oauth/access_token",

@@ -146,6 +146,12 @@ function touko_register_settings() {
     if ( isset( $input[ 'instagram_api_callback' ] ) ) {
       $input_validated[ 'instagram_api_callback' ] = esc_url_raw($input[ 'instagram_api_callback' ]);
     }
+    if ( isset( $input[ 'instagram_visible_posts_count' ] ) && is_numeric( $input[ 'instagram_visible_posts_count' ] ) ) {
+      $input_validated[ 'instagram_visible_posts_count' ] = $input[ 'instagram_visible_posts_count' ];
+    }
+    if ( isset( $input[ 'instagram_username' ] ) ) {
+      $input_validated[ 'instagram_username' ] = $input[ 'instagram_username' ];
+    }
 
     /**
     * Validation for socialmedia
