@@ -15,8 +15,18 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 
-// Register sidebar widgets
-
+// Register sidebars / widgets
+if (function_exists('register_sidebar')) {
+    register_sidebar(array(
+    'name' => __('Main Area Widget'),
+    'id'   => 'main-area-widget',
+    'description'   => __('Main Area Widget for Touko The Politician theme'),
+    'before_widget' => '<div class="main-area-widget pure-u-1">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+   ));
+  }
   if (function_exists('register_sidebar')) {
     register_sidebar(array(
     'name' => __('Footer Widget'),
@@ -39,5 +49,4 @@ if ( !defined('ABSPATH')) exit;
     'after_title'   => '</h2>'
    ));
   }
-
 ?>
