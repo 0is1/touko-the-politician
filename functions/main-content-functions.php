@@ -39,12 +39,15 @@ if ( !defined('ABSPATH')) exit;
             </div><!-- .entry-content -->
           </article><!-- #post -->
       <?php endwhile; ?>
-        <div class="social-media-boxes clearfix">
-        <?php
-        if($theme_settings['enable_facebook_like_box']) get_template_part('facebook/facebook', 'page');
-        if($theme_settings['enable_twitter_follow_box']) get_template_part('twitter/twitter', 'page');
-        ?>
-        </div>
+      <div class="social-media-boxes clearfix">
+      <?php
+      if($theme_settings['enable_facebook_like_box']) get_template_part('facebook/facebook', 'page');
+      if($theme_settings['enable_twitter_follow_box']) get_template_part('twitter/twitter', 'page');
+      ?>
+      </div>
+      <?php
+        if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('main-area-widget') ) : ?>
+      <?php endif; ?>
       <?php if($theme_settings['enable_newsfeed']) get_template_part('newsfeed'); ?>
     <?php  }
     // if not front page
