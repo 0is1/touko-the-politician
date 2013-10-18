@@ -15,6 +15,15 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 <?php
+function remove_parent_widgets(){
+  // Unregister Travelify sidebars and widgets
+  unregister_sidebar('travelify_left_sidebar');
+  unregister_sidebar('travelify_right_sidebar');
+  unregister_sidebar('travelify_footer_widget');
+}
+add_action( 'widgets_init', 'remove_parent_widgets', 11 );
+?>
+<?php
  /**
   * Browser specific queuing i.e
   */
