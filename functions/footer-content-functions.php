@@ -36,7 +36,7 @@ if ( !defined('ABSPATH')) exit;
       </span>
     </div>
     <div class="pure-u-1 site-created">
-      <span class="created"><?php _e('Toteutus: ', 'touko');?><a href="<?php echo esc_url( __('http://jannejuhani.net'));?>" title="jannejuhani.net">Janne</a>
+      <span class="created"><?php _e('Toteutus: ', 'touko');?><a href="<?php echo esc_url( __('http://lookit.fi/'));?>" title="Lookit Designs">Janne/Lookit Designs</a>
       </span>
       <span class="source">
         <i class="icon-github"></i>
