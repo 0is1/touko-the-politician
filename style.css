@@ -236,7 +236,7 @@ hr {
   line-height: 2;
 }
 .main-header .hgroup-wrap {
-  padding: 3%;
+  padding: 1% 3% 0;
 }
 .main-header .hgroup-wrap .hgroup-right,
 .main-header .hgroup-wrap .site-header {
@@ -306,6 +306,12 @@ hr {
   border-radius: 4px;
   margin: 0 auto;
   max-width: 1018px;
+}
+.entry-content p {
+  margin-bottom: 2%;
+}
+.entry-content p:last-of-type {
+  margin-bottom: 0;
 }
 @media only screen and (max-width: 600px) {
   #main {
