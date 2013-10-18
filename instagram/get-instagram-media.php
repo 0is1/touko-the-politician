@@ -17,27 +17,37 @@ if ( !defined('ABSPATH')) exit;
 
   global $touko_the_politician_theme_options_settings, $instagram_media, $master_instagram;
   $theme_settings = $touko_the_politician_theme_options_settings;
+  $instagram_posts_count = $theme_settings['instagram_visible_posts_count'];
 
   $auth_config = array(
-    'apiKey'         => 'c7661e722d8643f8af4f0699517c7290',
-    'apiSecret'     => '3793b5e4d1274a439b0b3ad369298360',
-    'apiCallback'      => 'http://localhost:8888/touko/wordpress/wp-admin/themes.php?page=touko_theme_options'
+    'apiKey'         => $theme_settings['instagram_api_key'],
+    'apiSecret'     => $theme_settings['instagram_api_secret'],
+    'apiCallback'      => $theme_settings['instagram_api_callback']
   );
-  try{
-      $master_instagram = new Instagram($auth_config);
-    }
-  catch(Exception $e){
-    error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-    error_log($e.PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-    error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
-  }
-// $user = $instagram -> searchUser("monsieurtuco");
-  if (get_option('instagram-access-token') !== false) :
+  if(gettype($master_instagram) !== 'object') :
     try{
+      $master_instagram = new Instagram($auth_config);
       $instagram = $master_instagram;
+      $user = $instagram -> searchUser($theme_settings['instagram_username']);
+      if(gettype($user) !== 'NULL'){
+        $user = (array)$user;
+        $user_id = $user['data'][0]->id;
+      }
+    }
+    catch(Exception $e){
+      error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
+      error_log($e.PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
+      error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
+    }
+  endif;
+  /*echo "<pre>";
+  print_r($user['data'][0]->id);
+  echo "</pre>";*/
+  if (get_option('instagram-access-token') !== false && gettype($user) !== 'NULL') :
+    try{
       $instagram->setAccessToken(get_option('instagram-access-token'));
       // THIS IS ID FOR searchUser("monsieurtuco")
-      $instagram_media = $instagram->getUserMedia(183420083, 2);
+      $instagram_media = $instagram->getUserMedia($user_id, $instagram_posts_count);
     }
     catch(Exception $e){
      error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
