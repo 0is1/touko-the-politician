@@ -24,7 +24,6 @@ if ( !defined('ABSPATH')) exit;
     // echo "<pre>";
     // print_r($data["data"][0]["images"]);
     // echo "</pre>";
-
     ?>
     <?php
     foreach( $data['data'] as $key => $value ) { ?>
@@ -64,8 +63,8 @@ if ( !defined('ABSPATH')) exit;
       <?php
     }
     ?>
-<?php else : ?>
-  <article class="instagram-media-post instagram-post-<?php echo $key;?> grid-50-with-gap clearfix">
+<?php else : // If Instagram data isnt available  ?>
+  <article class="instagram-media-post instagram-post-<?php echo $key;?> grid-100 clearfix">
     <section class="instagram-user-details clearfix">
       <figure class="newsfeed-icon instagram-logo">
         <i class="icon-instagram"></i>
