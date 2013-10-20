@@ -26,5 +26,6 @@ if ( !defined('ABSPATH')) exit;
 	</div><!-- .wrapper -->
 
 <?php wp_footer(); ?>
+<?php do_action('add_like_button_script');?>
 </body>
 </html>

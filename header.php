@@ -33,7 +33,6 @@ if ( !defined('ABSPATH')) exit;
 </head>
 
 <body <?php body_class(); ?>>
-<?php do_action('add_like_button_script');?>
 	<div class="wrapper">
 		<header id="branding" class="main-header">
 			<?php
