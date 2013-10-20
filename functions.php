@@ -19,6 +19,7 @@ if ( !defined('ABSPATH')) exit;
 * Load external files
 */
 require(get_stylesheet_directory() . '/functions/header-functions.php');
+require(get_stylesheet_directory() . '/functions/content-loop-functions.php');
 require(get_stylesheet_directory() . '/functions/main-content-functions.php');
 require(get_stylesheet_directory() . '/widgets.php' );
 require(get_stylesheet_directory() . '/functions/footer-content-functions.php');
