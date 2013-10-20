@@ -18,11 +18,7 @@ if ( !defined('ABSPATH')) exit;
 
 global $touko_the_politician_theme_options_defaults;
 $touko_the_politician_theme_options_defaults = array(
-  'facebook_app_id'                         => "",
-  'facebook_app_secret'                     => "",
-  'facebook_page_id'                        => "",
-  'facebook_page_url'                       => "",
-  'facebook_visible_posts_count'            => 2,
+  'default_layout'                          => "no-sidebar-full-width",
   'enable_instagram'                        => false,
   'enable_newsfeed'                         => false, //do we add anything from the newsfeed to the homepage
   'enable_wp_posts_newsfeed'                => false, //do we add wp_posts feed to the homepage
@@ -31,6 +27,11 @@ $touko_the_politician_theme_options_defaults = array(
   'enable_social_media_icons'               => false, //do we show social media icons
   'enable_twitter_newsfeed'                 => false, //do we add twitter feed to the homepage
   'enable_twitter_follow_box'               => false, //do show twitter follow box
+  'facebook_app_id'                         => "",
+  'facebook_app_secret'                     => "",
+  'facebook_page_id'                        => "",
+  'facebook_page_url'                       => "",
+  'facebook_visible_posts_count'            => 2,
   'instagram_api_key'                       => "",
   'instagram_api_callback'                  => "",
   'instagram_api_secret'                    => "",
