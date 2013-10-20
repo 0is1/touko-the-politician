@@ -313,6 +313,9 @@ hr {
 .entry-content p:last-of-type {
   margin-bottom: 0;
 }
+ul {
+  margin: 0;
+}
 @media only screen and (max-width: 600px) {
   #main {
     padding: 0;
@@ -510,6 +513,18 @@ hr {
   }
 }
 
+/* Social media buttons */
+.social-media-buttons {
+  padding: 0 0 1%;
+}
+.wrapper .social-media-buttons .fb_iframe_widget {
+  display: inline-block;
+  min-width: 100px;
+}
+.tweet-button {
+  display: inline-block;
+}
+
 /*
 * SOCIAL MEDIA ICONS
 */
@@ -552,6 +567,7 @@ hr {
 }
 .social-media-boxes > div {
   margin: 0 1% 1%;
+  max-width: 520px;
   min-height: 180px;
   width: 48%;
 }
@@ -658,6 +674,9 @@ hr {
 @media only screen and (max-width: 800px) {
   .social-media-boxes {
     float: none;
+    width: 100%;
+  }
+  .social-media-boxes > div {
     width: 100%;
   }
 }
