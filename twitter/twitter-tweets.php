@@ -77,8 +77,8 @@ if ( !defined('ABSPATH')) exit;
       }
     } // end of for loop
   ?>
-<?php else : ?>
-  <article class="twitter-tweet grid-50-with-gap clearfix">
+<?php else : // If Twitter data isnt available ?>
+  <article class="twitter-tweet grid-100 clearfix">
     <section class="twitter-user-details">
       <figure class="newsfeed-icon twitter-logo">
         <i class="icon-twitter-bird"></i>

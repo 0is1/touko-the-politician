@@ -62,7 +62,6 @@ if ( !defined('ABSPATH')) exit;
       <ul>
         <li>
           <a href="<?php echo $twitter_user_profile_link; ?>" title="<?php echo $twitter_user_nick;?>@<?php _e('Twiittiä','touko');?>">
-            <
             <strong><?php echo $twitter_user_statuses_count;?></strong><span><?php _e('Twiittiä', 'touko') ?></span>
           </a>
         </li>
@@ -82,7 +81,7 @@ if ( !defined('ABSPATH')) exit;
       </span>
     </section>
   </div>
-<?php else : ?>
+<?php else : // If Twitter data isnt available ?>
   <div class="twitter-page fleft pure-u">
     <section class="twitter-feed-unavailable">
       <figure class="newsfeed-icon twitter-logo">
