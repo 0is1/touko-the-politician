@@ -44,7 +44,7 @@ if ( !defined('ABSPATH')) exit;
     <input type="text" name="touko_theme_options[instagram_api_secret]" value="<?php echo $options['instagram_api_secret'];?>"  />
   </div>
   <div class="wrap pure-control-group">
-    <label for="touko_theme_options[instagram_api_callback]"><?php _e( 'Instagram REDIRECT URI', 'touko' );?></label>
+    <label for="touko_theme_options[instagram_api_callback]"><?php _e( 'Instagram REDIRECT URI', 'touko' );?> <span class="redirect-url">(<?php echo get_home_url();?>/wp-admin/themes.php?page=touko_theme_options)</span></label>
     <input type="text" name="touko_theme_options[instagram_api_callback]" value="<?php echo $options['instagram_api_callback'];?>"  />
   </div>
   <?php
