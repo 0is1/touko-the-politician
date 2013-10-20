@@ -39,7 +39,7 @@ if ( !defined('ABSPATH')) exit;
       <div class="fb-like" data-href="<?php echo esc_url('https://www.facebook.com/'.$theme_settings["facebook_page_id"]);?>" data-width="350" data-show-faces="true" data-send="false"></div>
     </section>
   </div>
-<?php else : ?>
+<?php else : // If Facebook data isnt available  ?>
   <div class="facebook-page facebook-box fleft pure-u">
     <section class="facebook-feed-unavailable">
       <figure class="newsfeed-icon facebook-logo">

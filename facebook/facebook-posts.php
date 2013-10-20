@@ -121,11 +121,11 @@ if ( !defined('ABSPATH')) exit;
         }
       } // end of for loop
   ?>
-<?php else : ?>
-  <article class="facebook-page-post grid-50-with-gap clearfix">
+<?php else : // If Facebook data isnt available ?>
+  <article class="facebook-page-post grid-100">
     <section class="facebook-user-details clearfix">
-      <figure class="newsfeed-icon-img facebook-page-img clearfix">
-        <img src="<?php echo get_stylesheet_directory_uri(). "/images/facebook-100x100.png";?>" alt="Facebook">
+      <figure class="newsfeed-icon facebook-logo">
+        <i class="icon-facebook-rect"></i>
       </figure>
       <h3><?php _e('Facebook-postien haussa on tällä hetkellä ongelmia...', 'touko'); ?></h3>
     </section>
