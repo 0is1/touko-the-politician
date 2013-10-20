@@ -46,12 +46,12 @@ function blog_favicon() {
   echo '<link rel="shortcut icon" type="image/png" href="' . get_stylesheet_directory_uri() . '/images/favicon.png" />';
 }
 // Load css
-add_action('wp_head', 'add_css', 5);
+add_action('wp_head', 'add_css', 4);
 // Add css
 function add_css(){
   wp_enqueue_style('font', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', array(), '1.0.0', false);
   wp_enqueue_style( 'touko_icons_style', get_stylesheet_directory_uri() . '/fonts/fontello/css/social-media-icons.css', array(), '1.0.0', false);
-  wp_enqueue_style( 'touko_pure_grids_style', 'http://yui.yahooapis.com/pure/0.3.0/grids-min.css', array(), '1.0.0', false);
+  wp_enqueue_style( 'touko_pure_grids_style', get_stylesheet_directory_uri() . '/vendor/styles/pure-grids-min.css', array(), '0.3.0', false);
 }
 
 // Load Favicon in Admin Section
@@ -63,8 +63,8 @@ function admin_blog_favicon() {
 // Load styles in Admin Section
 add_action( 'admin_enqueue_scripts', 'add_admin_styles' );
 function add_admin_styles() {
-  wp_enqueue_style( 'pure_grid_style', 'http://yui.yahooapis.com/pure/0.3.0/forms-min.css');
-  wp_enqueue_style( 'touko_admin_style', get_stylesheet_directory_uri() . '/admin/admin.css');
+  wp_enqueue_style( 'pure_grid_style', 'http://yui.yahooapis.com/pure/0.3.0/forms-min.css', array(), '0.3.0', false);
+  wp_enqueue_style( 'touko_admin_style', get_stylesheet_directory_uri() . '/admin/admin.css', array(), '0.1.0', false);
 }
 
 
