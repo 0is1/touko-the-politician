@@ -51,7 +51,7 @@ function touko_register_settings() {
       print_r($touko_the_politician_theme_options_settings);
       echo "</pre>";
     ?>
-    <div class="touko-the-polician-admin">
+    <div class="touko-the-politician-admin">
     <?php if( isset( $_GET [ 'settings-updated' ] ) && 'true' === $_GET[ 'settings-updated' ] ): ?>
       <div class="updated fade" id="message">
         <p><strong><?php _e( 'Asetukset tallennettu.', 'touko' );?></strong></p>
