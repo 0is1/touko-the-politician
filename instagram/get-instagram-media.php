@@ -27,12 +27,6 @@ if ( !defined('ABSPATH')) exit;
   if(gettype($master_instagram) !== 'object') :
     try{
       $master_instagram = new Instagram($auth_config);
-      $instagram = $master_instagram;
-      $user = $instagram -> searchUser($theme_settings['instagram_username']);
-      if(gettype($user) !== 'NULL'){
-        $user = (array)$user;
-        $user_id = $user['data'][0]->id;
-      }
     }
     catch(Exception $e){
       error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
@@ -40,14 +34,19 @@ if ( !defined('ABSPATH')) exit;
       error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
     }
   endif;
-  /*echo "<pre>";
-  print_r($user['data'][0]->id);
-  echo "</pre>";*/
-  if (get_option('instagram-access-token') !== false && gettype($user) !== 'NULL') :
+  if (get_option('instagram-access-token') !== false) :
     try{
-      $instagram->setAccessToken(get_option('instagram-access-token'));
-      // THIS IS ID FOR searchUser("monsieurtuco")
-      $instagram_media = $instagram->getUserMedia($user_id, $instagram_posts_count);
+      $instagram = $master_instagram;
+      $user = $instagram -> searchUser($theme_settings['instagram_username']);
+      // echo "<pre>";
+      // print_r($user);
+      // echo "</pre>";
+      if(gettype($user) !== 'NULL'){
+        $user = (array)$user;
+        $user_id = $user['data'][0]->id;
+        $instagram->setAccessToken(get_option('instagram-access-token'));
+        $instagram_media = $instagram->getUserMedia($user_id, $instagram_posts_count);
+      }
     }
     catch(Exception $e){
      error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/instagram-errors.log');
