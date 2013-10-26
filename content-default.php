@@ -4,7 +4,7 @@
 if ( !defined('ABSPATH')) exit;
 
 /**
- * Main Content Functions
+ * Default Page Template
  *
  *
  * @file           content-default.php
@@ -16,14 +16,11 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 
-
 <?php
  /* Add opening div */
  do_action('before_loop');
 
- /**
-  * Loop stuff
-  */
+ /* Loop stuff */
  do_action('loop_content');
 
  /* Close opening div */
