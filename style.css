@@ -188,6 +188,17 @@ hr {
 .fright {
   float: right;
 }
+.clearfix {
+  display: table;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
 @media only screen and (max-width: 800px) {
   body {
     font-size: 90%;
