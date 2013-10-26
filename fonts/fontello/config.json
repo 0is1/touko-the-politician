@@ -5,9 +5,31 @@
   "hinting": true,
   "units_per_em": 1000,
   "ascent": 850,
-  "copyright": "undefined",
-  "fullname": "undefined",
   "glyphs": [
+    {
+      "uid": "0d08dbb1dd648a43bdea81b7e6c9e036",
+      "css": "location",
+      "code": 59406,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "531bc468eecbb8867d822f1c11f1e039",
+      "css": "calendar",
+      "code": 59408,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ccd52a22af21fbaa98a9c85fb50fca6b",
+      "css": "info",
+      "code": 59407,
+      "src": "iconic"
+    },
+    {
+      "uid": "b99d736cef489a3150ba8aac7c4e8403",
+      "css": "clock",
+      "code": 59405,
+      "src": "iconic"
+    },
     {
       "uid": "2a3192d0f8fe0c7cf959168e68eb16d8",
       "css": "rss",
@@ -85,6 +107,12 @@
       "css": "instagram",
       "code": 59402,
       "src": "brandico"
+    },
+    {
+      "uid": "f978da58836f23373882916f05fb70b4",
+      "css": "doc",
+      "code": 59409,
+      "src": "linecons"
     }
   ]
 }
