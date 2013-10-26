@@ -21,7 +21,7 @@ if ( !defined('ABSPATH')) exit;
 ?>
 
   <div class="newsfeed clearfix">
-    <h1><?php _e('Uutisvirta', 'touko'); ?></h1>
+    <h1><i class="icon-doc"></i><?php _e('Uutisvirta', 'touko'); ?></h1>
     <?php if($theme_settings['enable_wp_posts_newsfeed']): ?>
       <div class="wp-posts clearfix">
         <?php get_template_part('homepage', 'posts'); ?>
