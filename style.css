@@ -179,6 +179,7 @@ strong {
 }
 hr {
   border: none;
+  clear: both;
   margin: 0;
   width: 100%;
 }
@@ -187,14 +188,6 @@ hr {
 }
 .fright {
   float: right;
-}
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
 }
 @media only screen and (max-width: 800px) {
   body {
