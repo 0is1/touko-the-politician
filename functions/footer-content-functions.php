@@ -16,12 +16,14 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 <?php
+  add_action('add_footer_content', 'add_footer_content');
+
   function add_footer_content(){
-  if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-widget') ) : ?>
-  <?php endif; ?>
-<?php
-  if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-widget-2') ) : ?>
-  <?php endif; ?>
+    if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-widget') ) : ?>
+    <?php endif; ?>
+    <?php
+    if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-widget-2') ) : ?>
+    <?php endif; ?>
 
     <div class="logos pure-u-1">
       <a href="http://www.vihreat.fi" title="Vihreät De Gröna">

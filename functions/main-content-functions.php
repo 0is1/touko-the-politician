@@ -15,6 +15,8 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 
+add_action('add_page_content', 'add_page_content');
+
 function add_page_content() {
   global $post;
   global $travelify_theme_options_settings;
@@ -80,9 +82,16 @@ function add_page_content() {
 add_action( 'loop_content', 'the_loop', 10 );
 /**
  * Shows the loop content
+ * Now we have only this one loop in this theme, all other page-types are looped in travelify
  */
 function the_loop() {
-  do_action('loop_the_page');
+  if( is_search()){
+    do_action('loop_for_search');
+  }
+  else do_action('loop_the_page');
+
+  // TODO: all these ->
+
   /*if( is_page() ) {
     if( is_page_template( 'templates/template-blog-large-image.php' ) ) {
       travelify_theloop_for_template_blog_image_large();
@@ -100,11 +109,7 @@ function the_loop() {
   elseif( is_single() ) {
     travelify_theloop_for_single();
   }
-  elseif( is_search() ) {
-    travelify_theloop_for_search();
-  }
   else {
     travelify_theloop_for_archive();
   }*/
 }
-?>

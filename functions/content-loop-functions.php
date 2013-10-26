@@ -92,3 +92,55 @@ else : ?>
 <?php endif;
 }
 ?>
+<?php
+/* ------------------------------------------------------------------------ */
+
+add_action( 'loop_for_search', 'loop_for_search', 10 );
+/**
+ * Fuction to show the search results.
+ */
+  function loop_for_search() {
+    global $post;
+    if( have_posts() ) {
+      while( have_posts() ) {
+        the_post();
+
+        do_action( 'travelify_before_post' );
+  ?>
+    <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <article>
+
+        <?php do_action( 'travelify_before_post_header' ); ?>
+
+        <header class="entry-header">
+            <h2 class="entry-title">
+              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
+            </h2><!-- .entry-title -->
+          </header>
+
+          <?php do_action( 'travelify_after_post_header' ); ?>
+
+          <?php do_action( 'travelify_before_post_content' ); ?>
+
+          <div class="entry-content clearfix">
+            <?php the_excerpt(); ?>
+          </div>
+
+          <?php do_action( 'travelify_after_post_content' ); ?>
+
+      </article>
+    </section>
+  <?php
+        do_action( 'travelify_after_post' );
+
+      }
+    }
+    else {
+      ?>
+      <h1 class="entry-title"><?php _e('Ei hakutuloksia :-/', 'touko' ); ?></h1>
+      <p class="search-again"><?php _e('Voit yrittää uudestaan:', 'touko' ); ?></p>
+      <?php get_search_form(); ?>
+        <?php
+     }
+  }
+?>
