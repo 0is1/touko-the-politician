@@ -5,6 +5,10 @@ Custom Wordpress-theme for toukoaalto.fi -site
 ## Work in progress
 * If you spot a bug, please tell about it :)
 
+### TODO
+* Lot of things...
+* (Mobile) optimization is most urgent
+
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
   * This is going to be "parent-theme" but at the moment it needs travelify as template
