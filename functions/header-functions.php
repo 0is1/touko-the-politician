@@ -148,9 +148,9 @@ function featured_post_slider() {
         <div class="'.$classes.'">';
             if( has_post_thumbnail() ) {
 
-              $featured_post_slider .= '<figure><a href="' . get_permalink() . '" title="'.the_title('','',false).'">';
+              $featured_post_slider .= '<figure>';
 
-              $featured_post_slider .= get_the_post_thumbnail( $post->ID, 'slider', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ), 'class'  => 'pngfix' ) ).'</a></figure>';
+              $featured_post_slider .= get_the_post_thumbnail( $post->ID, 'slider', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ), 'class'  => 'pngfix clearfix' ) ).'</figure>';
             }
             if( $title_attribute != '' || $excerpt !='' ) {
             $featured_post_slider .= '
@@ -159,7 +159,7 @@ function featured_post_slider() {
                   $featured_post_slider .= '<div class="featured-title"><a href="' . get_permalink() . '" title="'.the_title('','',false).'">'. get_the_title() . '</a></div><!-- .featured-title -->';
               }
               if( $excerpt !='' ) {
-                $featured_post_slider .= '<div class="featured-content">'.$excerpt.'</div><!-- .featured-content -->';
+                $featured_post_slider .= '<div class="featured-content"><a href="' . get_permalink() . '" title="'.the_title('','',false).'">'.$excerpt.'</a></div><!-- .featured-content -->';
               }
             $featured_post_slider .= '
               </article><!-- .featured-text -->';
