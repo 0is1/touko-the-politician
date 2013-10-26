@@ -18,12 +18,12 @@ if ( !defined('ABSPATH')) exit;
 // Register sidebars / widgets
 if (function_exists('register_sidebar')) {
     register_sidebar(array(
-    'name' => __('Main Area Widget'),
+    'name' => __('Main Area Widget for Google Calendar'),
     'id'   => 'main-area-widget',
-    'description'   => __('Main Area Widget for Touko The Politician theme'),
-    'before_widget' => '<div class="main-area-widget pure-u-1">',
+    'description'   => __('Main Area Widget for Touko The Politician theme (Google Calendar)'),
+    'before_widget' => '<div class="main-area-widget google-calendar pure-u-1">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
+    'before_title'  => '<h2><i class="icon-calendar"></i>',
     'after_title'   => '</h2>'
    ));
   }
