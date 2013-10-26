@@ -24,7 +24,6 @@ if ( !defined('ABSPATH')) exit;
     while($query->have_posts()) : $query->the_post();
     ?>
       <article class="post-<?php the_ID();?> grid-50-with-gap">
-        <?php do_action('create_like_button', get_permalink()); ?>
         <a href="<?php echo get_permalink(); ?>" title="<?php the_title() ?>">
           <h1><?php the_title() ?></h1>
           <div class='post-content'>
