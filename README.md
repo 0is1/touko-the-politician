@@ -1,7 +1,11 @@
 # Touko The Politician
-===
 
-Custom Wordpress-theme for toukoaalto.fi -site (work in progress)
+---
+
+Custom Wordpress-theme for toukoaalto.fi -site
+
+## Work in progress
+* If you spot a bug, please tell about it :)
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
@@ -28,4 +32,4 @@ Custom Wordpress-theme for toukoaalto.fi -site (work in progress)
 
 ### Plugins in use
 * [Google Calendar Events](http://wordpress.org/extend/plugins/google-calendar-events/)
-* This is used for now. I include this functionality in to the theme later (maybe)...
+  * This is used for now. I include this functionality in to the theme later (maybe)...
