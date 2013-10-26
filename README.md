@@ -26,3 +26,5 @@ Custom Wordpress-theme for toukoaalto.com -site (work in progress)
 ### [Fontello](http://fontello.com/)
 
 
+### Plugins in use
+* [Google Calendar Events](http://wordpress.org/extend/plugins/google-calendar-events/)
