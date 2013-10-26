@@ -105,7 +105,10 @@ a img {
 */
 .main-footer {
   background-color: rgba(211,211,211,0.5);
-  padding: 1rem;
+  padding: 2%;
+}
+.main-footer a {
+  color: #540;
 }
 [class*="footer-widget"] {
   padding: 2%;
