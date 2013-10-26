@@ -115,7 +115,7 @@ if ( !defined('ABSPATH')) exit;
       </article>
       <?php
         // add clearfix after every two page post's
-        if ($i % 2 === 1) { ?>
+        if ($i % 2 === 1 && $facebook_page_items_count > 2) { ?>
           <hr class="clearfix">
         <?php
         }

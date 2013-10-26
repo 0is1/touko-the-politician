@@ -71,7 +71,7 @@ if ( !defined('ABSPATH')) exit;
       </article>
     <?php
       // add clearfix after every two tweets
-      if ($i % 2 === 1) { ?>
+      if ($i % 2 === 1 && $theme_settings['twitter_visible_posts_count'] > 2) { ?>
         <hr class="clearfix">
       <?php
       }
