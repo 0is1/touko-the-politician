@@ -1,7 +1,5 @@
 # Touko The Politician
 
----
-
 Custom Wordpress-theme for toukoaalto.fi -site
 
 ## Work in progress
@@ -33,3 +31,26 @@ Custom Wordpress-theme for toukoaalto.fi -site
 ### Plugins in use
 * [Google Calendar Events](http://wordpress.org/extend/plugins/google-calendar-events/)
   * This is used for now. I include this functionality in to the theme later (maybe)...
+
+## Grunt
+There's very basic grunt-file which have:
+
+* watch for "src/"-files (.js and .styl)
+* Stylus
+* js-uglify
+
+### Usage
+Install npm-packages (npm [Node Package Manager] needs to be installed in your system)
+```
+npm install
+```
+
+While development (watch)
+```
+grunt
+```
+
+When you want production version of .js and .css -files
+```
+grunt build
+```
