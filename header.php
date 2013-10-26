@@ -42,6 +42,7 @@ if ( !defined('ABSPATH')) exit;
   			<?php $header_image = get_header_image();
 					if ( !empty($header_image)) { ?>
 					<?php
+						/* This is temporary glue-hack, need to redo */
 						$image_url = esc_url($header_image);
 						$image_height = get_custom_header()->height;
 						$image_width = get_custom_header()->width;
@@ -59,10 +60,15 @@ if ( !defined('ABSPATH')) exit;
 									do_action('add_social_media_icons');
 							}
 							?>
-						</section><!-- .hgroup-right -->
+						</section>
 					<hgroup class="site-header fleft clearfix">
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+						<figure class="touko-head">
+							<img src="<?php echo get_stylesheet_directory_uri()?>/images/touko-head.png" alt="Touko Aalto">
+						</figure>
+						<div class="site-titles">
+							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+							<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+						</div>
 					</hgroup><!-- #site-logo -->
 				</div>
 				</div>
