@@ -51,8 +51,4 @@ require_once(get_stylesheet_directory() . '/instagram/get-instagram-media.php');
 // Enable shortcodes in widgets
 add_filter('widget_text', 'do_shortcode');
 
-// function add_stylesheet(){
-//   wp_enqueue_style( 'touko_style', get_stylesheet_uri() );
-// }
-
 ?>
