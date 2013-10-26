@@ -188,9 +188,6 @@ hr {
 .fright {
   float: right;
 }
-.clearfix {
-  display: table;
-}
 .clearfix:before,
 .clearfix:after {
   content: " ";
