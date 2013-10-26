@@ -137,7 +137,7 @@ h4,
 h5,
 p,
 .pure-u {
-  font-family: 'Open Sans', 'Helvetica', sans-serif;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 body {
   background: url("images/touko-aalto.png") 0 100% fixed no-repeat #ecf0f1;
@@ -156,6 +156,14 @@ h3 {
 }
 h4 {
   font-size: 110%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2d2d2d;
 }
 article {
   line-height: 1.75;
@@ -189,6 +197,35 @@ hr {
   #main {
     padding: 0;
   }
+}
+
+/*
+* GOOGLE CALENDAR
+*/
+.google-calendar {
+  background-color: #a8531f;
+  background-color: rgba(168,83,31,0.5);
+  margin: 0 0 2%;
+  padding: 2%;
+}
+.google-calendar .gce-widget-list {
+  font-size: 90%;
+}
+.google-calendar .gce-list > li {
+  float: left;
+  margin: 0 2% 2% 0;
+  width: 31.333333333333332%;
+}
+.google-calendar .gce-list .gce-list-event {
+  background-color: transparent;
+  font-weight: 600;
+}
+.google-calendar .gce-list .gce-list-title {
+  border-bottom: 1px solid #2d2d2d;
+}
+.google-calendar .gce-list p span,
+.google-calendar .gce-list div span {
+  color: #540;
 }
 
 /*
@@ -329,7 +366,8 @@ ul {
   margin: 2% 0;
 }
 .newsfeed {
-  background-color: rgba(164,236,154,0.5);
+  background-color: #52db3e;
+  background-color: rgba(82,219,62,0.5);
   padding: 2%;
 }
 .newsfeed > div {
@@ -339,8 +377,10 @@ ul {
   margin-bottom: 2%;
 }
 .newsfeed article {
-  background-color: #f0f0f0;
-  background-color: rgba(240,240,240,0.85);
+  background-color: #f5f5f5;
+  background-color: rgba(245,245,245,0.85);
+  -webkit-box-shadow: inset 0 0 10px rgba(10,10,10,0.1);
+  box-shadow: inset 0 0 10px rgba(10,10,10,0.1);
   font-size: 85%;
   margin-bottom: 2%;
   padding: 1.5%;
