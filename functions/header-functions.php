@@ -24,6 +24,16 @@ function remove_parent_widgets(){
 add_action( 'widgets_init', 'remove_parent_widgets', 11 );
 ?>
 <?php
+function register_custom_menus() {
+  register_nav_menus(
+    array(
+      'basic-menu' => __('Päävalikko'),
+    )
+  );
+}
+add_action( 'init', 'register_custom_menus' );
+?>
+<?php
  /**
   * Browser specific queuing i.e
   */
@@ -37,7 +47,7 @@ if(preg_match('/(?i)msie [1-8]/',$user_agent)) {
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
 // Add scripts
 function add_scripts() {
-  wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array(), '0.1.0', true );
+  wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array(), '0.9.0', true );
 }
 // Load Favicon in Header Section
 add_action('wp_head', 'blog_favicon');
