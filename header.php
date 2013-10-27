@@ -73,15 +73,15 @@ if ( !defined('ABSPATH')) exit;
 				</div>
 				</div>
 				<?php
-					if ( has_nav_menu( 'primary' ) ) {
+					if ( has_nav_menu( 'basic-menu' ) ) {
 						$args = array(
-							'theme_location'    => 'primary',
+							'theme_location'    => 'basic-menu',
 							'container'         => '',
-							'items_wrap'        => '<ul class="root">%3$s</ul>'
+							'items_wrap'        => '<ul class="menu-items">%3$s</ul>'
 						);?>
 							<nav id="main-nav" class="clearfix">
 								<div class="container clearfix">
-									<?php wp_nav_menu( $args ); ?>
+									<?php wp_nav_menu($args); ?>
 								</div>
 							</nav>
 					<?php }
