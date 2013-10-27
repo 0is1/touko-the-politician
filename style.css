@@ -104,7 +104,8 @@ a img {
 * FOOTER
 */
 .main-footer {
-  background-color: rgba(211,211,211,0.5);
+  background-color: #f8f8f8;
+  background-color: rgba(248,248,248,0.5);
   padding: 2%;
 }
 .main-footer a {
@@ -198,8 +199,10 @@ hr {
   body {
     font-size: 80%;
   }
-  #main {
-    padding: 0;
+}
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 75%;
   }
 }
 
@@ -320,6 +323,14 @@ hr {
 }
 #main-nav {
   background-color: #61bf1a;
+  border: 1px solid #540;
+  -webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+  color: #fff;
+  cursor: pointer;
+  margin: 0 0 1%;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.4);
   z-index: 2;
 }
 #main-nav a {
@@ -347,7 +358,31 @@ hr {
   left: 0px;
   position: absolute;
   top: 100%;
-  width: 190px;
+  width: 100%;
+}
+#main-nav ul li ul li {
+  border-bottom: 1px solid #f5f5f5;
+  border-left: 1px solid #f5f5f5;
+  border-right: 1px solid #f5f5f5;
+  float: none;
+}
+#main-nav ul li ul li a {
+  background-color: #fff;
+  color: #2d2d2d;
+  float: none;
+  font-size: 80%;
+  height: 100%;
+  padding: 0.7em;
+  text-transform: capitalize;
+}
+#main-nav ul li ul li:hover > a {
+  background-color: #f5f5f5;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #61bf1a;
+}
+#main-nav ul li:hover ul {
+  display: block;
 }
 @media only screen and (max-width: 800px) {
   .main-header .hgroup-wrap .site-titles {
@@ -359,8 +394,6 @@ hr {
     height: auto;
     padding: 2%;
   }
-}
-@media only screen and (max-width: 767px) {
   .main-header .hgroup-wrap .touko-head {
     height: 150px;
     width: 150px;
@@ -394,6 +427,7 @@ ul {
   margin: 0;
 }
 #main {
+  background-color: #f8f8f8;
   background-color: rgba(248,248,248,0.5);
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -433,7 +467,7 @@ ul {
 }
 .newsfeed article {
   background-color: #f5f5f5;
-  background-color: rgba(245,245,245,0.85);
+  background-color: rgba(245,245,245,0.8);
   -webkit-box-shadow: inset 0 0 10px rgba(10,10,10,0.1);
   box-shadow: inset 0 0 10px rgba(10,10,10,0.1);
   font-size: 85%;
@@ -545,7 +579,8 @@ ul {
 * SEARCH FORM
 */
 .searchform .search-input {
-  background-color: #f9f9f9;
+  background-color: #f5f5f5;
+  background-color: rgba(245,245,245,0.8);
   border: 1px solid rgba(140,140,140,0.5);
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -555,6 +590,7 @@ ul {
 }
 .searchform .search-input:focus {
   background-color: #fff;
+  border-color: #1e1ef0;
   border-color: rgba(30,30,240,0.5);
 }
 
@@ -588,7 +624,7 @@ ul {
   bottom: 5%;
 }
 #controllers a {
-  background-color: rgba(225,225,225,0.7);
+  background-color: rgba(245,245,245,0.8);
   color: #333;
   line-height: 1.5;
   height: auto;
@@ -598,7 +634,7 @@ ul {
 #controllers a.active,
 #controllers a:hover {
   background-color: #61bf1a;
-  background-color: rgba(97,191,26,0.95);
+  background-color: rgba(97,191,26,0.8);
   color: #333;
 }
 @media only screen and (max-width: 767px) {
@@ -634,11 +670,11 @@ ul {
 .icon-instagram {
   color: #3f729b;
 }
-.icon-twitter-bird {
-  color: #00acee;
-}
 .icon-rss {
   color: #ee802f;
+}
+.icon-twitter-bird {
+  color: #00acee;
 }
 .icon-wordpress {
   color: #21759b;
@@ -652,6 +688,7 @@ ul {
 }
 .social-media-icons li a:hover {
   border-bottom: 2px solid #777;
+  color: inherit;
 }
 @media only screen and (max-width: 600px) {
   .social-media-icons li a {
@@ -697,10 +734,10 @@ ul {
   font-size: 95%;
 }
 .facebook-box {
-  background-color: #f7f7f7;
+  background-color: #f5f5f5;
 }
 .twitter-page {
-  background-color: rgba(247,247,247,0.5);
+  background-color: rgba(245,245,245,0.8);
 }
 .twitter-page a {
   color: #333;
@@ -760,7 +797,7 @@ ul {
   border-left: none;
 }
 .twitter-page .twitter-page-details li:hover span {
-  color: #333;
+  color: #2d2d2d;
 }
 .twitter-page .twitter-page-details li span {
   color: #999;
@@ -770,6 +807,7 @@ ul {
 }
 .twitter-page .twitter-page-details .follow-button {
   float: right;
+  margin-top: 4px;
 }
 @media only screen and (max-width: 800px) {
   .social-media-boxes {
