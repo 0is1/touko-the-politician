@@ -1,6 +1,9 @@
 /*
 * GLOBAL
 */
+@import '../theme_styles/colors.styl'
+@import '../theme_styles/mediaqueries.styl'
+
 *
   box-sizing border-box
 
@@ -21,7 +24,7 @@ h3
 h4
   font-size 110%
 h1, h2, h3, h4, h5, h6
-  color rgb(45, 45, 45)
+  color basic_font
 article
   line-height 1.75
 
@@ -43,12 +46,14 @@ hr
 .fright
   float right
 
-@media only screen and (max-width: 800px)
+@media screen_breakpoint_one
   body
     font-size 90%
 
-@media only screen and (max-width: 600px)
+@media screen_breakpoint_three
   body
     font-size 80%
-  #main
-    padding 0
+
+@media screen_breakpoint_four
+  body
+    font-size 75%

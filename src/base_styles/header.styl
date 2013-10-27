@@ -1,6 +1,8 @@
 /*
 * HEADER
 */
+@import '../theme_styles/colors.styl'
+@import '../theme_styles/mediaqueries.styl'
 
 .main-header
   margin-top 1%
@@ -34,7 +36,7 @@
     top 0
     z-index 1
   .site-title a
-    color rgb(45, 45, 45)
+    color basic_font
     font-size 130%
     font-weight 600
     letter-spacing -2px
@@ -43,10 +45,17 @@
   display inline
 
 #main-nav
-  background-color rgb(97, 191, 26)
+  background-color vihreat_de_grona
+  border 1px solid dark_brown
+  box-shadow inset 0 1px 1px rgba(255, 255, 255, 0.2)
+  color white
+  cursor pointer
+  margin 0 0 1%
+  position relative
+  text-shadow 0 1px 1px rgba(0, 0, 0, 0.4)
   z-index 2
   a
-    color #fff
+    color white
     display block
     float left
     font-size 90%
@@ -54,28 +63,47 @@
     padding .8em
     text-transform uppercase
   a:hover, ul li.current-menu-item a,ul li.current_page_ancestor a, ul li.current-menu-ancestor a, ul li.current_page_item a, ul li:hover > a
-    background-color rgb(97, 191, 26)
+    background-color vihreat_de_grona
     box-shadow inset 0 0 4px rgba(0, 0, 0, 0.2)
-  ul li ul
-    background-color #fff
-    border-bottom 2px solid #61bf1a
-    left 0px
-    position absolute
-    top 100%
-    width 190px
+  ul
+    li
+      ul
+        background-color white
+        border-bottom 2px solid vihreat_de_grona
+        left 0px
+        position absolute
+        top 100%
+        width 100%
+        li
+          border-bottom 1px solid grayish
+          border-left 1px solid grayish
+          border-right 1px solid grayish
+          float none
+          a
+            background-color white
+            color basic_font
+            float none
+            font-size 80%
+            height 100%
+            padding 0.7em
+            text-transform capitalize
+          &:hover > a
+            background-color grayish
+            box-shadow none
+            color vihreat_de_grona
+      &:hover ul
+        display block
 
-@media only screen and (max-width: 800px)
+@media screen_breakpoint_one
   .main-header
     .hgroup-wrap
       .site-titles
         text-align right
 
-@media only screen and (max-width: 767px)
+@media screen_breakpoint_two
   #main-nav
     height auto
     padding 2%
-
-@media only screen and (max-width: 767px)
   .main-header
     .hgroup-wrap
       .touko-head

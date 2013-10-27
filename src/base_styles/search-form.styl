@@ -1,9 +1,13 @@
 /*
 * SEARCH FORM
 */
+@import '../theme_styles/colors.styl'
+@import '../theme_styles/mediaqueries.styl'
+
 .searchform
   .search-input
-    background-color rgb(249, 249, 249)
+    background-color grayish
+    background-color grayish_alpha
     border 1px solid rgba(140, 140, 140, 0.5)
     border-radius 3px
     height auto
@@ -11,4 +15,5 @@
     width 100%
     &:focus
       background-color white
-      border-color rgba(30, 30, 240,0.5)
+      border-color focus_color
+      border-color focus_color_alpha

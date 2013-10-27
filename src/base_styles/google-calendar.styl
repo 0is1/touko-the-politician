@@ -1,12 +1,14 @@
 /*
 * GOOGLE CALENDAR
 */
+@import '../theme_styles/colors.styl'
+@import '../theme_styles/mediaqueries.styl'
+@import '../theme_styles/variables.styl'
 
-event_li_width = 94/3% // 3 horizontal li elements - 2% margin in each
 
 .google-calendar
-  background-color rgb(168, 83, 31)
-  background-color rgba(168, 83, 31, 0.5)
+  background-color reddish
+  background-color reddish_alpha
   margin 0 0 2%
   padding 2%
   .gce-widget-list
@@ -15,16 +17,16 @@ event_li_width = 94/3% // 3 horizontal li elements - 2% margin in each
     > li
       float left
       margin 0 2% 2% 0
-      width event_li_width
+      width gce_event_li_width
     .gce-list-event
       background-color transparent
       font-weight 600
     .gce-list-title
       border-bottom 1px solid rgb(45, 45, 45)
     p span, div span
-      color rgb(85, 68, 0)
+      color dark_brown
 
-@media only screen and (max-width: 800px)
+@media screen_breakpoint_one
   .google-calendar
     .gce-list
       > li

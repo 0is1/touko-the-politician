@@ -1,6 +1,9 @@
 /*
 * FACEBOOK AND TWITTER PAGES
 */
+@import '../theme_styles/colors.styl'
+@import '../theme_styles/mediaqueries.styl'
+
 .social-media-boxes
   margin 2% 0
   > div
@@ -31,10 +34,10 @@
   font-size 95%
 
 .facebook-box
-  background-color rgb(247, 247, 247)
+  background-color grayish
 
 .twitter-page
-  background-color rgba(247, 247, 247, 0.5)
+  background-color grayish_alpha
   a
     color rgb(51, 51, 51)
   > section
@@ -76,7 +79,7 @@
       &:first-of-type
         border-left none
       &:hover span
-        color rgb(51, 51, 51)
+        color basic_font
       span
         color #999
         display block
@@ -84,8 +87,9 @@
         text-transform uppercase
     .follow-button
       float right
+      margin-top 4px
 
-@media only screen and (max-width: 800px)
+@media screen_breakpoint_one
   .social-media-boxes
     float none
     width 100%

@@ -1,14 +1,18 @@
 /*
 * MAIN
 */
+@import '../theme_styles/colors.styl'
+@import '../theme_styles/mediaqueries.styl'
+@import '../theme_styles/variables.styl'
+
 .container
-  max-width 1018px
+  max-width content_max_width
 .wrapper
   background-color transparent
   box-shadow none
   margin 0 auto
-  max-width 1018px
-  min-width 300px
+  max-width content_max_width
+  min-width content_min_width
 
 .entry-content p
   margin-bottom 2%
@@ -19,14 +23,15 @@ ul
   margin 0
 
 #main
-  background-color rgba(248, 248, 248, 0.5)
+  background-color content_bg_color
+  background-color content_bg_color_alpha
   box-shadow 0 1px 2px rgba(0, 0, 0, 0.2)
 
-@media only screen and (max-width: 767px)
+@media screen_breakpoint_two
   .one-column-template .container, .container
     width 100%
 
-@media only screen and (max-width: 600px)
+@media screen_breakpoint_three
   #main
     padding 0
   .one-column-template .container, .container

@@ -2,16 +2,19 @@
 * SOCIAL MEDIA ICONS
 */
 
+@import '../theme_styles/colors.styl'
+@import '../theme_styles/mediaqueries.styl'
+
 .icon-facebook-rect
-  color #3b5998
+  color fb_color
 .icon-instagram
-  color #3f729b
-.icon-twitter-bird
-  color #00acee
+  color instagram_color
 .icon-rss
-  color #ee802f
+  color rss_color
+.icon-twitter-bird
+  color twitter_color
 .icon-wordpress
-  color #21759b
+  color wp_color
 
 .social-media-icons
   li
@@ -21,8 +24,9 @@
       font-size 140%
       &:hover
         border-bottom 2px solid #777
+        color inherit
 
-@media only screen and (max-width: 600px)
+@media screen_breakpoint_three
   .social-media-icons
     li a
       font-size 200%

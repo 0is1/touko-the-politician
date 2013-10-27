@@ -1,6 +1,8 @@
 /*
 * GRID
 */
+
+@import '../theme_styles/mediaqueries.styl'
 [class*="grid-"]
   position relative
 
@@ -16,6 +18,6 @@
     margin 1% 1% 0 0
   &:nth-of-type(odd)
     margin 1% 0 0 0
-@media only screen and (max-width: 800px)
+@media screen_breakpoint_one
   .grid-50-with-gap
     width 100%
