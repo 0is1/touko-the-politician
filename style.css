@@ -254,13 +254,8 @@ hr {
   width: 50%;
 }
 .grid-50-with-gap {
-  width: 49%;
-}
-.grid-50-with-gap:nth-of-type(even) {
-  margin: 1% 1% 0 0;
-}
-.grid-50-with-gap:nth-of-type(odd) {
   margin: 1% 0 0 0;
+  width: 49%;
 }
 @media only screen and (max-width: 800px) {
   .grid-50-with-gap {
