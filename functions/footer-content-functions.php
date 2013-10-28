@@ -16,6 +16,17 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 <?php
+  add_filter('add_google_analytics', 'add_google_analytics', 10, 1);
+
+  function add_google_analytics($id){
+    echo "<script>
+          var _gaq=[['_setAccount','".$id."'],['_trackPageview']];
+          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>";
+  }
+
   add_action('add_footer_content', 'add_footer_content');
 
   function add_footer_content(){
