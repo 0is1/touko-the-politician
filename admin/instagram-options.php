@@ -66,14 +66,15 @@ if ( !defined('ABSPATH')) exit;
   </div>
   <?php
     if (get_option('instagram-access-token') === false && isset($_GET['code'])) :
+      $callback_url = get_home_url().'/wp-admin/themes.php?page=touko_theme_options';
       $response = wp_remote_post("https://api.instagram.com/oauth/access_token",
         array(
           'body' => array(
             'code' => $_GET['code'],
             'response_type' => 'authorization_code',
-            'redirect_uri' => 'http://localhost:8888/touko/wordpress/wp-admin/themes.php?page=touko_theme_options',
-            'client_id' => 'c7661e722d8643f8af4f0699517c7290',
-            'client_secret' => '3793b5e4d1274a439b0b3ad369298360',
+            'redirect_uri' => $callback_url,
+            'client_id' => $options['instagram_api_key'],
+            'client_secret' => $options['instagram_api_secret'],
             'grant_type' => 'authorization_code',
           ),
           'sslverify' => apply_filters('https_local_ssl_verify', false)
