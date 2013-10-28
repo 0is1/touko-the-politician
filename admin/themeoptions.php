@@ -60,11 +60,16 @@ function touko_register_settings() {
       <h1><?php _e( 'Teema-asetukset', 'touko' );?></h1>
      <form class="touko-theme-options-form pure-form pure-form-aligned" method="post" action="options.php">
      <?php
+
       // load newsfeed options template
       get_template_part('admin/newsfeed', 'options');
+
       // load social media options template
       get_template_part('admin/socialmedia', 'options');
       get_template_part('admin/instagram', 'options');
+
+      // load other admin stuff
+      get_template_part('admin/mixed', 'options');
 
       submit_button();?>
       </form>
@@ -171,6 +176,15 @@ function touko_register_settings() {
     if ( isset( $input[ 'rss_page_url' ] ) ) {
       $input_validated[ 'rss_page_url' ] = esc_url_raw($input[ 'rss_page_url' ]);
     }
+
+    /**
+    * Validation for other
+    */
+    isset($input[ 'enable_google_analytics' ]) ? $input_validated[ 'enable_google_analytics' ] = true : $input_validated[ 'enable_google_analytics' ] = false;
+    if ( isset( $input[ 'google_analytics_id' ] ) ) {
+      $input_validated[ 'google_analytics_id' ] = $input['google_analytics_id'];
+    }
+
       //Clearing the theme option cache
     if(function_exists('clear_transitions')) clear_transitions();
     return $input_validated;
