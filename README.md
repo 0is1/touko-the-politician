@@ -8,6 +8,9 @@ Custom Wordpress-theme for toukoaalto.fi -site
 ### TODO
 * Lot of things...
 * (Mobile) optimization is most urgent
+* Error handling
+* Code optimization
+* Documentation
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
