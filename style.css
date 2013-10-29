@@ -399,6 +399,11 @@ hr {
 }
 
 /*
+* IE FIXES
+* TODO...
+*/
+
+/*
 * MAIN
 */
 .container {
@@ -597,7 +602,7 @@ ul {
   z-index: 1;
 }
 .featured-text {
-  background-color: #c5c5c5;
+  background-color: transparent;
   background-color: rgba(197,197,197,0.35);
   bottom: 15%;
   font-size: 95%;
