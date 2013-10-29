@@ -80,7 +80,7 @@ module.exports = function(grunt) {
         banner: '<%= tag.banner %>'
       },
       build: {
-        src: '<%= project.src %>/main.js',
+        src: '<%= project.src %>/{,*/}*.js',
         dest: 'js/main.min.js'
       }
     },
@@ -89,21 +89,12 @@ module.exports = function(grunt) {
         options: {
           paths: ['.'],
           compress: false,
-          // linenos: true,
           import: ['nib'],
           urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
           banner: '<%= tag.css %>',
-          // use: [
-          //   require('fluidity') // use stylus plugin at compile time
-          // ]//,
-          // import: [      //  @import 'foo', 'bar/moo', etc. into every .styl file
-          //   'foo',       //  that is compiled. These might be findable based on values you gave
-          //   'bar/moo'    //  to `paths`, or a plugin you added under `use`
-          // ]
         },
         files: {
           'style.css': ['<%= project.src %>/master.styl', '<%= project.src %>/base_styles/*.styl'] // 1:1 compile
-          // 'path/to/another.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile and concat into single file
         }
       },
       compile: {
@@ -112,17 +103,9 @@ module.exports = function(grunt) {
           import: ['nib'],
           urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
           banner: '<%= tag.css %>',
-          // use: [
-          //   require('fluidity') // use stylus plugin at compile time
-          // ]//,
-          // import: [      //  @import 'foo', 'bar/moo', etc. into every .styl file
-          //   'foo',       //  that is compiled. These might be findable based on values you gave
-          //   'bar/moo'    //  to `paths`, or a plugin you added under `use`
-          // ]
         },
         files: {
           'style.css': ['<%= project.src %>/master.styl', '<%= project.src %>/base_styles/*.styl'] //, // 1:1 compile
-          //'path/to/another.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile and concat into single file
         }
       }
     },
