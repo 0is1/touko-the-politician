@@ -22,6 +22,8 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Support to:
   * Facebook-page (like box)
   * Facebook-page posts
+* TODO:
+  * [Real time updates](https://developers.facebook.com/docs/graph-api/real-time-updates)
 
 #### [Twitter-api-php](https://github.com/J7mbo/twitter-api-php)
 * Support to:
