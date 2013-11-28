@@ -83,6 +83,7 @@ add_action( 'loop_content', 'the_loop', 10 );
 /**
  * Shows the loop content
  * Now we have only this one loop in this theme, all other page-types are looped in travelify
+ * See: functions/content-loop-functions.php
  */
 function the_loop() {
   if( is_search()){

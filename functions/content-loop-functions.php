@@ -101,33 +101,24 @@ add_action( 'loop_for_search', 'loop_for_search', 10 );
  */
   function loop_for_search() {
     global $post;
-    if( have_posts() ) {
+    if( have_posts() ) { ?>
+    <h1><?php _e('Hakutulokset sanoilla: ', 'touko' );?><?php echo get_search_query(); ?></h1>
+    <?php
       while( have_posts() ) {
         the_post();
 
         do_action( 'travelify_before_post' );
   ?>
-    <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <section id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="search-results">
       <article>
-
-        <?php do_action( 'travelify_before_post_header' ); ?>
-
         <header class="entry-header">
-            <h2 class="entry-title">
-              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
-            </h2><!-- .entry-title -->
-          </header>
-
-          <?php do_action( 'travelify_after_post_header' ); ?>
-
-          <?php do_action( 'travelify_before_post_content' ); ?>
-
-          <div class="entry-content clearfix">
-            <?php the_excerpt(); ?>
-          </div>
-
-          <?php do_action( 'travelify_after_post_content' ); ?>
-
+          <h2 class="entry-title">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
+          </h2><!-- .entry-title -->
+        </header>
+        <div class="entry-content clearfix">
+          <?php the_excerpt(); ?>
+        </div>
       </article>
     </section>
   <?php
@@ -137,10 +128,12 @@ add_action( 'loop_for_search', 'loop_for_search', 10 );
     }
     else {
       ?>
-      <h1 class="entry-title"><?php _e('Ei hakutuloksia :-/', 'touko' ); ?></h1>
-      <p class="search-again"><?php _e('Voit yrittää uudestaan:', 'touko' ); ?></p>
-      <?php get_search_form(); ?>
-        <?php
+      <section class="no-search-results">
+        <h1 class="entry-title"><?php _e('Ei hakutuloksia sanoilla: ', 'touko' );?>"<?php echo get_search_query();?>" :-/</h1>
+        <p class="search-again"><?php _e('Voit yrittää uudestaan:', 'touko' ); ?></p>
+        <?php get_search_form(); ?>
+      </section>
+    <?php
      }
   }
 ?>
