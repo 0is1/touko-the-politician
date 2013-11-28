@@ -124,6 +124,11 @@ a img {
 .credits {
   float: right;
 }
+@media only screen and (max-width: 767px) {
+  .credits {
+    float: left;
+  }
+}
 
 /*
 * GLOBAL
@@ -134,6 +139,7 @@ a img {
   box-sizing: border-box;
 }
 body,
+article,
 h1,
 h2,
 h3,
@@ -146,8 +152,13 @@ p,
 body {
   background: url("images/touko-aalto.png") 0 100% fixed no-repeat #ecf0f1;
   color: #333;
-  font-size: 100%;
   line-height: 1.5;
+}
+body,
+input,
+textarea,
+article {
+  font-size: 100%;
 }
 h1 {
   font-size: 200%;
@@ -189,6 +200,10 @@ hr {
 }
 .fright {
   float: right;
+}
+::selection {
+  background: #61bf1a;
+  color: #2d2d2d;
 }
 @media only screen and (max-width: 800px) {
   body {
@@ -423,6 +438,16 @@ hr {
 .entry-content p:last-of-type {
   margin-bottom: 0;
 }
+.entry-title a:hover,
+.entry-title a:focus,
+.entry-title a:active {
+  color: #61bf1a;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
 ul {
   margin: 0;
 }
@@ -593,6 +618,12 @@ ul {
   border-color: #1e1ef0;
   border-color: rgba(30,30,240,0.5);
 }
+.no-search-results .entry-title {
+  padding: 0;
+}
+.no-search-results .search-again {
+  margin: 2% 0;
+}
 
 /*
 * SLIDER
@@ -678,6 +709,9 @@ ul {
 }
 .icon-wordpress {
   color: #21759b;
+}
+.icon-euro {
+  color: #61bf1a;
 }
 .social-media-icons li {
   display: inline-block;

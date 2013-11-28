@@ -7,14 +7,15 @@
 *
   box-sizing border-box
 
-body, h1, h2, h3, h4, h5, p, .pure-u
+body, article, h1, h2, h3, h4, h5, p, .pure-u
   font-family 'Open Sans', 'Helvetica Neue', sans-serif
 
 body
   background url(images/touko-aalto.png) 0 100% fixed no-repeat rgb(236, 240, 241)
   color #333
-  font-size 100%
   line-height 1.5
+body, input, textarea, article
+  font-size 100%
 h1
   font-size 200%
 h2
@@ -45,6 +46,10 @@ hr
 
 .fright
   float right
+
+::selection
+  background vihreat_de_grona
+  color basic_font
 
 @media screen_breakpoint_one
   body
