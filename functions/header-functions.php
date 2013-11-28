@@ -87,20 +87,29 @@ function add_social_media_icons(){
   $elements = array(
     'facebook_page_url' => $theme_settings['facebook_page_url'],
     'twitter_page_url' => $theme_settings['twitter_page_url'],
-    'rss_page_url' => $theme_settings['rss_page_url']
+    'rss_page_url' => $theme_settings['rss_page_url'],
+    'donate_url' => $theme_settings['donate_url']
   );
   $social_links = array(
-    'icon-facebook-rect'    => 'facebook_page_url',
-    'icon-twitter-bird'     => 'twitter_page_url',
-    'icon-rss'     => 'rss_page_url'
+    'icon-facebook-rect'  => 'facebook_page_url',
+    'icon-twitter-bird' => 'twitter_page_url',
+    'icon-rss'  => 'rss_page_url',
+    'icon-euro' => 'donate_url'
   );
   if (!$social_media_icons = get_transient('social_media_icons')){
     $social_media_icons = "<ul class='social-media-icons'>";
     foreach($social_links as $key => $value){
       $title_parts = explode("-", $key);
       if (!empty( $elements[$value])) {
-        $social_media_icons .=
-        '<li><a class="'.strtolower($key).'" href="'.esc_url($elements[$value]).'" title="'.sprintf( esc_attr__( '%1$s @ %2$s', 'touko' ), get_bloginfo( 'name' ), ucfirst($title_parts[1]) ).'" target="_blank"></a></li>';
+        // HACK HACK HACK
+        if($title_parts[1] == 'euro'){
+          $social_media_icons .=
+          '<li><a class="'.strtolower($key).'" href="'.esc_url($elements[$value]).'" title="'.__( "Lahjoita Toukon vaalikampanjaan", "touko" ).'" target="_blank"></a></li>';
+        }
+        else{
+          $social_media_icons .=
+          '<li><a class="'.strtolower($key).'" href="'.esc_url($elements[$value]).'" title="'.sprintf( esc_attr__( '%1$s @ %2$s', 'touko' ), get_bloginfo( 'name' ), ucfirst($title_parts[1]) ).'" target="_blank"></a></li>';
+        }
       }
     }
     $social_media_icons .= "</ul>";
