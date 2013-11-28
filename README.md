@@ -3,7 +3,7 @@
 Custom Wordpress-theme for toukoaalto.fi -site
 
 ## Work in progress
-* If you spot a bug, please tell about it :)
+* If you spot a bug, please tell about it -> jannejuhani@gmail.com :)
 
 ### TODO
 * Lot of things...
@@ -11,6 +11,7 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Error handling
 * Code optimization
 * Documentation
+* Admin panel styles
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
@@ -33,6 +34,12 @@ Custom Wordpress-theme for toukoaalto.fi -site
 #### [Instagram-PHP-API](https://github.com/cosenary/Instagram-PHP-API)
 * Support to:
   * User photofeed
+
+### Social media links
+* Facebook
+* Twitter
+* RSS
+* "Donate button"
 
 ### [Fontello](http://fontello.com/)
 
