@@ -49,4 +49,9 @@ if ( !defined('ABSPATH')) exit;
     <label for="touko_theme_options[rss_page_url]"><?php _e( 'RSS', 'touko' );?></label>
     <input type="text" name="touko_theme_options[rss_page_url]" value="<?php echo $options['rss_page_url'];?>"  />
   </div>
+  <div class="pure-control-group wrap donate">
+    <label for="touko_theme_options[donate_url]"><?php _e( 'Lahjoitusnappi', 'touko' );?></label>
+    <input type="text" name="touko_theme_options[donate_url]" value="<?php echo $options['donate_url'];?>"  />
+  </div>
 </div>
+

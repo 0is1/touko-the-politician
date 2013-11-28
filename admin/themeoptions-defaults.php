@@ -19,6 +19,8 @@ if ( !defined('ABSPATH')) exit;
 global $touko_the_politician_theme_options_defaults;
 $touko_the_politician_theme_options_defaults = array(
   'default_layout'                          => "no-sidebar-full-width",
+  'donate_url'                              => "", //donation button url
+  'enable_donate'                           => false, //do we enable donation button
   'enable_instagram'                        => false,
   'enable_newsfeed'                         => false, //do we add anything from the newsfeed to the homepage
   'enable_wp_posts_newsfeed'                => false, //do we add wp_posts feed to the homepage

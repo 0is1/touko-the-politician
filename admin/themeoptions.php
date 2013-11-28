@@ -176,6 +176,9 @@ function touko_register_settings() {
     if ( isset( $input[ 'rss_page_url' ] ) ) {
       $input_validated[ 'rss_page_url' ] = esc_url_raw($input[ 'rss_page_url' ]);
     }
+    if ( isset( $input[ 'donate_url' ] ) ) {
+      $input_validated[ 'donate_url' ] = esc_url_raw($input[ 'donate_url' ]);
+    }
 
     /**
     * Validation for other
