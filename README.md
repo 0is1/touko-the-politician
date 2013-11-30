@@ -12,6 +12,9 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Code optimization
 * Documentation
 * Admin panel styles
+* Add http://owlgraphic.com/owlcarousel/ or something similar
+* Add http://socialitejs.com/
+* Add http://salvattore.com/ or something similar
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
