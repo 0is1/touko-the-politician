@@ -113,7 +113,5 @@ function the_loop() {
   elseif( is_single() ) {
     travelify_theloop_for_single();
   }
-  else {
-    travelify_theloop_for_archive();
-  }*/
+*/
 }
