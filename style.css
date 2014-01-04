@@ -790,6 +790,9 @@ hr {
 #content .twitter-page-details a {
   color: #333;
 }
+#content .twitter-user-details h1 {
+  padding-bottom: 0;
+}
 .twitter-page {
   background-color: rgba(245,245,245,0.8);
 }
@@ -805,6 +808,7 @@ hr {
 .twitter-page .twitter-user-details {
   background-position: center;
   color: #fff;
+  padding: 2% 0;
   position: relative;
   text-align: center;
   text-shadow: 1px 1px 1px #141414;
@@ -819,7 +823,7 @@ hr {
 .twitter-page .twitter-user-details .twitter-page-img {
   float: none;
   display: block;
-  margin: 2% auto 0;
+  margin: 0 auto;
 }
 .twitter-page .twitter-user-details .twitter-page-img img {
   border: 2px solid #fff;
