@@ -42,7 +42,7 @@ if ( !defined('ABSPATH')) exit;
 
     ?>
   <div class="twitter-page fleft pure-u">
-    <section class="in-twitter">
+    <section class="in-twitter header">
       <figure class="newsfeed-icon twitter-logo">
         <i class="icon-twitter-bird"></i>
       </figure>
@@ -61,17 +61,17 @@ if ( !defined('ABSPATH')) exit;
     <section class="twitter-page-details">
       <ul>
         <li>
-          <a href="<?php echo $twitter_user_profile_link; ?>" title="<?php echo $twitter_user_nick;?>@<?php _e('Twiittiä','touko');?>">
+          <a href="<?php echo $twitter_user_profile_link; ?>" title="@<?php echo $twitter_user_nick;?> – <?php _e('Twiittiä','touko');?>">
             <strong><?php echo $twitter_user_statuses_count;?></strong><span><?php _e('Twiittiä', 'touko') ?></span>
           </a>
         </li>
         <li>
-          <a href="<?php echo $twitter_user_profile_link;?>/following" title="<?php echo $twitter_user_nick;?>@<?php _e('Seurattua','touko');?>">
+          <a href="<?php echo $twitter_user_profile_link;?>/following" title="@<?php echo $twitter_user_nick;?> – <?php _e('Seurattua','touko');?>">
             <strong><?php echo $twitter_user_friends_count;?></strong><span><?php _e('Seurattua', 'touko') ?></span>
           </a>
         </li>
         <li>
-          <a href="<?php echo $twitter_user_profile_link;?>/followers" title="<?php echo $twitter_user_nick;?>@<?php _e('Seuraajaa','touko');?>">
+          <a href="<?php echo $twitter_user_profile_link;?>/followers" title="@<?php echo $twitter_user_nick;?> – <?php _e('Seuraajaa','touko');?>">
             <strong><?php echo $twitter_user_followers_count;?></strong><span><?php _e('Seuraajaa', 'touko') ?></span>
           </a>
         </li>

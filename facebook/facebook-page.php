@@ -23,7 +23,7 @@ if ( !defined('ABSPATH')) exit;
 ?>
 <?php if (gettype($data) !== 'NULL') : ?>
   <div class="facebook-page facebook-box fleft pure-u">
-    <section class="in-facebook">
+    <section class="in-facebook header">
       <figure class="newsfeed-icon facebook-logo">
         <i class="icon-facebook-rect"></i>
       </figure>
