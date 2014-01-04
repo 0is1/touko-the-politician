@@ -18,17 +18,17 @@ if ( !defined('ABSPATH')) exit;
 /**
 * Load external files
 */
-require(get_stylesheet_directory() . '/functions/header-functions.php');
-require(get_stylesheet_directory() . '/functions/content-loop-functions.php');
-require(get_stylesheet_directory() . '/functions/main-content-functions.php');
-require(get_stylesheet_directory() . '/functions/social-media-content-functions.php');
-require(get_stylesheet_directory() . '/widgets.php' );
-require(get_stylesheet_directory() . '/functions/footer-content-functions.php');
+require_once(get_stylesheet_directory() . '/functions/header-functions.php');
+require_once(get_stylesheet_directory() . '/functions/content-loop-functions.php');
+require_once(get_stylesheet_directory() . '/functions/main-content-functions.php');
+require_once(get_stylesheet_directory() . '/functions/social-media-content-functions.php');
+require_once(get_stylesheet_directory() . '/widgets.php' );
+require_once(get_stylesheet_directory() . '/functions/footer-content-functions.php');
 /**
 * Load Admin Panel scripts
 */
-require(get_stylesheet_directory() . '/admin/themeoptions-defaults.php');
-require(get_stylesheet_directory() . '/admin/themeoptions.php');
+require_once(get_stylesheet_directory() . '/admin/themeoptions-defaults.php');
+require_once(get_stylesheet_directory() . '/admin/themeoptions.php');
 /**
 * Load Facebook scripts
 */
