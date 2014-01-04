@@ -11,10 +11,13 @@
     max-width 520px
     min-height 180px
     width 48%
+    .header
+      padding 2%
+      p
+        line-height 2
+
 
 .facebook-page
-  > section
-    padding 1%
   .in-facebook
     background-color rgb(237, 239, 244)
     border-bottom 1px solid rgb(216, 223, 234)
@@ -22,7 +25,6 @@
       font-size 80%
       font-weight 600
       margin 0
-      padding 1%
   .page-link
     margin-bottom 2%
   .fb-like
@@ -36,12 +38,13 @@
 .facebook-box
   background-color grayish
 
+// override parent theme
+#content
+  .twitter-page-details
+    a
+      color rgb(51, 51, 51)
 .twitter-page
   background-color grayish_alpha
-  a
-    color rgb(51, 51, 51)
-  > section
-    padding 1%
   .in-twitter
     background-color white
     border-bottom 1px solid rgba(0, 0, 0, 0.1)
@@ -49,7 +52,6 @@
       font-size 80%
       font-weight 600
       margin 0
-      padding 1%
   .twitter-user-details
     background-position center
     color white
@@ -87,7 +89,7 @@
         text-transform uppercase
     .follow-button
       float right
-      margin-top 4px
+      margin 4px 4px 0
 
 @media screen_breakpoint_one
   .social-media-boxes
