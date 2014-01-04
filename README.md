@@ -15,6 +15,14 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Add http://owlgraphic.com/owlcarousel/ or something similar
 * Add http://socialitejs.com/
 * Add http://salvattore.com/ or something similar
+* Add support to external rss feeds (in admin panel)
+  * Add rss url
+  * Add keyword (for example author)
+    * Scrape data by keyword
+  * Feeds to add:
+    * http://www.vihreat.fi/vihreablogi/rss
+    * http://toukoalto.puheenvuoro.uusisuomi.fi/feed/blog
+    * http://www.city.fi/blogit/10/feed
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
@@ -22,6 +30,8 @@ Custom Wordpress-theme for toukoaalto.fi -site
   * I'm going to replace all the dependencies in the future
 
 ### "Newsfeed"
+* TODO:
+  * Cache (~15min)
 #### [Facebook-php-sdk](https://github.com/facebook/facebook-php-sdk)
 * Support to:
   * Facebook-page (like box)
