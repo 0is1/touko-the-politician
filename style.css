@@ -776,6 +776,9 @@ hr {
   max-width: 100%;
   overflow: auto;
 }
+.facebook-user-details {
+  padding: 2% 2% 0;
+}
 .facebook-box,
 .twitter-page {
   border: 1px solid rgba(0,0,0,0.1);
