@@ -19,24 +19,14 @@ if ( !defined('ABSPATH')) exit;
 <?php get_header(); ?>
 
 <?php
-	/**
-	 * travelify_before_main_container hook
-	 */
-	do_action( 'travelify_before_main_container' );
-?>
+ /* Add opening div */
+ do_action('before_loop');
 
-<div id="container">
-	<?php
-		do_action( 'add_page_content' );
-	?>
+ /* Loop stuff */
+ do_action('loop_content');
 
-</div><!-- #container -->
-
-<?php
-	/**
-	 * travelify_after_main_container hook
-	 */
-	do_action( 'travelify_after_main_container' );
+ /* Close opening div */
+ do_action( 'after_loop' );
 ?>
 
 <?php get_footer(); ?>
