@@ -106,7 +106,6 @@ add_action( 'loop_for_search', 'loop_for_search', 10 );
     <?php
       while( have_posts() ) {
         the_post();
-
         do_action( 'travelify_before_post' );
   ?>
     <section id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="search-results">
@@ -136,4 +135,69 @@ add_action( 'loop_for_search', 'loop_for_search', 10 );
     <?php
      }
   }
+?>
+
+<?php
+/****************************************************************************************/
+
+add_action( 'loop_for_archive', 'loop_for_archive', 10 );
+/**
+ * Fuction to show the archive loop content.
+ */
+function loop_for_archive() {
+  global $post;
+
+  if( have_posts() ) {
+    while( have_posts() ) {
+      the_post();
+      do_action( 'travelify_before_post' );
+?>
+      <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <article>
+        <?php
+          if( has_post_thumbnail() ) {
+            $image = '';
+              $title_attribute = apply_filters( 'the_title', get_the_title( $post->ID ) );
+              $image .= '<figure class="post-featured-image">';
+              $image .= '<a href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">';
+              $image .= get_the_post_thumbnail( $post->ID, 'featured', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) ).'</a>';
+              $image .= '</figure>';
+              echo $image;
+          }
+        ?>
+          <header class="entry-header">
+            <h2 class="entry-title">
+              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
+            </h2><!-- .entry-title -->
+          </header>
+          <div class="entry-content clearfix">
+            <?php the_excerpt(); ?>
+          </div>
+          <div class="entry-meta-bar clearfix">
+            <div class="entry-meta">
+              <span class="author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
+              <span class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
+              <?php if( has_category() ) { ?>
+                <span class="category"><?php the_category(', '); ?></span>
+              <?php } ?>
+              <?php if ( comments_open() ) { ?>
+                <span class="comments"><?php comments_popup_link( __( 'Ei kommentteja', 'touko' ), __( '1 kommentti', 'touko' ), __( '% kommenttia', 'touko' ), '', __( 'Kommentointi ei sallittu', 'touko' ) ); ?></span>
+              <?php } ?>
+            </div><!-- .entry-meta -->
+            <?php
+            echo '<a class="readmore" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Jatka lukemista', 'touko' ).'</a>';
+            ?>
+          </div>
+        </article>
+      </section>
+      <?php
+        do_action( 'travelify_after_post' );
+    }
+  }
+  else { ?>
+    <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', 'touko' ); ?></h1>
+  <?php
+  }
+}
+/****************************************************************************************/
 ?>

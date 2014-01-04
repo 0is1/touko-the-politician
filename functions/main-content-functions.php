@@ -86,10 +86,13 @@ add_action( 'loop_content', 'the_loop', 10 );
  * See: functions/content-loop-functions.php
  */
 function the_loop() {
-  if( is_search()){
+  if( is_page() ) {
+    do_action('loop_the_page');
+  }
+  else if( is_search()){
     do_action('loop_for_search');
   }
-  else do_action('loop_the_page');
+  else do_action('loop_for_archive');
 
   // TODO: all these ->
 
