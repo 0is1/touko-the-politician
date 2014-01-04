@@ -36,7 +36,7 @@ function after_loop() {
 /* ------------------------------------------------------------------------ */
 add_action( 'loop_the_page', 'loop_the_page', 10 );
 /**
- * Fuction to show the page content.
+ * Function to show the page content.
  */
 function loop_the_page() {
   global $post;
@@ -77,10 +77,7 @@ if( have_posts() ) :
           ?>
         </div>
         <?php
-          do_action( 'travelify_after_post_content' );
-          do_action( 'travelify_before_comments_template' );
           comments_template();
-          do_action ( 'travelify_after_comments_template' );
         ?>
       </article>
     </section>
@@ -88,41 +85,41 @@ if( have_posts() ) :
     do_action( 'travelify_after_post' );
   endwhile;
 else : ?>
-  <h1 class="entry-title"><?php _e( 'No Posts Found.', 'travelify' ); ?></h1>
+  <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', 'touko' ); ?></h1>
 <?php endif;
 }
 ?>
 <?php
 /* ------------------------------------------------------------------------ */
 
-add_action( 'loop_for_search', 'loop_for_search', 10 );
 /**
- * Fuction to show the search results.
+ * Function to show the search results.
  */
-  function loop_for_search() {
+
+add_action( 'loop_for_search', 'loop_for_search', 10 );
+
+function loop_for_search() {
     global $post;
     if( have_posts() ) { ?>
     <h1><?php _e('Hakutulokset sanoilla: ', 'touko' );?><?php echo get_search_query(); ?></h1>
     <?php
       while( have_posts() ) {
         the_post();
-        do_action( 'travelify_before_post' );
-  ?>
-    <section id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="search-results">
-      <article>
-        <header class="entry-header">
-          <h2 class="entry-title">
-            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
-          </h2><!-- .entry-title -->
-        </header>
-        <div class="entry-content clearfix">
-          <?php the_excerpt(); ?>
-        </div>
-      </article>
-    </section>
-  <?php
+        do_action( 'travelify_before_post' );?>
+        <section id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="search-results">
+          <article>
+            <header class="entry-header">
+              <h2 class="entry-title">
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
+              </h2><!-- .entry-title -->
+            </header>
+            <div class="entry-content clearfix">
+              <?php the_excerpt(); ?>
+            </div>
+          </article>
+        </section>
+        <?php
         do_action( 'travelify_after_post' );
-
       }
     }
     else {
@@ -136,22 +133,21 @@ add_action( 'loop_for_search', 'loop_for_search', 10 );
      }
   }
 ?>
-
 <?php
-/****************************************************************************************/
+/* ------------------------------------------------------------------------ */
 
-add_action( 'loop_for_archive', 'loop_for_archive', 10 );
-/**
- * Fuction to show the archive loop content.
+/*
+ * Function to show the archive loop content.
  */
-function loop_for_archive() {
-  global $post;
 
+add_action('loop_for_archive', 'loop_archive', 10);
+
+function loop_archive() {
+  global $post;
   if( have_posts() ) {
     while( have_posts() ) {
       the_post();
-      do_action( 'travelify_before_post' );
-?>
+      do_action( 'travelify_before_post' ); ?>
       <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <article>
         <?php
@@ -199,5 +195,4 @@ function loop_for_archive() {
   <?php
   }
 }
-/****************************************************************************************/
 ?>
