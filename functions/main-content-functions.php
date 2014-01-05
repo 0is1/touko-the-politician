@@ -37,7 +37,7 @@ function add_page_content() {
             <?php
             do_action('create_like_button', get_site_url());?>
             <?php the_content(); ?>
-            <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+            <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Sivut:', 'touko' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
           </div><!-- .entry-content -->
         </article><!-- #post -->
     <?php endwhile; ?>
@@ -82,7 +82,7 @@ function add_page_content() {
 add_action( 'loop_content', 'the_loop', 10 );
 /**
  * Shows the loop content
- * Now we have only this one loop in this theme, all other page-types are looped in travelify
+ * We don't have all loops yet in this theme, all other page-types are looped in travelify
  * See: functions/content-loop-functions.php
  */
 function the_loop() {
