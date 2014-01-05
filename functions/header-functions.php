@@ -15,6 +15,7 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 <?php
+
 function remove_parent_widgets(){
   // Unregister Travelify sidebars and widgets
   unregister_sidebar('travelify_left_sidebar');
@@ -22,8 +23,7 @@ function remove_parent_widgets(){
   unregister_sidebar('travelify_footer_widget');
 }
 add_action( 'widgets_init', 'remove_parent_widgets', 11 );
-?>
-<?php
+
 function register_custom_menus() {
   register_nav_menus(
     array(
@@ -32,8 +32,7 @@ function register_custom_menus() {
   );
 }
 add_action( 'init', 'register_custom_menus' );
-?>
-<?php
+
  /**
   * Browser specific queuing i.e
   */
@@ -43,20 +42,26 @@ if(preg_match('/(?i)msie [1-8]/',$user_agent)) {
 }
 
 /****************************************************************************************/
+
 // Load scripts
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
+
 // Add scripts
 function add_scripts() {
   wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array(), '0.9.0', true );
 }
+
 // Load Favicon in Header Section
 add_action('wp_head', 'blog_favicon');
+
 // add a favicon
 function blog_favicon() {
   echo '<link rel="shortcut icon" type="image/png" href="' . get_stylesheet_directory_uri() . '/images/favicon.png" />';
 }
+
 // Load css
 add_action('wp_head', 'add_css', 4);
+
 // Add css
 function add_css(){
   wp_enqueue_style('font', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', array(), '1.0.0', false);
@@ -76,7 +81,6 @@ function add_admin_styles() {
   wp_enqueue_style( 'pure_grid_style', 'http://yui.yahooapis.com/pure/0.3.0/forms-min.css', array(), '0.3.0', false);
   wp_enqueue_style( 'touko_admin_style', get_stylesheet_directory_uri() . '/admin/admin.css', array(), '0.1.0', false);
 }
-
 
 /****************************************************************************************/
 
@@ -144,12 +148,11 @@ if (!function_exists('featured_post_slider')) :
  */
 function featured_post_slider() {
   global $post;
-
   global $travelify_theme_options_settings;
-   $options = $travelify_theme_options_settings;
-
+  $options = $travelify_theme_options_settings;
   $featured_post_slider = '';
-  if( ( !$featured_post_slider = get_transient( 'featured_post_slider' ) ) && !empty( $options[ 'featured_post_slider' ] ) ) {
+
+  if( ( !$featured_post_slider = get_transient('featured_post_slider' ) ) && !empty( $options[ 'featured_post_slider' ] ) ) {
     $featured_post_slider .= '
     <section class="featured-slider"><div class="slider-cycle">';
       $get_featured_posts = new WP_Query( array(
