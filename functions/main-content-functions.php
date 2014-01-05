@@ -89,8 +89,11 @@ function the_loop() {
   if( is_page() ) {
     do_action('loop_the_page');
   }
-  else if( is_search()){
+  else if(is_search()){
     do_action('loop_for_search');
+  }
+  elseif(is_single()) {
+    do_action('loop_for_single');
   }
   else do_action('loop_for_archive');
 
@@ -106,12 +109,5 @@ function the_loop() {
     elseif( is_page_template( 'templates/template-blog-full-content.php' ) ) {
       travelify_theloop_for_template_blog_full_content();
     }
-    else {
-      travelify_theloop_for_page();
-    }
-  }
-  elseif( is_single() ) {
-    travelify_theloop_for_single();
-  }
 */
 }

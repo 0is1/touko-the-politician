@@ -34,17 +34,19 @@ function after_loop() {
 }
 
 /* ------------------------------------------------------------------------ */
-add_action( 'loop_the_page', 'loop_the_page', 10 );
+
 /**
  * Function to show the page content.
  */
+
+add_action( 'loop_the_page', 'loop_the_page', 10 );
+
 function loop_the_page() {
   global $post;
 
-if( have_posts() ) :
-  while( have_posts()) :
-      the_post();
-      do_action( 'travelify_before_post' ); ?>
+  if( have_posts() ) :
+    while( have_posts()) :
+      the_post(); ?>
     <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <article>
       <?php do_action( 'travelify_before_post_header' ); ?>
@@ -53,8 +55,6 @@ if( have_posts() ) :
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
           </h2><!-- .entry-title -->
         </header>
-        <?php do_action( 'travelify_after_post_header' ); ?>
-        <?php do_action( 'travelify_before_post_content' ); ?>
         <div class="entry-content clearfix">
           <div class="social-media-buttons">
             <?php
@@ -82,7 +82,6 @@ if( have_posts() ) :
       </article>
     </section>
   <?php
-    do_action( 'travelify_after_post' );
   endwhile;
 else : ?>
   <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', 'touko' ); ?></h1>
@@ -96,7 +95,7 @@ else : ?>
  * Function to show the search results.
  */
 
-add_action( 'loop_for_search', 'loop_for_search', 10 );
+add_action('loop_for_search', 'loop_for_search', 10);
 
 function loop_for_search() {
     global $post;
@@ -104,8 +103,7 @@ function loop_for_search() {
     <h1><?php _e('Hakutulokset sanoilla: ', 'touko' );?><?php echo get_search_query(); ?></h1>
     <?php
       while( have_posts() ) {
-        the_post();
-        do_action( 'travelify_before_post' );?>
+        the_post(); ?>
         <section id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="search-results">
           <article>
             <header class="entry-header">
@@ -119,7 +117,6 @@ function loop_for_search() {
           </article>
         </section>
         <?php
-        do_action( 'travelify_after_post' );
       }
     }
     else {
@@ -136,18 +133,81 @@ function loop_for_search() {
 <?php
 /* ------------------------------------------------------------------------ */
 
-/*
- * Function to show the archive loop content.
+/**
+ * Function to show the single post content.
  */
 
-add_action('loop_for_archive', 'loop_archive', 10);
+add_action( 'loop_for_single', 'loop_for_single', 10 );
 
-function loop_archive() {
+function loop_for_single() {
   global $post;
   if( have_posts() ) {
     while( have_posts() ) {
       the_post();
-      do_action( 'travelify_before_post' ); ?>
+?>
+      <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <article>
+          <div class="entry-meta">
+            <span class="icon-user"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
+            <span class="icon-clock"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
+            <?php if( has_category() ) { ?>
+              <span class="icon-tag"><?php the_category(', '); ?></span>
+            <?php } ?>
+            <?php if ( comments_open() ) { ?>
+              <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', 'touko' ), __( '1 kommentti', 'touko' ), __( '% kommenttia', 'touko' ), '', __( 'Kommentointi ei sallittu', 'touko' ) ); ?></span>
+            <?php } ?>
+          </div><!-- .entry-meta -->
+          <header class="entry-header">
+            <h2 class="entry-title">
+              <?php the_title(); ?>
+            </h2><!-- .entry-title -->
+          </header>
+          <div class="entry-content clearfix">
+            <?php the_content();
+            if( is_single() ) {
+              $tag_list = get_the_tag_list( '', __( ', ', 'touko' ) );
+              if( !empty( $tag_list ) ) { ?>
+                <div class="icon-tags">
+                  <?php echo $tag_list; ?>
+                </div>
+              <?php }
+            }
+            wp_link_pages( array(
+            'before'            => '<div style="clear: both;"></div><div class="pagination clearfix">'.__( 'Sivut:', 'touko' ),
+            'after'             => '</div>',
+            'link_before'       => '<span>',
+            'link_after'        => '</span>',
+            'pagelink'          => '%',
+            'echo'              => 1
+               ) ); ?>
+          </div>
+          <?php
+            comments_template();
+          ?>
+        </article>
+      </section>
+    <?php
+    }
+  }
+  else { ?>
+    <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', 'touko' ); ?></h1>
+  <?php }
+} /* End of loop_for_single */
+?>
+<?php
+/* ------------------------------------------------------------------------ */
+
+/*
+ * Function to show the archive loop content.
+ */
+
+add_action('loop_for_archive', 'loop_for_archive', 10);
+
+function loop_for_archive() {
+  global $post;
+  if( have_posts() ) {
+    while( have_posts() ) {
+      the_post(); ?>
       <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <article>
         <?php
@@ -171,28 +231,87 @@ function loop_archive() {
           </div>
           <div class="entry-meta-bar clearfix">
             <div class="entry-meta">
-              <span class="author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
-              <span class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
+              <span class="icon-user"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
+              <span class="icon-clock"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
               <?php if( has_category() ) { ?>
-                <span class="category"><?php the_category(', '); ?></span>
+                <span class="icon-tags"><?php the_category(', '); ?></span>
               <?php } ?>
               <?php if ( comments_open() ) { ?>
-                <span class="comments"><?php comments_popup_link( __( 'Ei kommentteja', 'touko' ), __( '1 kommentti', 'touko' ), __( '% kommenttia', 'touko' ), '', __( 'Kommentointi ei sallittu', 'touko' ) ); ?></span>
+                <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', 'touko' ), __( '1 kommentti', 'touko' ), __( '% kommenttia', 'touko' ), '', __( 'Kommentointi ei sallittu', 'touko' ) ); ?></span>
               <?php } ?>
             </div><!-- .entry-meta -->
             <?php
-            echo '<a class="readmore" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Jatka lukemista', 'touko' ).'</a>';
+            echo '<a class="continue-reading" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Jatka lukemista', 'touko' ).'</a>';
             ?>
           </div>
         </article>
       </section>
       <?php
-        do_action( 'travelify_after_post' );
     }
   }
   else { ?>
     <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', 'touko' ); ?></h1>
   <?php
   }
+}
+?>
+<?php
+/**
+ * Template for comments and pingbacks.
+ *
+ * Used as a callback by wp_list_comments() for displaying the comments.
+ */
+add_action('site_comment', 'site_comment', 10);
+
+function site_comment( $comment, $args, $depth ) {
+  $GLOBALS['comment'] = $comment;
+  switch ( $comment->comment_type ) :
+    case 'pingback' :
+    case 'trackback' :
+    // Display trackbacks differently than normal comments.
+  ?>
+  <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+    <p><?php _e( 'Pingback:', 'touko' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Muokkaa)', 'touko' ), '<span class="edit-link">', '</span>' ); ?></p>
+  <?php
+      break;
+    default :
+    // Proceed with normal comments.
+    global $post;
+  ?>
+  <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+    <article id="comment-<?php comment_ID(); ?>" class="comment">
+      <header class="comment-meta comment-author vcard">
+        <?php
+          echo get_avatar( $comment, 44 );
+          printf( '<cite class="fn">%1$s %2$s</cite>',
+            // If current post author is also comment author, make it known visually.
+            ( $comment->user_id === $post->post_author ) ? '<span class="writer"> ' . __( 'Kirjoittaja:', 'touko' ) . '</span>' : '',
+            get_comment_author_link()
+          );
+          printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
+            esc_url( get_comment_link( $comment->comment_ID ) ),
+            get_comment_time( 'c' ),
+            /* translators: 1: date, 2: time */
+            sprintf( __( '%1$s – %2$s', 'touko' ), get_comment_date(), get_comment_time() )
+          );
+        ?>
+      </header><!-- .comment-meta -->
+
+      <?php if ( '0' == $comment->comment_approved ) : ?>
+        <p class="comment-awaiting-moderation"><?php _e( 'Kommenttisi odottaa moderaattorin hyväksyntää.', 'touko' ); ?></p>
+      <?php endif; ?>
+
+      <section class="comment-content comment">
+        <?php comment_text(); ?>
+        <?php edit_comment_link( __( 'Muokkaa', 'touko' ), '<p class="edit-link">', '</p>' ); ?>
+      </section><!-- .comment-content -->
+
+      <div class="reply">
+        <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Vastaa', 'touko' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+      </div><!-- .reply -->
+    </article><!-- #comment-## -->
+  <?php
+    break;
+  endswitch; // end comment_type check
 }
 ?>
