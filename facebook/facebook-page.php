@@ -16,8 +16,11 @@ if ( !defined('ABSPATH')) exit;
 ?>
 
 <?php
-  global $facebook_page_details, $touko_the_politician_theme_options_settings, $facebook_photos;
-  $data = $facebook_page_details;
+  global $touko_the_politician_theme_options_settings, $facebook_photos;
+  if (!get_transient('facebook_page_transient')) {
+    call_user_func('facebook_page_transient');
+  }
+  $data = get_transient('facebook_page_transient');
   $theme_settings = $touko_the_politician_theme_options_settings;
   $facebook_page_picture = $facebook_photos["data"][0]["picture"];
 ?>

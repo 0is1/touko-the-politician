@@ -38,25 +38,47 @@ $facebook->api($theme_settings["facebook_page_id"]); returns ->
     }
   }
 */
-  require_once(get_stylesheet_directory() . '/vendor/facebook/facebook.php');
 
-  global $facebook_page_details, $touko_the_politician_theme_options_settings;
-  $theme_settings = $touko_the_politician_theme_options_settings;
-
-  $config = array();
-  $config['appId'] = $theme_settings["facebook_app_id"];
-  $config['secret'] = $theme_settings["facebook_app_secret"];
-  $config['fileUpload'] = false; // optional
-  $facebook = new Facebook($config);
-  try{
-    $pageDetails = $facebook->api($theme_settings["facebook_page_id"]);
-    $facebook_page_details = $pageDetails;
-  } catch(FacebookApiException $e){
-    error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
-    error_log($e->getType()." – ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
-    error_log($e->getMessage().PHP_EOL, 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
-    error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
+if (!function_exists('get_facebook_page_data')) :
+/**
+ * Get data from Facebook API
+ */
+  function get_facebook_page_data(){
+    require_once(get_stylesheet_directory() . '/vendor/facebook/facebook.php');
+    global $touko_the_politician_theme_options_settings;
+    $theme_settings = $touko_the_politician_theme_options_settings;
+    $config = array();
+    $config['appId'] = $theme_settings["facebook_app_id"];
+    $config['secret'] = $theme_settings["facebook_app_secret"];
+    $config['fileUpload'] = false; // optional
+    $facebook = new Facebook($config);
+    try{
+      $pageDetails = $facebook->api($theme_settings["facebook_page_id"]);
+      return $pageDetails;
+    } catch(FacebookApiException $e){
+      error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
+      error_log($e->getType()." – ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
+      error_log($e->getMessage().PHP_EOL, 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
+      error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
+    }
   }
+endif;
 
+if (!function_exists('facebook_page_transient')) :
+/**
+ * Facebook page transient
+ *
+ * @uses set_transient and delete_transient
+ */
+function facebook_page_transient() {
+  if(!get_transient('facebook_page_transient')) {
+    $facebook_page_transient = get_facebook_page_data();
+    // Set 15 min cache
+    set_transient('facebook_page_transient', $facebook_page_transient, 900);
+  }
+}
+endif;
+
+facebook_page_transient();
 
 ?>
