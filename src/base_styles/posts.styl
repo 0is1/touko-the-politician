@@ -9,14 +9,51 @@
 .entry-header
   padding 0 2%
 
-.entry-content p
-  margin-bottom 2%
-  &:last-of-type
-    margin-bottom 0
+.entry-content
+  li
+    font-size 95%
+  p
+    margin-bottom 2%
+    &:last-of-type
+      margin-bottom 0
 
-.entry-title a:hover, .entry-title a:focus, .entry-title a:active
-  color vihreat_de_grona
-  transition all .3s ease-out
+.entry-title, .entry-meta
+  a
+    &:hover, &:focus, &:active
+      color vihreat_de_grona
+      transition all .3s ease-out
+
+.entry-title
+  a
+    font-size 90%
+
+.entry-meta
+  float left
+  font-size 75%
+  margin-top 1%
+  a
+    font-size 100%
+    padding-left .25rem
+
+.single
+  .entry-meta
+    background-color content_bg_color
+    border-bottom 1px solid border_color
+    float none
+    margin 0
+    padding 1% 2%
+
+// Parent theme override
+#content
+  .post
+    border-top 2px dashed border_color
+    padding 2% 0
+    &:first-child
+      border none
+      padding 0 0 2%
+    .entry-title
+      display inline-block
+      padding 2% 0 0
 
 // @media screen_breakpoint_two
 

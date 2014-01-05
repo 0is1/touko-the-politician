@@ -24,8 +24,11 @@ h3
   font-size 120%
 h4
   font-size 110%
-h1, h2, h3, h4, h5, h6
-  color basic_font
+// Parent theme overrid
+#content
+  h1, h2, h3, h4, h5, h6
+    color basic_font
+    line-height 1.5
 a
   color basic_link
 article
@@ -34,9 +37,8 @@ figure
   text-align left
 strong
   font-weight bold
-ul, #content ul
-  list-style-type none
-  margin 0
+ul
+  margin 0 0 2% 3%
 hr
   border none
   clear both

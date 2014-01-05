@@ -101,6 +101,22 @@ a img {
 }
 
 /*
+* POSTS
+*/
+#comments cite,
+#comments .writer {
+  font-size: 90%;
+}
+#comments .writer {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.comments-title {
+  font-size: 130%;
+}
+
+/*
 * FOOTER
 */
 .main-footer {
@@ -128,6 +144,50 @@ a img {
   .credits {
     float: left;
   }
+}
+
+/*
+* POSTS
+*/
+input[type="reset"],
+input[type="button"],
+input[type="submit"],
+.continue-reading {
+  background-color: #61bf1a;
+  background-color: rgba(97,191,26,0.8);
+  border: 1px solid #bebebe;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 90%;
+  line-height: 1.5;
+  margin: 0;
+  padding: 1% 2%;
+  text-transform: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  -webkit-transition: background-color 0.3s ease-out;
+  -moz-transition: background-color 0.3s ease-out;
+  -o-transition: background-color 0.3s ease-out;
+  -ms-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+  white-space: nowrap;
+}
+input[type="reset"]:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.continue-reading:hover {
+  background-color: #4dab06;
+}
+.continue-reading {
+  font-size: 80%;
+  padding: 1%;
 }
 
 /*
@@ -172,13 +232,14 @@ h3 {
 h4 {
   font-size: 110%;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
   color: #2d2d2d;
+  line-height: 1.5;
 }
 a {
   color: #5e7f64;
@@ -192,10 +253,8 @@ figure {
 strong {
   font-weight: bold;
 }
-ul,
-#content ul {
-  list-style-type: none;
-  margin: 0;
+ul {
+  margin: 0 0 2% 3%;
 }
 hr {
   border: none;
@@ -369,6 +428,9 @@ hr {
   background-color: #61bf1a;
   -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
   box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+}
+#main-nav ul {
+  margin: 0;
 }
 #main-nav ul li ul {
   background-color: #fff;
@@ -595,6 +657,9 @@ hr {
 .entry-header {
   padding: 0 2%;
 }
+.entry-content li {
+  font-size: 95%;
+}
 .entry-content p {
   margin-bottom: 2%;
 }
@@ -602,14 +667,48 @@ hr {
   margin-bottom: 0;
 }
 .entry-title a:hover,
+.entry-meta a:hover,
 .entry-title a:focus,
-.entry-title a:active {
+.entry-meta a:focus,
+.entry-title a:active,
+.entry-meta a:active {
   color: #61bf1a;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+}
+.entry-title a {
+  font-size: 90%;
+}
+.entry-meta {
+  float: left;
+  font-size: 75%;
+  margin-top: 1%;
+}
+.entry-meta a {
+  font-size: 100%;
+  padding-left: 0.25rem;
+}
+.single .entry-meta {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #bebebe;
+  float: none;
+  margin: 0;
+  padding: 1% 2%;
+}
+#content .post {
+  border-top: 2px dashed #bebebe;
+  padding: 2% 0;
+}
+#content .post:first-child {
+  border: none;
+  padding: 0 0 2%;
+}
+#content .post .entry-title {
+  display: inline-block;
+  padding: 2% 0 0;
 }
 
 /*
@@ -703,6 +802,10 @@ hr {
 .tweet-button {
   display: inline-block;
 }
+.fb_iframe_widget span,
+.fb_iframe_widget iframe {
+  min-width: 100%;
+}
 
 /*
 * SOCIAL MEDIA ICONS
@@ -724,6 +827,9 @@ hr {
 }
 .icon-euro {
   color: #61bf1a;
+}
+.social-media-icons {
+  margin: 0;
 }
 .social-media-icons li {
   display: inline-block;
@@ -749,7 +855,7 @@ hr {
   margin: 2% 0;
 }
 .social-media-boxes > div {
-  margin: 0 1% 1%;
+  margin: 0;
   max-width: 520px;
   min-height: 180px;
   width: 48%;
@@ -759,6 +865,12 @@ hr {
 }
 .social-media-boxes > div .header p {
   line-height: 2;
+}
+.social-media-boxes > div:last-of-type {
+  margin: 0 1% 1%;
+}
+.social-media-boxes .facebook-user-details {
+  padding: 2% 2% 0;
 }
 .facebook-page .in-facebook {
   background-color: #edeff4;
@@ -776,9 +888,6 @@ hr {
   max-width: 100%;
   overflow: auto;
 }
-.facebook-user-details {
-  padding: 2% 2% 0;
-}
 .facebook-box,
 .twitter-page {
   border: 1px solid rgba(0,0,0,0.1);
@@ -786,6 +895,9 @@ hr {
 }
 .facebook-box {
   background-color: #f5f5f5;
+}
+#content .twitter-page-details ul {
+  margin: 0;
 }
 #content .twitter-page-details a {
   color: #333;
@@ -866,6 +978,7 @@ hr {
     width: 100%;
   }
   .social-media-boxes > div {
+    margin: 0;
     width: 100%;
   }
 }
