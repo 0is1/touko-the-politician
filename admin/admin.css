@@ -4,6 +4,9 @@
 .touko-the-politician-admin .pure-control-group input{
   width: 40%;
 }
+.touko-the-politician-admin .pure-control-group input[type="checkbox"]{
+  width: auto;
+}
 .touko-the-politician-admin .redirect-url{
   display: block;
 }
