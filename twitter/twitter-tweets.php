@@ -16,9 +16,12 @@ if ( !defined('ABSPATH')) exit;
 ?>
 
 <?php
-  global $twitter_data, $touko_the_politician_theme_options_settings;
+  global $touko_the_politician_theme_options_settings;
   $theme_settings = $touko_the_politician_theme_options_settings;
-  $data = $twitter_data;
+  if (!get_transient('twitter_transient')) {
+    call_user_func('twitter_transient');
+  }
+  $data = get_transient('twitter_transient');
   if (gettype($data) !== 'NULL') :
     // Get user Twitter profile image
     if(isset($data[0]["user"]["profile_image_url"])) $twitter_user_image = $data[0]["user"]["profile_image_url"];
