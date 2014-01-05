@@ -1,7 +1,18 @@
 <?php
+
+// Exit if accessed directly
+if ( !defined('ABSPATH')) exit;
+
 /**
- * The template for displaying Comments.
+ * Comments Page Template
  *
+ *
+ * @file           comments.php
+ * @package        Touko The Politician
+ * @author         Janne Saarela
+ * @version        Release: 1.0
+ * @filesource     wp-content/themes/touko-the-politician/comments.php
+ * @since          available since Release 1.0
  */
 
 /*

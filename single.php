@@ -3,7 +3,7 @@
 if ( !defined('ABSPATH')) exit;
 
 /**
- * Page Template
+ * Single Page Template
  *
  *
  * @file           single.php
