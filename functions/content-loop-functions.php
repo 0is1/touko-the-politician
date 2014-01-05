@@ -35,6 +35,21 @@ function after_loop() {
 
 /* ------------------------------------------------------------------------ */
 
+add_action( 'add_social_media_buttons', 'add_social_media_buttons', 10 );
+/**
+ * Add social media buttons
+ */
+function add_social_media_buttons(){
+  echo '<div class="social-media-buttons">';
+  $blog_title = get_bloginfo('name');
+  $title = $blog_title .' – ' . the_title('','', false);
+  do_action('create_like_button', get_permalink());
+  do_action('add_tweet_button', get_permalink(), $title);
+  echo '</div>';
+}
+
+/* ------------------------------------------------------------------------ */
+
 /**
  * Function to show the page content.
  */
@@ -49,21 +64,13 @@ function loop_the_page() {
       the_post(); ?>
     <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <article>
-      <?php do_action( 'travelify_before_post_header' ); ?>
         <header class="entry-header">
           <h2 class="entry-title">
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
           </h2><!-- .entry-title -->
         </header>
         <div class="entry-content clearfix">
-          <div class="social-media-buttons">
-            <?php
-              $blog_title = get_bloginfo('name');
-              $title = $blog_title .' – ' . the_title('','', false);
-              do_action('create_like_button', get_permalink());
-              do_action('add_tweet_button', get_permalink(), $title);
-            ?>
-          </div>
+          <?php do_action('add_social_media_buttons'); ?>
           <?php the_content(); ?>
           <?php
             wp_link_pages( array(
@@ -163,6 +170,7 @@ function loop_for_single() {
             </h2><!-- .entry-title -->
           </header>
           <div class="entry-content clearfix">
+            <?php do_action('add_social_media_buttons'); ?>
             <?php the_content();
             if( is_single() ) {
               $tag_list = get_the_tag_list( '', __( ', ', 'touko' ) );
