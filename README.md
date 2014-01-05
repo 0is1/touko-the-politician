@@ -70,7 +70,7 @@ There's very basic grunt-file which have:
 * js-uglify
 
 ### Usage
-Install npm-packages (npm [Node Package Manager] needs to be installed in your system)
+Install npm-packages ([Node Package Manager](https://npmjs.org/) needs to be installed in your system)
 ```
 npm install
 ```
