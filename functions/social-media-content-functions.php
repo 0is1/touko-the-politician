@@ -39,7 +39,7 @@ if ( !defined('ABSPATH')) exit;
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=541746489212041";
+    js.src = "//connect.facebook.net/fi_FI/all.js#xfbml=1&appId=541746489212041";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, "script", "facebook-jssdk"));</script>';
   }
@@ -66,4 +66,5 @@ if ( !defined('ABSPATH')) exit;
     echo '<div class="tweet-button"><a href="https://twitter.com/share" class="twitter-share-button" data-url="' .$page_url.'" data-text="'.$title.'" data-count="none" data-via="toukoaalto">Twiittaa</a>
       </div>';
   }
+
 ?>
