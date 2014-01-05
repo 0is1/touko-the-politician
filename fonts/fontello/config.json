@@ -1,11 +1,35 @@
 {
-  "name": "social-media-icons",
+  "name": "touko-icons",
   "css_prefix_text": "icon-",
   "css_use_suffix": false,
   "hinting": true,
   "units_per_em": 1000,
   "ascent": 850,
   "glyphs": [
+    {
+      "uid": "8b80d36d4ef43889db10bc1f0dc9a862",
+      "css": "user",
+      "code": 59411,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "3db5347bd219f3bce6025780f5d9ef45",
+      "css": "tag",
+      "code": 59414,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a3f89e106175a5c5c4e9738870b12e55",
+      "css": "tags",
+      "code": 59412,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "85528017f1e6053b2253785c31047f44",
+      "css": "comment",
+      "code": 59413,
+      "src": "fontawesome"
+    },
     {
       "uid": "0d08dbb1dd648a43bdea81b7e6c9e036",
       "css": "location",
