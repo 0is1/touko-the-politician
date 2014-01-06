@@ -199,5 +199,8 @@ function touko_register_settings() {
 function clear_transitions(){
   delete_transient('social_media_icons');
   delete_transient('featured_post_slider');
+  delete_transient('facebook_page_posts_transient');
+  delete_transient('facebook_page_transient');
+  delete_transient('twitter_transient');
 }
 ?>
