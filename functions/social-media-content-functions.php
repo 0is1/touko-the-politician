@@ -63,7 +63,10 @@ if ( !defined('ABSPATH')) exit;
     echo '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
   }
   function create_tweet_button($page_url, $title) {
-    echo '<div class="tweet-button"><a href="https://twitter.com/share" class="twitter-share-button" data-url="' .$page_url.'" data-text="'.$title.'" data-count="none" data-via="toukoaalto">Twiittaa</a>
+    global $touko_the_politician_theme_options_settings;
+    $theme_settings = $touko_the_politician_theme_options_settings;
+    $twitter_username = $theme_settings['twitter_username'];
+    echo '<div class="tweet-button"><a href="https://twitter.com/share" class="twitter-share-button" data-url="' .$page_url.'" data-text="'.$title.'" data-count="none" data-via="'.$twitter_username.'">'.__("Twiittaa", "touko").'</a>
       </div>';
   }
 
