@@ -16,17 +16,21 @@ if ( !defined('ABSPATH')) exit;
 ?>
 
 <?php
-  global $facebook_data, $facebook_page_details, $facebook_photos, $touko_the_politician_theme_options_settings, $facebook_page_items_count;
+  global $facebook_photos, $touko_the_politician_theme_options_settings, $facebook_page_items_count;
+
+  if (!get_transient('facebook_page_posts_transient')) {
+    call_user_func('facebook_page_posts_transient');
+  }
+  $data = get_transient('facebook_page_posts_transient');
   $theme_settings = $touko_the_politician_theme_options_settings;
-  $data = $facebook_data;
   if (gettype($data) !== 'NULL') :
-    $page_details = $facebook_page_details;
+    if (!get_transient('facebook_page_transient')) {
+      call_user_func('facebook_page_transient');
+    }
+    $page_details = get_transient('facebook_page_transient');
     $facebook_page_name = $page_details["name"];
     $facebook_page_id = $page_details["id"];
     $facebook_page_picture = $facebook_photos["data"][0]["picture"];
-    // echo "<pre>";
-    // print_r($page_images);
-    // echo "</pre>";
     $fb_page_items = array();
     $facebook_page_items_count = 0;
     foreach( $data as $key => $value ) {
@@ -107,6 +111,7 @@ if ( !defined('ABSPATH')) exit;
           if(isset($fb_page_items[$i]["created_time"])) : ?>
           <?php
             $datetime = new DateTime($fb_page_items[$i]["created_time"]);
+            // Timezone hard coded at the moment
             $datetime->setTimezone(new DateTimeZone('Europe/Helsinki'));
           ?>
           <span class="datetime"><?php echo $datetime->format('d.m.Y H:i');?></span>
