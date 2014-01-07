@@ -249,7 +249,7 @@ function loop_for_archive() {
               <?php } ?>
             </div><!-- .entry-meta -->
             <?php
-            echo '<a class="continue-reading" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Jatka lukemista', 'touko' ).'</a>';
+            echo '<a class="btn" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Jatka lukemista', 'touko' ).'</a>';
             ?>
           </div>
         </article>
