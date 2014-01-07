@@ -127,6 +127,11 @@ a img {
 .main-footer a {
   color: #540;
 }
+.main-footer address:first-of-type {
+  border-bottom: 2px dashed #bebebe;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+}
 [class*="footer-widget"] {
   padding: 2%;
 }
@@ -152,7 +157,7 @@ a img {
 input[type="reset"],
 input[type="button"],
 input[type="submit"],
-.continue-reading {
+.btn {
   background-color: #61bf1a;
   background-color: rgba(97,191,26,0.8);
   border: 1px solid #bebebe;
@@ -182,13 +187,23 @@ input[type="submit"],
 input[type="reset"]:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover,
-.continue-reading:hover {
+.btn:hover {
   background-color: #4dab06;
   color: #fff;
 }
-.continue-reading {
+.btn {
   font-size: 80%;
   padding: 1%;
+}
+#content .campaign-links {
+  margin-top: 2%;
+}
+#content .campaign-links .btn {
+  color: #fff;
+  margin: 0 0 1% 1%;
+}
+#content .campaign-links .btn:hover {
+  color: #fff;
 }
 
 /*
@@ -666,6 +681,9 @@ hr {
 }
 .entry-content p:last-of-type {
   margin-bottom: 0;
+}
+.entry-content a {
+  text-decoration: none;
 }
 .entry-title a:hover,
 .entry-meta a:hover,

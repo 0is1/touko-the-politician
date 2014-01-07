@@ -6,7 +6,7 @@
 @import '../theme_styles/variables.styl'
 
 
-input[type="reset"], input[type="button"], input[type="submit"], .continue-reading
+input[type="reset"], input[type="button"], input[type="submit"], .btn
     background-color vihreat_de_grona
     background-color vihreat_de_grona_alpha
     border 1px solid border_color
@@ -30,10 +30,19 @@ input[type="reset"], input[type="button"], input[type="submit"], .continue-readi
       background-color button_hover_color
       color white
 
-.continue-reading
+.btn
   font-size 80%
   padding 1%
 
+// Parent theme override
+#content
+  .campaign-links
+    margin-top 2%
+    .btn
+      color white
+      margin 0 0 1% 1%
+      &:hover
+        color white
 // @media screen_breakpoint_two
 
 // @media screen_breakpoint_three
