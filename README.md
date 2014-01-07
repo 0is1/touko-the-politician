@@ -39,6 +39,7 @@ Custom Wordpress-theme for toukoaalto.fi -site
   * Facebook-page (like box)
   * Facebook-page posts
 * TODO:
+  * Posts number set in admin panel should correspond the total posts shown in home page
   * [Real time updates](https://developers.facebook.com/docs/graph-api/real-time-updates)
 
 #### [Twitter-api-php](https://github.com/J7mbo/twitter-api-php)
