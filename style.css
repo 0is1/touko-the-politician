@@ -205,6 +205,12 @@ input[type="submit"]:hover,
 #content .campaign-links .btn:hover {
   color: #fff;
 }
+@media only screen and (max-width: 767px) {
+  .btn {
+    display: block;
+    padding: 2% 0;
+  }
+}
 
 /*
 * GLOBAL
@@ -728,6 +734,12 @@ hr {
 #content .post .entry-title {
   display: inline-block;
   padding: 2% 0 0;
+}
+@media only screen and (max-width: 767px) {
+  .entry-meta {
+    float: none;
+    margin: 0 0 1%;
+  }
 }
 
 /*
