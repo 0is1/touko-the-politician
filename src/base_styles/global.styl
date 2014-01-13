@@ -29,6 +29,7 @@ h4
   h1, h2, h3, h4, h5, h6
     color basic_font
     line-height 1.5
+    padding-bottom 0
 a
   color basic_link
 article
@@ -58,6 +59,13 @@ hr
 @media screen_breakpoint_one
   body
     font-size 90%
+
+@media screen_breakpoint_two
+  // Parent theme override
+  #content
+    h1, h2, h3, h4, h5, h6
+      line-height 1.25
+      padding-bottom 0
 
 @media screen_breakpoint_three
   body
