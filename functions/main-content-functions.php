@@ -32,10 +32,9 @@ function add_page_content() {
   // If front page
   if (is_home() || is_front_page()) {
       while ( have_posts() ) : the_post(); ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <article id="home" <?php post_class(); ?>>
           <div class="entry-content">
-            <?php
-            do_action('create_like_button', get_site_url());?>
+            <?php do_action('add_social_media_buttons'); ?>
             <?php the_content(); ?>
             <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Sivut:', 'touko' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
           </div><!-- .entry-content -->
