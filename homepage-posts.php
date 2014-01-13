@@ -21,6 +21,7 @@ if ( !defined('ABSPATH')) exit;
 <?php
   $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $theme_settings['wp_blog_visible_posts_count']) );
   if($query->have_posts()) :
+    $i = 0;
     while($query->have_posts()) : $query->the_post();
     ?>
       <article class="post-<?php the_ID();?> grid-50-with-gap">
@@ -34,7 +35,14 @@ if ( !defined('ABSPATH')) exit;
           </div>
         </a>
       </article>
-  <?php
+      <?php
+        // add clearfix after every two post's
+        if ($i % 2 === 1 && $theme_settings['wp_blog_visible_posts_count'] > 2) { ?>
+          <hr class="clearfix">
+        <?php }
+      $i++;
+      ?>
+    <?php
     endwhile;
   endif;
 ?>
