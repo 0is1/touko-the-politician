@@ -23,6 +23,10 @@ if ( !defined('ABSPATH')) exit;
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="<?php echo home_url();?>">
+	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri();?>/images/touko-aalto.png">
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php
