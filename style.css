@@ -151,7 +151,7 @@ hr{border:none;clear:both;margin:0;width:100%}
 .entry-meta a{font-size:100%;padding-left:.25rem}
 .single .entry-meta{background-color:#f8f8f8;border-bottom:1px solid #bebebe;float:none;margin:0;padding:1% 2%}
 #home{background:none;-webkit-box-shadow:none;box-shadow:none;}
-#home .entry-content{padding:0}
+#home .entry-content{overflow:visible;padding:0}
 #content .post{border-top:2px dashed #bebebe;padding:2% 0;}
 #content .post:first-child{border:none;padding:0 0 2%}
 #content .post .entry-title{display:inline-block;padding:2% 0 0}
@@ -175,7 +175,7 @@ hr{border:none;clear:both;margin:0;width:100%}
 .social-media-buttons{padding:0 0 1%}
 .wrapper .social-media-buttons .fb_iframe_widget{display:inline-block;min-width:100px}
 .tweet-button{display:inline-block}
-.fb_iframe_widget span,.fb_iframe_widget iframe{min-width:100%}
+.fb_iframe_widget span,.fb_iframe_widget iframe{max-width:none;min-width:100%}
 
 .icon-facebook-rect{color:#3b5998}
 .icon-instagram{color:#3f729b}
