@@ -33,7 +33,7 @@ Custom Wordpress-theme for toukoaalto.fi -site
 ### "Newsfeed"
 * TODO:
   * Cache (~15min)
-    * Done to Facebook-page, Twitter-page and Tweets
+    * Done to Facebook-page & -posts, Twitter-page and Tweets
 
 #### [Facebook-php-sdk](https://github.com/facebook/facebook-php-sdk)
 * Support to:
