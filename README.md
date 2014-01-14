@@ -23,6 +23,7 @@ Custom Wordpress-theme for toukoaalto.fi -site
     * http://www.vihreat.fi/vihreablogi/rss
     * http://toukoalto.puheenvuoro.uusisuomi.fi/feed/blog
     * http://www.city.fi/blogit/10/feed
+* Add possibility to add Instagram link/icon in admin panel
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
