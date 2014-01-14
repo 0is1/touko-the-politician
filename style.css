@@ -62,7 +62,8 @@ hr{border:none;clear:both;margin:0;width:100%}
 }
 .google-calendar{background-color:#a8531f;background-color:rgba(168,83,31,0.5);margin:0 0 2%;padding:2%;}
 .google-calendar .gce-widget-list{font-size:90%}
-.google-calendar .gce-list > li{float:left;margin:0 2% 2% 0;width:31.333333333333332%}
+.google-calendar .gce-list > li{float:left;list-style:none;margin:0 2% 2% 0;width:31.333333333333332%;}
+.google-calendar .gce-list > li:nth-child(3n+4){clear:both}
 .google-calendar .gce-list .gce-list-event{background-color:transparent;font-weight:600}
 .google-calendar .gce-list .gce-list-title{border-bottom:1px solid #2d2d2d}
 .google-calendar .gce-list p span,.google-calendar .gce-list div span{color:#540}

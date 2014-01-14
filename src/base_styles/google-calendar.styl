@@ -16,8 +16,11 @@
   .gce-list
     > li
       float left
+      list-style none
       margin 0 2% 2% 0
       width gce_event_li_width
+      &:nth-child(3n+4)
+        clear both
     .gce-list-event
       background-color transparent
       font-weight 600
