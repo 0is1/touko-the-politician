@@ -109,24 +109,27 @@ add_action('loop_for_search', 'loop_for_search', 10);
 function loop_for_search() {
     global $post;
     if( have_posts() ) { ?>
-    <h1><?php _e('Hakutulokset sanoilla: ', 'touko' );?><?php echo get_search_query(); ?></h1>
+      <div class="search-results-container">
+      <h1><?php _e('Hakutulokset sanoilla: ', 'touko' );?><?php echo get_search_query(); ?></h1>
+      <?php
+        while( have_posts() ) {
+          the_post(); ?>
+          <section id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="search-results">
+            <article>
+              <header class="entry-header">
+                <h2 class="entry-title">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
+                </h2><!-- .entry-title -->
+              </header>
+              <div class="entry-content clearfix">
+                <?php the_excerpt(); ?>
+              </div>
+            </article>
+          </section>
+          <?php
+        } ?>
+      </div>
     <?php
-      while( have_posts() ) {
-        the_post(); ?>
-        <section id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="search-results">
-          <article>
-            <header class="entry-header">
-              <h2 class="entry-title">
-                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
-              </h2><!-- .entry-title -->
-            </header>
-            <div class="entry-content clearfix">
-              <?php the_excerpt(); ?>
-            </div>
-          </article>
-        </section>
-        <?php
-      }
     }
     else {
       ?>
