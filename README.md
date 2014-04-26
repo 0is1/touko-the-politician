@@ -13,6 +13,8 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Documentation
 * Admin panel styles
 * Add http://owlgraphic.com/owlcarousel/ or something similar
+  * In other words: replace the slider functionality from Travelify parent-theme
+  * Add "read more"-button in slider slides
 * Add http://socialitejs.com/
 * Add http://salvattore.com/ or something similar
 * Add support to external rss feeds (in admin panel)
@@ -24,6 +26,10 @@ Custom Wordpress-theme for toukoaalto.fi -site
     * http://toukoalto.puheenvuoro.uusisuomi.fi/feed/blog
     * http://www.city.fi/blogit/10/feed
 * Add possibility to add Instagram link/icon in admin panel
+* wp_deregister_script();
+  * jQuery
+* wp_deregister_style();
+  * travelify-theme style (untill parent theme is removed)
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
