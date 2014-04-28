@@ -45,7 +45,7 @@ function add_social_media_buttons(){
   if (is_home() || is_front_page()) {
     $title = $blog_title .' – ' . get_bloginfo('description');
   } else $title = $blog_title .' – ' . the_title('','', false);
-  do_action('create_like_button', get_permalink());
+  // do_action('create_like_button', get_permalink());
   do_action('add_tweet_button', get_permalink(), $title);
   echo '</div>';
 }
