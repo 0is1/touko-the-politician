@@ -34,7 +34,7 @@ function add_page_content() {
       while ( have_posts() ) : the_post(); ?>
         <article id="home" <?php post_class(); ?>>
           <div class="entry-content">
-            <?php do_action('add_social_media_buttons'); ?>
+            <?php do_action('add_social_media_buttons_home_page'); ?>
             <?php the_content(); ?>
             <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Sivut:', 'touko' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
           </div><!-- .entry-content -->
