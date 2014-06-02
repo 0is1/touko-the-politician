@@ -49,6 +49,9 @@ add_action( 'wp_enqueue_scripts', 'add_scripts' );
 // Add scripts
 function add_scripts() {
   wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array(), '0.9.0', true );
+  // if(is_page('TODO')){
+  //   wp_enqueue_script( 'vjs', '//vjs.zencdn.net/4.5/video.js', array(), '1.0.0', true );
+  // }
 }
 
 // Load Favicon in Header Section
@@ -65,6 +68,7 @@ add_action('wp_head', 'add_css', 4);
 // Add css
 function add_css(){
   wp_enqueue_style('font', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', array(), '1.0.0', false);
+  // wp_enqueue_style('vjs', '//vjs.zencdn.net/4.5/video-js.css', array(), '1.0.0', false);
   wp_enqueue_style( 'touko_icons_style', get_stylesheet_directory_uri() . '/fonts/fontello/css/touko-icons.css', array(), '1.0.0', false);
   wp_enqueue_style( 'touko_pure_grids_style', get_stylesheet_directory_uri() . '/vendor/styles/pure-grids-min.css', array(), '0.3.0', false);
 }
@@ -121,24 +125,25 @@ function add_social_media_icons(){
   }
   echo $social_media_icons;
 }
-if (!function_exists('pass_cycle_parameters')) :
-/**
- * Function to pass the slider effect parameters from php file to js file.
- */
-function pass_cycle_parameters() {
-  wp_localize_script(
-    'main',
-    'slider_values',
-    /* parameters hard coded at the moment */
-    array(
-      'transition_effect' => 'scrollLeft',
-      'transition_delay' => '9999999999',
-      'transition_duration' => '500'
-    )
-  );
-
-}
-endif;
+// if (!function_exists('pass_cycle_parameters')) :
+// /**
+//  * Function to pass the slider effect parameters from php file to js file.
+//  */
+// function pass_cycle_parameters() {
+//   if (is_home() || is_front_page()) {
+//     wp_localize_script(
+//       'main',
+//       'slider_values',
+//       /* parameters hard coded at the moment */
+//       array(
+//         'transition_effect' => 'scrollLeft',
+//         'transition_delay' => '9999999999',
+//         'transition_duration' => '500'
+//       )
+//     );
+//   }
+// }
+// endif;
 
 if (!function_exists('featured_post_slider')) :
 /**
