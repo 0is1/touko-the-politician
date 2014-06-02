@@ -43,7 +43,7 @@ if ( !defined('ABSPATH')) exit;
     </div>
     <div class="site-generator pure-u-1">
       <span class="copyright">Copyright © <?php echo date('Y'); ?>
-        <a href="<?php echo site_url();?>" title="<?php echo get_bloginfo('name');?>"><span><?php echo get_bloginfo('name');?></span></a>
+        <a href="<?php echo home_url();?>" title="<?php echo get_bloginfo('name');?>"><span><?php echo get_bloginfo('name');?></span></a>
       </span><!-- .copy -->
       <span class="credits"><?php _e('Kiitos:', 'touko');?> <a href="<?php echo esc_url( __('http://colorawesomeness.com/themes/travelify/'));?>" target="_blank" title="Color Awesomeness">Color Awesomeness</a> ja <a href="<?php echo esc_url( __('http://wordpress.org/')); ?>" target="_blank" title="WordPress">WordPress</a>
       </span>
