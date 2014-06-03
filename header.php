@@ -2,6 +2,8 @@
 // Exit if accessed directly
 if ( !defined('ABSPATH')) exit;
 
+global $touko_the_politician_theme_options_settings;
+$theme_settings = $touko_the_politician_theme_options_settings;
 /**
  * Header Template
  *
@@ -23,13 +25,16 @@ if ( !defined('ABSPATH')) exit;
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="fb:app_id" content="<?php echo $theme_settings['facebook_app_id'];?>">
 	<meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>">
+	<!-- <meta property="og:description" content=""> -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="<?php echo the_permalink();?>">
 	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri();?>/images/touko-aalto.png">
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php
+
 		/**
 		 * This hook is important for wordpress plugins and other many things
 		 */
@@ -42,8 +47,6 @@ if ( !defined('ABSPATH')) exit;
 	<div class="wrapper">
 		<header id="branding" class="main-header">
 			<?php
-				global $touko_the_politician_theme_options_settings;
-  			$theme_settings = $touko_the_politician_theme_options_settings;
   			add_action( 'travelify_header', 'travelify_headerdetails', 10 ); ?>
   			<?php $header_image = get_header_image();
 					if ( !empty($header_image)) { ?>
