@@ -54,6 +54,13 @@ function add_scripts() {
   // }
 }
 
+function dequeue_script_parent_theme_scripts() {
+   wp_dequeue_script( 'theme_functions' );
+   wp_dequeue_style('google_font_ubuntu');
+}
+
+add_action( 'wp_enqueue_scripts', 'dequeue_script_parent_theme_scripts', 9999 );
+
 // Load Favicon in Header Section
 add_action('wp_head', 'blog_favicon');
 
