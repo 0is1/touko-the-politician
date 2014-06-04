@@ -24,6 +24,21 @@ function remove_parent_widgets(){
 }
 add_action( 'widgets_init', 'remove_parent_widgets', 11 );
 
+function dequeue_script_parent_theme_scripts() {
+   // Remove Travelify scripts and styles
+   wp_dequeue_script( 'theme_functions' );
+   wp_dequeue_style('google_font_ubuntu');
+}
+
+add_action( 'wp_enqueue_scripts', 'dequeue_script_parent_theme_scripts', 9999 );
+
+function remove_parent_meta_boxes(){
+  // Remove Travelify admin metaboxes
+  remove_meta_box( 'siderbar-layout', 'page', 'advanced' );
+  remove_meta_box( 'siderbar-layout', 'post', 'advanced' );
+}
+add_action( 'add_meta_boxes', 'remove_parent_meta_boxes', 9999 );
+
 function register_custom_menus() {
   register_nav_menus(
     array(
@@ -53,13 +68,6 @@ function add_scripts() {
   //   wp_enqueue_script( 'vjs', '//vjs.zencdn.net/4.5/video.js', array(), '1.0.0', true );
   // }
 }
-
-function dequeue_script_parent_theme_scripts() {
-   wp_dequeue_script( 'theme_functions' );
-   wp_dequeue_style('google_font_ubuntu');
-}
-
-add_action( 'wp_enqueue_scripts', 'dequeue_script_parent_theme_scripts', 9999 );
 
 // Load Favicon in Header Section
 add_action('wp_head', 'blog_favicon');
