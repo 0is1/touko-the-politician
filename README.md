@@ -9,8 +9,11 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Lot of things...
 * (Mobile) optimization is most urgent
 * Error handling
+  * Especially with newsfeed
 * Code optimization
-* Documentation
+  * Facebook/Twitter in particular
+  * Minimize the number of .js- and .css -files
+* Theme documentation
 * Admin panel styles
 * Add http://owlgraphic.com/owlcarousel/ or something similar
   * In other words: replace the slider functionality from Travelify parent-theme
@@ -28,8 +31,10 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Add possibility to add Instagram link/icon in admin panel
 * wp_deregister_script();
   * jQuery
+    * If we don't need it
 * wp_deregister_style();
-  * travelify-theme style (untill parent theme is removed)
+  * travelify-theme style (until parent theme is removed)
+  * add all styles to touko-the-politician -theme css
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
@@ -79,7 +84,7 @@ There's very basic grunt-file which have:
 * js-uglify
 
 ### Usage
-Install npm-packages ([Node Package Manager](https://npmjs.org/) needs to be installed in your system)
+Install npm-packages ([Node.js](https://nodejs.org/) needs to be installed in your system)
 ```
 npm install
 ```
