@@ -63,7 +63,7 @@ add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
 // Add scripts
 function add_scripts() {
-  wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array(), '0.9.0', true );
+  wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array('jquery'), '0.9.0', true );
   // Add video support to particular page TODO:
   // if(is_page('TODO')){
   //   wp_enqueue_script( 'vjs', '//vjs.zencdn.net/4.5/video.js', array(), '1.0.0', true );
