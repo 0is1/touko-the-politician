@@ -5,9 +5,8 @@ Custom Wordpress-theme for toukoaalto.fi -site
 ## Work in progress
 * If you spot a bug, please tell about it -> jannejuhani@gmail.com :)
 
-### TODO
-* Lot of things...
-* (Mobile) optimization is most urgent
+### TODO (lots of things...)
+* (Mobile) optimization
 * Error handling
   * Especially with newsfeed
 * Code optimization
@@ -15,11 +14,11 @@ Custom Wordpress-theme for toukoaalto.fi -site
   * Minimize the number of .js- and .css -files
 * Theme documentation
 * Admin panel styles
-* Add http://owlgraphic.com/owlcarousel/ or something similar
+* Add [http://owlgraphic.com/owlcarousel/](http://owlgraphic.com/owlcarousel/) or something similar
   * In other words: replace the slider functionality from Travelify parent-theme
   * Add "read more"-button in slider slides
-* Add http://socialitejs.com/
-* Add http://salvattore.com/ or something similar
+* Add [http://socialitejs.com/](http://socialitejs.com/)
+* Add [http://salvattore.com/](http://salvattore.com/) or something similar to newsfeed
 * Add support to external rss feeds (in admin panel)
   * Add rss url
   * Add keyword (for example author)
