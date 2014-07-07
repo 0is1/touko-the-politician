@@ -49,18 +49,29 @@ if ( !defined('ABSPATH')) exit;
 
   // Twitter actions / filters
   add_filter('add_links_hashtags_to_tweet', 'process_tweet', 10, 1);
-  add_action('add_tweet_button_script', 'add_tweet_button_script', 1);
+  add_action('wp_enqueue_scripts', 'add_tweet_button_script', 1);
   add_action('add_tweet_button', 'create_tweet_button', 10, 2);
 
   // Method to add hyperlink html tags to any urls, twitter ids or hashtags in the tweet
   function process_tweet($text) {
-    $text = preg_replace('@(https?://([-\w\.]+)+(d+)?(/([\w/_\.]*(\?\S+)?)?)?)@', '<a href="$1">$1</a>',  $text );
-    $text = preg_replace("#(^|[\n ])@([^ \"\t\n\r<]*)#ise", "'\\1<a href=\"http://www.twitter.com/\\2\" >@\\2</a>'", $text);
-    $text = preg_replace("#(^|[\n ])\#([^ \"\t\n\r<]*)#ise", "'\\1<a href=\"http://twitter.com/#!/search/#\\2\" >#\\2</a>'", $text);
+    $text = preg_replace_callback('@(https?|ftp)://(-\.)?([^\s/?\.#-]+\.?)+(/[^\s]*)?$@iS',
+       function ($matches) {
+             return '<a href="' . $matches[0] . '">' . $matches[0] . '</a>';
+         }, $text);
+
+     $text = preg_replace_callback('/(^|[\n ])@([^0-9\s]\w+)/',
+       function ($matches) {
+             return '<a href="https://www.twitter.com/' . $matches[2] .'">@' . $matches[2] . '</a> ';
+         }, $text);
+
+     $text = preg_replace_callback('/#([^0-9]\w+)/',
+       function ($matches) {
+             return '<a href="https://twitter.com/hashtag/' . $matches[1] . '" >#' . $matches[1] . '</a>';
+         }, $text);
     return $text;
   }
   function add_tweet_button_script(){
-    echo '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+    wp_enqueue_script( 'twitter-touko', get_stylesheet_directory_uri() .'/js/twitter.js', array(), '1.0.0', true );
   }
   function create_tweet_button($page_url, $title) {
     global $touko_the_politician_theme_options_settings;
