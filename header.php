@@ -40,9 +40,7 @@ $theme_settings = $touko_the_politician_theme_options_settings;
 		 */
 		wp_head();
 	?>
-
 </head>
-
 <body <?php body_class(); ?>>
 	<div class="wrapper">
 		<header id="branding" class="main-header">
