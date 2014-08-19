@@ -94,7 +94,7 @@ module.exports = function(grunt) {
           banner: '<%= tag.css %>',
         },
         files: {
-          'style.css': ['<%= project.src %>/master.styl', '<%= project.src %>/base_styles/*.styl'] // 1:1 compile
+          'style.css': ['<%= project.src %>/master.styl'] // 1:1 compile
         }
       },
       compile: {
