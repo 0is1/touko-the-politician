@@ -1,15 +1,15 @@
 /*
 * POSTS
 */
-@import '../theme_styles/colors.styl'
-@import '../theme_styles/mediaqueries.styl'
-@import '../theme_styles/variables.styl'
 
 
 .entry-header
-  padding 0 2%
+  padding 0 1rem
 
 .entry-content
+  display block
+  overflow hidden
+  padding 1rem
   li
     font-size 95%
   p
@@ -19,6 +19,11 @@
   a
     text-decoration none
 
+.entry-meta-bar
+  background-color rgb(249, 249, 249)
+  border-bottom 1px solid rgba(0, 0, 0, 0.035)
+  border-top 1px solid rgba(0, 0, 0, 0.035)
+  padding .75rem 0
 .entry-title, .entry-meta
   a
     &:hover, &:focus, &:active
@@ -32,7 +37,8 @@
 .entry-meta
   float left
   font-size 75%
-  margin-top 1%
+  margin .5rem
+  padding 0
   a
     font-size 100%
     padding-left .25rem

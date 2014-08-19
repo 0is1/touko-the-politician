@@ -1,8 +1,6 @@
 /*
 * HEADER
 */
-@import '../theme_styles/colors.styl'
-@import '../theme_styles/mediaqueries.styl'
 
 .main-header
   margin-top 1%
@@ -21,6 +19,8 @@
     padding 0
     .hgroup-right, .site-header
       margin 0
+    .hgroup-right
+      float right
     .site-titles
       margin-left 200px
       text-align left
@@ -65,12 +65,18 @@
   a:hover, ul li.current-menu-item a,ul li.current_page_ancestor a, ul li.current-menu-ancestor a, ul li.current_page_item a, ul li:hover > a
     background-color vihreat_de_grona
     box-shadow inset 0 0 4px rgba(0, 0, 0, 0.2)
+    color white
+    opacity 1
   ul
     margin 0
     li
+      float left
+      padding 0
+      position relative
       ul
         background-color white
         border-bottom 2px solid vihreat_de_grona
+        display none
         left 0px
         position absolute
         top 100%
@@ -94,6 +100,9 @@
             color vihreat_de_grona
       &:hover ul
         display block
+        text-shadow none
+  select
+    display none
 
 @media screen_breakpoint_one
   .main-header
@@ -105,6 +114,13 @@
   #main-nav
     height auto
     padding 2%
+    ul
+      display none
+    select
+      border none
+      display block
+      height 24px
+      width 100%
   .main-header
     .hgroup-wrap
       .touko-head

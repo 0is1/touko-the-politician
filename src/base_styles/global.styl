@@ -1,11 +1,10 @@
 /*
 * GLOBAL
 */
-@import '../theme_styles/colors.styl'
-@import '../theme_styles/mediaqueries.styl'
 
 *
   box-sizing border-box
+  word-wrap breka-word
 
 body, article, h1, h2, h3, h4, h5, p, .pure-u
   font-family 'Open Sans', 'Helvetica Neue', sans-serif
@@ -32,9 +31,13 @@ h4
     padding-bottom 0
 a
   color basic_link
+  text-decoration none
 article
+  background-color white
+  box-shadow 0 1px 2px rgba(0, 0, 0, 0.2)
   line-height 1.75
 figure
+  margin 0
   text-align left
 strong
   font-weight bold
@@ -45,7 +48,12 @@ hr
   clear both
   margin 0
   width 100%
-
+.clearfix
+  &:after
+    clear both
+  &:after, &:before
+    content ''
+    display table
 .fleft
   float left
 

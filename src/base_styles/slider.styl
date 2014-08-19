@@ -1,10 +1,9 @@
 /*
 * SLIDER
 */
-@import '../theme_styles/colors.styl'
-@import '../theme_styles/mediaqueries.styl'
 
 .featured-slider, .featured-slider .slider-cycle
+  position relative
   z-index 1
 .featured-text
   background-color transparent
@@ -34,11 +33,20 @@
     color white
 #controllers
   bottom 5%
+  line-height 0
+  position absolute
+  text-align center
+  width 100%
+  z-index 9
   a
     background-color grayish_alpha
+    border-radius 2px
     color #333
+    display inline-block
     line-height 1.5
     height auto
+    margin 0 .5rem 0 0
+    overflow hidden
     padding 2%
     width 10%
 
