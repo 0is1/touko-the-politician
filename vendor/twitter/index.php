@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors', 1);
 require_once('TwitterAPIExchange.php');
 
 /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
@@ -16,7 +15,7 @@ $requestMethod = 'POST';
 
 /** POST fields required by the URL above. See relevant docs as above **/
 $postfields = array(
-    'screen_name' => 'usernameToBlock', 
+    'screen_name' => 'usernameToBlock',
     'skip_status' => '1'
 );
 
