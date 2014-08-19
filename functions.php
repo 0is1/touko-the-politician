@@ -19,6 +19,7 @@ if ( !defined('ABSPATH')) exit;
 * Define constants
 */
 define('THEME_TEXTDOMAIN', 'touko');
+define('THEME_VERSION', '0.9.1');
 
 /**
 * Load external files
