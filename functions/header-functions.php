@@ -42,7 +42,7 @@ add_action( 'add_meta_boxes', 'remove_parent_meta_boxes', 9999 );
 function register_custom_menus() {
   register_nav_menus(
     array(
-      'basic-menu' => __('Päävalikko'),
+      'basic-menu' => __('Päävalikko', THEME_TEXTDOMAIN),
     )
   );
 }
@@ -132,7 +132,7 @@ function add_social_media_icons(){
         }
         else{
           $social_media_icons .=
-          '<li><a class="'.strtolower($key).'" href="'.esc_url($elements[$value]).'" title="'.sprintf( esc_attr__( '%1$s @ %2$s', 'touko' ), get_bloginfo( 'name' ), ucfirst($title_parts[1]) ).'" target="_blank"></a></li>';
+          '<li><a class="'.strtolower($key).'" href="'.esc_url($elements[$value]).'" title="'.sprintf( esc_attr__( '%1$s @ %2$s', THEME_TEXTDOMAIN ), get_bloginfo( 'name' ), ucfirst($title_parts[1]) ).'" target="_blank"></a></li>';
         }
       }
     }

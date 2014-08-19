@@ -69,6 +69,6 @@ if ( !defined('ABSPATH')) exit;
       <figure class="newsfeed-icon instagram-logo">
         <i class="icon-instagram"></i>
       </figure>
-      <h3><?php _e('Instagram-kuvien haussa on tällä hetkellä ongelmia...', 'touko'); ?></h3>
+      <h3><?php _e('Instagram-kuvien haussa on tällä hetkellä ongelmia...', THEME_TEXTDOMAIN); ?></h3>
     </section>
 <?php endif; ?>

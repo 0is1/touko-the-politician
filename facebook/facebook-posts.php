@@ -132,6 +132,6 @@ if ( !defined('ABSPATH')) exit;
       <figure class="newsfeed-icon facebook-logo">
         <i class="icon-facebook-rect"></i>
       </figure>
-      <h3><?php _e('Facebook-postien haussa on tällä hetkellä ongelmia...', 'touko'); ?></h3>
+      <h3><?php _e('Facebook-postien haussa on tällä hetkellä ongelmia...', THEME_TEXTDOMAIN); ?></h3>
     </section>
 <?php endif; ?>

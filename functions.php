@@ -16,6 +16,11 @@ if ( !defined('ABSPATH')) exit;
  */
 
 /**
+* Define constants
+*/
+define('THEME_TEXTDOMAIN', 'touko');
+
+/**
 * Load external files
 */
 require_once(get_stylesheet_directory() . '/functions/header-functions.php');

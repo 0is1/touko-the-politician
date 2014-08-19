@@ -49,7 +49,7 @@ if ( !defined('ABSPATH')) exit;
       <figure class="newsfeed-icon twitter-logo">
         <i class="icon-twitter-bird"></i>
       </figure>
-      <p><?php echo $twitter_user_real_name;?><?php _e(' – Twitterissä', 'touko'); ?></p>
+      <p><?php echo $twitter_user_real_name;?><?php _e(' – Twitterissä', THEME_TEXTDOMAIN); ?></p>
     </section>
     <section class="twitter-user-details" style="background-image: url(<?php echo $twitter_profile_banner_url;?>/web);">
       <figure class="newsfeed-icon-img twitter-page-img clearfix">
@@ -64,18 +64,18 @@ if ( !defined('ABSPATH')) exit;
     <section class="twitter-page-details">
       <ul>
         <li>
-          <a href="<?php echo $twitter_user_profile_link; ?>" title="@<?php echo $twitter_user_nick;?> – <?php _e('Twiittiä','touko');?>">
-            <strong><?php echo $twitter_user_statuses_count;?></strong><span><?php _e('Twiittiä', 'touko') ?></span>
+          <a href="<?php echo $twitter_user_profile_link; ?>" title="@<?php echo $twitter_user_nick;?> – <?php _e('Twiittiä',THEME_TEXTDOMAIN);?>">
+            <strong><?php echo $twitter_user_statuses_count;?></strong><span><?php _e('Twiittiä', THEME_TEXTDOMAIN) ?></span>
           </a>
         </li>
         <li>
-          <a href="<?php echo $twitter_user_profile_link;?>/following" title="@<?php echo $twitter_user_nick;?> – <?php _e('Seurattua','touko');?>">
-            <strong><?php echo $twitter_user_friends_count;?></strong><span><?php _e('Seurattua', 'touko') ?></span>
+          <a href="<?php echo $twitter_user_profile_link;?>/following" title="@<?php echo $twitter_user_nick;?> – <?php _e('Seurattua',THEME_TEXTDOMAIN);?>">
+            <strong><?php echo $twitter_user_friends_count;?></strong><span><?php _e('Seurattua', THEME_TEXTDOMAIN) ?></span>
           </a>
         </li>
         <li>
-          <a href="<?php echo $twitter_user_profile_link;?>/followers" title="@<?php echo $twitter_user_nick;?> – <?php _e('Seuraajaa','touko');?>">
-            <strong><?php echo $twitter_user_followers_count;?></strong><span><?php _e('Seuraajaa', 'touko') ?></span>
+          <a href="<?php echo $twitter_user_profile_link;?>/followers" title="@<?php echo $twitter_user_nick;?> – <?php _e('Seuraajaa',THEME_TEXTDOMAIN);?>">
+            <strong><?php echo $twitter_user_followers_count;?></strong><span><?php _e('Seuraajaa', THEME_TEXTDOMAIN) ?></span>
           </a>
         </li>
       </ul>
@@ -90,7 +90,7 @@ if ( !defined('ABSPATH')) exit;
       <figure class="newsfeed-icon twitter-logo">
         <i class="icon-twitter-bird"></i>
       </figure>
-      <p><?php _e('Twiittien haussa on tällä hetkellä ongelmia...', 'touko'); ?></p>
+      <p><?php _e('Twiittien haussa on tällä hetkellä ongelmia...', THEME_TEXTDOMAIN); ?></p>
     </section>
   </div>
 <?php endif; ?>

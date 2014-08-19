@@ -30,10 +30,10 @@ if ( !defined('ABSPATH')) exit;
       <figure class="newsfeed-icon facebook-logo">
         <i class="icon-facebook-rect"></i>
       </figure>
-      <p><?php echo $data['name'];?><?php _e(' – Facebookissa', 'touko'); ?></p>
+      <p><?php echo $data['name'];?><?php _e(' – Facebookissa', THEME_TEXTDOMAIN); ?></p>
     </section>
     <section class="facebook-user-details clearfix">
-      <a href="<?php echo esc_url($theme_settings["facebook_page_url"]);?>" title="<?php echo $data["name"];?> – <?php _e('@Facebook', 'touko'); ?>" class="clearfix page-link">
+      <a href="<?php echo esc_url($theme_settings["facebook_page_url"]);?>" title="<?php echo $data["name"];?> – <?php _e('@Facebook', THEME_TEXTDOMAIN); ?>" class="clearfix page-link">
         <figure class="newsfeed-icon-img facebook-page-img clearfix">
           <img src="<?php echo $facebook_page_picture;?>" alt="<?php echo $data['name'];?>">
         </figure>
@@ -48,7 +48,7 @@ if ( !defined('ABSPATH')) exit;
       <figure class="newsfeed-icon facebook-logo">
         <i class="icon-facebook-rect"></i>
       </figure>
-      <p><?php _e('Facebook-sivun haussa on tällä hetkellä ongelmia...', 'touko'); ?></p>
+      <p><?php _e('Facebook-sivun haussa on tällä hetkellä ongelmia...', THEME_TEXTDOMAIN); ?></p>
     </section>
   </div>
 <?php endif; ?>

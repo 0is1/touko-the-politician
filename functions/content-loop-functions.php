@@ -92,7 +92,7 @@ function loop_the_page() {
   <?php
   endwhile;
 else : ?>
-  <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', 'touko' ); ?></h1>
+  <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', THEME_TEXTDOMAIN ); ?></h1>
 <?php endif;
 }
 ?>
@@ -109,7 +109,7 @@ function loop_for_search() {
     global $post;
     if( have_posts() ) { ?>
       <div class="search-results-container">
-      <h1><?php _e('Hakutulokset sanoilla: ', 'touko' );?><?php echo get_search_query(); ?></h1>
+      <h1><?php _e('Hakutulokset sanoilla: ', THEME_TEXTDOMAIN );?><?php echo get_search_query(); ?></h1>
       <?php
         while( have_posts() ) {
           the_post(); ?>
@@ -133,8 +133,8 @@ function loop_for_search() {
     else {
       ?>
       <section class="no-search-results">
-        <h1 class="entry-title"><?php _e('Ei hakutuloksia sanoilla: ', 'touko' );?>"<?php echo get_search_query();?>" :-/</h1>
-        <p class="search-again"><?php _e('Voit yrittää uudestaan:', 'touko' ); ?></p>
+        <h1 class="entry-title"><?php _e('Ei hakutuloksia sanoilla: ', THEME_TEXTDOMAIN );?>"<?php echo get_search_query();?>" :-/</h1>
+        <p class="search-again"><?php _e('Voit yrittää uudestaan:', THEME_TEXTDOMAIN ); ?></p>
         <?php get_search_form(); ?>
       </section>
     <?php
@@ -165,7 +165,7 @@ function loop_for_single() {
               <span class="icon-tag"><?php the_category(', '); ?></span>
             <?php } ?>
             <?php if ( comments_open() ) { ?>
-              <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', 'touko' ), __( '1 kommentti', 'touko' ), __( '% kommenttia', 'touko' ), '', __( 'Kommentointi ei sallittu', 'touko' ) ); ?></span>
+              <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', THEME_TEXTDOMAIN ), __( '1 kommentti', THEME_TEXTDOMAIN ), __( '% kommenttia', THEME_TEXTDOMAIN ), '', __( 'Kommentointi ei sallittu', THEME_TEXTDOMAIN ) ); ?></span>
             <?php } ?>
           </div><!-- .entry-meta -->
           <header class="entry-header">
@@ -177,7 +177,7 @@ function loop_for_single() {
             <?php do_action('add_social_media_buttons'); ?>
             <?php the_content();
             if( is_single() ) {
-              $tag_list = get_the_tag_list( '', __( ', ', 'touko' ) );
+              $tag_list = get_the_tag_list( '', __( ', ', THEME_TEXTDOMAIN ) );
               if( !empty( $tag_list ) ) { ?>
                 <div class="icon-tags">
                   <?php echo $tag_list; ?>
@@ -185,7 +185,7 @@ function loop_for_single() {
               <?php }
             }
             wp_link_pages( array(
-            'before'            => '<div style="clear: both;"></div><div class="pagination clearfix">'.__( 'Sivut:', 'touko' ),
+            'before'            => '<div style="clear: both;"></div><div class="pagination clearfix">'.__( 'Sivut:', THEME_TEXTDOMAIN ),
             'after'             => '</div>',
             'link_before'       => '<span>',
             'link_after'        => '</span>',
@@ -202,7 +202,7 @@ function loop_for_single() {
     }
   }
   else { ?>
-    <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', 'touko' ); ?></h1>
+    <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', THEME_TEXTDOMAIN ); ?></h1>
   <?php }
 } /* End of loop_for_single */
 ?>
@@ -249,11 +249,11 @@ function loop_for_archive() {
                 <span class="icon-tag"><?php the_category(', '); ?></span>
               <?php } ?>
               <?php if ( comments_open() ) { ?>
-                <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', 'touko' ), __( '1 kommentti', 'touko' ), __( '% kommenttia', 'touko' ), '', __( 'Kommentointi ei sallittu', 'touko' ) ); ?></span>
+                <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', THEME_TEXTDOMAIN ), __( '1 kommentti', THEME_TEXTDOMAIN ), __( '% kommenttia', THEME_TEXTDOMAIN ), '', __( 'Kommentointi ei sallittu', THEME_TEXTDOMAIN ) ); ?></span>
               <?php } ?>
             </div><!-- .entry-meta -->
             <?php
-            echo '<a class="btn" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Jatka lukemista', 'touko' ).'</a>';
+            echo '<a class="btn" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Jatka lukemista', THEME_TEXTDOMAIN ).'</a>';
             ?>
           </div>
         </article>
@@ -262,7 +262,7 @@ function loop_for_archive() {
     }
   }
   else { ?>
-    <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', 'touko' ); ?></h1>
+    <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', THEME_TEXTDOMAIN ); ?></h1>
   <?php
   }
 }
@@ -283,7 +283,7 @@ function site_comment( $comment, $args, $depth ) {
     // Display trackbacks differently than normal comments.
   ?>
   <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-    <p><?php _e( 'Pingback:', 'touko' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Muokkaa)', 'touko' ), '<span class="edit-link">', '</span>' ); ?></p>
+    <p><?php _e( 'Pingback:', THEME_TEXTDOMAIN ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Muokkaa)', THEME_TEXTDOMAIN ), '<span class="edit-link">', '</span>' ); ?></p>
   <?php
       break;
     default :
@@ -297,29 +297,29 @@ function site_comment( $comment, $args, $depth ) {
           echo get_avatar( $comment, 44 );
           printf( '<cite class="fn">%1$s %2$s</cite>',
             // If current post author is also comment author, make it known visually.
-            ( $comment->user_id === $post->post_author ) ? '<span class="writer"> ' . __( 'Kirjoittaja:', 'touko' ) . '</span>' : '',
+            ( $comment->user_id === $post->post_author ) ? '<span class="writer"> ' . __( 'Kirjoittaja:', THEME_TEXTDOMAIN ) . '</span>' : '',
             get_comment_author_link()
           );
           printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
             esc_url( get_comment_link( $comment->comment_ID ) ),
             get_comment_time( 'c' ),
             /* translators: 1: date, 2: time */
-            sprintf( __( '%1$s – %2$s', 'touko' ), get_comment_date(), get_comment_time() )
+            sprintf( __( '%1$s – %2$s', THEME_TEXTDOMAIN ), get_comment_date(), get_comment_time() )
           );
         ?>
       </header><!-- .comment-meta -->
 
       <?php if ( '0' == $comment->comment_approved ) : ?>
-        <p class="comment-awaiting-moderation"><?php _e( 'Kommenttisi odottaa moderaattorin hyväksyntää.', 'touko' ); ?></p>
+        <p class="comment-awaiting-moderation"><?php _e( 'Kommenttisi odottaa moderaattorin hyväksyntää.', THEME_TEXTDOMAIN ); ?></p>
       <?php endif; ?>
 
       <section class="comment-content comment">
         <?php comment_text(); ?>
-        <?php edit_comment_link( __( 'Muokkaa', 'touko' ), '<p class="edit-link">', '</p>' ); ?>
+        <?php edit_comment_link( __( 'Muokkaa', THEME_TEXTDOMAIN ), '<p class="edit-link">', '</p>' ); ?>
       </section><!-- .comment-content -->
 
       <div class="reply">
-        <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Vastaa', 'touko' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+        <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Vastaa', THEME_TEXTDOMAIN ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
       </div><!-- .reply -->
     </article><!-- #comment-## -->
   <?php

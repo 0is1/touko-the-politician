@@ -45,15 +45,15 @@ if ( !defined('ABSPATH')) exit;
       <span class="copyright">Copyright © <?php echo date('Y'); ?>
         <a href="<?php echo home_url();?>" title="<?php echo get_bloginfo('name');?>"><span><?php echo get_bloginfo('name');?></span></a>
       </span><!-- .copy -->
-      <span class="credits"><?php _e('Kiitos:', 'touko');?> <a href="<?php echo esc_url( __('http://colorawesomeness.com/themes/travelify/'));?>" target="_blank" title="Color Awesomeness">Color Awesomeness</a> ja <a href="<?php echo esc_url( __('http://wordpress.org/')); ?>" target="_blank" title="WordPress">WordPress</a>
+      <span class="credits"><?php _e('Kiitos:', THEME_TEXTDOMAIN);?> <a href="<?php echo esc_url( __('http://colorawesomeness.com/themes/travelify/'));?>" target="_blank" title="Color Awesomeness">Color Awesomeness</a> ja <a href="<?php echo esc_url( __('http://wordpress.org/')); ?>" target="_blank" title="WordPress">WordPress</a>
       </span>
     </div>
     <div class="pure-u-1 site-created">
-      <span class="created"><?php _e('Toteutus: ', 'touko');?><a href="<?php echo esc_url( __('http://lookit.fi/'));?>" title="Lookit Designs">Janne/Lookit Designs</a>
+      <span class="created"><?php _e('Toteutus: ', THEME_TEXTDOMAIN);?><a href="<?php echo esc_url( __('http://lookit.fi/'));?>" title="Lookit Designs">Janne/Lookit Designs</a>
       </span>
       <span class="source">
         <i class="icon-github"></i>
-        <a href="<?php echo esc_url(__('https://github.com/0is1/touko-the-politician'));?>" title="<?php _e('Lähdekoodit', 'touko');?>"><?php _e('Lähdekoodi ', 'touko');?></a>
+        <a href="<?php echo esc_url(__('https://github.com/0is1/touko-the-politician'));?>" title="<?php _e('Lähdekoodit', THEME_TEXTDOMAIN);?>"><?php _e('Lähdekoodi ', THEME_TEXTDOMAIN);?></a>
       </span>
     </div>
   <?php

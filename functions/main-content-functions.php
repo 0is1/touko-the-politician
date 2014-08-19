@@ -36,7 +36,7 @@ function add_page_content() {
           <div class="entry-content">
             <?php do_action('add_social_media_buttons'); ?>
             <?php the_content(); ?>
-            <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Sivut:', 'touko' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+            <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Sivut:', THEME_TEXTDOMAIN ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
           </div><!-- .entry-content -->
         </article><!-- #post -->
     <?php endwhile; ?>

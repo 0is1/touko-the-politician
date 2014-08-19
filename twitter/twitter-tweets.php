@@ -56,7 +56,7 @@ if ( !defined('ABSPATH')) exit;
             <figure class="newsfeed-icon twitter-logo">
               <i class="icon-twitter-bird"></i>
             </figure>
-            <a class="twitter-tweet-url clearfix" href="<?php echo $tweet_link_base;?><?php echo $data[$i]["id"];?>" title="Linkki tweettiin"><?php _e( 'Linkki twiittiin', 'touko' );?></a>
+            <a class="twitter-tweet-url clearfix" href="<?php echo $tweet_link_base;?><?php echo $data[$i]["id"];?>" title="Linkki tweettiin"><?php _e( 'Linkki twiittiin', THEME_TEXTDOMAIN );?></a>
           <?php endif; ?>
           <?php
             if(isset($data[$i]["entities"]["urls"]["url"])) : ?>
@@ -86,6 +86,6 @@ if ( !defined('ABSPATH')) exit;
       <figure class="newsfeed-icon twitter-logo">
         <i class="icon-twitter-bird"></i>
       </figure>
-      <h3><?php _e('Twiittien haussa on tällä hetkellä ongelmia...', 'touko'); ?></h3>
+      <h3><?php _e('Twiittien haussa on tällä hetkellä ongelmia...', THEME_TEXTDOMAIN); ?></h3>
     </section>
 <?php endif; ?>

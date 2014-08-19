@@ -24,8 +24,8 @@ add_action( 'admin_menu', 'touko_options_menu' );
  */
   function touko_options_menu() {
     add_theme_page(
-      __( 'Touko Theme Options', 'touko-the-politician' ), // Name of page
-      __( 'Touko Theme Options', 'touko-the-politician' ), // Label in menu
+      __( 'Touko Theme Options', THEME_TEXTDOMAIN ), // Name of page
+      __( 'Touko Theme Options', THEME_TEXTDOMAIN ), // Label in menu
       'edit_theme_options',                           // Capability required
       'touko_theme_options',     // Menu slug, used to uniquely identify the page
       'do_touko_the_politician_theme_options' // Function that renders the options page
@@ -54,10 +54,10 @@ function touko_register_settings() {
     <div class="touko-the-politician-admin">
     <?php if( isset( $_GET [ 'settings-updated' ] ) && 'true' === $_GET[ 'settings-updated' ] ): ?>
       <div class="updated fade" id="message">
-        <p><strong><?php _e( 'Asetukset tallennettu.', 'touko' );?></strong></p>
+        <p><strong><?php _e( 'Asetukset tallennettu.', THEME_TEXTDOMAIN );?></strong></p>
       </div>
     <?php endif; ?>
-      <h1><?php _e( 'Teema-asetukset', 'touko' );?></h1>
+      <h1><?php _e( 'Teema-asetukset', THEME_TEXTDOMAIN );?></h1>
      <form class="touko-theme-options-form pure-form pure-form-aligned" method="post" action="options.php">
      <?php
 

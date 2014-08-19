@@ -20,20 +20,20 @@ if ( !defined('ABSPATH')) exit;
 
 <div id="content">
 		<header class="entry-header">
-			<h1 class="entry-title"><?php _e( 'Ohhoh - Etsimääsi sivua ei löytynyt...', 'touko' ); ?></a></h1>
+			<h1 class="entry-title"><?php _e( 'Ohhoh - Etsimääsi sivua ei löytynyt...', THEME_TEXTDOMAIN ); ?></a></h1>
 		</header>
 		<div class="entry-content clearfix" >
-			<h3><?php _e( 'Tämä voi johtua siitä, että:', 'touko' ); ?></h3>
+			<h3><?php _e( 'Tämä voi johtua siitä, että:', THEME_TEXTDOMAIN ); ?></h3>
 			<ul>
-				<li><?php _e( 'Näppäilit web-sivun osoitteen väärin', 'touko' ); ?></li>
-				<li><?php _e( 'Sivu, jota etsit saattaa olla muuttanut nimeä tai se on poistettu', 'touko' ); ?></li>
+				<li><?php _e( 'Näppäilit web-sivun osoitteen väärin', THEME_TEXTDOMAIN ); ?></li>
+				<li><?php _e( 'Sivu, jota etsit saattaa olla muuttanut nimeä tai se on poistettu', THEME_TEXTDOMAIN ); ?></li>
 			</ul>
-			<h3><?php _e( 'Voit yrittää seuraavia toimenpiteitä:', 'touko' ); ?></h3>
+			<h3><?php _e( 'Voit yrittää seuraavia toimenpiteitä:', THEME_TEXTDOMAIN ); ?></h3>
 			<ul>
-				<li><?php _e( 'Tarkista web-sivun osoitteen oikeinkirjoitus', 'touko' ); ?></li>
-				<li><?php _e( 'Päivitä sivu (selaimen "päivitä-sivu"-nappi)', 'touko' ); ?></li>
-				<li><?php _e( 'Palaa takaisin', 'touko' ); ?> <a href="<?php echo home_url() ?>/" title="<?php bloginfo( 'name' ) ?>" rel="home"><?php _e( 'Etusivulle', 'touko' ); ?></a></li>
-				<li><?php _e( 'Tai käytä hakua', 'touko' );?><span class="focus-search-arrow">&darr;</span></li>
+				<li><?php _e( 'Tarkista web-sivun osoitteen oikeinkirjoitus', THEME_TEXTDOMAIN ); ?></li>
+				<li><?php _e( 'Päivitä sivu (selaimen "päivitä-sivu"-nappi)', THEME_TEXTDOMAIN ); ?></li>
+				<li><?php _e( 'Palaa takaisin', THEME_TEXTDOMAIN ); ?> <a href="<?php echo home_url() ?>/" title="<?php bloginfo( 'name' ) ?>" rel="home"><?php _e( 'Etusivulle', THEME_TEXTDOMAIN ); ?></a></li>
+				<li><?php _e( 'Tai käytä hakua', THEME_TEXTDOMAIN );?><span class="focus-search-arrow">&darr;</span></li>
 			</ul>
 		</div><!-- .entry-content -->
 	</div><!-- #content -->
