@@ -27,13 +27,15 @@ Custom Wordpress-theme for toukoaalto.fi -site
     * http://www.vihreat.fi/vihreablogi/rss
     * http://toukoalto.puheenvuoro.uusisuomi.fi/feed/blog
     * http://www.city.fi/blogit/10/feed
-* Add possibility to add Instagram link/icon in admin panel
-* wp_deregister_script();
-  * jQuery
-    * If we don't need it
 * wp_deregister_style();
   * travelify-theme style (until parent theme is removed)
-  * add all styles to touko-the-politician -theme css
+    * add all styles to touko-the-politician -theme css
+* Social media related stuff
+  * Shorten tweet texts if it's going to be more than 140 chars
+  * Instagram apiCallback-URI should be dynamic
+  * Add possibility to add Instagram link/icon in admin panel
+  * Update theme to use newer version of: https://github.com/cosenary/Instagram-PHP-API
+  * Update theme to use new version of: https://github.com/facebook/facebook-php-sdk-v4
 
 ## Uses / needs / likes
 * At the moment some stuff from [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
