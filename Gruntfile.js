@@ -37,21 +37,21 @@ module.exports = function(grunt) {
      */
     tag: {
       banner: '/*!\n' +
-              ' * <%= pkg.name %>\n' +
-              ' * <%= pkg.url %>\n' +
-              ' * @author <%= pkg.author %>\n' +
-              ' * @version <%= pkg.version %>\n' +
-              ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
-              ' */\n',
-      css:    '/*\n' +
-              ' * Theme Name: <%= project.theme_name %>\n' +
-              ' * Description: Child theme for Travelify\n' +
-              ' * Theme URI: <%= pkg.url %>\n' +
-              ' * Author: <%= pkg.author %>\n' +
-              ' * Template: <%= project.template %>\n' +
-              ' * Version <%= pkg.version %>\n' +
-              ' * Copyright <%= pkg.copyright %>. <%= pkg.license %>licensed.' +
-              ' */\n\n'
+        ' * <%= pkg.name %>\n' +
+        ' * <%= pkg.url %>\n' +
+        ' * @author <%= pkg.author %>\n' +
+        ' * @version <%= pkg.version %>\n' +
+        ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
+        ' */\n',
+      css: '/*\n' +
+        ' * Theme Name: <%= project.theme_name %>\n' +
+        ' * Description: Child theme for Travelify\n' +
+        ' * Theme URI: <%= pkg.url %>\n' +
+        ' * Author: <%= pkg.author %>\n' +
+        ' * Template: <%= project.template %>\n' +
+        ' * Version <%= pkg.version %>\n' +
+        ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.' +
+        ' */\n\n'
     },
     /**
      * Concatenate JavaScript files
@@ -118,8 +118,7 @@ module.exports = function(grunt) {
       concat: {
         files: '<%= project.src %>/{,*/}*.js',
         tasks: ['concat:dev']
-      }
-      ,
+      },
       stylus: {
         files: ['<%= project.src %>/master.styl', '<%= project.src %>/base_styles/*.styl'],
         tasks: ['stylus:compile_dev']
