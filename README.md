@@ -19,6 +19,7 @@ Custom Wordpress-theme for toukoaalto.fi -site
   * Add "read more"-button in slider slides
 * Add [http://socialitejs.com/](http://socialitejs.com/)
 * Add [http://salvattore.com/](http://salvattore.com/) or something similar to newsfeed
+* Add [Disqus](https://disqus.com/admin/wordpress/) or something similar to enable comments
 * Add support to external rss feeds (in admin panel)
   * Add rss url
   * Add keyword (for example author)
