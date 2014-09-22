@@ -21,6 +21,7 @@ if ( !defined('ABSPATH')) exit;
   global $touko_the_politician_theme_options_settings, $master_instagram;
   $options = $touko_the_politician_theme_options_settings;
 
+// TODO apiCallback should be dynamic not static
   $auth_config = array(
     'apiKey'         => 'c7661e722d8643f8af4f0699517c7290',
     'apiSecret'     => '3793b5e4d1274a439b0b3ad369298360',
