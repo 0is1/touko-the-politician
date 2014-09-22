@@ -61,6 +61,10 @@ if ( !defined('ABSPATH')) exit;
         </section>
       </article>
       <?php
+      // add clearfix after every two images's
+        if ($key % 2 === 1 && $theme_settings['instagram_visible_posts_count'] > 2) { ?>
+          <hr class="clearfix">
+        <?php }
     }
     ?>
 <?php else : // If Instagram data isnt available  ?>
