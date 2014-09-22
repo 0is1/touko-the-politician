@@ -23,8 +23,8 @@ module.exports = function(grunt) {
       css: [
         '<%= project.src %>/master.styl'
       ],
-      js: [
-        'src/*.js'
+      jsFiles: [
+        'src/js/*.js'
       ],
       theme_name: "Touko The Politician",
       template: "travelify"
@@ -59,16 +59,18 @@ module.exports = function(grunt) {
      * Imports all .js files and appends project banner
      */
     concat: {
-      dev: {
-        files: {
-          'js/main.min.js': '<%= project.js %>'
-        }
-      },
       options: {
         stripBanners: true,
         nonull: true,
         banner: '<%= tag.banner %>'
-      }
+      },
+      dist: {
+        src: ['<%= project.jsFiles %>', '<%= project.src %>/main.js'],
+        dest: 'js/main.min.js',
+      },
+      // files: {
+      //   'js/main.min.js': ['<%= project.src/main.js', '<%= project.jsFiles %>']
+      // }
     },
     /**
      * Uglify (minify) JavaScript files
@@ -80,7 +82,7 @@ module.exports = function(grunt) {
         banner: '<%= tag.banner %>'
       },
       build: {
-        src: '<%= project.src %>/{,*/}*.js',
+        src: ['<%= project.jsFiles %>', '<%= project.src %>/main.js'],
         dest: 'js/main.min.js'
       }
     },
@@ -117,7 +119,7 @@ module.exports = function(grunt) {
     watch: {
       concat: {
         files: '<%= project.src %>/{,*/}*.js',
-        tasks: ['concat:dev']
+        tasks: ['concat']
       },
       stylus: {
         files: ['<%= project.src %>/master.styl', '<%= project.src %>/base_styles/*.styl'],
@@ -137,7 +139,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('default', [
     'stylus:compile_dev',
-    'concat:dev',
+    'concat',
     'watch'
   ]);
 
