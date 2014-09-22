@@ -1,13 +1,12 @@
-(function() {
-  var $_ = jQuery, default_menu;
-  default_menu = $_('#main-nav .menu-items .default-menu')
+(function($) {
+  var default_menu = $('#main-nav .menu-items .default-menu');
   if (default_menu.length > 0) {
     default_menu.remove();
   }
-  $_(window).load(function(){
+  $(window).load(function() {
     // var transition_effect = slider_values.transition_effect || 'scrollLeft', transition_delay = slider_values.transition_delay || 9999999999, transition_duration = slider_values.transition_duration || 500;
-    try{
-      $_('.slider-cycle').cycle({
+    try {
+      $('.slider-cycle').cycle({
         fx: 'scrollLeft',
         pager: '#controllers',
         activePagerClass: 'active',
@@ -18,15 +17,15 @@
         width: '100%',
         containerResize: 0,
         fit: 1,
-        after: function () {
-          $_(this).parent().css("height", $_(this).height())
+        after: function() {
+          $(this).parent().css("height", $(this).height())
         },
         cleartypeNoBg: true
       });
-    } catch (e){}
+    } catch (e) {}
   });
-  $_(window).resize(function() {
-    var newHeight = $_(".slider-cycle .displayblock").height();
-    $_(".slider-cycle").css("height", newHeight);
+  $(window).resize(function() {
+    var newHeight = $(".slider-cycle .displayblock").height();
+    $(".slider-cycle").css("height", newHeight);
   });
-})();
+})(jQuery);
