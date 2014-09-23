@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Contains all the theme option default values
@@ -54,8 +54,8 @@ $touko_the_politician_theme_options_defaults = array(
 global $touko_the_politician_theme_options_settings;
 $touko_the_politician_theme_options_settings = touko_theme_options_set_defaults( $touko_the_politician_theme_options_defaults );
 
-function touko_theme_options_set_defaults( $touko_the_politician_theme_options_defaults) {
-	$touko_the_politician_theme_options_settings = array_merge( $touko_the_politician_theme_options_defaults, (array) get_option( 'touko_theme_options', array() ) );
+function touko_theme_options_set_defaults( $touko_the_politician_theme_options_defaults ) {
+	$touko_the_politician_theme_options_settings = array_merge( $touko_the_politician_theme_options_defaults, ( array ) get_option( 'touko_theme_options', array() ) );
 	return apply_filters( 'touko_the_politician_theme_options_settings', $touko_the_politician_theme_options_settings );
 }
 

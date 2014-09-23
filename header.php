@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 global $touko_the_politician_theme_options_settings;
 $theme_settings = $touko_the_politician_theme_options_settings;
@@ -47,13 +47,13 @@ $theme_settings = $touko_the_politician_theme_options_settings;
 			<?php
   			add_action( 'travelify_header', 'travelify_headerdetails', 10 ); ?>
   			<?php $header_image = get_header_image();
-					if ( !empty($header_image)) { ?>
+					if ( !empty( $header_image) ) { ?>
 					<?php
 						/* This is temporary glue-hack, need to redo */
-						$image_url = esc_url($header_image);
+						$image_url = esc_url( $header_image );
 						$image_height = get_custom_header()->height;
 						$image_width = get_custom_header()->width;
-						$header_image_css = "background: url($image_url) 0 0 no-repeat transparent; background-size: cover; height: 100%; max-height:".$image_height."px; max-width:".$image_width."px; padding: 5% 0; width: 100%;";
+						$header_image_css = "background: url( $image_url ) 0 0 no-repeat transparent; background-size: cover; height: 100%; max-height:".$image_height."px; max-width:".$image_width."px; padding: 5% 0; width: 100%;";
 					?>
 					<div class="container clearfix" style="<?php echo $header_image_css;?>">
 					<?php }
@@ -63,8 +63,8 @@ $theme_settings = $touko_the_politician_theme_options_settings;
 					<div class="hgroup-wrap clearfix">
 						<section class="hgroup-right">
 							<?php
-								if ($theme_settings['enable_social_media_icons']) {
-									do_action('add_social_media_icons');
+								if ( $theme_settings['enable_social_media_icons'] ) {
+									do_action( 'add_social_media_icons' );
 							}
 							?>
 						</section>
@@ -88,7 +88,7 @@ $theme_settings = $touko_the_politician_theme_options_settings;
 						);?>
 							<nav id="main-nav" class="clearfix">
 								<div class="container clearfix">
-									<?php wp_nav_menu($args); ?>
+									<?php wp_nav_menu( $args ); ?>
 								</div>
 							</nav>
 					<?php }

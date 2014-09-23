@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Footer Content Functions
@@ -18,22 +18,22 @@ if ( !defined('ABSPATH')) exit;
 <?php
   add_filter('add_google_analytics', 'add_google_analytics', 10, 1);
 
-  function add_google_analytics($id){
+  function add_google_analytics( $id ){
     echo "<script>
           var _gaq=[['_setAccount','".$id."'],['_trackPageview']];
-          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-          s.parentNode.insertBefore(g,s)}(document,'script'));
+          ( function( d,t){var g=d.createElement(t ),s=d.getElementsByTagName(t )[0];
+          g.src=( 'https:'==location.protocol?'//ssl':'//www' )+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore( g,s)}(document,'script') );
         </script>";
   }
 
-  add_action('add_footer_content', 'add_footer_content');
+  add_action( 'add_footer_content', 'add_footer_content' );
 
   function add_footer_content(){
-    if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-widget') ) : ?>
+    if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'footer-widget' ) ) : ?>
     <?php endif; ?>
     <?php
-    if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-widget-2') ) : ?>
+    if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'footer-widget-2' ) ) : ?>
     <?php endif; ?>
 
     <div class="logos pure-u-1">
@@ -42,18 +42,18 @@ if ( !defined('ABSPATH')) exit;
       </a>
     </div>
     <div class="site-generator pure-u-1">
-      <span class="copyright">Copyright © <?php echo date('Y'); ?>
-        <a href="<?php echo home_url();?>" title="<?php echo get_bloginfo('name');?>"><span><?php echo get_bloginfo('name');?></span></a>
+      <span class="copyright">Copyright © <?php echo date( 'Y' ); ?>
+        <a href="<?php echo home_url();?>" title="<?php echo get_bloginfo( 'name' );?>"><span><?php echo get_bloginfo( 'name' );?></span></a>
       </span><!-- .copy -->
-      <span class="credits"><?php _e('Kiitos:', THEME_TEXTDOMAIN);?> <a href="<?php echo esc_url('http://colorawesomeness.com/themes/travelify/');?>" target="_blank" title="Color Awesomeness">Color Awesomeness</a> ja <a href="<?php echo esc_url('http://wordpress.org/'); ?>" target="_blank" title="WordPress">WordPress</a>
+      <span class="credits"><?php _e( 'Kiitos:', THEME_TEXTDOMAIN );?> <a href="<?php echo esc_url( 'http://colorawesomeness.com/themes/travelify/' );?>" target="_blank" title="Color Awesomeness">Color Awesomeness</a> ja <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" target="_blank" title="WordPress">WordPress</a>
       </span>
     </div>
     <div class="pure-u-1 site-created">
-      <span class="created"><?php _e('Toteutus: ', THEME_TEXTDOMAIN);?><a href="<?php echo esc_url('http://lookit.fi/');?>" title="Lookit Designs">Janne/Lookit Designs</a>
+      <span class="created"><?php _e('Toteutus: ', THEME_TEXTDOMAIN);?><a href="<?php echo esc_url( 'http://lookit.fi/' );?>" title="Lookit Designs">Janne/Lookit Designs</a>
       </span>
       <span class="source">
         <i class="icon-github"></i>
-        <a href="<?php echo esc_url('https://github.com/0is1/touko-the-politician');?>" title="<?php _e('Lähdekoodit', THEME_TEXTDOMAIN);?>"><?php _e('Lähdekoodi ', THEME_TEXTDOMAIN);?></a>
+        <a href="<?php echo esc_url( 'https://github.com/0is1/touko-the-politician' );?>" title="<?php _e( 'Lähdekoodit', THEME_TEXTDOMAIN );?>"><?php _e('Lähdekoodi ', THEME_TEXTDOMAIN);?></a>
       </span>
     </div>
   <?php

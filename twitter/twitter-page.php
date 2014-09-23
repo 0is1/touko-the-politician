@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Twitter Page Template
@@ -18,29 +18,29 @@ if ( !defined('ABSPATH')) exit;
 <?php
   global $touko_the_politician_theme_options_settings;
   $theme_settings = $touko_the_politician_theme_options_settings;
-  if (!get_transient('twitter_transient')) {
-    call_user_func('twitter_transient');
+  if ( !get_transient('twitter_transient') ) {
+    call_user_func( 'twitter_transient' );
   }
-  $data = get_transient('twitter_transient');
-  if (gettype($data) !== 'NULL') :
+  $data = get_transient( 'twitter_transient' );
+  if ( gettype($data ) !== 'NULL') :
 
     // Get user Twitter profile image
-    if(isset($data[0]["user"]["profile_image_url"])) $twitter_user_image = $data[0]["user"]["profile_image_url"];
+    if( isset($data[0]["user"]["profile_image_url"]) ) $twitter_user_image = $data[0]["user"]["profile_image_url"];
     // Get user Twitter profile banner base url
-    if(isset($data[0]["user"]["profile_banner_url"])) $twitter_profile_banner_url = $data[0]["user"]["profile_banner_url"];
+    if( isset($data[0]["user"]["profile_banner_url"]) ) $twitter_profile_banner_url = $data[0]["user"]["profile_banner_url"];
 
-    if(isset($data[0]["user"]["name"])) $twitter_user_real_name = $data[0]["user"]["name"];
-    if(isset($data[0]["user"]["location"])) $twitter_user_location = $data[0]["user"]["location"];
-    if(isset($data[0]["user"]["description"])) $twitter_user_description = $data[0]["user"]["description"];
-    if(isset($data[0]["user"]["entities"]["url"]["urls"][0]["expanded_url"])) {
+    if( isset($data[0]["user"]["name"]) ) $twitter_user_real_name = $data[0]["user"]["name"];
+    if( isset($data[0]["user"]["location"]) ) $twitter_user_location = $data[0]["user"]["location"];
+    if( isset($data[0]["user"]["description"]) ) $twitter_user_description = $data[0]["user"]["description"];
+    if( isset($data[0]["user"]["entities"]["url"]["urls"][0]["expanded_url"]) ) {
       $twitter_user_url = $data[0]["user"]["entities"]["url"]["urls"][0]["expanded_url"];
-    } else if (isset($data[0]["user"]["url"])){
+    } else if ( isset($data[0]["user"]["url"]) ){
       $twitter_user_url = $data[0]["user"]["url"];
     }
-    if(isset($data[0]["user"]["followers_count"])) $twitter_user_followers_count = $data[0]["user"]["followers_count"];
-    if(isset($data[0]["user"]["friends_count"])) $twitter_user_friends_count = $data[0]["user"]["friends_count"];
-    if(isset($data[0]["user"]["statuses_count"])) $twitter_user_statuses_count = $data[0]["user"]["statuses_count"];
-    isset($data[0]["user"]["screen_name"]) ? $twitter_user_nick = $data[0]["user"]["screen_name"] : $twitter_user_nick = $theme_settings['twitter_username'];
+    if( isset($data[0]["user"]["followers_count"]) ) $twitter_user_followers_count = $data[0]["user"]["followers_count"];
+    if( isset($data[0]["user"]["friends_count"]) ) $twitter_user_friends_count = $data[0]["user"]["friends_count"];
+    if( isset($data[0]["user"]["statuses_count"]) ) $twitter_user_statuses_count = $data[0]["user"]["statuses_count"];
+    isset( $data[0]["user"]["screen_name"] ) ? $twitter_user_nick = $data[0]["user"]["screen_name"] : $twitter_user_nick = $theme_settings['twitter_username'];
     $twitter_user_profile_link = "https://twitter.com/" . $twitter_user_nick;
 
     ?>
@@ -64,18 +64,18 @@ if ( !defined('ABSPATH')) exit;
     <section class="twitter-page-details">
       <ul>
         <li>
-          <a href="<?php echo $twitter_user_profile_link; ?>" title="@<?php echo $twitter_user_nick;?> – <?php _e('Twiittiä',THEME_TEXTDOMAIN);?>">
-            <strong><?php echo $twitter_user_statuses_count;?></strong><span><?php _e('Twiittiä', THEME_TEXTDOMAIN) ?></span>
+          <a href="<?php echo $twitter_user_profile_link; ?>" title="@<?php echo $twitter_user_nick;?> – <?php _e( 'Twiittiä',THEME_TEXTDOMAIN );?>">
+            <strong><?php echo $twitter_user_statuses_count;?></strong><span><?php _e( 'Twiittiä', THEME_TEXTDOMAIN ) ?></span>
           </a>
         </li>
         <li>
-          <a href="<?php echo $twitter_user_profile_link;?>/following" title="@<?php echo $twitter_user_nick;?> – <?php _e('Seurattua',THEME_TEXTDOMAIN);?>">
-            <strong><?php echo $twitter_user_friends_count;?></strong><span><?php _e('Seurattua', THEME_TEXTDOMAIN) ?></span>
+          <a href="<?php echo $twitter_user_profile_link;?>/following" title="@<?php echo $twitter_user_nick;?> – <?php _e( 'Seurattua',THEME_TEXTDOMAIN );?>">
+            <strong><?php echo $twitter_user_friends_count;?></strong><span><?php _e( 'Seurattua', THEME_TEXTDOMAIN ) ?></span>
           </a>
         </li>
         <li>
-          <a href="<?php echo $twitter_user_profile_link;?>/followers" title="@<?php echo $twitter_user_nick;?> – <?php _e('Seuraajaa',THEME_TEXTDOMAIN);?>">
-            <strong><?php echo $twitter_user_followers_count;?></strong><span><?php _e('Seuraajaa', THEME_TEXTDOMAIN) ?></span>
+          <a href="<?php echo $twitter_user_profile_link;?>/followers" title="@<?php echo $twitter_user_nick;?> – <?php _e( 'Seuraajaa',THEME_TEXTDOMAIN );?>">
+            <strong><?php echo $twitter_user_followers_count;?></strong><span><?php _e( 'Seuraajaa', THEME_TEXTDOMAIN ) ?></span>
           </a>
         </li>
       </ul>

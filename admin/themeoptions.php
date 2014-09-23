@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Contains all the theme option default values
@@ -48,7 +48,7 @@ function touko_register_settings() {
     <?php
       global $touko_the_politician_theme_options_settings, $touko_the_politician_theme_options_defaults;
       echo "<p>Settings:</p><pre>";
-      print_r($touko_the_politician_theme_options_settings);
+      print_r( $touko_the_politician_theme_options_settings );
       echo "</pre>";
     ?>
     <div class="touko-the-politician-admin">
@@ -62,14 +62,14 @@ function touko_register_settings() {
      <?php
 
       // load newsfeed options template
-      get_template_part('admin/newsfeed', 'options');
+      get_template_part( 'admin/newsfeed', 'options' );
 
       // load social media options template
-      get_template_part('admin/socialmedia', 'options');
-      get_template_part('admin/instagram', 'options');
+      get_template_part( 'admin/socialmedia', 'options' );
+      get_template_part( 'admin/instagram', 'options' );
 
       // load other admin stuff
-      get_template_part('admin/mixed', 'options');
+      get_template_part( 'admin/mixed', 'options' );
 
       submit_button();?>
       </form>
@@ -189,7 +189,7 @@ function touko_register_settings() {
     }
 
       //Clearing the theme option cache
-    if(function_exists('clear_transitions')) clear_transitions();
+    if( function_exists('clear_transitions')) clear_transitions();
     return $input_validated;
   }
 
@@ -197,10 +197,10 @@ function touko_register_settings() {
  * Clearing the cache if any changes in Admin Theme Option
  */
 function clear_transitions(){
-  delete_transient('social_media_icons');
-  delete_transient('featured_post_slider');
-  delete_transient('facebook_page_posts_transient');
-  delete_transient('facebook_page_transient');
-  delete_transient('twitter_transient');
+  delete_transient( 'social_media_icons' );
+  delete_transient( 'featured_post_slider' );
+  delete_transient( 'facebook_page_posts_transient' );
+  delete_transient( 'facebook_page_transient' );
+  delete_transient( 'twitter_transient' );
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Theme Social Media Options Template
@@ -16,7 +16,7 @@ if ( !defined('ABSPATH')) exit;
 ?>
 
 <?php
-  settings_fields('touko_theme_options');
+  settings_fields( 'touko_theme_options' );
   global $touko_the_politician_theme_options_settings;
   $options = $touko_the_politician_theme_options_settings;
 ?>
@@ -24,15 +24,15 @@ if ( !defined('ABSPATH')) exit;
   <h2><?php _e( 'Sosiaalisen median asetukset', THEME_TEXTDOMAIN );?></h2>
   <div class="pure-control-group wrap">
     <label for="touko_theme_options[enable_facebook_like_box]"><?php _e( 'Näytä Facebook-sivu?', THEME_TEXTDOMAIN );?></label>
-    <input type="checkbox" name="touko_theme_options[enable_facebook_like_box]" value="<?php echo $options['enable_facebook_like_box'];?>" <?php if($options['enable_facebook_like_box']) echo "checked=checked";?>  />
+    <input type="checkbox" name="touko_theme_options[enable_facebook_like_box]" value="<?php echo $options['enable_facebook_like_box'];?>" <?php if( $options['enable_facebook_like_box'] ) echo "checked=checked";?>  />
   </div>
   <div class="pure-control-group wrap">
     <label for="touko_theme_options[enable_twitter_follow_box]"><?php _e( 'Näytä Twitter-sivu?', THEME_TEXTDOMAIN );?></label>
-    <input type="checkbox" name="touko_theme_options[enable_twitter_follow_box]" value="<?php echo $options['enable_twitter_follow_box'];?>" <?php if($options['enable_twitter_follow_box']) echo "checked=checked";?>  />
+    <input type="checkbox" name="touko_theme_options[enable_twitter_follow_box]" value="<?php echo $options['enable_twitter_follow_box'];?>" <?php if( $options['enable_twitter_follow_box'] ) echo "checked=checked";?>  />
   </div>
   <div class="pure-control-group wrap">
     <label for="touko_theme_options[enable_social_media_icons]"><?php _e( 'Näytä sosiaalisen median ikonit?', THEME_TEXTDOMAIN );?></label>
-    <input type="checkbox" name="touko_theme_options[enable_social_media_icons]" value="<?php echo $options['enable_social_media_icons'];?>" <?php if($options['enable_social_media_icons']) echo "checked=checked";?>  />
+    <input type="checkbox" name="touko_theme_options[enable_social_media_icons]" value="<?php echo $options['enable_social_media_icons'];?>" <?php if( $options['enable_social_media_icons'] ) echo "checked=checked";?>  />
   </div>
 </div>
 <div class="social-media-link-options">

@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Sidebar Widgets
@@ -16,18 +16,18 @@ if ( !defined('ABSPATH')) exit;
  */
 
 // Register sidebars / widgets
-if (function_exists('register_sidebar')) {
+if ( function_exists('register_sidebar') ) {
     register_sidebar(array(
     'name' => __('Main Area Widget for Google Calendar', THEME_TEXTDOMAIN),
     'id'   => 'main-area-widget',
-    'description'   => __('Main Area Widget for Touko The Politician theme (Google Calendar)', THEME_TEXTDOMAIN),
+    'description'   => __('Main Area Widget for Touko The Politician theme ( Google Calendar )', THEME_TEXTDOMAIN),
     'before_widget' => '<div class="main-area-widget google-calendar pure-u-1">',
     'after_widget'  => '</div>',
     'before_title'  => '<h2><i class="icon-calendar"></i>',
     'after_title'   => '</h2>'
    ));
   }
-  if (function_exists('register_sidebar')) {
+  if ( function_exists('register_sidebar') ) {
     register_sidebar(array(
     'name' => __('Footer Widget', THEME_TEXTDOMAIN),
     'id'   => 'footer-widget',
@@ -38,7 +38,7 @@ if (function_exists('register_sidebar')) {
     'after_title'   => '</h2>'
    ));
   }
-  if (function_exists('register_sidebar')) {
+  if ( function_exists('register_sidebar') ) {
     register_sidebar(array(
     'name' => __('Footer Widget 2', THEME_TEXTDOMAIN),
     'id'   => 'footer-widget-2',

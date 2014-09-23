@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Newsfeed Template
@@ -21,25 +21,25 @@ if ( !defined('ABSPATH')) exit;
 ?>
 
   <div class="newsfeed clearfix">
-    <h1><i class="icon-doc"></i><?php _e('Uutisvirta', THEME_TEXTDOMAIN); ?></h1>
-    <?php if($theme_settings['enable_wp_posts_newsfeed']): ?>
+    <h1><i class="icon-doc"></i><?php _e( 'Uutisvirta', THEME_TEXTDOMAIN ); ?></h1>
+    <?php if( $theme_settings['enable_wp_posts_newsfeed'] ): ?>
       <div class="wp-posts clearfix">
-        <?php get_template_part('homepage', 'posts'); ?>
+        <?php get_template_part( 'homepage', 'posts' ); ?>
       </div>
     <?php endif; ?>
-    <?php if($theme_settings['enable_facebook_newsfeed']): ?>
+    <?php if( $theme_settings['enable_facebook_newsfeed'] ): ?>
       <div class="facebook-page-posts clearfix">
-        <?php get_template_part('facebook/facebook', 'posts'); ?>
+        <?php get_template_part( 'facebook/facebook', 'posts' ); ?>
       </div>
     <?php endif; ?>
-    <?php if($theme_settings['enable_twitter_newsfeed']): ?>
+    <?php if( $theme_settings['enable_twitter_newsfeed'] ): ?>
       <div class="twitter-page-posts clearfix">
-        <?php get_template_part('twitter/twitter', 'tweets'); ?>
+        <?php get_template_part( 'twitter/twitter', 'tweets' ); ?>
       </div>
     <?php endif; ?>
-    <?php if($theme_settings['enable_instagram']): ?>
+    <?php if( $theme_settings['enable_instagram'] ): ?>
       <div class="instagram-media-posts clearfix">
-        <?php get_template_part('instagram/instagram', 'media'); ?>
+        <?php get_template_part( 'instagram/instagram', 'media' ); ?>
       </div>
   <?php endif; ?>
   </div>

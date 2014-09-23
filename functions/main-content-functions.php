@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Main Content Functions
@@ -15,7 +15,7 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 
-add_action('add_page_content', 'add_page_content');
+add_action( 'add_page_content', 'add_page_content' );
 
 function add_page_content() {
   global $post;
@@ -30,11 +30,11 @@ function add_page_content() {
     $layout = 'default';
   }
   // If front page
-  if (is_home() || is_front_page()) {
+  if ( is_home() || is_front_page()) {
       while ( have_posts() ) : the_post(); ?>
         <article id="home" <?php post_class(); ?>>
           <div class="entry-content">
-            <?php do_action('add_social_media_buttons'); ?>
+            <?php do_action( 'add_social_media_buttons' ); ?>
             <?php the_content(); ?>
             <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Sivut:', THEME_TEXTDOMAIN ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
           </div><!-- .entry-content -->
@@ -42,14 +42,14 @@ function add_page_content() {
     <?php endwhile; ?>
     <div class="social-media-boxes clearfix">
     <?php
-    if($theme_settings['enable_facebook_like_box']) get_template_part('facebook/facebook', 'page');
-    if($theme_settings['enable_twitter_follow_box']) get_template_part('twitter/twitter', 'page');
+    if( $theme_settings['enable_facebook_like_box'] ) get_template_part( 'facebook/facebook', 'page' );
+    if( $theme_settings['enable_twitter_follow_box'] ) get_template_part( 'twitter/twitter', 'page' );
     ?>
     </div>
     <?php
-      if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('main-area-widget') ) : ?>
+      if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'main-area-widget' ) ) : ?>
     <?php endif; ?>
-    <?php if($theme_settings['enable_newsfeed']) get_template_part('newsfeed'); ?>
+    <?php if( $theme_settings['enable_newsfeed']) get_template_part('newsfeed' ); ?>
   <?php  }
   // if not front page
   else {
@@ -62,7 +62,7 @@ function add_page_content() {
       get_template_part( 'content','rightsidebar' );
     }
     else {
-      get_template_part('content','default');
+      get_template_part( 'content','default' );
     }
    }
    elseif($themeoption_layout === 'left-sidebar') {
@@ -86,15 +86,15 @@ add_action( 'loop_content', 'the_loop', 10 );
  */
 function the_loop() {
   if( is_page() ) {
-    do_action('loop_the_page');
+    do_action( 'loop_the_page' );
   }
-  else if(is_search()){
-    do_action('loop_for_search');
+  else if( is_search() ){
+    do_action( 'loop_for_search' );
   }
-  elseif(is_single()) {
-    do_action('loop_for_single');
+  elseif( is_single() ) {
+    do_action( 'loop_for_single' );
   }
-  else do_action('loop_for_archive');
+  else do_action( 'loop_for_archive' );
 
   // TODO: all these ->
 

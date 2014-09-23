@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Homepage Posts Template
@@ -20,9 +20,9 @@ if ( !defined('ABSPATH')) exit;
 ?>
 <?php
   $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $theme_settings['wp_blog_visible_posts_count']) );
-  if($query->have_posts()) :
+  if( $query->have_posts() ) :
     $i = 0;
-    while($query->have_posts()) : $query->the_post();
+    while( $query->have_posts() ) : $query->the_post();
     ?>
       <article class="post-<?php the_ID();?> grid-50-with-gap">
         <a href="<?php echo get_permalink(); ?>" title="<?php the_title() ?>">

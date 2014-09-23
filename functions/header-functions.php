@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Header Functions
@@ -18,16 +18,16 @@ if ( !defined('ABSPATH')) exit;
 
 function remove_parent_widgets(){
   // Unregister Travelify sidebars and widgets
-  unregister_sidebar('travelify_left_sidebar');
-  unregister_sidebar('travelify_right_sidebar');
-  unregister_sidebar('travelify_footer_widget');
+  unregister_sidebar( 'travelify_left_sidebar' );
+  unregister_sidebar( 'travelify_right_sidebar' );
+  unregister_sidebar( 'travelify_footer_widget' );
 }
 add_action( 'widgets_init', 'remove_parent_widgets', 11 );
 
 function dequeue_script_parent_theme_scripts() {
    // Remove Travelify scripts and styles
    wp_dequeue_script( 'theme_functions' );
-   wp_dequeue_style('google_font_ubuntu');
+   wp_dequeue_style( 'google_font_ubuntu' );
 }
 
 add_action( 'wp_enqueue_scripts', 'dequeue_script_parent_theme_scripts', 9999 );
@@ -42,7 +42,7 @@ add_action( 'add_meta_boxes', 'remove_parent_meta_boxes', 9999 );
 function register_custom_menus() {
   register_nav_menus(
     array(
-      'basic-menu' => __('Päävalikko', THEME_TEXTDOMAIN),
+      'basic-menu' => __( 'Päävalikko', THEME_TEXTDOMAIN ),
     )
   );
 }
@@ -63,15 +63,15 @@ add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
 // Add scripts
 function add_scripts() {
-  wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array('jquery'), THEME_VERSION, true );
+  wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array( 'jquery' ), THEME_VERSION, true );
   // Add video support to particular page TODO:
-  // if(is_page('TODO')){
+  // if( is_page('TODO') ){
   //   wp_enqueue_script( 'vjs', '//vjs.zencdn.net/4.5/video.js', array(), '1.0.0', true );
   // }
 }
 
 // Load Favicon in Header Section
-add_action('wp_head', 'blog_favicon');
+add_action( 'wp_head', 'blog_favicon' );
 
 // add a favicon
 function blog_favicon() {
@@ -90,7 +90,7 @@ function add_css(){
 }
 
 // Load Favicon in Admin Section
-add_action('admin_head', 'admin_blog_favicon');
+add_action( 'admin_head', 'admin_blog_favicon' );
 // add a favicon
 function admin_blog_favicon() {
   echo '<link rel="shortcut icon" type="image/png" href="' . get_stylesheet_directory_uri() . '/images/favicon-admin.png" />';
@@ -120,19 +120,19 @@ function add_social_media_icons(){
     'icon-rss'  => 'rss_page_url',
     'icon-euro' => 'donate_url'
   );
-  if (!$social_media_icons = get_transient('social_media_icons')){
+  if (!$social_media_icons = get_transient( 'social_media_icons') ){
     $social_media_icons = "<ul class='social-media-icons'>";
     foreach($social_links as $key => $value){
-      $title_parts = explode("-", $key);
-      if (!empty( $elements[$value])) {
+      $title_parts = explode( "-", $key );
+      if ( !empty( $elements[$value]) ) {
         // HACK HACK HACK
         if($title_parts[1] == 'euro'){
           $social_media_icons .=
-          '<li><a class="'.strtolower($key).'" href="'.esc_url($elements[$value]).'" title="'.__( "Lahjoita Toukon vaalikampanjaan", "touko" ).'" target="_blank"></a></li>';
+          '<li><a class="'.strtolower( $key).'" href="'.esc_url($elements[$value] ).'" title="'.__( "Lahjoita Toukon vaalikampanjaan", "touko" ).'" target="_blank"></a></li>';
         }
         else{
           $social_media_icons .=
-          '<li><a class="'.strtolower($key).'" href="'.esc_url($elements[$value]).'" title="'.sprintf( esc_attr__( '%1$s @ %2$s', THEME_TEXTDOMAIN ), get_bloginfo( 'name' ), ucfirst($title_parts[1]) ).'" target="_blank"></a></li>';
+          '<li><a class="'.strtolower( $key).'" href="'.esc_url($elements[$value] ).'" title="'.sprintf( esc_attr__( '%1$s @ %2$s', THEME_TEXTDOMAIN ), get_bloginfo( 'name' ), ucfirst( $title_parts[1] ) ).'" target="_blank"></a></li>';
         }
       }
     }
@@ -141,12 +141,12 @@ function add_social_media_icons(){
   }
   echo $social_media_icons;
 }
-// if (!function_exists('pass_cycle_parameters')) :
+// if ( !function_exists('pass_cycle_parameters') ) :
 // /**
 //  * Function to pass the slider effect parameters from php file to js file.
 //  */
 // function pass_cycle_parameters() {
-//   if (is_home() || is_front_page()) {
+//   if ( is_home() || is_front_page()) {
 //     wp_localize_script(
 //       'main',
 //       'slider_values',
@@ -161,7 +161,7 @@ function add_social_media_icons(){
 // }
 // endif;
 
-if (!function_exists('featured_post_slider')) :
+if ( !function_exists('featured_post_slider') ) :
 /**
  * display featured post slider
  *
@@ -199,10 +199,10 @@ function featured_post_slider() {
             $featured_post_slider .= '
               <article class="featured-text">';
               if( $title_attribute !='' ) {
-                  $featured_post_slider .= '<div class="featured-title"><a href="' . get_permalink() . '" title="'.the_title('','',false).'">'. get_the_title() . '</a></div><!-- .featured-title -->';
+                  $featured_post_slider .= '<div class="featured-title"><a href="' . get_permalink() . '" title="'.the_title( '','',false).'">'. get_the_title() . '</a></div><!-- .featured-title -->';
               }
               if( $excerpt !='' ) {
-                $featured_post_slider .= '<div class="featured-content"><a href="' . get_permalink() . '" title="'.the_title('','',false).'">'.$excerpt.'</a></div><!-- .featured-content -->';
+                $featured_post_slider .= '<div class="featured-content"><a href="' . get_permalink() . '" title="'.the_title( '','',false ).'">'.$excerpt.'</a></div><!-- .featured-content -->';
               }
             $featured_post_slider .= '
               </article><!-- .featured-text -->';

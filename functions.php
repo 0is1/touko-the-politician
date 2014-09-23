@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Theme Functions
@@ -18,43 +18,43 @@ if ( !defined('ABSPATH')) exit;
 /**
 * Define constants
 */
-define('THEME_TEXTDOMAIN', 'touko');
-define('THEME_VERSION', '0.9.1');
+define( 'THEME_TEXTDOMAIN', 'touko' );
+define( 'THEME_VERSION', '0.9.1' );
 
 /**
 * Load external files
 */
-require_once(get_stylesheet_directory() . '/functions/header-functions.php');
-require_once(get_stylesheet_directory() . '/functions/content-loop-functions.php');
-require_once(get_stylesheet_directory() . '/functions/main-content-functions.php');
-require_once(get_stylesheet_directory() . '/functions/social-media-content-functions.php');
-require_once(get_stylesheet_directory() . '/widgets.php' );
-require_once(get_stylesheet_directory() . '/functions/footer-content-functions.php');
+require_once( get_stylesheet_directory() . '/functions/header-functions.php');
+require_once( get_stylesheet_directory() . '/functions/content-loop-functions.php');
+require_once( get_stylesheet_directory() . '/functions/main-content-functions.php');
+require_once( get_stylesheet_directory() . '/functions/social-media-content-functions.php');
+require_once( get_stylesheet_directory() . '/widgets.php' );
+require_once( get_stylesheet_directory() . '/functions/footer-content-functions.php');
 /**
 * Load Admin Panel scripts
 */
-require_once(get_stylesheet_directory() . '/admin/themeoptions-defaults.php');
-require_once(get_stylesheet_directory() . '/admin/themeoptions.php');
+require_once( get_stylesheet_directory() . '/admin/themeoptions-defaults.php');
+require_once( get_stylesheet_directory() . '/admin/themeoptions.php');
 /**
 * Load Facebook scripts
 */
-require_once(get_stylesheet_directory() . '/facebook/get-facebook-page-details.php');
-require_once(get_stylesheet_directory() . '/facebook/get-facebook-posts.php' );
-require_once(get_stylesheet_directory() . '/facebook/get-facebook-photos.php');
+require_once( get_stylesheet_directory() . '/facebook/get-facebook-page-details.php');
+require_once( get_stylesheet_directory() . '/facebook/get-facebook-posts.php' );
+require_once( get_stylesheet_directory() . '/facebook/get-facebook-photos.php');
 
 /**
 * Load Twitter scripts
 */
-require_once(get_stylesheet_directory() . '/twitter/get-tweets.php');
+require_once( get_stylesheet_directory() . '/twitter/get-tweets.php');
 
 /**
 * Load Instagram scripts
 */
-require_once(get_stylesheet_directory() . '/instagram/get-instagram-media.php');
+require_once( get_stylesheet_directory() . '/instagram/get-instagram-media.php');
 
 
 
 // Enable shortcodes in widgets
-add_filter('widget_text', 'do_shortcode');
+add_filter( 'widget_text', 'do_shortcode' );
 
 ?>

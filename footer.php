@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Footer Template
@@ -23,14 +23,14 @@ if ( !defined('ABSPATH')) exit;
 
    <footer class="main-footer clearfix pure-g-r" role="contentinfo">
    <?php
- 	  	do_action('add_footer_content');
+ 	  	do_action( 'add_footer_content' );
 	   ?>
 	</footer>
 
 </div><!-- .wrapper -->
 
 <?php wp_footer(); ?>
-<?php do_action('add_like_button_script');?>
-<?php if($theme_settings['enable_google_analytics']) apply_filters('add_google_analytics', $theme_settings['google_analytics_id']); ?>
+<?php do_action( 'add_like_button_script' );?>
+<?php if( $theme_settings['enable_google_analytics'] ) apply_filters( 'add_google_analytics', $theme_settings['google_analytics_id'] ); ?>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Theme Newsfeed Options Template
@@ -16,7 +16,7 @@ if ( !defined('ABSPATH')) exit;
 ?>
 
 <?php
-  settings_fields('touko_theme_options');
+  settings_fields( 'touko_theme_options' );
   global $touko_the_politician_theme_options_settings;
   $options = $touko_the_politician_theme_options_settings;
 ?>
@@ -24,14 +24,14 @@ if ( !defined('ABSPATH')) exit;
   <h2><?php _e( 'Uutisvirran asetukset', THEME_TEXTDOMAIN );?></h2>
   <div class="wrap pure-control-group">
     <label for="touko_theme_options[enable_newsfeed]"><?php _e( 'Näytä uutisvirta etusivulla?', THEME_TEXTDOMAIN );?></label>
-    <input type="checkbox" name="touko_theme_options[enable_newsfeed]" value="<?php echo $options['enable_newsfeed'];?>" <?php if($options['enable_newsfeed']) echo "checked=checked";?>  />
+    <input type="checkbox" name="touko_theme_options[enable_newsfeed]" value="<?php echo $options['enable_newsfeed'];?>" <?php if( $options['enable_newsfeed'] ) echo "checked=checked";?>  />
   </div>
 </div>
 <div class="wp-posts-options">
   <h3><?php _e( 'Wordpress blogiviestien asetukset', THEME_TEXTDOMAIN );?></h3>
   <div class="wrap pure-control-group">
     <label for="touko_theme_options[enable_wp_posts_newsfeed]"><?php _e( 'Näytä blogiviestit etusivulla?', THEME_TEXTDOMAIN );?></label>
-    <input type="checkbox" name="touko_theme_options[enable_wp_posts_newsfeed]" value="<?php echo $options['enable_wp_posts_newsfeed'];?>" <?php if($options['enable_wp_posts_newsfeed']) echo "checked=checked";?>  />
+    <input type="checkbox" name="touko_theme_options[enable_wp_posts_newsfeed]" value="<?php echo $options['enable_wp_posts_newsfeed'];?>" <?php if( $options['enable_wp_posts_newsfeed'] ) echo "checked=checked";?>  />
   </div>
   <div class="wrap pure-control-group">
     <label for="touko_theme_options[wp_blog_visible_posts_count]"><?php _e( 'Blogiviestien määrä etusivulla:', THEME_TEXTDOMAIN );?></label>
@@ -54,7 +54,7 @@ if ( !defined('ABSPATH')) exit;
     <h3><?php _e( 'Facebook-uutisvirran asetukset', THEME_TEXTDOMAIN );?></h3>
     <div class="wrap pure-control-group">
       <label for="touko_theme_options[enable_facebook_newsfeed]"><?php _e( 'Näytä Facebook-viestit etusivulla?', THEME_TEXTDOMAIN );?></label>
-      <input type="checkbox" name="touko_theme_options[enable_facebook_newsfeed]" value="<?php echo $options['enable_facebook_newsfeed'];?>" <?php if($options['enable_facebook_newsfeed']) echo "checked=checked";?>  />
+      <input type="checkbox" name="touko_theme_options[enable_facebook_newsfeed]" value="<?php echo $options['enable_facebook_newsfeed'];?>" <?php if( $options['enable_facebook_newsfeed'] ) echo "checked=checked";?>  />
     </div>
     <div class="wrap pure-control-group">
       <label for="touko_theme_options[facebook_page_id]"><?php _e( 'Facebook-sivun id:', THEME_TEXTDOMAIN );?></label>
@@ -92,7 +92,7 @@ if ( !defined('ABSPATH')) exit;
     <h3><?php _e( 'Twitter-uutisvirran asetukset', THEME_TEXTDOMAIN );?></h3>
     <div class="wrap pure-control-group">
       <label for="touko_theme_options[enable_twitter_newsfeed]"><?php _e( 'Näytä Twitter-viestit etusivulla?', THEME_TEXTDOMAIN );?></label>
-      <input type="checkbox" name="touko_theme_options[enable_twitter_newsfeed]" value="<?php echo $options['enable_twitter_newsfeed'];?>" <?php if($options['enable_twitter_newsfeed']) echo "checked=checked";?>  />
+      <input type="checkbox" name="touko_theme_options[enable_twitter_newsfeed]" value="<?php echo $options['enable_twitter_newsfeed'];?>" <?php if( $options['enable_twitter_newsfeed'] ) echo "checked=checked";?>  />
     </div>
     <div class="wrap pure-control-group">
       <label for="touko_theme_options[twitter_username]"><?php _e( 'Twitter käyttäjätunnus:', THEME_TEXTDOMAIN );?></label>

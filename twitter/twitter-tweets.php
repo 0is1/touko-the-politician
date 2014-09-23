@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Twitter Tweets Template
@@ -18,13 +18,13 @@ if ( !defined('ABSPATH')) exit;
 <?php
   global $touko_the_politician_theme_options_settings;
   $theme_settings = $touko_the_politician_theme_options_settings;
-  if (!get_transient('twitter_transient')) {
-    call_user_func('twitter_transient');
+  if ( !get_transient('twitter_transient') ) {
+    call_user_func( 'twitter_transient' );
   }
-  $data = get_transient('twitter_transient');
-  if (gettype($data) !== 'NULL') :
+  $data = get_transient( 'twitter_transient' );
+  if ( gettype($data ) !== 'NULL') :
     // Get user Twitter profile image
-    if(isset($data[0]["user"]["profile_image_url"])) $twitter_user_image = $data[0]["user"]["profile_image_url"];
+    if( isset($data[0]["user"]["profile_image_url"]) ) $twitter_user_image = $data[0]["user"]["profile_image_url"];
 
     $tweet_link_base = 'https://twitter.com/' . $theme_settings['twitter_username'] . '/status/';
     $twitter_user_real_name = $data[0]["user"]["name"];
@@ -34,7 +34,7 @@ if ( !defined('ABSPATH')) exit;
     ?>
     <?php
     // echo "<pre>";
-    // print_r($data[0]["user"]);
+    // print_r( $data[0]["user"] );
     // echo "</pre>";
     for ($i=0; $i < $theme_settings['twitter_visible_posts_count']; $i++) {
     ?>
@@ -49,8 +49,8 @@ if ( !defined('ABSPATH')) exit;
         </section>
         <section class="twitter-tweet-details">
           <?php
-          if(isset($data[$i]["text"])) : ?>
-          <?php $formatted_tweet = apply_filters('add_links_hashtags_to_tweet', $data[$i]["text"]);
+          if( isset($data[$i]["text"]) ) : ?>
+          <?php $formatted_tweet = apply_filters( 'add_links_hashtags_to_tweet', $data[$i]["text"] );
           ?>
             <p class="twitter-tweet-text"><?php echo $formatted_tweet;?></p>
             <figure class="newsfeed-icon twitter-logo">
@@ -59,16 +59,16 @@ if ( !defined('ABSPATH')) exit;
             <a class="twitter-tweet-url clearfix" href="<?php echo $tweet_link_base;?><?php echo $data[$i]["id"];?>" title="Linkki tweettiin"><?php _e( 'Linkki twiittiin', THEME_TEXTDOMAIN );?></a>
           <?php endif; ?>
           <?php
-            if(isset($data[$i]["entities"]["urls"]["url"])) : ?>
+            if( isset($data[$i]["entities"]["urls"]["url"]) ) : ?>
               <a href="<?php echo $data[$i]["entities"]["urls"]["url"];?>"><?php echo $data[$i]["entities"]["urls"]["url"];?></a>
             <?php endif; ?>
             <?php
-            if(isset($data[$i]["created_at"])) : ?>
+            if( isset($data[$i]["created_at"]) ) : ?>
             <?php
-              $datetime = new DateTime($data[$i]["created_at"]);
-              $datetime->setTimezone(new DateTimeZone('Europe/Helsinki'));
+              $datetime = new DateTime( $data[$i]["created_at"] );
+              $datetime->setTimezone( new DateTimeZone('Europe/Helsinki') );
             ?>
-            <span class="datetime"><?php echo $datetime->format('d.m.Y H:i');?></span>
+            <span class="datetime"><?php echo $datetime->format( 'd.m.Y H:i' );?></span>
             <?php endif; ?>
         </section>
       </article>

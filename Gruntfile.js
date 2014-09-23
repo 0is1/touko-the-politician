@@ -73,7 +73,7 @@ module.exports = function(grunt) {
       // }
     },
     /**
-     * Uglify (minify) JavaScript files
+     * Uglify ( minify ) JavaScript files
      * https://github.com/gruntjs/grunt-contrib-uglify
      * Compresses and minifies all JavaScript files into one
      */
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
           paths: ['.'],
           compress: false,
           import: ['nib'],
-          urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
+          urlfunc: 'embedurl', // use embedurl( 'test.png' ) in our code to trigger Data URI embedding
           banner: '<%= tag.css %>',
         },
         files: {
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
         options: {
           paths: ['.'],
           import: ['nib'],
-          urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
+          urlfunc: 'embedurl', // use embedurl( 'test.png' ) in our code to trigger Data URI embedding
           banner: '<%= tag.css %>',
         },
         files: {

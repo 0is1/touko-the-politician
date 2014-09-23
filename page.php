@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Page Template
@@ -19,10 +19,10 @@ if ( !defined('ABSPATH')) exit;
 
 <?php
  /* Add opening div */
- do_action('before_loop');
+ do_action( 'before_loop' );
 
  /* Loop stuff */
- do_action('add_page_content');
+ do_action( 'add_page_content' );
 
  /* Close opening div */
  do_action( 'after_loop' );

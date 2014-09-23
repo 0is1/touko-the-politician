@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Searchform Template
@@ -15,5 +15,5 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 	<form action="<?php echo esc_url( home_url( '/' ) ); ?>" class="searchform clearfix" method="get">
-		<input type="text" placeholder="<?php esc_attr_e('Etsi'); ?>" class="search-input field" name="s">
+		<input type="text" placeholder="<?php esc_attr_e( 'Etsi' ); ?>" class="search-input field" name="s">
 	</form>

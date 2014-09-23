@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Content Loop Functions
@@ -41,12 +41,12 @@ add_action( 'add_social_media_buttons', 'add_social_media_buttons', 10 );
  */
 function add_social_media_buttons(){
   echo '<div class="social-media-buttons">';
-  $blog_title = get_bloginfo('name');
-  if (is_home() || is_front_page()) {
-    $title = $blog_title .' – ' . get_bloginfo('description');
-  } else $title = $blog_title .' – ' . the_title('','', false);
-  do_action('create_like_button', get_permalink());
-  do_action('add_tweet_button', get_permalink(), $title);
+  $blog_title = get_bloginfo( 'name' );
+  if ( is_home() || is_front_page()) {
+    $title = $blog_title .' – ' . get_bloginfo( 'description' );
+  } else $title = $blog_title .' – ' . the_title( '','', false );
+  do_action( 'create_like_button', get_permalink() );
+  do_action( 'add_tweet_button', get_permalink(), $title);
   echo '</div>';
 }
 /* ------------------------------------------------------------------------ */
@@ -71,7 +71,7 @@ function loop_the_page() {
           </h2><!-- .entry-title -->
         </header>
         <div class="entry-content clearfix">
-          <?php do_action('add_social_media_buttons'); ?>
+          <?php do_action( 'add_social_media_buttons' ); ?>
           <?php the_content(); ?>
           <?php
             wp_link_pages( array(
@@ -162,7 +162,7 @@ function loop_for_single() {
             <span class="icon-user"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
             <span class="icon-clock"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
             <?php if( has_category() ) { ?>
-              <span class="icon-tag"><?php the_category(', '); ?></span>
+              <span class="icon-tag"><?php the_category( ', ' ); ?></span>
             <?php } ?>
             <?php if ( comments_open() ) { ?>
               <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', THEME_TEXTDOMAIN ), __( '1 kommentti', THEME_TEXTDOMAIN ), __( '% kommenttia', THEME_TEXTDOMAIN ), '', __( 'Kommentointi ei sallittu', THEME_TEXTDOMAIN ) ); ?></span>
@@ -174,7 +174,7 @@ function loop_for_single() {
             </h2><!-- .entry-title -->
           </header>
           <div class="entry-content clearfix">
-            <?php do_action('add_social_media_buttons'); ?>
+            <?php do_action( 'add_social_media_buttons' ); ?>
             <?php the_content();
             if( is_single() ) {
               $tag_list = get_the_tag_list( '', __( ', ', THEME_TEXTDOMAIN ) );
@@ -246,7 +246,7 @@ function loop_for_archive() {
               <span class="icon-user"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
               <span class="icon-clock"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
               <?php if( has_category() ) { ?>
-                <span class="icon-tag"><?php the_category(', '); ?></span>
+                <span class="icon-tag"><?php the_category( ', ' ); ?></span>
               <?php } ?>
               <?php if ( comments_open() ) { ?>
                 <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', THEME_TEXTDOMAIN ), __( '1 kommentti', THEME_TEXTDOMAIN ), __( '% kommenttia', THEME_TEXTDOMAIN ), '', __( 'Kommentointi ei sallittu', THEME_TEXTDOMAIN ) ); ?></span>
@@ -283,7 +283,7 @@ function site_comment( $comment, $args, $depth ) {
     // Display trackbacks differently than normal comments.
   ?>
   <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-    <p><?php _e( 'Pingback:', THEME_TEXTDOMAIN ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Muokkaa)', THEME_TEXTDOMAIN ), '<span class="edit-link">', '</span>' ); ?></p>
+    <p><?php _e( 'Pingback:', THEME_TEXTDOMAIN ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '( Muokkaa )', THEME_TEXTDOMAIN ), '<span class="edit-link">', '</span>' ); ?></p>
   <?php
       break;
     default :

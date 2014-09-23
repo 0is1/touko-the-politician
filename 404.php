@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * 404 Page Template
@@ -31,7 +31,7 @@ if ( !defined('ABSPATH')) exit;
 			<h3><?php _e( 'Voit yrittää seuraavia toimenpiteitä:', THEME_TEXTDOMAIN ); ?></h3>
 			<ul>
 				<li><?php _e( 'Tarkista web-sivun osoitteen oikeinkirjoitus', THEME_TEXTDOMAIN ); ?></li>
-				<li><?php _e( 'Päivitä sivu (selaimen "päivitä-sivu"-nappi)', THEME_TEXTDOMAIN ); ?></li>
+				<li><?php _e( 'Päivitä sivu ( selaimen "päivitä-sivu"-nappi )', THEME_TEXTDOMAIN ); ?></li>
 				<li><?php _e( 'Palaa takaisin', THEME_TEXTDOMAIN ); ?> <a href="<?php echo home_url() ?>/" title="<?php bloginfo( 'name' ) ?>" rel="home"><?php _e( 'Etusivulle', THEME_TEXTDOMAIN ); ?></a></li>
 				<li><?php _e( 'Tai käytä hakua', THEME_TEXTDOMAIN );?><span class="focus-search-arrow">&darr;</span></li>
 			</ul>

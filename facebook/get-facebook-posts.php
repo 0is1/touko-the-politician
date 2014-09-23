@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if ( !defined( 'ABSPATH') ) exit;
 
 /**
  * Facebook Posts Functions
@@ -14,12 +14,12 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 
-if (!function_exists('get_facebook_page_posts_data')) :
+if ( !function_exists('get_facebook_page_posts_data') ) :
   /**
    * Get data from Facebook API
    */
   function get_facebook_page_posts_data(){
-    require_once(get_stylesheet_directory() . '/vendor/facebook/facebook.php');
+    require_once( get_stylesheet_directory() . '/vendor/facebook/facebook.php');
 
     global $touko_the_politician_theme_options_settings;
     $theme_settings = $touko_the_politician_theme_options_settings;
@@ -28,27 +28,27 @@ if (!function_exists('get_facebook_page_posts_data')) :
     $config['appId'] = $theme_settings["facebook_app_id"];
     $config['secret'] = $theme_settings["facebook_app_secret"];
     $config['fileUpload'] = false; // optional
-    $facebook = new Facebook($config);
+    $facebook = new Facebook( $config );
     try{
       $pageFeed = $facebook->api($theme_settings["facebook_page_id"] . '/posts?limit='. $theme_settings["facebook_visible_posts_count"]);
       return $pageFeed;
-    } catch(FacebookApiException $e){
-      error_log(date('j.n.Y H:i:s'). " : ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
-      error_log($e->getType()." – ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
-      error_log($e->getMessage().PHP_EOL, 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
-      error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/facebook-errors.log');
+    } catch( FacebookApiException $e ){
+      error_log( date('j.n.Y H:i:s' ). " : ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log' );
+      error_log( $e->getType()." – ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log' );
+      error_log( $e->getMessage().PHP_EOL, 3, get_stylesheet_directory() .'/logs/facebook-errors.log' );
+      error_log("-----".PHP_EOL, 3, get_stylesheet_directory() .'/logs/facebook-errors.log' );
     }
   }
 endif;
 
-if (!function_exists('facebook_page_posts_transient')) :
+if ( !function_exists('facebook_page_posts_transient') ) :
   /**
    * Facebook page posts transient
    *
    * @uses set_transient and delete_transient
    */
   function facebook_page_posts_transient() {
-    if(!get_transient('facebook_page_posts_transient')) {
+    if( !get_transient('facebook_page_posts_transient') ) {
       $facebook_page_posts_transient = get_facebook_page_posts_data();
       // Set 15 min cache
       set_transient('facebook_page_posts_transient', $facebook_page_posts_transient, 900);
