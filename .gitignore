@@ -7,3 +7,5 @@ images/originals
 vendor/facebook-php-sdk
 vendor/twitter-api-php
 vendor/Instagram-PHP-API
+*.sublime-project
+*.sublime-workspace
