@@ -68,7 +68,7 @@ if ( !defined('ABSPATH')) exit;
     }
     ?>
 <?php else : // If Instagram data isnt available  ?>
-  <article class="instagram-media-post instagram-post-<?php echo $key;?> grid-100 clearfix">
+  <article class="instagram-media-post grid-100 clearfix">
     <section class="instagram-user-details clearfix">
       <figure class="newsfeed-icon instagram-logo">
         <i class="icon-instagram"></i>
