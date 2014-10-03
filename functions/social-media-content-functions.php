@@ -29,7 +29,7 @@ if ( !defined( 'ABSPATH') ) exit;
   }
 
   // Add Facebook like-button actions
-  add_action('add_like_button_script', 'add_like_button_script', 1);
+  add_action('wp_enqueue_scripts', 'add_like_button_script', 1);
   add_action('create_like_button', 'add_like_button', 10, 1);
 
   function add_like_button_script(){
@@ -54,17 +54,17 @@ if ( !defined( 'ABSPATH') ) exit;
 
   // Method to add hyperlink html tags to any urls, twitter ids or hashtags in the tweet
   function process_tweet( $text ) {
-    $text = preg_replace_callback( '@(https?|ftp)://(-\.)?([^\s/?\.#-]+\.?)+(/[^\s]* )?$@iS',
+    $text = preg_replace_callback( '/([\w]+\:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/',
        function ( $matches ) {
              return '<a href="' . $matches[0] . '">' . $matches[0] . '</a>';
          }, $text);
 
-     $text = preg_replace_callback( '/( ^|[\n ] )@([^0-9\s]\w+ )/',
+     $text = preg_replace_callback( '/@([A-Za-z0-9\/\.]*)/',
        function ( $matches ) {
-             return '<a href="https://www.twitter.com/' . $matches[2] .'">@' . $matches[2] . '</a> ';
+             return '<a href="https://www.twitter.com/' . $matches[1] .'">@' . $matches[1] . '</a> ';
          }, $text);
 
-     $text = preg_replace_callback( '/#([^0-9]\w+ )/',
+     $text = preg_replace_callback( '/#([A-Za-z0-9\/\.]*)/',
        function ( $matches ) {
              return '<a href="https://twitter.com/hashtag/' . $matches[1] . '" >#' . $matches[1] . '</a>';
          }, $text);
