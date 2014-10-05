@@ -18,10 +18,11 @@ if ( !defined( 'ABSPATH') ) exit;
 <?php
 
   // Add Facebook like-button actions
-  add_action('wp_enqueue_scripts', 'add_like_button_script', 1);
+  add_action( 'add_like_button_script', 'add_like_button_script' );
   add_action('create_like_button', 'add_like_button', 10, 1);
 
   function add_like_button_script(){
+    // TODO add appId dynamically
     echo '
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
