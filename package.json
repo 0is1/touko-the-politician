@@ -7,7 +7,7 @@
   "version": "0.9.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/0is1/figifm.git"
+    "url": "https://github.com/0is1/touko-the-politician"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
