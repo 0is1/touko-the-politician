@@ -17,17 +17,6 @@ if ( !defined( 'ABSPATH') ) exit;
 ?>
 <?php
 
-  // Add Facebook like box shortcode
-  add_shortcode( 'fb_like_box', 'add_facebook_like_box' );
-  function add_facebook_like_box() {
-    get_template_part( 'facebook/facebook', 'page' );
-  }
-  // Add Twitter like box shortcode
-  add_shortcode( 'twitter_follow_box', 'add_twitter_follow_box' );
-  function add_twitter_follow_box() {
-    get_template_part( 'twitter/twitter', 'page' );
-  }
-
   // Add Facebook like-button actions
   add_action('wp_enqueue_scripts', 'add_like_button_script', 1);
   add_action('create_like_button', 'add_like_button', 10, 1);
