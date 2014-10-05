@@ -19,7 +19,7 @@ a img{border:none}
 .grid-50{width:50%}
 .grid-50-with-gap{margin:1% 0 0 0;width:49%}
 @media only screen and (max-width: 800px){.grid-50-with-gap{width:100%}
-}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;word-wrap:breka-word}
+}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;word-wrap:break-word}
 body,article,h1,h2,h3,h4,h5,p,.pure-u{font-family:'Open Sans','Helvetica Neue',sans-serif}
 body{background:url("images/touko-aalto.png") 0 100% fixed no-repeat #ecf0f1;color:#333;line-height:1.5}
 body,input,textarea,article{font-size:100%}
@@ -35,7 +35,7 @@ strong{font-weight:bold}
 ul{margin:0 0 2% 3%}
 hr{border:none;clear:both;margin:0;width:100%}
 .clearfix:after{clear:both}
-.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after,.clearfix:before{content:'';display:block}
 .fleft{float:left}
 .fright{float:right}
 ::selection{background:#61bf1a;color:#2d2d2d}
