@@ -46,17 +46,81 @@ function register_custom_menus() {
     )
   );
 }
+
 add_action( 'init', 'register_custom_menus' );
 
- /**
-  * Browser specific queuing i.e
-  */
+/**
+* Browser specific queuing i.e
+*/
 $user_agent = strtolower($_SERVER['HTTP_USER_AGENT']);
-if(preg_match('/(?i)msie [1-8]/',$user_agent)) {
+if( preg_match('/(?i)msie [1-8]/',$user_agent) ) {
   wp_enqueue_script( 'html5', get_stylesheet_directory_uri() . '/js/html5.js', true );
 }
 
 /****************************************************************************************/
+
+/**
+* Add FB Open Graph tags
+*/
+
+add_action( 'wp_head', 'add_fb_open_graph_tags', 1);
+
+function add_fb_open_graph_tags() {
+
+  global $touko_the_politician_theme_options_settings;
+  $theme_settings = $touko_the_politician_theme_options_settings;
+  if ( is_singular() ) :
+    global $post;
+    if(get_the_post_thumbnail($post->ID, 'thumbnail')) {
+      $thumbnail_id = get_post_thumbnail_id($post->ID);
+      $thumbnail_object = get_post($thumbnail_id);
+      $image = $thumbnail_object->guid;
+    } else {
+      $image = get_stylesheet_directory_uri() . '/images/touko-aalto.png'; // Default image
+    }
+
+    $description = fb_og_excerpt( $post->post_content, $post->post_excerpt );
+    $description = strip_tags( $description );
+    $description = str_replace( "\"", "'", $description );
+
+  ?>
+    <meta property="fb:app_id" content="<?php echo $theme_settings['facebook_app_id']; ?>"/>
+    <meta property="og:title" content="<?php the_title(); ?>" />
+    <meta property="og:type" content="<?php echo get_post_type( $post ); ?>" />
+    <meta property="og:image" content="<?php echo $image; ?>" />
+    <meta property="og:url" content="<?php the_permalink(); ?>" />
+    <meta property="og:description" content="<?php echo $description ?>" />
+    <meta property="og:site_name" content="<?php echo get_bloginfo( 'name' ); ?>" />
+
+<?php
+  endif;
+}
+
+function fb_og_excerpt( $text, $excerpt ){
+
+  if ( empty($text) && empty($excerpt) ) return get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
+
+  if ( $excerpt ) return $excerpt;
+
+  $text = strip_shortcodes( $text );
+
+  $text = apply_filters( 'the_content', $text );
+  $text = str_replace( ']]>', ']]&gt;', $text );
+  $text = strip_tags( $text );
+  $excerpt_length = apply_filters( 'excerpt_length', 55 );
+  $excerpt_more = apply_filters( 'excerpt_more', ' ' . '[...]' );
+  $words = preg_split( '/[\n
+ ]+/', $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+  if ( count($words) > $excerpt_length ) {
+    array_pop($words);
+    $text = implode(' ', $words);
+    $text = $text . $excerpt_more;
+  } else {
+    $text = implode(' ', $words);
+  }
+
+  return apply_filters('wp_trim_excerpt', $text, $excerpt);
+}
 
 // Load scripts
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
@@ -91,12 +155,15 @@ function add_css(){
 
 // Load Favicon in Admin Section
 add_action( 'admin_head', 'admin_blog_favicon' );
+
 // add a favicon
 function admin_blog_favicon() {
   echo '<link rel="shortcut icon" type="image/png" href="' . get_stylesheet_directory_uri() . '/images/favicon-admin.png" />';
 }
+
 // Load styles in Admin Section
 add_action( 'admin_enqueue_scripts', 'add_admin_styles' );
+
 function add_admin_styles() {
   wp_enqueue_style( 'pure_grid_style', 'http://yui.yahooapis.com/pure/0.3.0/forms-min.css', array(), '0.3.0', false);
   wp_enqueue_style( 'touko_admin_style', get_stylesheet_directory_uri() . '/admin/admin.css', array(), THEME_VERSION, false);
@@ -104,10 +171,12 @@ function add_admin_styles() {
 
 /****************************************************************************************/
 
-add_action('add_social_media_icons', 'add_social_media_icons', 10);
+add_action( 'add_social_media_icons', 'add_social_media_icons', 10 );
+
 function add_social_media_icons(){
   global $touko_the_politician_theme_options_settings;
   $theme_settings = $touko_the_politician_theme_options_settings;
+
   $elements = array(
     'facebook_page_url' => $theme_settings['facebook_page_url'],
     'twitter_page_url' => $theme_settings['twitter_page_url'],
