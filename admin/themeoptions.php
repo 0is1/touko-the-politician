@@ -109,14 +109,21 @@ function touko_theme_options_validate( $theme_settings ) {
   /**
   * Validation for newsfeed
   */
+  if ( isset($input[ 'enable_newsfeed' ] ) ){
+    $input_validated[ 'enable_newsfeed' ] = true;
+  }
 
-  isset($input[ 'enable_newsfeed' ] ) ? $input_validated[ 'enable_newsfeed' ] = true : $input_validated[ 'enable_newsfeed' ] = false;
+  if ( isset($input[ 'enable_wp_posts_newsfeed' ] ) ){
+    $input_validated[ 'enable_wp_posts_newsfeed' ] = true;
+  }
 
-  isset($input[ 'enable_wp_posts_newsfeed' ] ) ? $input_validated[ 'enable_wp_posts_newsfeed' ] = true : $input_validated[ 'enable_wp_posts_newsfeed' ] = false;
+  if ( isset($input[ 'enable_facebook_newsfeed' ] ) ){
+    $input_validated[ 'enable_facebook_newsfeed' ] = true;
+  }
 
-  isset($input[ 'enable_facebook_newsfeed' ] ) ? $input_validated[ 'enable_facebook_newsfeed' ] = true : $input_validated[ 'enable_facebook_newsfeed' ] = false;
-
-  isset($input[ 'enable_twitter_newsfeed' ] ) ? $input_validated[ 'enable_twitter_newsfeed' ] = true : $input_validated[ 'enable_twitter_newsfeed' ] = false;
+  if ( isset($input[ 'enable_twitter_newsfeed' ] ) ){
+    $input_validated[ 'enable_twitter_newsfeed' ] = true;
+  }
 
   if ( isset( $input[ 'wp_blog_visible_posts_count' ] ) && is_numeric( $input[ 'wp_blog_visible_posts_count' ] ) ) {
     $input_validated[ 'wp_blog_visible_posts_count' ] = $input[ 'wp_blog_visible_posts_count' ];
@@ -161,22 +168,30 @@ function touko_theme_options_validate( $theme_settings ) {
   if ( isset( $input[ 'twitter_visible_posts_count' ] ) && is_numeric( $input[ 'twitter_visible_posts_count' ] ) ) {
     $input_validated[ 'twitter_visible_posts_count' ] = absint( $input[ 'twitter_visible_posts_count' ] );
   }
+
   /**
   * Validation for Instagram
   */
-  isset($input[ 'enable_instagram' ]) ? $input_validated[ 'enable_instagram' ] = true : $input_validated[ 'enable_instagram' ] = false;
+  if ( isset($input[ 'enable_instagram' ]) ){
+    $input_validated[ 'enable_instagram' ] = true;
+  }
+
   if ( isset( $input[ 'instagram_api_key' ] ) ) {
     $input_validated[ 'instagram_api_key' ] = $input[ 'instagram_api_key' ];
   }
+
   if ( isset( $input[ 'instagram_api_secret' ] ) ) {
     $input_validated[ 'instagram_api_secret' ] = $input[ 'instagram_api_secret' ];
   }
+
   if ( isset( $input[ 'instagram_api_callback' ] ) ) {
     $input_validated[ 'instagram_api_callback' ] = esc_url_raw($input[ 'instagram_api_callback' ]);
   }
+
   if ( isset( $input[ 'instagram_visible_posts_count' ] ) && is_numeric( $input[ 'instagram_visible_posts_count' ] ) ) {
     $input_validated[ 'instagram_visible_posts_count' ] = absint( $input[ 'instagram_visible_posts_count' ] );
   }
+
   if ( isset( $input[ 'instagram_username' ] ) ) {
     $input_validated[ 'instagram_username' ] = $input[ 'instagram_username' ];
   }
@@ -184,9 +199,17 @@ function touko_theme_options_validate( $theme_settings ) {
   /**
   * Validation for socialmedia
   */
-  isset($input[ 'enable_facebook_like_box' ]) ? $input_validated[ 'enable_facebook_like_box' ] = true : $input_validated[ 'enable_facebook_like_box' ] = false;
-  isset($input[ 'enable_twitter_follow_box' ]) ? $input_validated[ 'enable_twitter_follow_box' ] = true : $input_validated[ 'enable_twitter_follow_box' ] = false;
-  isset($input[ 'enable_social_media_icons' ]) ? $input_validated[ 'enable_social_media_icons' ] = true : $input_validated[ 'enable_social_media_icons' ] = false;
+  if ( isset($input[ 'enable_facebook_like_box' ]) ){
+    $input_validated[ 'enable_facebook_like_box' ] = true;
+  }
+
+  if ( isset($input[ 'enable_twitter_follow_box' ]) ){
+    $input_validated[ 'enable_twitter_follow_box' ] = true;
+  }
+
+  if ( isset($input[ 'enable_social_media_icons' ]) ){
+    $input_validated[ 'enable_social_media_icons' ] = true;
+  }
 
   if ( isset( $input[ 'facebook_page_url' ] ) ) {
     $input_validated[ 'facebook_page_url' ] = esc_url_raw($input[ 'facebook_page_url' ]);
@@ -206,7 +229,10 @@ function touko_theme_options_validate( $theme_settings ) {
   /**
   * Validation for slider
   */
-  isset( $input[ 'disable_slider' ] ) ? $input_validated[ 'disable_slider' ] = true : $input_validated[ 'disable_slider' ] = false;
+  if ( isset( $input[ 'disable_slider' ] ) ){
+    $input_validated[ 'disable_slider' ] = true;
+  }
+
   isset( $input[ 'slider_quantity' ] ) ? $input_validated[ 'slider_quantity' ] = absint( $input[ 'slider_quantity' ] ) : $input_validated[ 'slider_quantity' ] = 4;
 
   if ( isset( $input[ 'featured_post_slider' ] ) ) {
@@ -234,7 +260,10 @@ function touko_theme_options_validate( $theme_settings ) {
   /**
   * Validation for other
   */
-  isset($input[ 'enable_google_analytics' ]) ? $input_validated[ 'enable_google_analytics' ] = true : $input_validated[ 'enable_google_analytics' ] = false;
+  if ( isset($input[ 'enable_google_analytics' ]) ){
+    $input_validated[ 'enable_google_analytics' ] = true;
+  }
+
   if ( isset( $input[ 'google_analytics_id' ] ) ) {
     $input_validated[ 'google_analytics_id' ] = $input[ 'google_analytics_id' ];
   }
