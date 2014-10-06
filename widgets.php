@@ -23,8 +23,8 @@ if ( function_exists('register_sidebar') ) {
     'description'   => __('Main Area Widget for Touko The Politician theme ( Google Calendar )', THEME_TEXTDOMAIN),
     'before_widget' => '<div class="main-area-widget google-calendar pure-u-1">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h2><i class="icon-calendar"></i>',
-    'after_title'   => '</h2>'
+    'before_title'  => '<h1><i class="icon-calendar"></i>',
+    'after_title'   => '</h1>'
    ));
   }
   if ( function_exists('register_sidebar') ) {
