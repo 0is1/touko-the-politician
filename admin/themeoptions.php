@@ -2,6 +2,8 @@
 // Exit if accessed directly
 if ( !defined( 'ABSPATH') ) exit;
 
+global $abba;
+
 /**
  * Contains all the theme option default values
  * If no user-defined values
@@ -17,6 +19,7 @@ if ( !defined( 'ABSPATH') ) exit;
  */
 
 add_action( 'admin_menu', 'touko_options_menu' );
+
 /**
  * Create sub-menu page.
  *
@@ -33,13 +36,19 @@ add_action( 'admin_menu', 'touko_options_menu' );
   }
 
 add_action( 'admin_init', 'touko_register_settings' );
+
 /**
  * Register options and validation callbacks
  *
  * @uses register_setting
  */
 function touko_register_settings() {
-   register_setting( 'touko_theme_options', 'touko_theme_options', 'touko_theme_options_validate' );
+
+   register_setting( 'touko_theme_newsfeed_options', 'touko_theme_newsfeed_options', 'touko_theme_newsfeed_options_validate' );
+   register_setting( 'touko_theme_social_media_options', 'touko_theme_social_media_options', 'touko_theme_social_media_options_validate' );
+   register_setting( 'touko_theme_slider_options', 'touko_theme_slider_options', 'touko_theme_slider_options_validate' );
+   register_setting( 'touko_theme_other_options', 'touko_theme_other_options', 'touko_theme_other_options_validate' );
+
 }
 
 /**
@@ -74,23 +83,23 @@ function do_touko_the_politician_theme_options(){ ?>
    <?php
     if( $active_tab === 'newsfeed_options' ) :
       // load newsfeed options template
-      settings_fields( 'touko_theme_options' );
+      settings_fields( 'touko_theme_newsfeed_options' );
       get_template_part( 'admin/newsfeed', 'options' );
       get_template_part( 'admin/instagram', 'options' );
 
     elseif ( $active_tab === 'social_media_options' ) :
       // load social media options template
-      settings_fields( 'touko_theme_options' );
+      settings_fields( 'touko_theme_social_media_options' );
       get_template_part( 'admin/socialmedia', 'options' );
 
     elseif ( $active_tab === 'slider_options' ) :
       // load slider options
-      settings_fields( 'touko_theme_options' );
+      settings_fields( 'touko_theme_slider_options' );
       get_template_part( 'admin/theme', 'slider-options' );
 
     elseif ( $active_tab === 'other_options' ) :
       // load other admin stuff
-      settings_fields( 'touko_theme_options' );
+      settings_fields( 'touko_theme_other_options' );
       get_template_part( 'admin/mixed', 'options' );
 
     endif;
@@ -101,29 +110,21 @@ function do_touko_the_politician_theme_options(){ ?>
 <?php
 }
 
-function touko_theme_options_validate( $theme_settings ) {
-  global $touko_the_politician_theme_options_settings;
-  $input_validated = $touko_the_politician_theme_options_settings;
-  $input = $theme_settings;
+function touko_theme_newsfeed_options_validate( $newsfeed_settings ) {
 
-  /**
+  $input_validated = array();
+  $input = $newsfeed_settings;
+
+   /**
   * Validation for newsfeed
   */
-  if ( isset($input[ 'enable_newsfeed' ] ) ){
-    $input_validated[ 'enable_newsfeed' ] = true;
-  }
+  isset($input[ 'enable_newsfeed' ] ) ? $input_validated[ 'enable_newsfeed' ] = 1 : $input_validated[ 'enable_newsfeed' ] = 0;
 
-  if ( isset($input[ 'enable_wp_posts_newsfeed' ] ) ){
-    $input_validated[ 'enable_wp_posts_newsfeed' ] = true;
-  }
+  isset($input[ 'enable_wp_posts_newsfeed' ] ) ? $input_validated[ 'enable_wp_posts_newsfeed' ] = 1 : $input_validated[ 'enable_wp_posts_newsfeed' ] = 0;
 
-  if ( isset($input[ 'enable_facebook_newsfeed' ] ) ){
-    $input_validated[ 'enable_facebook_newsfeed' ] = true;
-  }
+  isset($input[ 'enable_facebook_newsfeed' ] ) ? $input_validated[ 'enable_facebook_newsfeed' ] = 1 : $input_validated[ 'enable_facebook_newsfeed' ] = 0;
 
-  if ( isset($input[ 'enable_twitter_newsfeed' ] ) ){
-    $input_validated[ 'enable_twitter_newsfeed' ] = true;
-  }
+  isset($input[ 'enable_twitter_newsfeed' ] ) ? $input_validated[ 'enable_twitter_newsfeed' ] = 1 : $input_validated[ 'enable_twitter_newsfeed' ] = 0;
 
   if ( isset( $input[ 'wp_blog_visible_posts_count' ] ) && is_numeric( $input[ 'wp_blog_visible_posts_count' ] ) ) {
     $input_validated[ 'wp_blog_visible_posts_count' ] = $input[ 'wp_blog_visible_posts_count' ];
@@ -172,9 +173,7 @@ function touko_theme_options_validate( $theme_settings ) {
   /**
   * Validation for Instagram
   */
-  if ( isset($input[ 'enable_instagram' ]) ){
-    $input_validated[ 'enable_instagram' ] = true;
-  }
+  isset($input[ 'enable_instagram' ] ) ? $input_validated[ 'enable_instagram' ] = 1 : $input_validated[ 'enable_instagram' ] = 0;
 
   if ( isset( $input[ 'instagram_api_key' ] ) ) {
     $input_validated[ 'instagram_api_key' ] = $input[ 'instagram_api_key' ];
@@ -196,20 +195,25 @@ function touko_theme_options_validate( $theme_settings ) {
     $input_validated[ 'instagram_username' ] = $input[ 'instagram_username' ];
   }
 
+   //Clearing the theme option cache
+  if( function_exists('clear_transitions')) clear_transitions();
+
+  return $input_validated;
+
+}
+function touko_theme_social_media_options_validate ( $social_media_settings ){
+
+  $input_validated = array();
+  $input = $social_media_settings;
+
   /**
   * Validation for socialmedia
   */
-  if ( isset($input[ 'enable_facebook_like_box' ]) ){
-    $input_validated[ 'enable_facebook_like_box' ] = true;
-  }
+  isset($input[ 'enable_facebook_like_box' ] ) ? $input_validated[ 'enable_facebook_like_box' ] = 1 : $input_validated[ 'enable_facebook_like_box' ] = 0;
 
-  if ( isset($input[ 'enable_twitter_follow_box' ]) ){
-    $input_validated[ 'enable_twitter_follow_box' ] = true;
-  }
+  isset($input[ 'enable_twitter_follow_box' ] ) ? $input_validated[ 'enable_twitter_follow_box' ] = 1 : $input_validated[ 'enable_twitter_follow_box' ] = 0;
 
-  if ( isset($input[ 'enable_social_media_icons' ]) ){
-    $input_validated[ 'enable_social_media_icons' ] = true;
-  }
+  isset($input[ 'enable_social_media_icons' ] ) ? $input_validated[ 'enable_social_media_icons' ] = 1 : $input_validated[ 'enable_social_media_icons' ] = 0;
 
   if ( isset( $input[ 'facebook_page_url' ] ) ) {
     $input_validated[ 'facebook_page_url' ] = esc_url_raw($input[ 'facebook_page_url' ]);
@@ -222,16 +226,25 @@ function touko_theme_options_validate( $theme_settings ) {
   if ( isset( $input[ 'rss_page_url' ] ) ) {
     $input_validated[ 'rss_page_url' ] = esc_url_raw($input[ 'rss_page_url' ]);
   }
-  if ( isset( $input[ 'donate_url' ] ) ) {
-    $input_validated[ 'donate_url' ] = esc_url_raw($input[ 'donate_url' ]);
-  }
+  isset( $input[ 'donate_url' ] ) ? $input_validated[ 'donate_url' ] = esc_url_raw($input[ 'donate_url' ]) : $input_validated[ 'donate_url' ] = '';
+
+   //Clearing the theme option cache
+  if( function_exists('clear_transitions')) clear_transitions();
+
+  return $input_validated;
+
+}
+
+function touko_theme_slider_options_validate ( $slider_settings ) {
+
+  $input_validated = array();
+  $input = $slider_settings;
 
   /**
   * Validation for slider
   */
-  if ( isset( $input[ 'disable_slider' ] ) ){
-    $input_validated[ 'disable_slider' ] = true;
-  }
+
+  isset( $input[ 'disable_slider' ] ) ? $input_validated[ 'disable_slider' ] = 1 : $input_validated[ 'disable_slider' ] = 0;
 
   isset( $input[ 'slider_quantity' ] ) ? $input_validated[ 'slider_quantity' ] = absint( $input[ 'slider_quantity' ] ) : $input_validated[ 'slider_quantity' ] = 4;
 
@@ -254,22 +267,29 @@ function touko_theme_options_validate( $theme_settings ) {
   }
 
   if ( isset( $input[ 'transition_duration' ] ) && is_numeric( $input[ 'transition_duration' ] ) ) {
-    $input_validated[ 'transition_duration' ] = $input[ 'transition_duration' ];
+    $input_validated[ 'transition_duration' ] = absint( $input[ 'transition_duration' ] );
   }
+
+  //Clearing the slider option cache
+  delete_transient( 'featured_post_slider' );
+
+  return $input_validated;
+}
+
+function touko_theme_other_options_validate( $other_settings ) {
+
+  $input_validated = array();
+  $input = $other_settings;
 
   /**
   * Validation for other
   */
-  if ( isset($input[ 'enable_google_analytics' ]) ){
-    $input_validated[ 'enable_google_analytics' ] = true;
-  }
+  isset($input[ 'enable_google_analytics' ]) ? $input_validated[ 'enable_google_analytics' ] = 1 : $input_validated[ 'enable_google_analytics' ] = 0;
 
   if ( isset( $input[ 'google_analytics_id' ] ) ) {
-    $input_validated[ 'google_analytics_id' ] = $input[ 'google_analytics_id' ];
+    $input_validated[ 'google_analytics_id' ] = strip_tags( $input[ 'google_analytics_id' ] );
   }
 
-    //Clearing the theme option cache
-  if( function_exists('clear_transitions')) clear_transitions();
   return $input_validated;
 }
 
@@ -278,7 +298,6 @@ function touko_theme_options_validate( $theme_settings ) {
  */
 function clear_transitions(){
   delete_transient( 'social_media_icons' );
-  delete_transient( 'featured_post_slider' );
   delete_transient( 'facebook_page_posts_transient' );
   delete_transient( 'facebook_page_transient' );
   delete_transient( 'twitter_transient' );

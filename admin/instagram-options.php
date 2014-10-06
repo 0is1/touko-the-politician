@@ -24,7 +24,7 @@ if ( !defined('ABSPATH')) exit;
   $auth_config = array(
     'apiKey'         => 'c7661e722d8643f8af4f0699517c7290',
     'apiSecret'     => '3793b5e4d1274a439b0b3ad369298360',
-    'apiCallback'      => 'http://localhost:8888/touko/wordpress/wp-admin/themes.php?page=touko_theme_options'
+    'apiCallback'      => 'http://localhost:8888/touko/wordpress/wp-admin/themes.php?page=touko_theme_newsfeed_options'
   );
 
   $instagram = $master_instagram;
@@ -33,20 +33,20 @@ if ( !defined('ABSPATH')) exit;
 <div class="instagram-options">
   <h4><?php _e( 'Instagram asetukset', THEME_TEXTDOMAIN );?></h4>
   <div class="wrap pure-control-group">
-    <label for="touko_theme_options[enable_instagram]"><?php _e( 'Näytä Instagram etusivulla?', THEME_TEXTDOMAIN );?></label>
-    <input type="checkbox" name="touko_theme_options[enable_instagram]" value="<?php echo $options['enable_instagram'];?>" <?php if($options['enable_instagram']) echo "checked=checked";?>  />
+    <label for="touko_theme_newsfeed_options[enable_instagram]"><?php _e( 'Näytä Instagram etusivulla?', THEME_TEXTDOMAIN );?></label>
+    <input type="checkbox" name="touko_theme_newsfeed_options[enable_instagram]" value="<?php echo $options['enable_instagram'];?>" <?php if($options['enable_instagram']) echo "checked=checked";?>  />
   </div>
   <div class="wrap pure-control-group">
-    <label for="touko_theme_options[instagram_api_key]"><?php _e( 'Instagram CLIENT ID:', THEME_TEXTDOMAIN );?></label>
-    <input type="text" name="touko_theme_options[instagram_api_key]" value="<?php echo $options['instagram_api_key'];?>"  />
+    <label for="touko_theme_newsfeed_options[instagram_api_key]"><?php _e( 'Instagram CLIENT ID:', THEME_TEXTDOMAIN );?></label>
+    <input type="text" name="touko_theme_newsfeed_options[instagram_api_key]" value="<?php echo $options['instagram_api_key'];?>"  />
   </div>
   <div class="wrap pure-control-group">
-    <label for="touko_theme_options[instagram_api_secret]"><?php _e( 'Instagram CLIENT SECRET:', THEME_TEXTDOMAIN );?></label>
-    <input type="text" name="touko_theme_options[instagram_api_secret]" value="<?php echo $options['instagram_api_secret'];?>"  />
+    <label for="touko_theme_newsfeed_options[instagram_api_secret]"><?php _e( 'Instagram CLIENT SECRET:', THEME_TEXTDOMAIN );?></label>
+    <input type="text" name="touko_theme_newsfeed_options[instagram_api_secret]" value="<?php echo $options['instagram_api_secret'];?>"  />
   </div>
   <div class="wrap pure-control-group">
-    <label for="touko_theme_options[instagram_api_callback]"><?php _e( 'Instagram REDIRECT URI', THEME_TEXTDOMAIN );?> <span class="redirect-url">(<?php echo get_home_url();?>/wp-admin/themes.php?page=touko_theme_options)</span></label>
-    <input type="text" name="touko_theme_options[instagram_api_callback]" value="<?php echo $options['instagram_api_callback'];?>"  />
+    <label for="touko_theme_newsfeed_options[instagram_api_callback]"><?php _e( 'Instagram REDIRECT URI', THEME_TEXTDOMAIN );?> <span class="redirect-url">(<?php echo get_home_url();?>/wp-admin/themes.php?page=touko_theme_newsfeed_options)</span></label>
+    <input type="text" name="touko_theme_newsfeed_options[instagram_api_callback]" value="<?php echo $options['instagram_api_callback'];?>"  />
   </div>
   <?php
     if (get_option('instagram-access-token') === false) :
@@ -58,16 +58,16 @@ if ( !defined('ABSPATH')) exit;
     <p>Instagram OK</p>
   <?php endif; ?>
   <div class="wrap pure-control-group">
-    <label for="touko_theme_options[instagram_username]"><?php _e( 'Instagram käyttäjätunnus:', THEME_TEXTDOMAIN );?></label>
-    <input type="text" name="touko_theme_options[instagram_username]" value="<?php echo $options['instagram_username'];?>"  />
+    <label for="touko_theme_newsfeed_options[instagram_username]"><?php _e( 'Instagram käyttäjätunnus:', THEME_TEXTDOMAIN );?></label>
+    <input type="text" name="touko_theme_newsfeed_options[instagram_username]" value="<?php echo $options['instagram_username'];?>"  />
     </div>
   <div class="wrap pure-control-group">
-    <label for="touko_theme_options[instagram_visible_posts_count]"><?php _e( 'Instagram kuvien määrä etusivulla:', THEME_TEXTDOMAIN );?></label>
-    <input type="number" name="touko_theme_options[instagram_visible_posts_count]" value="<?php echo $options['instagram_visible_posts_count'];?>"  />
+    <label for="touko_theme_newsfeed_options[instagram_visible_posts_count]"><?php _e( 'Instagram kuvien määrä etusivulla:', THEME_TEXTDOMAIN );?></label>
+    <input type="number" name="touko_theme_newsfeed_options[instagram_visible_posts_count]" value="<?php echo $options['instagram_visible_posts_count'];?>"  />
   </div>
   <?php
     if ( get_option('instagram-access-token') === false && isset($_GET['code']) ) :
-      $callback_url = get_home_url() . '/wp-admin/themes.php?page=touko_theme_options';
+      $callback_url = get_home_url() . '/wp-admin/themes.php?page=touko_theme_newsfeed_options';
       $response = wp_remote_post("https://api.instagram.com/oauth/access_token",
         array(
           'body' => array(

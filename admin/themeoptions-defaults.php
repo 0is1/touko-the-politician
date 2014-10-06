@@ -20,18 +20,18 @@ global $touko_the_politician_theme_options_defaults;
 
 $touko_the_politician_theme_options_defaults = array(
   'default_layout'                          => 'no-sidebar-full-width',
-  'disable_slider'                          => true,
+  'disable_slider'                          => 1,
   'donate_url'                              => '', //donation button url
-  'enable_donate'                           => false, //do we enable donation button
-  'enable_instagram'                        => false,
-  'enable_newsfeed'                         => false, //do we add anything from the newsfeed to the homepage
-  'enable_wp_posts_newsfeed'                => false, //do we add wp_posts feed to the homepage
-  'enable_facebook_newsfeed'                => false, //do we add facebook feed to the homepage
-  'enable_facebook_like_box'                => false, //do we show facebook like box
-  'enable_google_analytics'                 => false, //do we add google analytics
-  'enable_social_media_icons'               => false, //do we show social media icons
-  'enable_twitter_newsfeed'                 => false, //do we add twitter feed to the homepage
-  'enable_twitter_follow_box'               => false, //do show twitter follow box
+  'enable_donate'                           => 0, //do we enable donation button
+  'enable_instagram'                        => 0,
+  'enable_newsfeed'                         => 0, //do we add anything from the newsfeed to the homepage
+  'enable_wp_posts_newsfeed'                => 0, //do we add wp_posts feed to the homepage
+  'enable_facebook_newsfeed'                => 0, //do we add facebook feed to the homepage
+  'enable_facebook_like_box'                => 0, //do we show facebook like box
+  'enable_google_analytics'                 => 0, //do we add google analytics
+  'enable_social_media_icons'               => 0, //do we show social media icons
+  'enable_twitter_newsfeed'                 => 0, //do we add twitter feed to the homepage
+  'enable_twitter_follow_box'               => 0, //do show twitter follow box
   'facebook_app_id'                         => '',
   'facebook_app_secret'                     => '',
   'facebook_page_id'                        => '',
@@ -64,7 +64,8 @@ global $touko_the_politician_theme_options_settings;
 $touko_the_politician_theme_options_settings = touko_theme_options_set_defaults( $touko_the_politician_theme_options_defaults );
 
 function touko_theme_options_set_defaults( $touko_the_politician_theme_options_defaults ) {
-	$touko_the_politician_theme_options_settings = array_merge( $touko_the_politician_theme_options_defaults, ( array ) get_option( 'touko_theme_options', array() ) );
+	$touko_the_politician_theme_options_settings = array_merge( $touko_the_politician_theme_options_defaults, ( array ) get_option( 'touko_theme_social_media_options', array() ), ( array ) get_option( 'touko_theme_newsfeed_options', array() ), ( array ) get_option( 'touko_theme_slider_options', array() ), ( array ) get_option( 'touko_theme_other_options', array() ) );
+
 	return apply_filters( 'touko_the_politician_theme_options_settings', $touko_the_politician_theme_options_settings );
 }
 
