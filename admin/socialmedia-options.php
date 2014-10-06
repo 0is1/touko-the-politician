@@ -9,9 +9,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           admin/socialmedia-options.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/admin/socialmedia-options.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 ?>
 
@@ -36,7 +36,7 @@ if ( !defined( 'ABSPATH') ) exit;
   </div>
 </div>
 <div class="social-media-link-options">
-  <h3><?php _e( 'Sosiaalisen median linkit', THEME_TEXTDOMAIN );?></h3>
+  <h4><?php _e( 'Sosiaalisen median linkit', THEME_TEXTDOMAIN );?></h4>
   <div class="pure-control-group wrap facebook">
     <label for="touko_theme_options[facebook_page_url]"><?php _e( 'Facebook', THEME_TEXTDOMAIN );?></label>
     <input type="text" name="touko_theme_options[facebook_page_url]" value="<?php echo $options['facebook_page_url'];?>"  />

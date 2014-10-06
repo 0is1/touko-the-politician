@@ -9,9 +9,9 @@ if ( !defined('ABSPATH')) exit;
  * @file           admin/instagram-options.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/admin/instagram-options.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 ?>
 
@@ -27,6 +27,7 @@ if ( !defined('ABSPATH')) exit;
     'apiSecret'     => '3793b5e4d1274a439b0b3ad369298360',
     'apiCallback'      => 'http://localhost:8888/touko/wordpress/wp-admin/themes.php?page=touko_theme_options'
   );
+
   $instagram = $master_instagram;
 
 ?>
@@ -66,8 +67,8 @@ if ( !defined('ABSPATH')) exit;
     <input type="number" name="touko_theme_options[instagram_visible_posts_count]" value="<?php echo $options['instagram_visible_posts_count'];?>"  />
   </div>
   <?php
-    if (get_option('instagram-access-token') === false && isset($_GET['code'])) :
-      $callback_url = get_home_url().'/wp-admin/themes.php?page=touko_theme_options';
+    if ( get_option('instagram-access-token') === false && isset($_GET['code']) ) :
+      $callback_url = get_home_url() . '/wp-admin/themes.php?page=touko_theme_options';
       $response = wp_remote_post("https://api.instagram.com/oauth/access_token",
         array(
           'body' => array(
@@ -81,23 +82,28 @@ if ( !defined('ABSPATH')) exit;
           'sslverify' => apply_filters('https_local_ssl_verify', false)
         )
       );
-    if(!is_wp_error($response) && $response['response']['code'] < 400 && $response['response']['code'] >= 200):
+    if( !is_wp_error($response) && $response['response']['code'] < 400 && $response['response']['code'] >= 200 ):
+
       $auth = json_decode($response['body']);
-      if(isset($auth->access_token)):
+
+      if( isset($auth->access_token) ):
         $access_token = $auth->access_token;
         update_option('instagram-access-token', $access_token);
         $success = true;
       endif; //isset($auth->access_token)
 
-    elseif(is_wp_error($response)):
+    elseif( is_wp_error($response) ):
+
       $error = $response->get_error_message();
       $errormessage = $error;
       $errortype = 'Wordpress Error';
 
-    elseif($response['response']['code'] >= 400):
+    elseif( $response['response']['code'] >= 400 ):
+
       $error = json_decode($response['body']);
       $errormessage = $error->error_message;
       $errortype = $error->error_type;
+
     endif; //!is_wp_error($response)
 
     if (!$access_token):

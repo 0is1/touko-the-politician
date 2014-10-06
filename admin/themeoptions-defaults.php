@@ -11,15 +11,17 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           themeoptions-defaults.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/admin/themeoptions-defaults.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 
 global $touko_the_politician_theme_options_defaults;
+
 $touko_the_politician_theme_options_defaults = array(
-  'default_layout'                          => "no-sidebar-full-width",
-  'donate_url'                              => "", //donation button url
+  'default_layout'                          => 'no-sidebar-full-width',
+  'disable_slider'                          => true,
+  'donate_url'                              => '', //donation button url
   'enable_donate'                           => false, //do we enable donation button
   'enable_instagram'                        => false,
   'enable_newsfeed'                         => false, //do we add anything from the newsfeed to the homepage
@@ -30,28 +32,35 @@ $touko_the_politician_theme_options_defaults = array(
   'enable_social_media_icons'               => false, //do we show social media icons
   'enable_twitter_newsfeed'                 => false, //do we add twitter feed to the homepage
   'enable_twitter_follow_box'               => false, //do show twitter follow box
-  'facebook_app_id'                         => "",
-  'facebook_app_secret'                     => "",
-  'facebook_page_id'                        => "",
-  'facebook_page_url'                       => "",
+  'facebook_app_id'                         => '',
+  'facebook_app_secret'                     => '',
+  'facebook_page_id'                        => '',
+  'facebook_page_url'                       => '',
   'facebook_visible_posts_count'            => 2,
-  'google_analytics_id'                     => "",
-  'instagram_api_key'                       => "",
-  'instagram_api_callback'                  => "",
-  'instagram_api_secret'                    => "",
-  'instagram_username'                      => "",
+  'featured_post_slider'                    => array(),
+  'google_analytics_id'                     => '',
+  'instagram_api_key'                       => '',
+  'instagram_api_callback'                  => '',
+  'instagram_api_secret'                    => '',
+  'instagram_username'                      => '',
   'instagram_visible_posts_count'           => 2,
-  'rss_page_url'                            => "",
-  'twitter_consumer_key'                    => "",
-  'twitter_consumer_secret'                 => "",
-  'twitter_oauth_access_token'              => "",
-  'twitter_oauth_access_token_secret'       => "",
-  'twitter_username'                        => "",
-  'twitter_page_url'                        => "",
+  'rss_page_url'                            => '',
+  'slider_quantity'                         => 4,
+  'transition_effect'                       => 'scrollLeft',
+  'transition_delay'                        => 4,
+  'transition_duration'                     => 1,
+  'twitter_consumer_key'                    => '',
+  'twitter_consumer_secret'                 => '',
+  'twitter_oauth_access_token'              => '',
+  'twitter_oauth_access_token_secret'       => '',
+  'twitter_username'                        => '',
+  'twitter_page_url'                        => '',
   'twitter_visible_posts_count'             => 2,
   'wp_blog_visible_posts_count'             => 2,
  );
+
 global $touko_the_politician_theme_options_settings;
+
 $touko_the_politician_theme_options_settings = touko_theme_options_set_defaults( $touko_the_politician_theme_options_defaults );
 
 function touko_theme_options_set_defaults( $touko_the_politician_theme_options_defaults ) {

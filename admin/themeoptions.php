@@ -11,9 +11,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           themeoptions-defaults.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/admin/themeoptions-defaults.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 
 add_action( 'admin_menu', 'touko_options_menu' );
@@ -23,7 +23,7 @@ add_action( 'admin_menu', 'touko_options_menu' );
  * @uses add_theme_page to add sub-menu under the Appearance top level menu.
  */
   function touko_options_menu() {
-    add_theme_page(
+    add_menu_page(
       __( 'Touko Theme Options', THEME_TEXTDOMAIN ), // Name of page
       __( 'Touko Theme Options', THEME_TEXTDOMAIN ), // Label in menu
       'edit_theme_options',                           // Capability required
@@ -39,159 +39,206 @@ add_action( 'admin_init', 'touko_register_settings' );
  * @uses register_setting
  */
 function touko_register_settings() {
-   register_setting( 'touko_theme_options', 'touko_theme_options', 'touko_theme_options_validate');
+   register_setting( 'touko_theme_options', 'touko_theme_options', 'touko_theme_options_validate' );
 }
-/**
- * Render Touko The Politician Theme Options page
- */
-  function do_touko_the_politician_theme_options(){ ?>
-    <?php
-      global $touko_the_politician_theme_options_settings, $touko_the_politician_theme_options_defaults;
-      echo "<p>Settings:</p><pre>";
-      print_r( $touko_the_politician_theme_options_settings );
-      echo "</pre>";
-    ?>
-    <div class="touko-the-politician-admin">
-    <?php if( isset( $_GET [ 'settings-updated' ] ) && 'true' === $_GET[ 'settings-updated' ] ): ?>
-      <div class="updated fade" id="message">
-        <p><strong><?php _e( 'Asetukset tallennettu.', THEME_TEXTDOMAIN );?></strong></p>
-      </div>
-    <?php endif; ?>
-      <h1><?php _e( 'Teema-asetukset', THEME_TEXTDOMAIN );?></h1>
-     <form class="touko-theme-options-form pure-form pure-form-aligned" method="post" action="options.php">
-     <?php
 
+/**
+* Render Touko The Politician Theme Options page
+*/
+function do_touko_the_politician_theme_options(){ ?>
+  <?php
+    global $touko_the_politician_theme_options_settings, $touko_the_politician_theme_options_defaults;
+    // echo "<p>Settings:</p><pre>";
+    // print_r( $touko_the_politician_theme_options_settings );
+    // echo "</pre>";
+  ?>
+  <div class="touko-the-politician-admin">
+  <?php if( isset( $_GET [ 'settings-updated' ] ) && 'true' === $_GET[ 'settings-updated' ] ): ?>
+    <div class="updated fade" id="message">
+      <p><strong><?php _e( 'Asetukset tallennettu.', THEME_TEXTDOMAIN );?></strong></p>
+    </div>
+  <?php endif; ?>
+
+  <?php
+    $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'newsfeed_options';
+  ?>
+
+    <h1><?php _e( 'Theme options', THEME_TEXTDOMAIN );?></h1>
+    <h2 class="nav-tab-wrapper">
+      <a href="?page=touko_theme_options&tab=newsfeed_options" class="nav-tab <?php echo $active_tab === 'newsfeed_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Newsfeed options', THEME_TEXTDOMAIN );?></a>
+      <a href="?page=touko_theme_options&tab=social_media_options" class="nav-tab <?php echo $active_tab === 'social_media_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Social media options', THEME_TEXTDOMAIN );?></a>
+      <a href="?page=touko_theme_options&tab=slider_options" class="nav-tab <?php echo $active_tab === 'slider_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Slider options', THEME_TEXTDOMAIN );?></a>
+      <a href="?page=touko_theme_options&tab=other_options" class="nav-tab <?php echo $active_tab === 'other_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Other options', THEME_TEXTDOMAIN );?></a>
+  </h2>
+   <form class="touko-theme-options-form pure-form pure-form-aligned" method="post" action="options.php">
+   <?php
+    if( $active_tab === 'newsfeed_options' ) :
       // load newsfeed options template
       get_template_part( 'admin/newsfeed', 'options' );
 
+    elseif ( $active_tab === 'social_media_options' ) :
       // load social media options template
       get_template_part( 'admin/socialmedia', 'options' );
       get_template_part( 'admin/instagram', 'options' );
 
+    elseif ( $active_tab === 'slider_options' ) :
+      // load slider options
+      get_template_part( 'admin/theme', 'slider-options' );
+
+    elseif ( $active_tab === 'other_options' ) :
       // load other admin stuff
       get_template_part( 'admin/mixed', 'options' );
 
-      submit_button();?>
-      </form>
-    </div>
-  <?php
+    endif;
+
+    submit_button();?>
+    </form>
+  </div>
+<?php
+}
+
+function touko_theme_options_validate( $theme_settings ) {
+  global $touko_the_politician_theme_options_settings;
+  $input_validated = $touko_the_politician_theme_options_settings;
+  $input = $theme_settings;
+
+  /**
+  * Validation for newsfeed
+  */
+
+  isset($input[ 'enable_newsfeed' ] ) ? $input_validated[ 'enable_newsfeed' ] = true : $input_validated[ 'enable_newsfeed' ] = false;
+
+  isset($input[ 'enable_wp_posts_newsfeed' ] ) ? $input_validated[ 'enable_wp_posts_newsfeed' ] = true : $input_validated[ 'enable_wp_posts_newsfeed' ] = false;
+
+  isset($input[ 'enable_facebook_newsfeed' ] ) ? $input_validated[ 'enable_facebook_newsfeed' ] = true : $input_validated[ 'enable_facebook_newsfeed' ] = false;
+
+  isset($input[ 'enable_twitter_newsfeed' ] ) ? $input_validated[ 'enable_twitter_newsfeed' ] = true : $input_validated[ 'enable_twitter_newsfeed' ] = false;
+
+  if ( isset( $input[ 'wp_blog_visible_posts_count' ] ) && is_numeric( $input[ 'wp_blog_visible_posts_count' ] ) ) {
+    $input_validated[ 'wp_blog_visible_posts_count' ] = $input[ 'wp_blog_visible_posts_count' ];
+  }
+  // FACEBOOK ->
+  if ( isset( $input[ 'facebook_app_id' ] ) && is_numeric( $input[ 'facebook_app_id' ] ) ) {
+    $input_validated[ 'facebook_app_id' ] = $input[ 'facebook_app_id' ];
   }
 
-  function touko_theme_options_validate( $options ) {
-    global $touko_the_politician_theme_options_settings;
-    $input_validated = $touko_the_politician_theme_options_settings;
-    $input = array();
-    $input = $options;
-
-    /**
-    * Validation for newsfeed
-    */
-
-    isset($input['enable_newsfeed' ] ) ? $input_validated[ 'enable_newsfeed' ] = true : $input_validated[ 'enable_newsfeed' ] = false;
-
-    isset($input['enable_wp_posts_newsfeed' ] ) ? $input_validated[ 'enable_wp_posts_newsfeed' ] = true : $input_validated[ 'enable_wp_posts_newsfeed' ] = false;
-
-    isset($input['enable_facebook_newsfeed' ] ) ? $input_validated[ 'enable_facebook_newsfeed' ] = true : $input_validated[ 'enable_facebook_newsfeed' ] = false;
-
-    isset($input['enable_twitter_newsfeed' ] ) ? $input_validated[ 'enable_twitter_newsfeed' ] = true : $input_validated[ 'enable_twitter_newsfeed' ] = false;
-
-    if ( isset( $input[ 'wp_blog_visible_posts_count' ] ) && is_numeric( $input[ 'wp_blog_visible_posts_count' ] ) ) {
-      $input_validated[ 'wp_blog_visible_posts_count' ] = $input[ 'wp_blog_visible_posts_count' ];
-    }
-    // FACEBOOK ->
-    if ( isset( $input[ 'facebook_app_id' ] ) && is_numeric( $input[ 'facebook_app_id' ] ) ) {
-      $input_validated[ 'facebook_app_id' ] = $input[ 'facebook_app_id' ];
-    }
-
-    if ( isset( $input[ 'facebook_app_secret' ] ) ) {
-      $input_validated[ 'facebook_app_secret' ] = $input[ 'facebook_app_secret' ];
-    }
-
-    if ( isset( $input[ 'facebook_page_id' ] ) && is_numeric( $input[ 'facebook_page_id' ] ) ) {
-      $input_validated[ 'facebook_page_id' ] = $input[ 'facebook_page_id' ];
-    }
-
-    if ( isset( $input[ 'facebook_visible_posts_count' ] ) && is_numeric( $input[ 'facebook_visible_posts_count' ] ) ) {
-      $input_validated[ 'facebook_visible_posts_count' ] = $input[ 'facebook_visible_posts_count' ];
-    }
-    // TWITTER ->
-    if ( isset( $input[ 'twitter_consumer_key' ] ) ) {
-      $input_validated[ 'twitter_consumer_key' ] = $input[ 'twitter_consumer_key' ];
-    }
-
-    if ( isset( $input[ 'twitter_consumer_secret' ] ) ) {
-      $input_validated[ 'twitter_consumer_secret' ] = $input[ 'twitter_consumer_secret' ];
-    }
-
-    if ( isset( $input[ 'twitter_oauth_access_token' ] ) ) {
-      $input_validated[ 'twitter_oauth_access_token' ] = $input[ 'twitter_oauth_access_token' ];
-    }
-
-    if ( isset( $input[ 'twitter_oauth_access_token_secret' ] ) ) {
-      $input_validated[ 'twitter_oauth_access_token_secret' ] = $input[ 'twitter_oauth_access_token_secret' ];
-    }
-
-    if ( isset( $input[ 'twitter_username' ] ) ) {
-      $input_validated[ 'twitter_username' ] = $input[ 'twitter_username' ];
-    }
-
-    if ( isset( $input[ 'twitter_visible_posts_count' ] ) && is_numeric( $input[ 'twitter_visible_posts_count' ] ) ) {
-      $input_validated[ 'twitter_visible_posts_count' ] = $input[ 'twitter_visible_posts_count' ];
-    }
-    /**
-    * Validation for Instagram
-    */
-    isset($input[ 'enable_instagram' ]) ? $input_validated[ 'enable_instagram' ] = true : $input_validated[ 'enable_instagram' ] = false;
-    if ( isset( $input[ 'instagram_api_key' ] ) ) {
-      $input_validated[ 'instagram_api_key' ] = $input[ 'instagram_api_key' ];
-    }
-    if ( isset( $input[ 'instagram_api_secret' ] ) ) {
-      $input_validated[ 'instagram_api_secret' ] = $input[ 'instagram_api_secret' ];
-    }
-    if ( isset( $input[ 'instagram_api_callback' ] ) ) {
-      $input_validated[ 'instagram_api_callback' ] = esc_url_raw($input[ 'instagram_api_callback' ]);
-    }
-    if ( isset( $input[ 'instagram_visible_posts_count' ] ) && is_numeric( $input[ 'instagram_visible_posts_count' ] ) ) {
-      $input_validated[ 'instagram_visible_posts_count' ] = $input[ 'instagram_visible_posts_count' ];
-    }
-    if ( isset( $input[ 'instagram_username' ] ) ) {
-      $input_validated[ 'instagram_username' ] = $input[ 'instagram_username' ];
-    }
-
-    /**
-    * Validation for socialmedia
-    */
-    isset($input[ 'enable_facebook_like_box' ]) ? $input_validated[ 'enable_facebook_like_box' ] = true : $input_validated[ 'enable_facebook_like_box' ] = false;
-    isset($input[ 'enable_twitter_follow_box' ]) ? $input_validated[ 'enable_twitter_follow_box' ] = true : $input_validated[ 'enable_twitter_follow_box' ] = false;
-    isset($input[ 'enable_social_media_icons' ]) ? $input_validated[ 'enable_social_media_icons' ] = true : $input_validated[ 'enable_social_media_icons' ] = false;
-
-    if ( isset( $input[ 'facebook_page_url' ] ) ) {
-      $input_validated[ 'facebook_page_url' ] = esc_url_raw($input[ 'facebook_page_url' ]);
-    }
-
-    if ( isset( $input[ 'twitter_page_url' ] ) ) {
-      $input_validated[ 'twitter_page_url' ] = esc_url_raw($input[ 'twitter_page_url' ]);
-    }
-
-    if ( isset( $input[ 'rss_page_url' ] ) ) {
-      $input_validated[ 'rss_page_url' ] = esc_url_raw($input[ 'rss_page_url' ]);
-    }
-    if ( isset( $input[ 'donate_url' ] ) ) {
-      $input_validated[ 'donate_url' ] = esc_url_raw($input[ 'donate_url' ]);
-    }
-
-    /**
-    * Validation for other
-    */
-    isset($input[ 'enable_google_analytics' ]) ? $input_validated[ 'enable_google_analytics' ] = true : $input_validated[ 'enable_google_analytics' ] = false;
-    if ( isset( $input[ 'google_analytics_id' ] ) ) {
-      $input_validated[ 'google_analytics_id' ] = $input['google_analytics_id'];
-    }
-
-      //Clearing the theme option cache
-    if( function_exists('clear_transitions')) clear_transitions();
-    return $input_validated;
+  if ( isset( $input[ 'facebook_app_secret' ] ) ) {
+    $input_validated[ 'facebook_app_secret' ] = $input[ 'facebook_app_secret' ];
   }
+
+  if ( isset( $input[ 'facebook_page_id' ] ) && is_numeric( $input[ 'facebook_page_id' ] ) ) {
+    $input_validated[ 'facebook_page_id' ] = $input[ 'facebook_page_id' ];
+  }
+
+  if ( isset( $input[ 'facebook_visible_posts_count' ] ) && is_numeric( $input[ 'facebook_visible_posts_count' ] ) ) {
+    $input_validated[ 'facebook_visible_posts_count' ] = absint( $input[ 'facebook_visible_posts_count' ] );
+  }
+  // TWITTER ->
+  if ( isset( $input[ 'twitter_consumer_key' ] ) ) {
+    $input_validated[ 'twitter_consumer_key' ] = $input[ 'twitter_consumer_key' ];
+  }
+
+  if ( isset( $input[ 'twitter_consumer_secret' ] ) ) {
+    $input_validated[ 'twitter_consumer_secret' ] = $input[ 'twitter_consumer_secret' ];
+  }
+
+  if ( isset( $input[ 'twitter_oauth_access_token' ] ) ) {
+    $input_validated[ 'twitter_oauth_access_token' ] = $input[ 'twitter_oauth_access_token' ];
+  }
+
+  if ( isset( $input[ 'twitter_oauth_access_token_secret' ] ) ) {
+    $input_validated[ 'twitter_oauth_access_token_secret' ] = $input[ 'twitter_oauth_access_token_secret' ];
+  }
+
+  if ( isset( $input[ 'twitter_username' ] ) ) {
+    $input_validated[ 'twitter_username' ] = $input[ 'twitter_username' ];
+  }
+
+  if ( isset( $input[ 'twitter_visible_posts_count' ] ) && is_numeric( $input[ 'twitter_visible_posts_count' ] ) ) {
+    $input_validated[ 'twitter_visible_posts_count' ] = absint( $input[ 'twitter_visible_posts_count' ] );
+  }
+  /**
+  * Validation for Instagram
+  */
+  isset($input[ 'enable_instagram' ]) ? $input_validated[ 'enable_instagram' ] = true : $input_validated[ 'enable_instagram' ] = false;
+  if ( isset( $input[ 'instagram_api_key' ] ) ) {
+    $input_validated[ 'instagram_api_key' ] = $input[ 'instagram_api_key' ];
+  }
+  if ( isset( $input[ 'instagram_api_secret' ] ) ) {
+    $input_validated[ 'instagram_api_secret' ] = $input[ 'instagram_api_secret' ];
+  }
+  if ( isset( $input[ 'instagram_api_callback' ] ) ) {
+    $input_validated[ 'instagram_api_callback' ] = esc_url_raw($input[ 'instagram_api_callback' ]);
+  }
+  if ( isset( $input[ 'instagram_visible_posts_count' ] ) && is_numeric( $input[ 'instagram_visible_posts_count' ] ) ) {
+    $input_validated[ 'instagram_visible_posts_count' ] = absint( $input[ 'instagram_visible_posts_count' ] );
+  }
+  if ( isset( $input[ 'instagram_username' ] ) ) {
+    $input_validated[ 'instagram_username' ] = $input[ 'instagram_username' ];
+  }
+
+  /**
+  * Validation for socialmedia
+  */
+  isset($input[ 'enable_facebook_like_box' ]) ? $input_validated[ 'enable_facebook_like_box' ] = true : $input_validated[ 'enable_facebook_like_box' ] = false;
+  isset($input[ 'enable_twitter_follow_box' ]) ? $input_validated[ 'enable_twitter_follow_box' ] = true : $input_validated[ 'enable_twitter_follow_box' ] = false;
+  isset($input[ 'enable_social_media_icons' ]) ? $input_validated[ 'enable_social_media_icons' ] = true : $input_validated[ 'enable_social_media_icons' ] = false;
+
+  if ( isset( $input[ 'facebook_page_url' ] ) ) {
+    $input_validated[ 'facebook_page_url' ] = esc_url_raw($input[ 'facebook_page_url' ]);
+  }
+
+  if ( isset( $input[ 'twitter_page_url' ] ) ) {
+    $input_validated[ 'twitter_page_url' ] = esc_url_raw($input[ 'twitter_page_url' ]);
+  }
+
+  if ( isset( $input[ 'rss_page_url' ] ) ) {
+    $input_validated[ 'rss_page_url' ] = esc_url_raw($input[ 'rss_page_url' ]);
+  }
+  if ( isset( $input[ 'donate_url' ] ) ) {
+    $input_validated[ 'donate_url' ] = esc_url_raw($input[ 'donate_url' ]);
+  }
+
+  /**
+  * Validation for slider
+  */
+  isset( $input[ 'disable_slider' ] ) ? $input_validated[ 'disable_slider' ] = true : $input_validated[ 'disable_slider' ] = false;
+  isset( $input[ 'slider_quantity' ] ) ? $input_validated[ 'slider_quantity' ] = absint( $input[ 'slider_quantity' ] ) : $input_validated[ 'slider_quantity' ] = 4;
+
+  if ( isset( $input[ 'featured_post_slider' ] ) ) {
+    $input_validated[ 'featured_post_slider' ] = array();
+  }
+
+  if( isset( $input[ 'slider_quantity' ] ) ) {
+    for ( $i = 1; $i <= absint($input[ 'slider_quantity' ]); $i++ ) {
+      if ( intval( $input[ 'featured_post_slider' ][ $i ] ) ) {
+        $input_validated[ 'featured_post_slider' ][ $i ] = absint($input[ 'featured_post_slider' ][ $i ] );
+      }
+    }
+  }
+
+  isset( $input[ 'transition_effect' ] ) ? $input_validated[ 'transition_effect' ] = wp_filter_nohtml_kses( $input[ 'transition_effect' ] ) : $input_validated[ 'transition_effect' ] = 'scrollLeft';
+
+  if ( isset( $input[ 'transition_delay' ] ) && is_numeric( $input[ 'transition_delay' ] ) ) {
+    $input_validated[ 'transition_delay' ] = $input[ 'transition_delay' ];
+  }
+
+  if ( isset( $input[ 'transition_duration' ] ) && is_numeric( $input[ 'transition_duration' ] ) ) {
+    $input_validated[ 'transition_duration' ] = $input[ 'transition_duration' ];
+  }
+
+  /**
+  * Validation for other
+  */
+  isset($input[ 'enable_google_analytics' ]) ? $input_validated[ 'enable_google_analytics' ] = true : $input_validated[ 'enable_google_analytics' ] = false;
+  if ( isset( $input[ 'google_analytics_id' ] ) ) {
+    $input_validated[ 'google_analytics_id' ] = $input[ 'google_analytics_id' ];
+  }
+
+    //Clearing the theme option cache
+  if( function_exists('clear_transitions')) clear_transitions();
+  return $input_validated;
+}
 
   /**
  * Clearing the cache if any changes in Admin Theme Option
@@ -202,5 +249,6 @@ function clear_transitions(){
   delete_transient( 'facebook_page_posts_transient' );
   delete_transient( 'facebook_page_transient' );
   delete_transient( 'twitter_transient' );
+  delete_transient( 'instagram_transient' );
 }
 ?>

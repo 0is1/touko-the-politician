@@ -9,9 +9,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           admin/newsfeed-options.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/admin/newsfeed-options.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 ?>
 
@@ -28,7 +28,7 @@ if ( !defined( 'ABSPATH') ) exit;
   </div>
 </div>
 <div class="wp-posts-options">
-  <h3><?php _e( 'Wordpress blogiviestien asetukset', THEME_TEXTDOMAIN );?></h3>
+  <h4><?php _e( 'Wordpress blogiviestien asetukset', THEME_TEXTDOMAIN );?></h4>
   <div class="wrap pure-control-group">
     <label for="touko_theme_options[enable_wp_posts_newsfeed]"><?php _e( 'Näytä blogiviestit etusivulla?', THEME_TEXTDOMAIN );?></label>
     <input type="checkbox" name="touko_theme_options[enable_wp_posts_newsfeed]" value="<?php echo $options['enable_wp_posts_newsfeed'];?>" <?php if( $options['enable_wp_posts_newsfeed'] ) echo "checked=checked";?>  />
@@ -40,7 +40,7 @@ if ( !defined( 'ABSPATH') ) exit;
 </div>
 <div class="facebook-options">
   <div class="facebook-app-settings">
-    <h3><?php _e( 'Facebook-sovelluksen asetukset', THEME_TEXTDOMAIN );?></h3>
+    <h4><?php _e( 'Facebook-sovelluksen asetukset', THEME_TEXTDOMAIN );?></h4>
     <div class="wrap pure-control-group">
       <label for="touko_theme_options[facebook_app_id]"><?php _e( 'App ID/API Key:', THEME_TEXTDOMAIN );?></label>
       <input type="text" name="touko_theme_options[facebook_app_id]" value="<?php echo $options['facebook_app_id'];?>"  />
@@ -51,7 +51,7 @@ if ( !defined( 'ABSPATH') ) exit;
     </div>
   </div>
   <div class="facebook-newsfeed-settings">
-    <h3><?php _e( 'Facebook-uutisvirran asetukset', THEME_TEXTDOMAIN );?></h3>
+    <h4><?php _e( 'Facebook-uutisvirran asetukset', THEME_TEXTDOMAIN );?></h4>
     <div class="wrap pure-control-group">
       <label for="touko_theme_options[enable_facebook_newsfeed]"><?php _e( 'Näytä Facebook-viestit etusivulla?', THEME_TEXTDOMAIN );?></label>
       <input type="checkbox" name="touko_theme_options[enable_facebook_newsfeed]" value="<?php echo $options['enable_facebook_newsfeed'];?>" <?php if( $options['enable_facebook_newsfeed'] ) echo "checked=checked";?>  />
@@ -70,7 +70,7 @@ if ( !defined( 'ABSPATH') ) exit;
 </div>
 <div class="twitter-options">
   <div class="twitter-app-settings">
-    <h3><?php _e( 'Twitter-sovelluksen asetukset', THEME_TEXTDOMAIN );?></h3>
+    <h4><?php _e( 'Twitter-sovelluksen asetukset', THEME_TEXTDOMAIN );?></h4>
     <div class="wrap pure-control-group">
       <label for="touko_theme_options[twitter_consumer_key]"><?php _e( 'Twitter Consumer Key:', THEME_TEXTDOMAIN );?></label>
       <input type="text" name="touko_theme_options[twitter_consumer_key]" value="<?php echo $options['twitter_consumer_key'];?>"  />
@@ -89,7 +89,7 @@ if ( !defined( 'ABSPATH') ) exit;
     </div>
   </div>
   <div class="twitter-newsfeed-settings">
-    <h3><?php _e( 'Twitter-uutisvirran asetukset', THEME_TEXTDOMAIN );?></h3>
+    <h4><?php _e( 'Twitter-uutisvirran asetukset', THEME_TEXTDOMAIN );?></h4>
     <div class="wrap pure-control-group">
       <label for="touko_theme_options[enable_twitter_newsfeed]"><?php _e( 'Näytä Twitter-viestit etusivulla?', THEME_TEXTDOMAIN );?></label>
       <input type="checkbox" name="touko_theme_options[enable_twitter_newsfeed]" value="<?php echo $options['enable_twitter_newsfeed'];?>" <?php if( $options['enable_twitter_newsfeed'] ) echo "checked=checked";?>  />
