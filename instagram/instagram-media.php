@@ -27,7 +27,7 @@ if ( !get_transient( 'instagram_transient') ) {
 
 $instagram_data = get_transient( 'instagram_transient' );
 
-if (gettype($instagram_data) !== 'NULL') :
+if (gettype($instagram_data) === 'object') :
   $data = (array)$instagram_data;
   // echo "<pre>";
   // print_r($data["data"][0]);
