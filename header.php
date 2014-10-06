@@ -11,9 +11,9 @@ $theme_settings = $touko_the_politician_theme_options_settings;
  * @file           header.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/header.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 ?>
 <!DOCTYPE html>
@@ -99,7 +99,7 @@ $theme_settings = $touko_the_politician_theme_options_settings;
 					global $travelify_theme_options_settings;
    				$options = $travelify_theme_options_settings;
 				if( is_home() || is_front_page() ) {
-					if( "0" == $options[ 'disable_slider' ] ) {
+					if( ! $options[ 'disable_slider' ] ) {
 						if( function_exists( 'pass_cycle_parameters' ) )
 		   				pass_cycle_parameters();
 		   			if( function_exists( 'featured_post_slider' ) )

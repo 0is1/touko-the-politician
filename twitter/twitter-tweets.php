@@ -9,9 +9,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           twitter-tweets.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/twitter/twitter-tweets.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 ?>
 
@@ -24,7 +24,7 @@ if ( !defined( 'ABSPATH') ) exit;
   $data = get_transient( 'twitter_transient' );
   if ( gettype($data ) !== 'NULL') :
     // Get user Twitter profile image
-    if( isset($data[0]["user"]["profile_image_url"]) ) $twitter_user_image = $data[0]["user"]["profile_image_url"];
+    if( isset($data[0]['user']['profile_image_url']) ) $twitter_user_image = $data[0]['user']['profile_image_url'];
 
     $tweet_link_base = 'https://twitter.com/' . $theme_settings['twitter_username'] . '/status/';
     $twitter_user_real_name = $data[0]["user"]["name"];

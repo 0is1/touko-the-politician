@@ -9,9 +9,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           get-facebook-photos.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/facebook/get-facebook-photos.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
   require_once( get_stylesheet_directory() . '/vendor/facebook/facebook.php');
 

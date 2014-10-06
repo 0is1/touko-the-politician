@@ -9,9 +9,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           facebook-posts.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/facebook/facebook-posts.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 ?>
 

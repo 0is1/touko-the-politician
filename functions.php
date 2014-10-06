@@ -10,9 +10,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           functions.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/functions.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 
 /**
@@ -51,8 +51,6 @@ require_once( get_stylesheet_directory() . '/twitter/get-tweets.php');
 * Load Instagram scripts
 */
 require_once( get_stylesheet_directory() . '/instagram/get-instagram-media.php');
-
-
 
 // Enable shortcodes in widgets
 add_filter( 'widget_text', 'do_shortcode' );

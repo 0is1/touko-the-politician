@@ -10,9 +10,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           main-content-functions.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/functions/main-content-functions.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 
 add_action( 'add_page_content', 'add_page_content' );

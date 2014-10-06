@@ -10,9 +10,9 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           social-media-content-functions.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/social-media-content-functions.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 ?>
 <?php
@@ -69,8 +69,7 @@ if ( !defined( 'ABSPATH') ) exit;
     global $touko_the_politician_theme_options_settings;
     $theme_settings = $touko_the_politician_theme_options_settings;
     $twitter_username = $theme_settings['twitter_username'];
-    echo '<div class="tweet-button"><a href="https://twitter.com/share" class="twitter-share-button" data-url="' .$page_url.'" data-text="'.$title.'" data-count="horizontal" data-via="'.$twitter_username.'" rel="nofollow">'.__( "Twiittaa", THEME_TEXTDOMAIN ).'</a>
-      </div>';
+    echo '<div class="tweet-button"><a href="https://twitter.com/share" class="twitter-share-button" data-url="' .$page_url.'" data-text="'.$title.'" data-count="horizontal" data-via="'.$twitter_username.'" rel="nofollow">'.__( "Twiittaa", THEME_TEXTDOMAIN ).'</a></div>';
   }
 
 ?>

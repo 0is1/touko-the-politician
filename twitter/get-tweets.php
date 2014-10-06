@@ -9,16 +9,17 @@ if ( !defined( 'ABSPATH') ) exit;
  * @file           get-tweets.php
  * @package        Touko The Politician
  * @author         Janne Saarela
- * @version        Release: 1.0
+ * @version        Release: 0.9.0
  * @filesource     wp-content/themes/touko-the-politician/twitter/get-tweets.php
- * @since          available since Release 1.0
+ * @since          available since Release 0.9.0
  */
 if ( !function_exists('get_twitter_data') ) :
+
 /**
- * Get data from Facebook API
+ * Get data from Twitter API
  */
   function get_twitter_data(){
-    require_once( get_stylesheet_directory() . '/vendor/twitter/TwitterAPIExchange.php');
+    require_once( get_stylesheet_directory() . '/vendor/twitter/TwitterAPIExchange.php' );
     global $twitter_data, $touko_the_politician_theme_options_settings;
     $theme_settings = $touko_the_politician_theme_options_settings;
 
@@ -48,7 +49,7 @@ endif;
 
 if ( !function_exists('twitter_transient') ) :
 /**
- * display Facebook page
+ * set Twitter transient
  *
  * @uses set_transient
  */
