@@ -140,9 +140,9 @@ hr{border:none;clear:both;margin:0;width:100%}
 &:nth-of-type(even){float:right}
 &:nth-of-type(odd){float:left}
 }@media only screen and (max-width: 800px){.newsfeed-posts{float:none;width:100%}
-.newsfeed article:nth-of-type(even),.newsfeed article:nth-of-type(odd){float:none;margin:1% 0}
-}@media only screen and (max-width: 767px){.newsfeed{padding:1%;}
-.newsfeed article{padding:3%}
+.newsfeed{padding:.5rem;}
+.newsfeed article{font-size:100%;padding:1rem;}
+.newsfeed article:nth-of-type(even),.newsfeed article:nth-of-type(odd){float:none;margin:.75rem 0}
 }@media only screen and (max-width: 400px){.newsfeed{padding:.5rem;}
 .newsfeed article{font-size:120%;padding:1rem;}
 .newsfeed article:nth-of-type(even),.newsfeed article:nth-of-type(odd){margin:.5rem 0}

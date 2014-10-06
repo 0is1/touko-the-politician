@@ -97,16 +97,16 @@
   .newsfeed-posts
     float none
     width 100%
-  .newsfeed
-    article:nth-of-type(even), article:nth-of-type(odd)
-      float none
-      margin 1% 0
 
-@media screen_breakpoint_two
   .newsfeed
-    padding 1%
+    padding .5rem
     article
-      padding 3%
+      font-size 100%
+      padding 1rem
+      &:nth-of-type(even), &:nth-of-type(odd)
+        float none
+        margin .75rem 0
+
 
 @media screen_breakpoint_mobile_small
   .newsfeed
