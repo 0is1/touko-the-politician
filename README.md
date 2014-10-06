@@ -17,8 +17,6 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Add [http://owlgraphic.com/owlcarousel/](http://owlgraphic.com/owlcarousel/) or something similar
   * In other words: replace the slider functionality from Travelify parent-theme
   * Add "read more"-button in slider slides
-* Add [http://socialitejs.com/](http://socialitejs.com/)
-* Add [http://salvattore.com/](http://salvattore.com/) or something similar to newsfeed
 * Add [Disqus](https://disqus.com/admin/wordpress/) or something similar to enable comments
 * Add support to external rss feeds (in admin panel)
   * Add rss url
@@ -64,6 +62,9 @@ Custom Wordpress-theme for toukoaalto.fi -site
 #### [Instagram-PHP-API](https://github.com/cosenary/Instagram-PHP-API)
 * Support to:
   * User photofeed
+* TODO:
+  * process text and add #hashtag / @user -links
+  * make square instagram elements, big image to bg and text on the image
 
 ### Social media links
 * Facebook
