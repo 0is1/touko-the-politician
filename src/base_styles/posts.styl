@@ -13,7 +13,8 @@
   li
     font-size 95%
   p
-    margin-bottom 2%
+    margin-bottom 1em
+    margin-bottom 1rem
     &:last-of-type
       margin-bottom 0
   a
@@ -69,10 +70,21 @@
       padding 0 0 2%
     .entry-title
       display inline-block
+      margin 0
       padding 2% 0 0
+
+@media screen_breakpoint_pixel_ratio_two
+  .entry-content
+    p
+      font-size 130%
+
+@media screen_breakpoint_mobile_tablet
+  .entry-content
+    p
+      font-size 110%
+      line-height 1.8
 
 @media screen_breakpoint_two
   .entry-meta
     float none
     margin 0 0 1%
-// @media screen_breakpoint_three

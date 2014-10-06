@@ -1,7 +1,8 @@
 
 /* Social media buttons */
 .social-media-buttons
-  padding 0 0 1%
+  margin 0 0 1%
+  max-height 28px
 
 .wrapper
   .social-media-buttons
@@ -17,8 +18,23 @@
 .fb_iframe_widget
   span, iframe
     max-width none
+    max-height 24px
     min-width 100%
 
-@media screen_breakpoint_one
+@media screen_breakpoint_mobile_tablet
   .social-media-buttons
-    padding 1%
+    max-height 50px
+    margin 0 0 2%
+    padding 0
+    > div
+      margin 0 0 .25rem
+
+@media screen_breakpoint_mobile_small
+  .social-media-buttons
+    max-height 50px
+    margin 0 0 5%
+    padding 2%
+    > div
+      margin 0 0 3%
+      &:last-of-type
+        margin 0
