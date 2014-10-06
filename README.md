@@ -41,10 +41,6 @@ Custom Wordpress-theme for toukoaalto.fi -site
   * This is going to be "parent-theme" but at the moment it needs travelify as template
   * I'm going to replace all the dependencies in the future
 
-### "Newsfeed"
-* TODO:
-  * Cache (~15min)
-    * Done to Facebook-page & -posts, Twitter-page and Tweets
 
 #### [Facebook-php-sdk](https://github.com/facebook/facebook-php-sdk)
 * Support to:
