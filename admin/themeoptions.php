@@ -74,19 +74,23 @@ function do_touko_the_politician_theme_options(){ ?>
    <?php
     if( $active_tab === 'newsfeed_options' ) :
       // load newsfeed options template
+      settings_fields( 'touko_theme_options' );
       get_template_part( 'admin/newsfeed', 'options' );
+      get_template_part( 'admin/instagram', 'options' );
 
     elseif ( $active_tab === 'social_media_options' ) :
       // load social media options template
+      settings_fields( 'touko_theme_options' );
       get_template_part( 'admin/socialmedia', 'options' );
-      get_template_part( 'admin/instagram', 'options' );
 
     elseif ( $active_tab === 'slider_options' ) :
       // load slider options
+      settings_fields( 'touko_theme_options' );
       get_template_part( 'admin/theme', 'slider-options' );
 
     elseif ( $active_tab === 'other_options' ) :
       // load other admin stuff
+      settings_fields( 'touko_theme_options' );
       get_template_part( 'admin/mixed', 'options' );
 
     endif;

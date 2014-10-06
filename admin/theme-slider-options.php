@@ -17,7 +17,6 @@ if ( !defined('ABSPATH')) exit;
 
 <?php
 
-settings_fields('touko_theme_options');
 global $touko_the_politician_theme_options_settings;
 $options = $touko_the_politician_theme_options_settings;
 

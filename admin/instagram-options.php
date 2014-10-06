@@ -17,7 +17,6 @@ if ( !defined('ABSPATH')) exit;
 
 <?php
   require_once(get_stylesheet_directory() . '/vendor/instagram/instagram.php');
-  settings_fields('touko_theme_options');
   global $touko_the_politician_theme_options_settings, $master_instagram;
   $options = $touko_the_politician_theme_options_settings;
 
@@ -32,7 +31,7 @@ if ( !defined('ABSPATH')) exit;
 
 ?>
 <div class="instagram-options">
-  <h2><?php _e( 'Instagram asetukset', THEME_TEXTDOMAIN );?></h2>
+  <h4><?php _e( 'Instagram asetukset', THEME_TEXTDOMAIN );?></h4>
   <div class="wrap pure-control-group">
     <label for="touko_theme_options[enable_instagram]"><?php _e( 'Näytä Instagram etusivulla?', THEME_TEXTDOMAIN );?></label>
     <input type="checkbox" name="touko_theme_options[enable_instagram]" value="<?php echo $options['enable_instagram'];?>" <?php if($options['enable_instagram']) echo "checked=checked";?>  />
