@@ -24,11 +24,6 @@ $options = $touko_the_politician_theme_options_settings;
 ?>
 <h2><?php _e( 'Slider options', THEME_TEXTDOMAIN );?></h2>
 <div class="touko-the-politician-admin">
-  <?php if( isset( $_GET [ 'settings-updated' ] ) && 'true' === $_GET[ 'settings-updated' ] ): ?>
-    <div class="updated fade" id="message">
-      <p><strong><?php _e( 'Options saved', THEME_TEXTDOMAIN );?></strong></p>
-    </div>
-  <?php endif; ?>
   <form class="touko-theme-options-form pure-form pure-form-aligned" method="post" action="options.php">
 
     <?php settings_fields( 'touko_theme_options' ); ?>
