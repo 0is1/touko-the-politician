@@ -33,7 +33,7 @@ if ( !defined( 'ABSPATH') ) exit;
 				<li><?php _e( 'Tarkista web-sivun osoitteen oikeinkirjoitus', THEME_TEXTDOMAIN ); ?></li>
 				<li><?php _e( 'Päivitä sivu ( selaimen "päivitä-sivu"-nappi )', THEME_TEXTDOMAIN ); ?></li>
 				<li><?php _e( 'Palaa takaisin', THEME_TEXTDOMAIN ); ?> <a href="<?php echo home_url() ?>/" title="<?php bloginfo( 'name' ) ?>" rel="home"><?php _e( 'Etusivulle', THEME_TEXTDOMAIN ); ?></a></li>
-				<li><?php _e( 'Tai käytä hakua', THEME_TEXTDOMAIN );?><span class="focus-search-arrow">&darr;</span></li>
+				<li><?php _e( 'Tai kokeile hakua sivun etsimiseen', THEME_TEXTDOMAIN );?><span class="focus-search-arrow">&darr;</span></li>
 			</ul>
 		</div><!-- .entry-content -->
 	</div><!-- #content -->
