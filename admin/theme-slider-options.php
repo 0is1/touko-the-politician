@@ -19,9 +19,9 @@ if ( !defined('ABSPATH')) exit;
 
 global $touko_the_politician_theme_options_settings;
 $options = $touko_the_politician_theme_options_settings;
-echo "<pre>";
-print_r( get_option( 'touko_theme_slider_options' ) );
-echo "</pre>";
+// echo "<pre>";
+// print_r( get_option( 'touko_theme_slider_options' ) );
+// echo "</pre>";
 ?>
 <h2><?php _e( 'Slider options', THEME_TEXTDOMAIN );?></h2>
 <div class="pure-control-group wrap">

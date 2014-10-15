@@ -18,9 +18,9 @@ if ( !defined( 'ABSPATH') ) exit;
 <?php
   global $touko_the_politician_theme_options_settings;
   $options = $touko_the_politician_theme_options_settings;
-  echo "<pre>";
-  print_r( get_option( 'touko_theme_social_media_options' ) );
-  echo "</pre>";
+  // echo "<pre>";
+  // print_r( get_option( 'touko_theme_social_media_options' ) );
+  // echo "</pre>";
 ?>
 <div class="social-media-options">
   <h2><?php _e( 'Sosiaalisen median asetukset', THEME_TEXTDOMAIN );?></h2>
