@@ -60,8 +60,8 @@ if ( !defined('ABSPATH')) exit;
     <input type="number" name="touko_theme_newsfeed_options[instagram_visible_posts_count]" value="<?php echo $options['instagram_visible_posts_count'];?>"  />
   </div>
   <?php
-    if ( get_option('instagram-access-token') === false && isset($_GET['code']) ) :
-      $callback_url = get_home_url() . '/wp-admin/themes.php?page=touko_theme_newsfeed_options';
+    if ( !get_option('instagram-access-token') && isset($_GET['code']) ) :
+      $callback_url = get_home_url() . '/wp-admin/admin.php?page=' . $_GET['page'];
       $response = wp_remote_post("https://api.instagram.com/oauth/access_token",
         array(
           'body' => array(
