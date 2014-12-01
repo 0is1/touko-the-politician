@@ -27,13 +27,9 @@ if ( !get_transient( 'instagram_transient') ) {
 
 $instagram_data = get_transient( 'instagram_transient' );
 
-if (gettype($instagram_data) === 'object') :
-  $data = (array)$instagram_data;
-  // echo "<pre>";
-  // print_r($data["data"][0]);
-  // echo "</pre>";
-  ?>
-  <?php
+if ( $instagram_data ) :
+  $data = (array)json_decode($instagram_data);
+
   foreach( $data['data'] as $key => $value ) { ?>
     <article class="instagram-media-post instagram-post-<?php echo $key;?> grid-50-with-gap clearfix">
       <section class="instagram-user-details clearfix">
