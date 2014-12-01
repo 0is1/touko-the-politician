@@ -48,7 +48,7 @@ if ( !defined('ABSPATH')) exit;
   </div>
   <div class="wrap pure-control-group">
     <label for="touko_theme_newsfeed_options[instagram_api_callback]"><?php _e( 'Instagram REDIRECT URI', THEME_TEXTDOMAIN );?> </label>
-    <input type="text" name="touko_theme_newsfeed_options[instagram_api_callback]" value="<?php echo get_home_url();?>/wp-admin/admin.php?page=<?php echo $_GET['page'];?>" />
+    <input type="text" name="touko_theme_newsfeed_options[instagram_api_callback]" value="<?php echo get_bloginfo('wpurl');?>/wp-admin/admin.php?page=<?php echo $_GET['page'];?>" />
   </div>
 
   <div class="wrap pure-control-group">
@@ -61,7 +61,7 @@ if ( !defined('ABSPATH')) exit;
   </div>
   <?php
     if ( !get_option('instagram-access-token') && isset($_GET['code']) ) :
-      $callback_url = get_home_url() . '/wp-admin/admin.php?page=' . $_GET['page'];
+      $callback_url = get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . $_GET['page'];
       $response = wp_remote_post("https://api.instagram.com/oauth/access_token",
         array(
           'body' => array(
@@ -81,7 +81,7 @@ if ( !defined('ABSPATH')) exit;
 
       if( isset($auth->access_token) ):
         $access_token = $auth->access_token;
-        update_option('instagram-access-token', $access_token);
+        update_option( 'instagram-access-token', $access_token );
         $success = true;
       endif; //isset($auth->access_token)
 
@@ -93,14 +93,14 @@ if ( !defined('ABSPATH')) exit;
 
     elseif( $response['response']['code'] >= 400 ):
 
-      $error = json_decode($response['body']);
+      $error = json_decode( $response['body'] );
       $errormessage = $error->error_message;
       $errortype = $error->error_type;
 
     endif; //!is_wp_error($response)
 
     if (!$access_token):
-      delete_option('instagram-access-token');
+      delete_option( 'instagram-access-token' );
     endif;
 
   endif; // GET['code']
