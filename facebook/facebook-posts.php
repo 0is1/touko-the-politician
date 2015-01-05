@@ -17,11 +17,14 @@ if ( !defined( 'ABSPATH') ) exit;
 
 <?php
   global $facebook_photos, $touko_the_politician_theme_options_settings, $facebook_page_items_count;
+  $theme_settings = $touko_the_politician_theme_options_settings;
+
   if ( !get_transient('facebook_page_posts_transient') ) {
     call_user_func( 'facebook_page_posts_transient' );
   }
-  $data = get_transient( 'facebook_page_posts_transient' );
-  $theme_settings = $touko_the_politician_theme_options_settings;
+
+  $data = (array)json_decode( get_transient( 'facebook_page_posts_transient' ), true );
+
   if ( gettype( $data ) == 'array') :
     if ( !get_transient('facebook_page_transient') ) {
       call_user_func( 'facebook_page_transient' );

@@ -31,7 +31,7 @@ if ( !function_exists('get_facebook_page_posts_data') ) :
     $facebook = new Facebook( $config );
     try{
       $pageFeed = $facebook->api($theme_settings["facebook_page_id"] . '/posts?limit='. $theme_settings["facebook_visible_posts_count"]);
-      return $pageFeed;
+      return json_encode( $pageFeed );
     } catch( FacebookApiException $e ){
       error_log( date('j.n.Y H:i:s' ). " : ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log' );
       error_log( $e->getType()." – ", 3, get_stylesheet_directory() .'/logs/facebook-errors.log' );
