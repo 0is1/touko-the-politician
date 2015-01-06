@@ -37,9 +37,14 @@ if ( !defined( 'ABSPATH') ) exit;
     <?php endif; ?>
 
     <div class="logos pure-u-1">
-      <a href="http://www.vihreat.fi" title="Vihreät De Gröna">
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/images/vihreat-logo.png" alt="Vihreät De Gröna">
-      </a>
+      <div class="aalto-logo">
+        <img src="<?php echo get_stylesheet_directory_uri() ?>/images/aalto2015.png" alt="Aalto 2015" title="Aalto 2015">
+      </div>
+      <div class="party-logo">
+        <a href="http://www.vihreat.fi" title="Vihreät De Gröna">
+          <img src="<?php echo get_stylesheet_directory_uri() ?>/images/vihreat-logo.png" alt="Vihreät De Gröna" title="Vihreät De Gröna">
+        </a>
+      </div>
     </div>
     <div class="site-generator pure-u-1">
       <span class="copyright">Copyright © <?php echo date( 'Y' ); ?>
