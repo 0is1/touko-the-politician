@@ -16,7 +16,6 @@ Custom Wordpress-theme for toukoaalto.fi -site
 * Admin panel styles
 * Add [http://owlgraphic.com/owlcarousel/](http://owlgraphic.com/owlcarousel/) or something similar
   * In other words: replace the slider functionality from Travelify parent-theme
-  * Add "read more"-button in slider slides
 * Add [Disqus](https://disqus.com/admin/wordpress/) or something similar to enable comments
 * Add support to external rss feeds (in admin panel)
   * Add rss url
