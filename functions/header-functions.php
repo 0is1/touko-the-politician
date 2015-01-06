@@ -197,7 +197,7 @@ function add_social_media_icons(){
         // HACK HACK HACK
         if($title_parts[1] == 'euro'){
           $social_media_icons .=
-          '<li><a class="'.strtolower( $key).'" href="'.esc_url($elements[$value] ).'" title="'.__( "Lahjoita Toukon vaalikampanjaan", "touko" ).'" target="_blank"></a></li>';
+          '<li><a class="'.strtolower( $key).'" href="'.esc_url($elements[$value] ).'" title="'.__( "Lahjoita Toukon vaalikampanjaan", THEME_TEXTDOMAIN ).'" target="_blank"></a></li>';
         }
         else{
           $social_media_icons .=
@@ -268,13 +268,16 @@ function featured_post_slider() {
             $featured_post_slider .= '
               <article class="featured-text">';
               if( $title_attribute !='' ) {
-                  $featured_post_slider .= '<div class="featured-title"><a href="' . get_permalink() . '" title="'.the_title( '','',false).'">'. get_the_title() . '</a></div><!-- .featured-title -->';
+                  $featured_post_slider .= '<div class="featured-title"><a href="' . get_permalink() . '" title="'. the_title( '','',false) .'">'. get_the_title() . '</a></div><!-- .featured-title -->';
               }
-              if( $excerpt !='' ) {
-                $featured_post_slider .= '<div class="featured-content"><a href="' . get_permalink() . '" title="'.the_title( '','',false ).'">'.$excerpt.'</a></div><!-- .featured-content -->';
+              if( $excerpt != '' ) {
+                $featured_post_slider .= '<div class="featured-content"><a href="' . get_permalink() . '" title="'. the_title( '','',false ) .'">'.$excerpt.'</a>';
+                $featured_post_slider .= '<div class="read-more">';
+                $featured_post_slider .= '<a href="'. get_permalink() . '" title="'. the_title( '', '', false ) .'">' . __( 'Lue lisää &rarr;', THEME_TEXTDOMAIN ) .'</a>';
+                $featured_post_slider .= '</div>';
+                $featured_post_slider .= '</div><!-- .featured-content -->';
               }
-            $featured_post_slider .= '
-              </article><!-- .featured-text -->';
+            $featured_post_slider .= '</article><!-- .featured-text -->';
             }
         $featured_post_slider .= '
         </div><!-- .slides -->';
@@ -283,7 +286,7 @@ function featured_post_slider() {
     <nav id="controllers" class="clearfix">
     </nav><!-- #controllers --></section><!-- .featured-slider -->';
 
-  set_transient('featured_post_slider', $featured_post_slider, 86940);
+    set_transient( 'featured_post_slider', $featured_post_slider, 86940);
   }
   echo $featured_post_slider;
 }
