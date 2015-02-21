@@ -76,7 +76,7 @@ function add_fb_open_graph_tags() {
       $thumbnail_object = get_post($thumbnail_id);
       $image = $thumbnail_object->guid;
     } else {
-      $image = get_stylesheet_directory_uri() . '/images/touko-aalto.png'; // Default image
+      $image = get_stylesheet_directory_uri() . '/images/touko-aalto-2015.png'; // Default image
     }
 
     $description = fb_og_excerpt( $post->post_content, $post->post_excerpt );
@@ -86,7 +86,7 @@ function add_fb_open_graph_tags() {
   ?>
     <meta property="fb:app_id" content="<?php echo $theme_settings['facebook_app_id']; ?>"/>
     <meta property="og:title" content="<?php echo get_bloginfo( 'name' ); ?> | <?php echo get_the_title( $post );?>" />
-    <meta property="og:type" content="<?php echo get_post_type( $post ); ?>" />
+    <meta property="og:type" content="website" />
     <meta property="og:image" content="<?php echo $image; ?>" />
     <meta property="og:url" content="<?php the_permalink(); ?>" />
     <meta property="og:description" content="<?php echo $description ?>" />
