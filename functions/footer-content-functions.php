@@ -54,7 +54,7 @@ if ( !defined( 'ABSPATH') ) exit;
       </span>
     </div>
     <div class="pure-u-1 site-created">
-      <span class="created"><?php _e('Toteutus: ', THEME_TEXTDOMAIN);?><a href="<?php echo esc_url( 'http://lookit.fi/' );?>" title="Lookit Designs">Janne/Lookit Designs</a>
+      <span class="created"><?php _e('Toteutus: ', THEME_TEXTDOMAIN);?><a href="<?php echo esc_url( 'http://jannejuhani.me' );?>" title="jannejuhani.me">jannejuhani</a>
       </span>
       <span class="source">
         <i class="icon-github"></i>
