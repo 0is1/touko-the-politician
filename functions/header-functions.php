@@ -71,9 +71,9 @@ function add_fb_open_graph_tags() {
   $theme_settings = $touko_the_politician_theme_options_settings;
   if ( is_singular() ) :
     global $post;
-    if(get_the_post_thumbnail($post->ID, 'thumbnail')) {
-      $thumbnail_id = get_post_thumbnail_id($post->ID);
-      $thumbnail_object = get_post($thumbnail_id);
+    if( get_the_post_thumbnail($post->ID, 'thumbnail') ) {
+      $thumbnail_id = get_post_thumbnail_id( $post->ID );
+      $thumbnail_object = get_post( $thumbnail_id );
       $image = $thumbnail_object->guid;
     } else {
       $image = get_stylesheet_directory_uri() . '/images/touko-aalto-2015.png'; // Default image
@@ -127,10 +127,6 @@ add_action( 'wp_enqueue_scripts', 'add_scripts' );
 // Add scripts
 function add_scripts() {
   wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.min.js', array( 'jquery' ), THEME_VERSION, true );
-  // Add video support to particular page TODO:
-  // if( is_page('TODO') ){
-  //   wp_enqueue_script( 'vjs', '//vjs.zencdn.net/4.5/video.js', array(), '1.0.0', true );
-  // }
 }
 
 // Load Favicon in Header Section
@@ -147,9 +143,12 @@ add_action('wp_head', 'add_css', 4);
 
 // Add css
 function add_css(){
-  wp_enqueue_style( 'font', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', array(), '1.0.0', false );
-  wp_enqueue_style( 'touko_icons_style', get_stylesheet_directory_uri() . '/fonts/fontello/css/touko-icons.css', array(), THEME_VERSION, false );
-  wp_enqueue_style( 'touko_pure_grids_style', get_stylesheet_directory_uri() . '/vendor/styles/pure-grids-min.css', array(), '0.3.0', false );
+  wp_register_style( 'font', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', array(), '1.0.0', false );
+  wp_enqueue_style( 'font' );
+  wp_register_style( 'touko_icons_style', get_stylesheet_directory_uri() . '/fonts/fontello/css/touko-icons.css', array(), THEME_VERSION, false );
+  wp_enqueue_style( 'touko_icons_style' );
+  wp_register_style( 'touko_pure_grids_style', get_stylesheet_directory_uri() . '/vendor/styles/pure-grids-min.css', array(), '0.3.0', false );
+  wp_enqueue_style( 'touko_pure_grids_style' );
   // wp_enqueue_style( THEME_TEXTDOMAIN, get_stylesheet_directory_uri() . '/style.css', array(), THEME_VERSION, false );
 }
 
