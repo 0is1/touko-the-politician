@@ -204,7 +204,7 @@ input[type="reset"]:hover,input[type="button"]:hover,input[type="submit"]:hover,
 .twitter-page{background-color:rgba(245,245,245,0.8);}
 .twitter-page .in-twitter{background-color:#fff;border-bottom:1px solid rgba(0,0,0,0.1);}
 .twitter-page .in-twitter p{font-size:80%;font-weight:600;margin:0}
-.twitter-page .twitter-user-details{background-position:center;color:#fff;padding:1rem .5rem;position:relative;text-align:center;text-shadow:1px 1px 1px #141414;}
+.twitter-page .twitter-user-details{background-position:center;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;color:#fff;padding:1rem .5rem;position:relative;text-align:center;text-shadow:1px 1px 1px #141414;}
 .twitter-page .twitter-user-details h1,.twitter-page .twitter-user-details a{color:#fff}
 .twitter-page .twitter-user-details a:hover{text-decoration:underline}
 .twitter-page .twitter-user-details .twitter-page-img{float:none;display:block;margin:0 auto;}
