@@ -22,7 +22,7 @@ if ( !defined( 'ABSPATH') ) exit;
  do_action( 'before_loop' );
 
  /* Loop stuff */
- do_action( 'add_page_content' );
+ do_action( 'loop_content' );
 
  /* Close opening div */
  do_action( 'after_loop' );
