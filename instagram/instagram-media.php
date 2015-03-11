@@ -20,7 +20,6 @@ if ( !defined('ABSPATH')) exit;
 global $instagram_media, $touko_the_politician_theme_options_settings;
 $theme_settings = $touko_the_politician_theme_options_settings;
 $data = $instagram_media;
-
 if ( !get_transient( 'instagram_transient') ) {
   call_user_func( 'instagram_transient' );
 }
@@ -28,9 +27,14 @@ if ( !get_transient( 'instagram_transient') ) {
 $instagram_data = get_transient( 'instagram_transient' );
 
 if ( $instagram_data ) :
-  $data = (array)json_decode( $instagram_data );
+  $data = (array)json_decode( $instagram_data ); ?>
 
-  foreach( $data['data'] as $key => $value ) { ?>
+  <div class="newsfeed-logo">
+    <a href="<?php echo esc_url('https://www.instagram.com/'.$data['data'][0]->user->username);?>" title="<?php echo $data['data'][0]->user->full_name;?> @ Instagram">
+      <h1><i class="icon-instagram"></i><?php _e( 'Instagram', THEME_TEXTDOMAIN ); ?></h1>
+    </a>
+  </div>
+  <?php foreach( $data['data'] as $key => $value ) { ?>
     <article class="instagram-media-post instagram-post-<?php echo $key;?> grid-50-with-gap clearfix">
       <section class="instagram-user-details clearfix">
         <figure class="newsfeed-icon-img instagram-page-img clearfix">
@@ -42,16 +46,18 @@ if ( $instagram_data ) :
       </section>
       <section class="instagram-media-details">
         <figure class="instagram-img">
-          <a href="<?php echo $value->link;?>" title="<?php echo $value->link;?>">
-            <img src="<?php echo $value->images->thumbnail->url;?>" alt="thumbnail">
+          <a href="<?php echo $value->link;?>" title="<?php echo $value->caption->text;?>">
+            <img src="<?php echo $value->images->low_resolution->url;?>" alt="thumbnail">
           </a>
         </figure>
         <?php
           if (isset($value->caption->text)) : ?>
-          <figure class="newsfeed-icon instagram-logo">
-            <i class="icon-instagram"></i>
-          </figure>
-          <p class="instagram-media-text"><?php echo $value->caption->text;?></p>
+          <a href="<?php echo $value->link;?>" title="<?php echo $value->link;?>">
+            <figure class="newsfeed-icon instagram-logo">
+              <i class="icon-instagram"></i>
+            </figure>
+            <p class="instagram-media-text"><?php echo $value->caption->text;?></p>
+          </a>
         <?php
           endif;
          ?>

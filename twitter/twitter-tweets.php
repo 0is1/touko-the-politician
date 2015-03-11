@@ -32,10 +32,12 @@ if ( !defined( 'ABSPATH') ) exit;
     $twitter_user_profile_link = "https://twitter.com/" . $theme_settings['twitter_username'];
 
     ?>
+    <div class="newsfeed-logo">
+      <a href="<?php echo $twitter_user_profile_link; ?>" title="<?php echo $twitter_user_nick;?>@Twitter">
+        <h1><i class="icon-twitter-bird"></i><?php _e( 'Twitter', THEME_TEXTDOMAIN ); ?></h1>
+      </a>
+    </div>
     <?php
-    // echo "<pre>";
-    // print_r( $data[0]["user"] );
-    // echo "</pre>";
     for ($i=0; $i < $theme_settings['twitter_visible_posts_count']; $i++) {
     ?>
       <article class="twitter-tweet grid-50-with-gap clearfix">
