@@ -18,7 +18,6 @@ if ( !defined( 'ABSPATH') ) exit;
 <?php
   global $facebook_photos, $touko_the_politician_theme_options_settings, $facebook_page_items_count;
   $theme_settings = $touko_the_politician_theme_options_settings;
-
   if ( !get_transient('facebook_page_posts_transient') ) {
     call_user_func( 'facebook_page_posts_transient' );
   }
@@ -38,22 +37,30 @@ if ( !defined( 'ABSPATH') ) exit;
     foreach( $data as $key => $value ) {
       foreach( $value as $index => $page_values ){
         // only add those posts to newsfeed where message is set
-        if ( isset( $page_values["message"] ) && gettype( $page_values ) === "array" ) {
+        if ( isset( $page_values["message"] ) && gettype( $page_values ) == "array" ) {
           array_push( $fb_page_items, $page_values );
         }
       }
     }
-    $facebook_page_items_count = count( $fb_page_items );
-
-    for ($i=0; $i < $facebook_page_items_count; $i++) {
+    $facebook_page_items_count = count( $fb_page_items ); ?>
+    <div class="newsfeed-logo">
+      <a href="<?php echo esc_url( 'https://www.facebook.com/'.$facebook_page_id );?>" title="<?php echo $facebook_page_name;?> @ Facebook">
+        <h1><i class="icon-facebook-rect"></i><?php _e( 'Facebook', THEME_TEXTDOMAIN ); ?></h1>
+      </a>
+    </div>
+    <?php for ($i=0; $i < $facebook_page_items_count; $i++) {
+      $link_to_post_target = '';
       // Check if post have any likes
-      isset( $fb_page_items[$i]["likes"] ) ? $likes = count( $fb_page_items[$i]["likes"] ) : $likes = 0;
-      if( isset($fb_page_items[$i]["id"]) ){
+      isset( $fb_page_items[$i]["likes"] ) ? $likes = count( $fb_page_items[$i]["likes"]["data"] ) : $likes = 0;
+      if( isset( $fb_page_items[$i]["id"] ) ){
         $id  = $fb_page_items[$i]["id"];
         $ids = explode( "_", $id );
         $link_to_post = esc_url( 'https://www.facebook.com/permalink.php?story_fbid='.$ids[1].'&id='.$ids[0].'' );
       }
-      if( isset($fb_page_items[$i]["link"]) ) $link_to_post_target = esc_url( $fb_page_items[$i]["link"] );
+      if( isset($fb_page_items[$i]["link"]) ) {
+        if( $fb_page_items[$i]["type"] == 'event' ) $link_to_post_target .= 'https://www.facebook.com';
+        $link_to_post_target .= esc_url( $fb_page_items[$i]["link"] );
+      }
       isset( $fb_page_items[$i]['picture'] ) ? $fb_img = $fb_page_items[$i]['picture'] : $fb_img = get_stylesheet_directory_uri(). "/images/facebook-100x100.png";
     ?>
       <article class="facebook-page-post facebook-post-<?php echo $i;?> grid-50-with-gap clearfix">
@@ -68,10 +75,10 @@ if ( !defined( 'ABSPATH') ) exit;
         <section class="facebook-post-details clearfix">
           <?php
           if( isset($fb_page_items[$i]["message"]) ) : ?>
-          <figure class="newsfeed-icon facebook-logo">
-            <i class="icon-facebook-rect"></i>
-          </figure>
             <a href="<?php echo $link_to_post;?>" title="<?php echo $link_to_post;?>">
+              <figure class="newsfeed-icon facebook-logo">
+                <i class="icon-facebook-rect"></i>
+              </figure>
               <p class="facebook-post-msg"><?php echo $fb_page_items[$i]["message"];?> </p>
             </a>
           <?php
@@ -90,10 +97,12 @@ if ( !defined( 'ABSPATH') ) exit;
                   <strong><?php echo $fb_page_items[$i]["name"]; ?></strong>
                 </a>
                 <?php if( isset($fb_page_items[$i]["caption"]) ) : ?>
-                  <a href="http://<?php echo $fb_page_items[$i]["caption"];?>" title="<?php echo $fb_page_items[$i]["caption"];?>" class="caption-link">
+                  <p class="caption-link">
                     <?php echo $fb_page_items[$i]["caption"]; ?>
-                  </a>
+                  </p>
                 <?php endif; ?>
+                <?php elseif( !isset( $fb_page_items[$i]["caption"] ) && ! isset( $fb_page_items[$i]["story"] ) ) : ?>
+                  <a href="<?php echo $link_to_post_target;?>" title="<?php echo $link_to_post_target;?>"><?php echo $link_to_post_target;?></a>
               <?php endif; ?>
                 <?php if( isset($fb_page_items[$i]["story"]) ) : ?>
                   <a href="<?php echo $link_to_post_target;?>" title="<?php echo $link_to_post_target;?>" >
@@ -122,7 +131,7 @@ if ( !defined( 'ABSPATH') ) exit;
       </article>
       <?php
         // add clearfix after every two page post's
-        if ($i % 2 === 1 && $facebook_page_items_count > 2) { ?>
+        if ( $i % 2 === 1 && $facebook_page_items_count > 2 ) { ?>
           <hr class="clearfix">
         <?php
         }
@@ -134,6 +143,6 @@ if ( !defined( 'ABSPATH') ) exit;
       <figure class="newsfeed-icon facebook-logo">
         <i class="icon-facebook-rect"></i>
       </figure>
-      <h3><?php _e('Facebook-postien haussa on tällä hetkellä ongelmia...', THEME_TEXTDOMAIN); ?></h3>
+      <h3><?php _e( 'Facebook-postien haussa on tällä hetkellä ongelmia...', THEME_TEXTDOMAIN ); ?></h3>
     </section>
 <?php endif; ?>
