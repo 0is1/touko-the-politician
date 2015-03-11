@@ -19,10 +19,10 @@ if ( !defined( 'ABSPATH') ) exit;
 <?php get_header(); ?>
 
 <div id="content">
-		<header class="entry-header">
+		<header class="entry-header main-content-data">
 			<h1 class="entry-title"><?php _e( 'Ohhoh - Etsimääsi sivua ei löytynyt...', THEME_TEXTDOMAIN ); ?></a></h1>
 		</header>
-		<div class="entry-content clearfix" >
+		<div class="entry-content main-content-data" >
 			<h3><?php _e( 'Tämä voi johtua siitä, että:', THEME_TEXTDOMAIN ); ?></h3>
 			<ul>
 				<li><?php _e( 'Näppäilit web-sivun osoitteen väärin', THEME_TEXTDOMAIN ); ?></li>

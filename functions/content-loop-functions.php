@@ -65,12 +65,12 @@ function loop_the_page() {
       the_post(); ?>
     <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <article>
-        <header class="entry-header">
+        <header class="entry-header main-content-data">
           <h2 class="entry-title">
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
           </h2><!-- .entry-title -->
         </header>
-        <div class="entry-content clearfix">
+        <div class="entry-content main-content-data">
           <?php do_action( 'add_social_media_buttons' ); ?>
           <?php the_content(); ?>
           <?php
@@ -115,12 +115,12 @@ function loop_for_search() {
           the_post(); ?>
           <section id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="search-results">
             <article>
-              <header class="entry-header">
+              <header class="entry-header main-content-data">
                 <h2 class="entry-title">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
                 </h2><!-- .entry-title -->
               </header>
-              <div class="entry-content clearfix">
+              <div class="entry-content main-content-data">
                 <?php the_excerpt(); ?>
               </div>
             </article>
@@ -158,7 +158,7 @@ function loop_for_single() {
 ?>
       <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <article>
-          <div class="entry-meta">
+          <div class="entry-meta main-content-data">
             <span class="icon-user"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
             <span class="icon-clock"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
             <?php if( has_category() ) { ?>
@@ -168,12 +168,12 @@ function loop_for_single() {
               <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', THEME_TEXTDOMAIN ), __( '1 kommentti', THEME_TEXTDOMAIN ), __( '% kommenttia', THEME_TEXTDOMAIN ), '', __( 'Kommentointi ei sallittu', THEME_TEXTDOMAIN ) ); ?></span>
             <?php } ?>
           </div><!-- .entry-meta -->
-          <header class="entry-header">
+          <header class="entry-header main-content-data">
             <h2 class="entry-title">
               <?php the_title(); ?>
             </h2><!-- .entry-title -->
           </header>
-          <div class="entry-content clearfix">
+          <div class="entry-content main-content-data">
             <?php do_action( 'add_social_media_buttons' ); ?>
             <?php the_content();
             if( is_single() ) {
@@ -233,16 +233,16 @@ function loop_for_archive() {
               echo $image;
           }
         ?>
-          <header class="entry-header">
+          <header class="entry-header main-content-data">
             <h2 class="entry-title">
               <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
             </h2><!-- .entry-title -->
           </header>
-          <div class="entry-content clearfix">
+          <div class="entry-content main-content-data">
             <?php the_excerpt(); ?>
           </div>
           <div class="entry-meta-bar clearfix">
-            <div class="entry-meta">
+            <div class="entry-meta main-content-data">
               <span class="icon-user"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
               <span class="icon-clock"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
               <?php if( has_category() ) { ?>
@@ -252,9 +252,9 @@ function loop_for_archive() {
                 <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', THEME_TEXTDOMAIN ), __( '1 kommentti', THEME_TEXTDOMAIN ), __( '% kommenttia', THEME_TEXTDOMAIN ), '', __( 'Kommentointi ei sallittu', THEME_TEXTDOMAIN ) ); ?></span>
               <?php } ?>
             </div><!-- .entry-meta -->
-            <?php
-            echo '<a class="btn" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Jatka lukemista', THEME_TEXTDOMAIN ).'</a>';
-            ?>
+            <div class="main-content-data">
+              <a class="btn" href="<?php the_permalink();?>" title="<?php the_title( '', '', false );?>"><?php _e( 'Jatka lukemista', THEME_TEXTDOMAIN );?></a>
+            </div>
           </div>
         </article>
       </section>

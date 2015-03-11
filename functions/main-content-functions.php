@@ -33,7 +33,7 @@ function add_page_content() {
   if ( is_home() || is_front_page()) {
       while ( have_posts() ) : the_post(); ?>
         <article id="home" <?php post_class(); ?>>
-          <div class="entry-content">
+          <div class="entry-content main-content-data">
             <?php do_action( 'add_social_media_buttons' ); ?>
             <?php the_content(); ?>
             <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Sivut:', THEME_TEXTDOMAIN ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
