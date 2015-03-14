@@ -241,5 +241,5 @@ input[type="reset"]:hover,input[type="button"]:hover,input[type="submit"]:hover,
 .social-media-buttons > div{margin:0 0 3%;}
 .social-media-buttons > div:last-of-type{margin:0}
 }@media only screen and (max-width: 800px){.social-media-buttons{padding:1rem}
-.page .social-media-buttons{margin:0 0 1rem}
+.page .social-media-buttons{margin:0 0 1rem;padding:0}
 }
