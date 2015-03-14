@@ -234,7 +234,7 @@ input[type="reset"]:hover,input[type="button"]:hover,input[type="submit"]:hover,
 .wrapper .social-media-buttons .fb_iframe_widget{display:inline-block;min-width:100px}
 .tweet-button{display:inline-block;}
 .tweet-button iframe{vertical-align:bottom}
-.fb_iframe_widget span,.fb_iframe_widget iframe{max-width:none;max-height:24px;min-width:100%}
+.fb_iframe_widget span,.fb_iframe_widget iframe{max-width:none;min-width:100%}
 @media only screen and (max-device-width: 1024px){.social-media-buttons{max-height:50px;margin:0 0 2%;padding:0;}
 .social-media-buttons > div{margin:0 0 .25rem}
 }@media only screen and (max-width: 400px){.social-media-buttons{max-height:50px;margin:0 0 5%;padding:2%;}
