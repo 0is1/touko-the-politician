@@ -76,7 +76,7 @@ function add_fb_open_graph_tags() {
       $thumbnail_object = get_post( $thumbnail_id );
       $image = $thumbnail_object->guid;
     } else {
-      $image = get_stylesheet_directory_uri() . '/images/touko-aalto-2015.png'; // Default image
+      $image = get_stylesheet_directory_uri() . '/images/touko-aalto-nyt-jos-koskaan-2015.png'; // Default image
     }
 
     $description = fb_og_excerpt( $post->post_content, $post->post_excerpt );
