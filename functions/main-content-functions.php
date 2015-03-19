@@ -46,9 +46,8 @@ function add_page_content() {
     if( $theme_settings['enable_twitter_follow_box'] ) get_template_part( 'twitter/twitter', 'page' );
     ?>
     </div>
-    <?php
-      if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'main-area-widget' ) ) : ?>
-    <?php endif; ?>
+    <?php if( is_active_sidebar( 'main-area-highlight-widget' ) ) dynamic_sidebar( 'main-area-highlight-widget' ); ?>
+    <?php if( is_active_sidebar( 'main-area-widget' ) ) dynamic_sidebar( 'main-area-widget' ); ?>
     <?php if( $theme_settings['enable_newsfeed']) get_template_part('newsfeed' ); ?>
   <?php  }
   // if not front page
