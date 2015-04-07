@@ -45,7 +45,7 @@ function get_instagram_data(){
   if ( get_option('instagram-access-token') !== false ) :
     try{
       $instagram = $master_instagram;
-      $user = $instagram -> searchUser( $theme_settings['instagram_username'] );
+      $user = $instagram->searchUser( $theme_settings['instagram_username'], 1 );
       // echo "<pre>";
       // print_r($user);
       // echo "</pre>";
