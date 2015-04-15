@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH') ) exit;
+if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
  * Main Content Functions
@@ -52,22 +52,22 @@ function add_page_content() {
   <?php  }
   // if not front page
   else {
-    if($layout === 'default') {
+    if( $layout === 'default' ) {
       $themeoption_layout = $theme_settings['default_layout'];
-    if($themeoption_layout === 'left-sidebar') {
+    if( $themeoption_layout === 'left-sidebar' ) {
       get_template_part( 'content','leftsidebar' );
     }
-    elseif($themeoption_layout === 'right-sidebar') {
+    elseif( $themeoption_layout === 'right-sidebar' ) {
       get_template_part( 'content','rightsidebar' );
     }
     else {
       get_template_part( 'content','default' );
     }
    }
-   elseif($themeoption_layout === 'left-sidebar') {
+   elseif( $themeoption_layout === 'left-sidebar' ) {
       get_template_part( 'content','leftsidebar' );
    }
-   elseif($themeoption_layout === 'right-sidebar') {
+   elseif( $themeoption_layout === 'right-sidebar' ) {
       get_template_part( 'content','rightsidebar' );
    }
    else {
@@ -90,10 +90,12 @@ function the_loop() {
   else if( is_search() ){
     do_action( 'loop_for_search' );
   }
-  elseif( is_single() ) {
+  else if( is_single() ) {
     do_action( 'loop_for_single' );
   }
-  else do_action( 'loop_for_archive' );
+  else {
+    do_action( 'loop_for_archive' );
+  }
 
   // TODO: all these ->
 

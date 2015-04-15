@@ -33,6 +33,34 @@ function after_loop() {
   echo '</div><!-- #content -->';
 }
 
+/****************************************************************************************/
+
+add_action( 'touko_after_loop_content', 'touko_next_previous', 5 );
+/**
+ * Shows the next or previous posts
+ */
+function touko_next_previous() {
+  if( is_archive() || is_home() || is_search() ) {
+    /**
+     * Checking WP-PageNaviplugin exist
+     */
+    if ( function_exists( 'wp_pagenavi' ) ) :
+      wp_pagenavi();
+
+    else :
+      global $wp_query;
+      if ( $wp_query->max_num_pages > 1 ) :
+      ?>
+      <ul class="default-wp-page clearfix">
+        <li class="previous"><?php next_posts_link( __( '&laquo; Edellinen', THEME_TEXTDOMAIN ) ); ?></li>
+        <li class="next"><?php previous_posts_link( __( 'Seuraava &raquo;', THEME_TEXTDOMAIN ) ); ?></li>
+      </ul>
+      <?php
+      endif;
+    endif;
+  }
+}
+
 /* ------------------------------------------------------------------------ */
 
 add_action( 'add_social_media_buttons', 'add_social_media_buttons', 10 );
@@ -103,13 +131,13 @@ else : ?>
  * Function to show the search results.
  */
 
-add_action('loop_for_search', 'loop_for_search', 10);
+add_action( 'loop_for_search', 'loop_for_search', 10);
 
 function loop_for_search() {
     global $post;
     if( have_posts() ) { ?>
       <div class="search-results-container">
-      <h1><?php _e('Hakutulokset sanoilla: ', THEME_TEXTDOMAIN );?><?php echo get_search_query(); ?></h1>
+      <h1><?php _e( 'Hakutulokset sanoilla: ', THEME_TEXTDOMAIN );?><?php echo get_search_query(); ?></h1>
       <?php
         while( have_posts() ) {
           the_post(); ?>
@@ -133,8 +161,8 @@ function loop_for_search() {
     else {
       ?>
       <section class="no-search-results">
-        <h1 class="entry-title"><?php _e('Ei hakutuloksia sanoilla: ', THEME_TEXTDOMAIN );?>"<?php echo get_search_query();?>" :-/</h1>
-        <p class="search-again"><?php _e('Voit yrittää uudestaan:', THEME_TEXTDOMAIN ); ?></p>
+        <h1 class="entry-title"><?php _e( 'Ei hakutuloksia sanoilla: ', THEME_TEXTDOMAIN );?>"<?php echo get_search_query();?>" :-/</h1>
+        <p class="search-again"><?php _e( 'Voit yrittää uudestaan:', THEME_TEXTDOMAIN ); ?></p>
         <?php get_search_form(); ?>
       </section>
     <?php
@@ -213,7 +241,7 @@ function loop_for_single() {
  * Function to show the archive loop content.
  */
 
-add_action('loop_for_archive', 'loop_for_archive', 10);
+add_action( 'loop_for_archive', 'loop_for_archive', 10 );
 
 function loop_for_archive() {
   global $post;
@@ -260,6 +288,7 @@ function loop_for_archive() {
       </section>
       <?php
     }
+    do_action( 'touko_after_post_content' );
   }
   else { ?>
     <h1 class="entry-title"><?php _e( 'Mitään ei löytynyt.', THEME_TEXTDOMAIN ); ?></h1>
@@ -273,7 +302,7 @@ function loop_for_archive() {
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
-add_action('site_comment', 'site_comment', 10);
+add_action( 'site_comment', 'site_comment', 10);
 
 function site_comment( $comment, $args, $depth ) {
   $GLOBALS['comment'] = $comment;
