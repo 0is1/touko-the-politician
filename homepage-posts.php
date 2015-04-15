@@ -48,9 +48,9 @@ if ( !defined( 'ABSPATH') ) exit;
     <?php
     endwhile; ?>
       <?php
-        if ( get_option('show_on_front') == 'page' ) : ?>
+        if ( get_option( 'show_on_front' ) == 'page' && get_option( 'page_for_posts' ) ) : ?>
         <div class="all-blog-posts">
-          <a href="<?php echo get_permalink( get_option('page_for_posts' ) );?>" title="<?php __( 'Kaikki blogitekstit', THEME_TEXTDOMAIN ); ?>">
+          <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) );?>" title="<?php __( 'Kaikki blogitekstit', THEME_TEXTDOMAIN ); ?>">
             <i class="icon-wordpress"></i>
             <?php _e( 'Kaikki blogitekstit &raquo;', THEME_TEXTDOMAIN ); ?>
           </a>
