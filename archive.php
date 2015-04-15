@@ -27,6 +27,8 @@ if ( !defined( 'ABSPATH') ) exit;
 
  /* Close opening div */
  do_action( 'after_loop' );
+
+ do_action( 'touko_after_loop_content' );
 ?>
 
 <?php get_footer(); ?>
