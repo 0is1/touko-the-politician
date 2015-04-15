@@ -242,4 +242,5 @@ input[type="reset"]:hover,input[type="button"]:hover,input[type="submit"]:hover,
 .social-media-buttons > div:last-of-type{margin:0}
 }@media only screen and (max-width: 800px){.home.page .social-media-buttons{margin:0;padding:1rem}
 .page .social-media-buttons{margin:0 0 1rem;padding:0}
-}
+}.wp-pagenavi .current{background:#61bf1a;border:1px solid #bebebe !important;-webkit-box-shadow:inset 0 1px 1px rgba(255,255,255,0.2);box-shadow:inset 0 1px 1px rgba(255,255,255,0.2)}
+.wp-pagenavi a:hover{background:#4dab06}
