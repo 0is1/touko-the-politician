@@ -25,7 +25,7 @@ if ( !defined( 'ABSPATH') ) exit;
   $data = (array)json_decode( get_transient( 'facebook_page_posts_transient' ), true );
 
   if ( gettype( $data ) == 'array') :
-    if ( !get_transient('facebook_page_transient') ) {
+    if ( !get_transient( 'facebook_page_transient' ) ) {
       call_user_func( 'facebook_page_transient' );
     }
     $page_details = get_transient( 'facebook_page_transient' );
@@ -50,6 +50,7 @@ if ( !defined( 'ABSPATH') ) exit;
     </div>
     <?php for ($i=0; $i < $facebook_page_items_count; $i++) {
       $link_to_post_target = '';
+
       // Check if post have any likes
       isset( $fb_page_items[$i]["likes"] ) ? $likes = count( $fb_page_items[$i]["likes"]["data"] ) : $likes = 0;
       if( isset( $fb_page_items[$i]["id"] ) ){
@@ -110,8 +111,8 @@ if ( !defined( 'ABSPATH') ) exit;
                       <?php echo $fb_page_items[$i]["story"]; ?></strong>
                   </a>
                   <?php if( isset($fb_page_items[$i]["story_tags"]) ) : ?>
-                    <a href="http://facebook.com/<?php echo $fb_page_items[$i]["story_tags"]["19"][0]["id"];?>" title="<?php echo $fb_page_items[$i]["story_tags"]["19"][0]["name"];?>" class="caption-link">
-                      <?php echo $fb_page_items[$i]["story_tags"]["19"][0]["name"]; ?>
+                    <a href="http://facebook.com/<?php echo $ids[1];?>" title="<?php echo $fb_page_items[$i]["message"];?>" class="caption-link">
+                      <?php echo $fb_page_items[$i]["message"]; ?>
                     </a>
                     <?php /* endif story_tags*/ endif; ?>
                 <?php endif; ?>
