@@ -37,9 +37,6 @@ if ( !defined( 'ABSPATH') ) exit;
     <?php endif; ?>
 
     <div class="logos pure-u-1">
-      <div class="aalto-logo">
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/images/aalto2015.png" alt="Aalto 2015" title="Aalto 2015">
-      </div>
       <div class="party-logo">
         <a href="http://www.vihreat.fi" title="Vihreät De Gröna">
           <img src="<?php echo get_stylesheet_directory_uri() ?>/images/vihreat-logo.png" alt="Vihreät De Gröna" title="Vihreät De Gröna">
