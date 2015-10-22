@@ -64,7 +64,7 @@ $theme_settings = $touko_the_politician_theme_options_settings;
 						</section>
 					<hgroup class="site-header fleft clearfix">
 						<figure class="touko-head">
-							<img src="<?php echo get_stylesheet_directory_uri()?>/images/touko-aalto-2015.png" alt="Touko Aalto" title="Touko Aalto">
+							<img src="<?php echo get_stylesheet_directory_uri()?>/images/touko-aalto-syksy.png" alt="Touko Aalto" title="Touko Aalto">
 						</figure>
 						<div class="site-titles">
 							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
