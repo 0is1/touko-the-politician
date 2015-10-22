@@ -13,7 +13,7 @@ if ( !defined( 'ABSPATH') ) exit;
  * @filesource     wp-content/themes/touko-the-politician/facebook/get-facebook-photos.php
  * @since          available since Release 0.9.0
  */
-  require_once( get_stylesheet_directory() . '/vendor/facebook/facebook.php');
+  require_once( get_stylesheet_directory() . '/lib/vendor/facebook/facebook.php');
 
   global $facebook_photos, $touko_the_politician_theme_options_settings;
   $theme_settings = $touko_the_politician_theme_options_settings;

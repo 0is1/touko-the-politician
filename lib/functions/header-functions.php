@@ -77,7 +77,7 @@ function add_fb_open_graph_tags() {
       $thumbnail_object = get_post( $thumbnail_id );
       $image = $thumbnail_object->guid;
     } else {
-      $image = get_stylesheet_directory_uri() . '/images/touko-aalto-nyt-jos-koskaan-2015.png'; // Default image
+      $image = get_stylesheet_directory_uri() . '/images/touko-aalto-slider.png'; // Default image
     }
 
     $description = fb_og_excerpt( $post->post_content, $post->post_excerpt );
@@ -148,7 +148,7 @@ function add_css(){
   wp_enqueue_style( 'font' );
   wp_register_style( 'touko_icons_style', get_stylesheet_directory_uri() . '/fonts/fontello/css/touko-icons.css', array(), THEME_VERSION, false );
   wp_enqueue_style( 'touko_icons_style' );
-  wp_register_style( 'touko_pure_grids_style', get_stylesheet_directory_uri() . '/vendor/styles/pure-grids-min.css', array(), '0.3.0', false );
+  wp_register_style( 'touko_pure_grids_style', get_stylesheet_directory_uri() . '/lib/vendor/styles/pure-grids-min.css', array(), '0.3.0', false );
   wp_enqueue_style( 'touko_pure_grids_style' );
   // wp_enqueue_style( THEME_TEXTDOMAIN, get_stylesheet_directory_uri() . '/style.css', array(), THEME_VERSION, false );
 }

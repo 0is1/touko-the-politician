@@ -16,7 +16,7 @@ if ( !defined('ABSPATH')) exit;
 ?>
 
 <?php
-  require_once(get_stylesheet_directory() . '/vendor/instagram/instagram.php');
+  require_once( get_stylesheet_directory() . '/lib/vendor/instagram/instagram.php' );
   global $touko_the_politician_theme_options_settings;
   $options = $touko_the_politician_theme_options_settings;
 

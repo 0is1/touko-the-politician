@@ -19,7 +19,7 @@ if ( !function_exists('get_twitter_data') ) :
  * Get data from Twitter API
  */
   function get_twitter_data(){
-    require_once( get_stylesheet_directory() . '/vendor/twitter/TwitterAPIExchange.php' );
+    require_once( get_stylesheet_directory() . '/lib/vendor/twitter/TwitterAPIExchange.php' );
     global $twitter_data, $touko_the_politician_theme_options_settings;
     $theme_settings = $touko_the_politician_theme_options_settings;
 

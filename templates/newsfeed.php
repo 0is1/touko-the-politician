@@ -29,17 +29,17 @@ if ( !defined( 'ABSPATH') ) exit;
     <?php endif; ?>
     <?php if( $theme_settings['enable_facebook_newsfeed'] ): ?>
       <div class="facebook-page-posts clearfix">
-        <?php get_template_part( 'facebook/facebook', 'posts' ); ?>
+        <?php get_template_part( 'templates/facebook', 'posts' ); ?>
       </div>
     <?php endif; ?>
     <?php if( $theme_settings['enable_twitter_newsfeed'] ): ?>
       <div class="twitter-page-posts clearfix">
-        <?php get_template_part( 'twitter/twitter', 'tweets' ); ?>
+        <?php get_template_part( 'templates/twitter', 'tweets' ); ?>
       </div>
     <?php endif; ?>
     <?php if( $theme_settings['enable_instagram'] ): ?>
       <div class="instagram-media-posts clearfix">
-        <?php get_template_part( 'instagram/instagram', 'media' ); ?>
+        <?php get_template_part( 'templates/instagram', 'media' ); ?>
       </div>
   <?php endif; ?>
   </div>

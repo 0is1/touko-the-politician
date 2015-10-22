@@ -19,7 +19,7 @@ if ( !defined('ABSPATH')) exit;
 */
 
 function get_instagram_data(){
-  require_once( get_stylesheet_directory() . '/vendor/instagram/instagram.php' );
+  require_once( get_stylesheet_directory() . '/lib/vendor/instagram/instagram.php' );
   global $touko_the_politician_theme_options_settings, $instagram_media, $master_instagram;
   $theme_settings = $touko_the_politician_theme_options_settings;
   $instagram_posts_count = $theme_settings['instagram_visible_posts_count'];

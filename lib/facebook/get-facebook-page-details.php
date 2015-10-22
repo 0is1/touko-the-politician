@@ -44,7 +44,7 @@ if ( !function_exists('get_facebook_page_data') ) :
  * Get data from Facebook API
  */
   function get_facebook_page_data(){
-    require_once( get_stylesheet_directory() . '/vendor/facebook/facebook.php');
+    require_once( get_stylesheet_directory() . '/lib/vendor/facebook/facebook.php');
     global $touko_the_politician_theme_options_settings;
     $theme_settings = $touko_the_politician_theme_options_settings;
     $config = array();

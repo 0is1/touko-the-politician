@@ -93,6 +93,11 @@ function loop_the_page() {
       the_post(); ?>
     <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <article>
+      <?php
+      if( has_post_thumbnail() ) :
+        the_post_thumbnail( 'full' );
+      endif;
+      ?>
         <header class="entry-header main-content-data">
           <h2 class="entry-title">
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title(); ?></a>
@@ -196,6 +201,11 @@ function loop_for_single() {
               <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', THEME_TEXTDOMAIN ), __( '1 kommentti', THEME_TEXTDOMAIN ), __( '% kommenttia', THEME_TEXTDOMAIN ), '', __( 'Kommentointi ei sallittu', THEME_TEXTDOMAIN ) ); ?></span>
             <?php } ?>
           </div><!-- .entry-meta -->
+          <?php
+          if( has_post_thumbnail() ) :
+            the_post_thumbnail( 'full' );
+          endif;
+          ?>
           <header class="entry-header main-content-data">
             <h2 class="entry-title">
               <?php the_title(); ?>

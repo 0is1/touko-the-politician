@@ -2,8 +2,6 @@
 // Exit if accessed directly
 if ( !defined( 'ABSPATH') ) exit;
 
-global $abba;
-
 /**
  * Contains all the theme option default values
  * If no user-defined values
