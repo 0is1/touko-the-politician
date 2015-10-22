@@ -46,7 +46,9 @@ if ( !defined( 'ABSPATH') ) exit;
       $i++;
       ?>
     <?php
-    endwhile; ?>
+    endwhile;
+    wp_reset_postdata();
+    ?>
       <?php
         if ( get_option( 'show_on_front' ) == 'page' && get_option( 'page_for_posts' ) ) : ?>
         <div class="all-blog-posts">
