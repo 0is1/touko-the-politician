@@ -36,7 +36,7 @@ Custom Wordpress-theme for toukoaalto.fi -site
   * Update theme to use new version of: https://github.com/facebook/facebook-php-sdk-v4
 
 ## Uses / needs / likes
-* At the moment parent them is [Travelify-theme by Color Awesomeness](http://colorawesomeness.com/themes/travelify/)
+* At the moment parent them is [Travelify-theme by Color Awesomeness](https://github.com/puikinsh/travelify)
 
 #### [Facebook-php-sdk](https://github.com/facebook/facebook-php-sdk)
 * Support to:
