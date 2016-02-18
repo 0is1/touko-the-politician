@@ -110,17 +110,74 @@ function rss_post() {
 // adding the function to the Wordpress init
 add_action( 'init', RSS_POST_NAME );
 
-// add_action( 'wp_footer' , function(){
+// function check_if_rss_post_exists( $meta_key = false ){
+//
+//   if( !$meta_key ) {
+//     return false;
+//   }
 //   $options = array(
-//       'posts_per_page'  => 1,
-//       'orderby'         => 'post_date',
-//       'order'           => 'DESC',
-//       'post_type'       => RSS_POST_NAME,
-//       'post_status'     => 'publish',
-//       'meta_key'        => 'ABBA'
-//       );
+//     'posts_per_page'  => 1,
+//     'orderby'         => 'post_date',
+//     'order'           => 'DESC',
+//     'post_type'       => RSS_POST_NAME,
+//     'post_status'     => 'publish',
+//     'meta_key'        => $meta_key
+//   );
 //
 //   $posts_array = get_posts( $options );
-//   var_dump($posts_array);
+//   return $posts_array;
+// }
+
+// add_action( 'wp_footer' , function(){
 //
+//   // Get RSS Feed(s)
+//
+//   include_once( ABSPATH . WPINC . '/feed.php' );
+//
+//   // Get a SimplePie feed object from the specified feed source.
+//   $rss = fetch_feed( 'http://toukoalto.puheenvuoro.uusisuomi.fi/feed/blog' );
+//
+//   $maxitems = 0;
+//
+//   if ( ! is_wp_error( $rss ) ) : // Checks that the object is created correctly
+//
+//     // Figure out how many total items there are, but limit it to 5.
+//     $maxitems = $rss->get_item_quantity( 20 );
+//
+//     // Build an array of all the items, starting with element 0 (first element).
+//     $rss_items = $rss->get_items( 0, $maxitems );
+//
+//   endif;
+//
+//   if ( $maxitems > 0 ) :
+//
+//     $user = get_user_by( 'login', 'touko' );
+//     $user_id = $user ? $user->ID : 1;
+//
+//     foreach ( $rss_items as $item ) :
+//
+//       $meta_guid = $item->get_item_tags( '','guid' );
+//       $meta_key = ( is_array($meta_guid[0] ) && isset( $meta_guid[0]['data'] ) ) ?  esc_url( $meta_guid[0]['data'] ) : esc_url( $item->get_permalink() );
+//       $rss_post_exists = check_if_rss_post_exists( $meta_key );
+//
+//       if( !$rss_post_exists ){
+//
+//         $new_content = str_replace("<p>", "<p class='new-paragraph'>", $item->get_content() );
+//
+//         $candidate_post = array(
+//           'post_title' => esc_html( $item->get_title() ) ,
+//           'post_content' => $new_content,
+//           'post_status' => 'publish',
+//           'post_type' => RSS_POST_NAME,
+//           'post_author' => $user_id,
+//         );
+//
+//         $post_id = wp_insert_post( $candidate_post );
+//         add_post_meta( $post_id, $meta_key, true, true );
+//
+//       }
+//
+//     endforeach;
+//
+//   endif;
 // });
