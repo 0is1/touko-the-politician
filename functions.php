@@ -24,31 +24,34 @@ define( 'THEME_VERSION', '0.9.1' );
 /**
 * Load external files
 */
+require_once( get_stylesheet_directory() . '/lib/rss_post_type.php');
 require_once( get_stylesheet_directory() . '/lib/functions/header-functions.php');
 require_once( get_stylesheet_directory() . '/lib/functions/content-loop-functions.php');
 require_once( get_stylesheet_directory() . '/lib/functions/main-content-functions.php');
 require_once( get_stylesheet_directory() . '/lib/functions/social-media-content-functions.php');
 require_once( get_stylesheet_directory() . '/widgets.php' );
 require_once( get_stylesheet_directory() . '/lib/functions/footer-content-functions.php');
+
 /**
-* Load Admin Panel scripts
+* Load Admin Panel files
 */
 require_once( get_stylesheet_directory() . '/admin/themeoptions-defaults.php');
 require_once( get_stylesheet_directory() . '/admin/themeoptions.php');
+
 /**
-* Load Facebook scripts
+* Load Facebook files
 */
 require_once( get_stylesheet_directory() . '/lib/facebook/get-facebook-page-details.php');
 require_once( get_stylesheet_directory() . '/lib/facebook/get-facebook-posts.php' );
 require_once( get_stylesheet_directory() . '/lib/facebook/get-facebook-photos.php');
 
 /**
-* Load Twitter scripts
+* Load Twitter files
 */
 require_once( get_stylesheet_directory() . '/lib/twitter/get-tweets.php');
 
 /**
-* Load Instagram scripts
+* Load Instagram files
 */
 require_once( get_stylesheet_directory() . '/lib/instagram/get-instagram-media.php');
 
