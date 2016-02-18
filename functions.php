@@ -20,6 +20,7 @@ if ( !defined( 'ABSPATH') ) exit;
 */
 define( 'THEME_TEXTDOMAIN', 'touko' );
 define( 'THEME_VERSION', '0.9.1' );
+define( 'RSS_POST_NAME', 'rss_post' );
 
 /**
 * Load external files

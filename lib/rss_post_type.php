@@ -13,7 +13,6 @@ if ( !defined( 'ABSPATH') ) exit;
  * @filesource     wp-content/themes/touko-the-politician/lib/rss_post_type.php
  * @since          available since 0.9.2
  */
-define( 'RSS_POST_NAME', 'rss_post' );
 
 // let's create the function for the custom type
 function rss_post() {
@@ -66,7 +65,7 @@ function rss_post() {
 
 	// now let's add custom categories (these act like categories)
   register_taxonomy( 'rss_post_category',
-  	array(RSS_POST_NAME), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+  	array( RSS_POST_NAME ), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
   	array( 'hierarchical' => true,     /* if this is true, it acts like categories */
   		'labels' => array(
   			'name' => __( 'RSS Posts Categories', THEME_TEXTDOMAIN ), /* name of the custom taxonomy */
@@ -87,7 +86,7 @@ function rss_post() {
   	)
   );
   register_taxonomy( 'rss_post_tag',
-  	array(RSS_POST_NAME), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+  	array( RSS_POST_NAME ), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
   	array( 'hierarchical' => false,    /* if this is false, it acts like tags */
   		'labels' => array(
   			'name' => __( 'RSS Posts Tags', THEME_TEXTDOMAIN ), /* name of the custom taxonomy */
@@ -110,3 +109,18 @@ function rss_post() {
 
 // adding the function to the Wordpress init
 add_action( 'init', RSS_POST_NAME );
+
+// add_action( 'wp_footer' , function(){
+//   $options = array(
+//       'posts_per_page'  => 1,
+//       'orderby'         => 'post_date',
+//       'order'           => 'DESC',
+//       'post_type'       => RSS_POST_NAME,
+//       'post_status'     => 'publish',
+//       'meta_key'        => 'ABBA'
+//       );
+//
+//   $posts_array = get_posts( $options );
+//   var_dump($posts_array);
+//
+// });
