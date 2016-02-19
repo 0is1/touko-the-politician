@@ -181,8 +181,7 @@ input[type="reset"]:hover,input[type="button"]:hover,input[type="submit"]:hover,
 #content .post,#content .page{border-top:2px dashed #bebebe;padding:2% 0;}
 #content .post:first-child,#content .page:first-child{border:none;padding:0 0 2%}
 #content .post .entry-title,#content .page .entry-title{display:inline-block;margin:0;padding:1rem 0 0}
-@media only screen and (-webkit-min-device-pixel-ratio: 2.0) and (min-device-width: 1200px){.entry-content p{font-size:130%}
-}@media only screen and (max-device-width: 1024px){.entry-content p{font-size:110%;line-height:1.8}
+@media only screen and (max-device-width: 1024px){.entry-content p{font-size:110%;line-height:1.8}
 }@media only screen and (max-width: 767px){.entry-meta{float:none;margin:0 0 1%}
 }.searchform .search-input{background-color:#f5f5f5;background-color:rgba(245,245,245,0.8);border:1px solid rgba(140,140,140,0.5);-webkit-border-radius:3px;border-radius:3px;height:auto;padding:.5rem;width:100%;}
 .searchform .search-input:focus{background-color:#fff;border-color:#1e1ef0;border-color:rgba(30,30,240,0.5)}
