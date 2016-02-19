@@ -140,7 +140,7 @@ function blog_favicon() { ?>
 }
 
 // Load css
-add_action('wp_head', 'add_css', 4);
+add_action( 'wp_head', 'add_css', 4 );
 
 // Add css
 function add_css(){
@@ -165,7 +165,6 @@ function admin_blog_favicon() {
 add_action( 'admin_enqueue_scripts', 'add_admin_styles' );
 
 function add_admin_styles() {
-  wp_enqueue_style( 'pure_grid_style', 'http://yui.yahooapis.com/pure/0.3.0/forms-min.css', array(), '0.3.0', false);
   wp_enqueue_style( 'touko_admin_style', get_stylesheet_directory_uri() . '/admin/admin.css', array(), THEME_VERSION, false);
 }
 

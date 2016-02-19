@@ -1,3 +1,5 @@
+@import url('../src/vendor/pure-forms-min.css');
+
 .touko-the-politician-admin .pure-control-group label{
   cursor: default;
   width: 20%;
