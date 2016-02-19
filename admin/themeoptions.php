@@ -45,6 +45,7 @@ function touko_register_settings() {
    register_setting( 'touko_theme_newsfeed_options', 'touko_theme_newsfeed_options', 'touko_theme_newsfeed_options_validate' );
    register_setting( 'touko_theme_social_media_options', 'touko_theme_social_media_options', 'touko_theme_social_media_options_validate' );
    register_setting( 'touko_theme_slider_options', 'touko_theme_slider_options', 'touko_theme_slider_options_validate' );
+   register_setting( 'touko_theme_rss_feed_fetcher_options', 'touko_theme_rss_feed_fetcher_options', 'touko_theme_rss_feed_fetcher_options_validate' );
    register_setting( 'touko_theme_other_options', 'touko_theme_other_options', 'touko_theme_other_options_validate' );
 
 }
@@ -75,6 +76,7 @@ function do_touko_the_politician_theme_options(){ ?>
       <a href="?page=touko_theme_options&tab=newsfeed_options" class="nav-tab <?php echo $active_tab === 'newsfeed_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Newsfeed options', THEME_TEXTDOMAIN );?></a>
       <a href="?page=touko_theme_options&tab=social_media_options" class="nav-tab <?php echo $active_tab === 'social_media_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Social media options', THEME_TEXTDOMAIN );?></a>
       <a href="?page=touko_theme_options&tab=slider_options" class="nav-tab <?php echo $active_tab === 'slider_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Slider options', THEME_TEXTDOMAIN );?></a>
+      <a href="?page=touko_theme_options&tab=rss_feed_fetcher_options" class="nav-tab <?php echo $active_tab === 'rss_post_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Rss Post options', THEME_TEXTDOMAIN );?></a>
       <a href="?page=touko_theme_options&tab=other_options" class="nav-tab <?php echo $active_tab === 'other_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Other options', THEME_TEXTDOMAIN );?></a>
   </h2>
    <form class="touko-theme-options-form pure-form pure-form-aligned" method="post" action="options.php">
@@ -94,6 +96,11 @@ function do_touko_the_politician_theme_options(){ ?>
       // load slider options
       settings_fields( 'touko_theme_slider_options' );
       get_template_part( 'admin/theme', 'slider-options' );
+
+    elseif( $active_tab === 'rss_feed_fetcher_options' ) :
+      // load rss post feed options
+      settings_fields( 'touko_theme_rss_feed_fetcher_options' );
+      get_template_part( 'admin/theme', 'rss-feed-fetcher-options' );
 
     elseif ( $active_tab === 'other_options' ) :
       // load other admin stuff
@@ -286,6 +293,33 @@ function touko_theme_other_options_validate( $other_settings ) {
 
   if ( isset( $input[ 'google_analytics_id' ] ) ) {
     $input_validated[ 'google_analytics_id' ] = strip_tags( $input[ 'google_analytics_id' ] );
+  }
+
+  return $input_validated;
+}
+
+function touko_theme_rss_feed_fetcher_options_validate( $rss_feed_fetcher_settings ) {
+
+  $input_validated = array();
+  $input = $rss_feed_fetcher_settings;
+
+  /**
+  * Validation for rss feed fetcher
+  */
+  isset( $input[ 'enable_rss_feed_fetch' ] ) ? $input_validated[ 'enable_rss_feed_fetch' ] = 1 : $input_validated[ 'enable_rss_feed_fetch' ] = 0;
+
+  if ( isset( $input[ 'rss_feed_urls' ] ) ) {
+    $input_validated[ 'rss_feed_urls' ] = array();
+  }
+
+  isset( $input[ 'rss_feed_quantity' ] ) ? $input_validated[ 'rss_feed_quantity' ] = absint( $input[ 'rss_feed_quantity' ] ) : $input_validated[ 'rss_feed_quantity' ] = 2;
+
+  if( isset( $input[ 'rss_feed_quantity' ] ) ) {
+    for ( $i = 1; $i <= absint( $input[ 'rss_feed_quantity' ]); $i++ ) {
+      if ( isset( $input[ 'rss_feed_urls' ][ $i ] ) ) {
+        $input_validated[ 'rss_feed_urls' ][ $i ] = esc_url( $input[ 'rss_feed_urls' ][ $i ] );
+      }
+    }
   }
 
   return $input_validated;
