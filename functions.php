@@ -21,12 +21,15 @@ if ( !defined( 'ABSPATH') ) exit;
 define( 'THEME_TEXTDOMAIN', 'touko' );
 define( 'THEME_VERSION', '0.9.1' );
 define( 'RSS_POST_NAME', 'rss_post' );
-
+define( 'RSS_CATEGORY_SLUG' , 'rss_post_category' );
+define( 'TEMP_IMAGE_FOLDER', 'temp_images' );
 /**
 * Load external files
 */
 require_once( get_stylesheet_directory() . '/lib/rss_post_type.php');
+require_once( get_stylesheet_directory() . '/lib/rss_posts_handler.php');
 require_once( get_stylesheet_directory() . '/lib/functions/header-functions.php');
+require_once( get_stylesheet_directory() . '/lib/helpers/save_image_from_remote_to_post.php');
 require_once( get_stylesheet_directory() . '/lib/functions/content-loop-functions.php');
 require_once( get_stylesheet_directory() . '/lib/functions/main-content-functions.php');
 require_once( get_stylesheet_directory() . '/lib/functions/social-media-content-functions.php');
