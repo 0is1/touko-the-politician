@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH') ) exit;
   $theme_settings = $touko_the_politician_theme_options_settings;
 ?>
 <?php
-  $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $theme_settings['wp_blog_visible_posts_count']) );
+  $query = new WP_Query( array( 'post_type' => array( 'post', RSS_POST_NAME ), 'posts_per_page' => $theme_settings['wp_blog_visible_posts_count']) );
   if( $query->have_posts() ) :
     $i = 0; ?>
   <div class="newsfeed-logo">
