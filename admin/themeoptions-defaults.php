@@ -21,7 +21,7 @@ global $touko_the_politician_theme_options_defaults;
 $touko_the_politician_theme_options_defaults = array(
   'default_layout'                          => 'no-sidebar-full-width',
   'disable_slider'                          => 1,
-  'enable_rss_feed_fetch'                   => 1,
+  'enable_rss_feed_fetch'                   => 0,
   'donate_url'                              => '', //donation button url
   'enable_donate'                           => 0, //do we enable donation button
   'enable_instagram'                        => 0,
@@ -72,7 +72,7 @@ function touko_theme_options_set_defaults( $touko_the_politician_theme_options_d
     ( array ) get_option( 'touko_theme_social_media_options', array() ),
     ( array ) get_option( 'touko_theme_newsfeed_options', array() ),
     ( array ) get_option( 'touko_theme_slider_options', array() ),
-    ( array ) get_option( 'touko_theme_rss_feed_fetcher_options', array() ), 
+    ( array ) get_option( 'touko_theme_rss_feed_fetcher_options', array() ),
     ( array ) get_option( 'touko_theme_other_options', array() )
   );
 
