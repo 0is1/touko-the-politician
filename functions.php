@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH') ) exit;
 * Define constants
 */
 define( 'THEME_TEXTDOMAIN', 'touko' );
-define( 'THEME_VERSION', '0.9.1' );
+define( 'THEME_VERSION', '0.9.2' );
 define( 'RSS_POST_NAME', 'rss_post' );
 define( 'RSS_CATEGORY_SLUG' , 'rss_post_category' );
 define( 'TEMP_IMAGE_FOLDER', 'temp_images' );
