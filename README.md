@@ -18,12 +18,12 @@ Custom Wordpress-theme for toukoaalto.fi -site
   * In other words: replace the slider functionality from Travelify parent-theme
 * Add [Disqus](https://disqus.com/admin/wordpress/) or something similar to enable comments
 * Add support to external rss feeds (in admin panel)
-  * Add rss url
-  * Add keyword (for example author)
+  * __Add rss url (done)__
+  * Add keyword (for example author) (TODO)
     * Scrape data by keyword
   * Feeds to add:
     * http://www.vihreat.fi/vihreablogi/rss
-    * http://toukoalto.puheenvuoro.uusisuomi.fi/feed/blog
+    * http://toukoalto.puheenvuoro.uusisuomi.fi/feed/blog (done)
     * http://www.city.fi/blogit/10/feed
 * wp_deregister_style();
   * travelify-theme style (until parent theme is removed)
