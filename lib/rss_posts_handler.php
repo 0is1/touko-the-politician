@@ -171,6 +171,19 @@ if ( !defined( 'ABSPATH') ) exit;
     endif; // if $options['enable_rss_feed_fetch']
   }
 
-// add_action( 'wp_footer', function() {
-//   apply_filters( 'loop_and_save_rss_feed_posts', null );
-// } );
+// On an early action hook, check if the hook is scheduled - if not, schedule it.
+
+function setup_rss_schedule() {
+
+  if ( ! wp_next_scheduled( 'schedule_daily_rss_data' ) ) {
+    wp_schedule_event( 0, 'daily', 'schedule_daily_rss_data');
+  }
+
+}
+
+add_action( 'wp', 'setup_rss_schedule' );
+
+// Run rss data once a day
+add_action( 'schedule_daily_rss_data', function(){
+  apply_filters( 'loop_and_save_rss_feed_posts', null );
+} );
