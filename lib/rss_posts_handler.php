@@ -6,11 +6,11 @@ if ( !defined( 'ABSPATH') ) exit;
  * Save image from remote to post attachment
  *
  *
- * @file           save_image_from_remote_to_post.php
+ * @file           rss_posts_handler.php
  * @package        Touko The Politician
  * @author         Janne Saarela
  * @version        0.9.2
- * @filesource     wp-content/themes/touko-the-politician/lib/helpers/save_image_from_remote_to_post.php
+ * @filesource     wp-content/themes/touko-the-politician/lib/rss_posts_handler.php
  * @since          available since 0.9.2
  */
 
