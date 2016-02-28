@@ -76,7 +76,7 @@ function do_touko_the_politician_theme_options(){ ?>
       <a href="?page=touko_theme_options&tab=newsfeed_options" class="nav-tab <?php echo $active_tab === 'newsfeed_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Newsfeed options', THEME_TEXTDOMAIN );?></a>
       <a href="?page=touko_theme_options&tab=social_media_options" class="nav-tab <?php echo $active_tab === 'social_media_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Social media options', THEME_TEXTDOMAIN );?></a>
       <a href="?page=touko_theme_options&tab=slider_options" class="nav-tab <?php echo $active_tab === 'slider_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Slider options', THEME_TEXTDOMAIN );?></a>
-      <a href="?page=touko_theme_options&tab=rss_feed_fetcher_options" class="nav-tab <?php echo $active_tab === 'rss_post_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Rss Post options', THEME_TEXTDOMAIN );?></a>
+      <a href="?page=touko_theme_options&tab=rss_feed_fetcher_options" class="nav-tab <?php echo $active_tab === 'rss_feed_fetcher_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Rss Post options', THEME_TEXTDOMAIN );?></a>
       <a href="?page=touko_theme_options&tab=other_options" class="nav-tab <?php echo $active_tab === 'other_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Other options', THEME_TEXTDOMAIN );?></a>
   </h2>
    <form class="touko-theme-options-form pure-form pure-form-aligned" method="post" action="options.php">
