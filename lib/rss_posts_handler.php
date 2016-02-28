@@ -174,7 +174,7 @@ if ( !defined( 'ABSPATH') ) exit;
 // On an early action hook, check if the hook is scheduled - if not, schedule it.
 
 function setup_rss_schedule() {
-  
+
   if ( ! wp_next_scheduled( 'schedule_daily_rss_data' ) ) {
     wp_schedule_event( time(), 'daily', 'schedule_daily_rss_data');
   }
@@ -187,3 +187,15 @@ add_action( 'wp', 'setup_rss_schedule' );
 add_action( 'schedule_daily_rss_data', function(){
   apply_filters( 'loop_and_save_rss_feed_posts', null );
 });
+
+
+// Show rss_posts in main archive loop
+add_action( 'pre_get_posts', 'add_rss_post_type_to_archive_query' );
+
+function add_rss_post_type_to_archive_query( $query ) {
+  if ( is_home() && $query->is_main_query() ) {
+    $query->set( 'post_type', array( 'post', RSS_POST_NAME ) );
+  }
+
+  return $query;
+}
