@@ -196,7 +196,15 @@ function loop_for_single() {
             <span class="icon-clock"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
             <?php if( has_category() ) { ?>
               <span class="icon-tag"><?php the_category( ', ' ); ?></span>
-            <?php } ?>
+            <?php } elseif( get_post_type() == RSS_POST_NAME && $custom_categories = get_the_terms( get_the_ID(), RSS_CATEGORY_SLUG ) ) { ?>
+              <span class="icon-tag">
+              <?php
+              foreach ( $custom_categories as $value ) {
+                echo "<a href='". esc_url( get_term_link( $value->term_id, $value->taxonomy ) ) . "' title='" . $value->name . "'>" . $value->name . "</a>";
+              } ?>
+            </span>
+            <?php } // elseif get_post_type() == RSS_POST_NAME ?>
+
             <?php if ( comments_open() ) { ?>
               <span class="icon-comment"><?php comments_popup_link( __( 'Ei kommentteja', THEME_TEXTDOMAIN ), __( '1 kommentti', THEME_TEXTDOMAIN ), __( '% kommenttia', THEME_TEXTDOMAIN ), '', __( 'Kommentointi ei sallittu', THEME_TEXTDOMAIN ) ); ?></span>
             <?php } ?>
@@ -256,15 +264,15 @@ function loop_for_archive() {
       <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <article>
         <?php
-          if( has_post_thumbnail() ) {
-            $image = '';
-              $title_attribute = apply_filters( 'the_title', get_the_title( $post->ID ) );
-              $image .= '<figure class="post-featured-image">';
-              $image .= '<a href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">';
-              $image .= get_the_post_thumbnail( $post->ID, 'featured', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) ).'</a>';
-              $image .= '</figure>';
-              echo $image;
-          }
+          // if( has_post_thumbnail() ) {
+          //   $image = '';
+          //     $title_attribute = apply_filters( 'the_title', get_the_title( $post->ID ) );
+          //     $image .= '<figure class="post-featured-image">';
+          //     $image .= '<a href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">';
+          //     $image .= get_the_post_thumbnail( $post->ID, 'featured', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) ).'</a>';
+          //     $image .= '</figure>';
+          //     echo $image;
+          // }
         ?>
           <header class="entry-header main-content-data">
             <h2 class="entry-title">
